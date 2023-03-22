@@ -1,0 +1,16 @@
+Stories and Storytelling
+Storytelling Risks
+Elements of Storytelling
+Story Forms and Structures
+Data Stories
+Visual Storytelling
+
+Data Visualization ABCs
+Relationship Between Data and Stories
+Evolving a Storytelling Chart
+Anatomy of Storytelling Dashboards
+Chart Aesthetics
+Accessibility
+Data Stories in the Wild
+
+References
