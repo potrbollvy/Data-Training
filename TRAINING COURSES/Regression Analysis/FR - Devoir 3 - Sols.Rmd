@@ -1,0 +1,390 @@
+---
+title: "Devoir 3 - Solutions"
+author: "Patrick Boily"
+date: '2023-02-25'
+output: pdf_document
+---
+
+## Préliminaires 1
+
+Nous importons l'ensemble `Autos.xlsx` se retrouvant sur
+Brightspace, avec prédicteur `VKM.q` ($X$, distance quotidienne
+moyenne, en km) et réponse `CC.q` ($Y$, consommation de carburant
+quotidienne moyenne, en L). 
+
+```{r}
+library(tidyverse)  # pour avoir acces a select() et |>
+
+Autos <- readxl::read_excel("Autos.xlsx") |> select(VKM.q,CC.q) 
+str(Autos)
+x = Autos$VKM.q
+y = Autos$CC.q
+```
+
+\newpage\noindent 
+
+## Q21 
+
+Exprimez le modèle de régression linéaire $Y_i=\beta_0+\beta_1X_i+\varepsilon_i$ à l'aide de la notation matricielle. Utilisez \texttt{R} afin de déterminer directement la solution des moindres carrés (sans passer par \texttt{lm()}, ni par les sommes $\sum X_i$, $\sum Y_i$, $\sum X_i^2$, $\sum X_iY_i$, $\sum Y_i^2$).
+
+\textbf{Solution:} on écrit $$\mathbf{Y}=\begin{pmatrix}Y_{1}  \\ \vdots  \\ Y_{n} \end{pmatrix},\quad \boldsymbol{\beta}=\begin{pmatrix}\beta_0 \\ \beta_1\end{pmatrix}, \quad\text{et}\quad \mathbf{X}=\begin{pmatrix}1 & X_{1,1}  \\ \vdots & \vdots  \\ 1 & X_{n,1} \end{pmatrix}.$$ 
+
+Ainsi, $$\mathbf{b}=\boldsymbol{\hat{\beta}}_{\text{OLS}}=(\mathbf{X}^{\!\top}\mathbf{X})^{-1}\mathbf{X}^{\!\top}\mathbf{Y}:$$  
+
+```{r}
+intercept = x^0
+X = cbind(intercept, x)
+(b = solve(t(X) %*% X) %*% (t(X) %*% y))
+```
+
+Ainsi, $\hat{Y}= -0.1183883+ 0.1221413X$.
+
+\newpage\noindent 
+
+## Préliminaires 2
+
+Nous importons l'ensemble `Autos.xlsx` se retrouvant sur
+Brightspace. Nous ne nous intéressons qu'aux véhicules de type VPAS, avec prédicteurs `VKM.q` ($X_1$, distance quotidienne
+moyenne, en km) et `Age` ($X_2$, age du véhicule, en années), et réponse `CC.q` ($Y$, consommation de carburant
+quotidienne moyenne, en L). 
+
+```{r}
+library(tidyverse)  # pour avoir acces a select() et |>
+
+Autos <- readxl::read_excel("Autos.xlsx") |> 
+  filter(Type == "VPAS") |> select(VKM.q,Age,CC.q) 
+str(Autos)
+x1 = Autos$VKM.q
+x2 = Autos$Age
+y = Autos$CC.q
+```
+
+\newpage\noindent 
+
+## Q22
+
+Considérons l'ensemble de données `Autos.xlsx` se retrouvant sur Brightspace. Nous ne nous intéressons qu'aux véhicules de type VPAS. Les prédicteurs sont `VKM.q` ($X_1$, distance quotidienne moyenne, en km) et `Age` ($X_2$, age du véhicule en années); la réponse est toujours `CC.q` ($Y$, consommation de carburant quotidienne moyenne, en L). 
+
+Utilisez `R` afin de:
+
+a) déterminer la matrice de conception $\mathbf{X}$ du modèle de RLG; 
+
+b) calculer les valeurs ajustées de la réponse $\mathbf{Y}$ si $\boldsymbol{\beta}=(1,5,1)$;
+
+c) calculer la somme des carrés des résidus lorsque $\boldsymbol{\beta}=(1,5,1)$.
+
+\textbf{Solution:} 
+
+a) La matrice de conception est tout simplement $$\mathbf{X} = [\mathbf{1} \mid X_1 \mid X_2]:$$
+
+```{r}
+intercept = x1^0
+X = cbind(intercept, x1, x2)
+```
+
+On pourrait imprimer le résultat, mais il est important de constater que cela ne serait pas bien utile...
+
+b) Les valeurs ajustées sont tout simplement $\mathbf{\hat{Y}}=\mathbf{X}\boldsymbol{\beta}$. Dans notre cas, nous obtenons: 
+
+```{r}
+beta = c(1,5,1)
+y.fit = X %*% beta
+```
+
+Encore une fois, il serait préférable de ne pas imprimer les résultats... mais on peut toutefois se donner une idée des résultats: 
+
+```{r, out.width="0.5\\linewidth"}
+hist(y.fit)
+```
+
+En quoi cela se compare-t-il aux réponses réelles? 
+
+```{r, out.width="0.5\\linewidth"}
+hist(y)
+```
+
+Oh boy, ce ne sont pas de bien bonnes valeurs ajustées... pourquoi est-ce le cas, selon vous? 
+
+c) La somme des carrés des résidus est donnée par 
+
+$$\text{SSE} = \mathbf{Y}^{\!\top}\left(\mathbf{I}_n-\mathbf{H}\right)\mathbf{Y}=\mathbf{Y}^{\!\top}\left(\mathbf{I}_n-\mathbf{X}\left(\mathbf{X}^{\!\top}\mathbf{X}\right)^{-1}\mathbf{X}^{\!\top}\right)\mathbf{Y}.$$
+
+Ainsi: 
+
+```{r}
+I.n = diag(1, nrow=length(y), ncol=length(y))
+H = X %*% solve(t(X) %*% X) %*% t(X)
+(SSE = as.numeric(t(y) %*% (I.n-H) %*% y))
+```
+
+... mais ceci n'est pas vraiment compatible avec les valeurs de `y.fit` et `y` observées en b) (pourquoi?)
+
+C'est que la formule $\text{SSE} = \mathbf{Y}^{\!\top}\left(\mathbf{I}_n-\mathbf{H}\right)\mathbf{Y}$ est valide **en supposant que l'ajustement linéaire utilisé est celui donné par les moindres carrés**, ce qui n'est pas nécessairement le cas ici (nous n'avons pas encore calculé l'estimateur en question).
+
+Il faut plutôt calculer 
+
+```{r}
+sum((y.fit-y)^2)
+```
+
+Voilà qui est plus raisonnable!
+
+\newpage\noindent 
+
+## Q23
+
+Déterminez directement (à l'aide de manipulations matricielles dans \texttt{R}) l'estimateur des moindres carrés $\mathbf{b}$ du problème RLG. Exprimez la fonction de régression estimée de la réponse $Y$. Calculez la somme des carrés des résidus dans le cas $\boldsymbol{\beta}=\mathbf{b}$. Cette valeur est-elle compatible avec le résultat obtenu à la partie c) de la question précédente? 
+
+\textbf{Solution:} nous avons 
+
+```{r}
+intercept = x1^0
+X = cbind(intercept, x1, x2)
+(b = solve(t(X) %*% X) %*% (t(X) %*% y))
+```
+
+Nous avons déjà calculé la somme des carrés de résidus à la question précédente: 
+
+```{r}
+I.n = diag(1, nrow=length(y), ncol=length(y))
+H = X %*% solve(t(X) %*% X) %*% t(X)
+(SSE = as.numeric(t(y) %*% (I.n-H) %*% y))
+```
+
+La somme de carrés des résidus avec $\boldsymbol{\beta}_{\text{OLS}}=(-0.014050253,0.095157626,0.007384133)$ est nettement inférieure à celle obtenue lorsque nous utilisons $\boldsymbol{\beta}=(1,5,1)$.
+
+\newpage\noindent 
+
+## Q24
+
+En ne vous servant que de manipulations matricielles dans \texttt{R}, déterminez le vecteur des résidus du problème RLG, ainsi que SST, SSE, et SSR. Vérifiez que $\text{SST} = \text{SSR}+\text{SSE}$. Quelle est l'erreur quadratique moyenne MSE du modèle RLG? 
+
+\textbf{Solution:} le vecteur des résidus est $$\mathbf{e}=(\mathbf{I}_n-\mathbf{H})\mathbf{Y}: $$
+
+```{r}
+e=(I.n-H) %*% y
+plot(e)
+```
+
+We have $$\text{SST}=\mathbf{Y}^{\!\top}\left(\mathbf{I}_n-\frac{1}{n}\mathbf{J}_n\right)\mathbf{Y},\quad  \text{SSE}=\mathbf{Y}^{\!\top}\left(\mathbf{I}_n-\mathbf{H}\right)\mathbf{Y},\quad \text{SSR}=\mathbf{Y}^{\!\top}\left(\mathbf{H}-\frac{1}{n}\mathbf{J}_n\right)\mathbf{Y}:$$
+
+```{r}
+I.n = diag(1, nrow=length(y), ncol=length(y))
+H = X %*% solve(t(X) %*% X) %*% t(X)
+J.n = matrix(1, nrow = length(y), ncol = length(y))
+(SST = as.numeric(t(y) %*% (I.n-J.n/length(y)) %*% y))
+(SSE = as.numeric(t(y) %*% (I.n-H) %*% y))
+(SSR = as.numeric(t(y) %*% (H-J.n/length(y)) %*% y))
+```
+
+Nous voyons que $\text{SST} = \text{SSR} + \text{SSE}$:
+
+```{r}
+SST-SSE-SSR
+```
+
+Finalement, puisque $p=3$, l'erreur quadratique moyenne est: 
+
+```{r}
+p=3
+(MSE=SSE/(length(y)-p))
+```
+
+\newpage\noindent 
+
+## Q25
+
+En supposant que le modèle RLG soit valide, testez si la régression est significative à l'aide du test $F$ global -- utilisez \texttt{R} comme vous l'entendrez, mais utilisez-le!
+
+\textbf{Solution:} nous avons trouvé les estimateurs un peu plus tôt, mais nous allons recommencer en utilisant la fonction `lm()`. 
+```{r, out.width="0.5\\linewidth"}
+mod <- lm(y ~ x1 + x2)
+summary(mod)
+```
+
+Le test $F$ global oppose $H_0:\beta_0=\beta_1=\beta_2=0$ à $H_1:\beta_k\neq 0$ pour au moins un $k\in \{0,1,2\}$. Si $H_0$ est valide, la statistique $F^*$ suit une loi de Fisher avec $p-1=2$ et $n-p=493$ degrés de liberté.
+
+Mais:
+
+```{r}
+(F.star = summary(mod)$fstatistic[1]) 
+df1 = summary(mod)$fstatistic[2]
+df2 = summary(mod)$fstatistic[3]
+```
+
+À un niveau de confiance donné par $\alpha=0.05$, on rejette $H_0$ si $F^*>F(0.95;2,491)$. Puisque 
+
+```{r}
+F.star > qf(0.95,df1,df2)
+```
+
+on rejette $H_0$ en faveur de $H_1$. 
+
+\newpage\noindent 
+
+## Q26
+
+Déterminez la matrice de variance-covariance estimée $s^2\{\mathbf{b}\}$ pour les estimateurs des moindres carrés $\mathbf{b}$. \`A un niveau de confiance de $95\%$, testez pour 
+
+a) $H_0:\beta_1=0$ vs. $H_1:\beta_1\neq 0$; 
+
+b) $H_0:\beta_2=0$ vs. $H_1:\beta_2< 0$. 
+
+\textbf{Solution:} la matrice de variance-covariance estimée de $\mathbf{b}$ est  
+$$\text{s}^2\{\mathbf{b}\}=\text{MSE}\cdot (\mathbf{X}^{\!\top}\mathbf{X})^{-1}.$$
+Nous avons calculé le vecteur des estimateurs $\mathbf{b}$ et l'erreur quadratique moyenne \text{MSE} plus tôt, d'où:
+
+```{r}
+(s.2.b = MSE*solve(t(X) %*% X))
+```
+
+a) C'est un test bilatéral. À un niveau de confiance donné par $\alpha=0.05$, on rejette $H_0:\beta_1=0$ si $$|t^*|=\left|\frac{b_1-0}{\text{s}\{b_1\}}\right| > t(0.975;n-p=491).$$
+
+Puisque 
+
+```{r}
+t.star = (b[2]-0)/sqrt(s.2.b[2,2])
+abs(t.star) > qt(0.975,df2)
+```
+
+on rejette $H_0$ en faveur de $H_1$. 
+
+b) C'est un test unilatéral à gauche. On rejette $H_0:\beta_2=0$ à un niveau $\alpha=0.05$, si $$t^*=\frac{b_2-0}{\text{s}\{b_2\}} < -t(0.95;491).$$
+
+Puisque 
+
+```{r}
+t.star = (b[3]-0)/sqrt(s.2.b[3,3])
+t.star < -qt(0.975,df2)
+```
+
+on ne peux pas rejetter $H_0$ (ce qui n'est pas la même chose que d'accepter $H_0$). 
+
+\newpage\noindent 
+
+## Q27
+
+Nous cherchons à prédire la réponse moyenne $E\{Y^*\}$ lorsque $X^*=(20,5)$. Donnez la valeur ajustée $\hat{Y}^*$ dans ce cas, ainsi qu'un intervalle de confiance à environ 95\% de la quantité recherchée. 
+
+\textbf{Solution:} le terme constant est sous-entendu: 
+
+```{r}
+X.star = matrix(c(1,20,5),nrow=1,ncol=3)
+```
+
+Nous aurons besoin de $\mathbf{b}$ et $\text{s}^2\{\mathbf{b}\}$, que nous avons déjà calculé; la valeur ajustée $$Y^*=\mathbf{X}^* \boldsymbol{b}.$$
+
+```{r}
+(y.star = sum(X.star %*% b))
+```
+
+L'erreur-type est $$\text{s}\{Y^*\} =\sqrt{\mathbf{X}^*\text{s}^2\{\mathbf{b}\}(\mathbf{X}^*)^{\!\top}};$$
+
+```{r}
+(se.y.star = as.numeric(sqrt(X.star %*% s.2.b %*% t(X.star))))
+```
+
+L'intervalle de confiance de $E\{Y^*\}$ à environ 95\% est $$Y^* \pm t(0.975;n-p=491)\cdot  \text{s}\{Y^*\}:$$
+
+```{r}
+c(y.star-qt(0.975,df2)*se.y.star,y.star+qt(0.975,df2)*se.y.star)
+```
+
+\newpage\noindent 
+
+## Q28
+
+Nous cherchons à prédire de nouvelles réponses $Y^*$ lorsque $\mathbf{X}^*=(1,20,5)$. Donnez un intervalle de prédiction de $Y^*$ à environ 95\%. 
+
+\textbf{Solution:} on se sert des calculs des questions précédentes. L'erreur-type est maintenant $$\text{s}\{\text{pred}^*\} =\sqrt{\text{MSE}}\sqrt{1+\mathbf{X}^*(\mathbf{X}^{\!\top}\mathbf{X})^{-1}(\mathbf{X}^*)^{\!\top}} ;$$
+
+```{r}
+(se.pred = as.numeric(sqrt(MSE*(1+X.star %*% solve(t(X) %*% X) %*% t(X.star)))))
+```
+
+L'intervalle de confiance de $Y^*_{\text{pred}}$ à environ 95\% est $$Y^* \pm t(0.975;491)\cdot \text{s}\{\text{pred}^*\}:$$
+
+```{r}
+c(y.star-qt(0.975,df2)*se.pred,y.star+qt(0.975,df2)*se.pred)
+```
+
+L'intervalle de prédiction contient alors l'intervalle de confiance (et des valeurs négatives...).
+
+\newpage\noindent 
+
+## Q29
+
+a) Donnez des intervalles de confiance simultanés des paramètres $\beta_0$, $\beta_1$, et $\beta_2$ à environ $95\%$. 
+
+b) Donnez des intervalles de confiance simultanés de  $E\{Y^*_{\ell}\}$ à l'aide de la procédure WH pour $$\mathbf{X}_1^*=(1,50,10),\mathbf{X}_2^*=(1,20,5),\mathbf{X}_3^*=(1,200,8).$$
+
+\textbf{Solution:} 
+
+a) Le facteur de Bonferroni est  $t\left(1-\frac{0.05/3}{2};491\right)$. Les intervalles de confiance simultanés sont ainsi:    $$\text{IC}_{\text{B}}(\beta_k;0.95)\equiv b_k\pm 2.2402\cdot \text{s}\{b_k\}.$$
+
+```{r}
+c(b[1]-qt(1-(0.05/3)/2,491)*sqrt(s.2.b[1,1]),b[1]+qt(1-(0.05/3)/2,491)*sqrt(s.2.b[1,1]))
+c(b[2]-qt(1-(0.05/3)/2,491)*sqrt(s.2.b[2,2]),b[2]+qt(1-(0.05/3)/2,491)*sqrt(s.2.b[2,2]))
+c(b[3]-qt(1-(0.05/3)/2,491)*sqrt(s.2.b[3,3]),b[3]+qt(1-(0.05/3)/2,491)*sqrt(s.2.b[3,3]))
+```
+
+b) Les intervalles de confiance recherché prennent la forme $$ \hat{Y}_{\ell}^*\pm\sqrt{pF(1-\alpha;p,n-p)}\cdot \text{s}\{\hat{Y}_{\ell}^*\}=\mathbf{X}_{\ell}^*\mathbf{b}\pm\sqrt{3F(0.95;3,491)}\cdot \sqrt{\text{MSE}}\sqrt{\mathbf{X}_{\ell}^*(\mathbf{X}^{\!\top}\mathbf{X})^{-1}(\mathbf{X}_{\ell}^*)^{\top}}.$$
+Ainsi,  les intervalles de confiance simultanés de la valeur moyenne $E\{Y^*_{\ell}\}$ sont: 
+
+```{r}
+WH = sqrt(3*qf(0.95,3,491))
+X1.star = matrix(c(1,50,10),nrow=1,ncol=3)
+c(X1.star %*% b - WH*sqrt(MSE)*sqrt(X1.star %*% solve(t(X) %*% X) %*% t(X1.star)),
+  X1.star %*% b + WH*sqrt(MSE)*sqrt(X1.star %*% solve(t(X) %*% X) %*% t(X1.star)))
+
+X2.star = matrix(c(1,20,5),nrow=1,ncol=3)
+c(X2.star %*% b - WH*sqrt(MSE)*sqrt(X2.star %*% solve(t(X) %*% X) %*% t(X2.star)),
+  X2.star %*% b + WH*sqrt(MSE)*sqrt(X2.star %*% solve(t(X) %*% X) %*% t(X2.star)))
+
+X3.star = matrix(c(1,200,8),nrow=1,ncol=3)
+c(X3.star %*% b - WH*sqrt(MSE)*sqrt(X3.star %*% solve(t(X) %*% X) %*% t(X3.star)),
+  X3.star %*% b + WH*sqrt(MSE)*sqrt(X3.star %*% solve(t(X) %*% X) %*% t(X3.star)))
+```
+
+\newpage\noindent 
+
+## Q30
+
+Selon vous, est-ce que le modèle de régression linéaire multiple est préférable aux deux modèles de régression linéaire simple pour le même sous-ensemble de \texttt{Autos.xlsx} (en utilisant $X_1$ ou $X_2$, mais pas les 2)? Soutenez votre réponse. 
+
+\textbf{Solution:} on commence par tracer les nuages de points pour chacune des 3 situations. 
+
+```{r}
+pairs(Autos) 
+```
+
+On considère trois modèles.
+
+```{r}
+mod.1.1 <- lm(y ~ x1 + x2)
+mod.1.0 <- lm(y ~ x1)
+mod.0.1 <- lm(y ~ x2)
+```
+
+Consultons leur sommaires:
+
+```{r, out.width="0.5\\linewidth"}
+summary(mod.1.1)
+plot(mod.1.1)
+```
+
+```{r, out.width="0.5\\linewidth"}
+plot(x1,y)
+abline(mod.1.0)
+summary(mod.1.0)
+plot(mod.1.0)
+```
+
+```{r, out.width="0.5\\linewidth"}
+plot(x2,y)
+abline(mod.0.1)
+summary(mod.0.1)
+plot(mod.0.1)
+```
+
+En terme de toutes les statistiques, il semblerait que le modèle `CC.q ~ VKM.q` soit meilleur que les autres. 

@@ -1,0 +1,2105 @@
+---
+title: "MAT3375"
+author: "Patrick Boily, Gilles Lamothe"
+date: '2023-05-03'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Examples 
+
+<!-- rmarkdown::render("MAT3375 - Examples.Rmd") -->
+
+Many examples will use the following data set.
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=TRUE, message=FALSE}
+library(tidyverse)
+gapminder = as.data.frame(unclass(data.frame(read.csv("Data/gapminder_SS.csv"))),
+                          stringsAsFactors=TRUE)
+gapminder <- gapminder[,c("country","year","continent",
+                          "population","infant_mortality","fertility","gdp",
+                          "life_expectancy")]
+
+gapminder = gapminder |> mutate(lgdppc=log(gdp/population),gdppc=gdp/population)
+str(gapminder)
+```
+
+
+\newpage
+
+## 1. Fitting a linear model with `lm()` {#LR-Ex-1}
+
+The focus for now is on observations from 2011 , in particular relating to life expectancy and log gross domestic product per capita. 
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=FALSE, message=FALSE}
+gapminder.elr <- gapminder |> 
+  filter(year==2011) |>
+  select(lgdppc,life_expectancy)
+str(gapminder.elr)
+head(gapminder.elr)
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=TRUE, echo=FALSE, message=FALSE}
+gapminder.elr <- gapminder |> 
+  filter(year==2011) |>
+  select(lgdppc,life_expectancy)
+str(gapminder.elr)
+knitr::kable(head(gapminder.elr))
+```
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", out.width="70%", eval=TRUE, message=FALSE, fig.asp=1}
+plot(gapminder.elr)
+```
+
+The function `lm()` can be used to fit the linear model that describes life expectancy (response variable $Y$) as a function of the logarithm of gdp per capita (predictor variable $X$) in 2011. 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+mod <- lm(life_expectancy ~ lgdppc, data=gapminder.elr)
+mod
+```
+
+The estimated linear model is as follows: $$\widehat{\text{Life Expectancy}}_{2011}=37.23+4.30\cdot \log\text{GDP per capita}_{2011}. $$ 
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", out.width="70%", eval=TRUE, message=FALSE, fig.asp=1}
+plot(gapminder.elr)
+abline(mod)
+```
+
+**Comments:**
+
+- We have created an object of type `lm` named `mod`. This object contains several components (attributes), that we can display using the `names()` function.    
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    names(mod)
+    ```
+
+    The first attribute is the vector of coefficient estimates $\vec{\beta}$. 
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    mod$coefficients
+    ```
+
+    Thus, $b_0=37.229550$ and $b_1=4.299686$.
+
+    The second attribute is the vector of residuals, the eighth is the number of degrees of freedom of the residuals. They can be used to calculate the estimate of the variance of the error, namely: $$\text{MSE}=\frac{1}{n-2}\sum_{i=1}^ne_i^2.$$ The standard deviation of this variance is the standard deviation of the residuals $$text{se}=\sqrt{\text{MSE}},$$ which describes the standard deviation of the line of best fit.
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    MSE<-sum(mod$residuals^2)/mod$df.residual
+    MSE
+    sqrt(MSE)
+    ```
+
+- Several functions can be used with an object of type `lm`:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    methods(class=lm)
+    ```
+
+    As an example, we know that the fitted line is the one that maximizes the log likelihood function $$\log L=-\frac{n}{2}\left[\log\left(2\pi\cdot \frac{\text{SSE}}{n}\right)+1\right].$$ 
+    
+   There are 3 parameters to estimate: $\beta_0$, $\beta_1$, and $\sigma^2$. 
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    logLik(mod)
+    ```
+
+    Here is how we could verify that `R` uses the previous formula to calculate the maximum of the log likelihood function:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    p <- length(mod$coefficients)
+    n<-mod$df.residual+p
+    SSE<-sum(mod$residuals^2)
+    -n/2*(log(2*pi*SSE/n)+1)
+    ```
+
+- We can also obtain confidence intervals for the parameter estimates:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    confint(mod)
+    ```
+
+    The default confidence level is 95%, but it can be changed _via_ the `level` argument:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    confint(mod,level=0.98)
+    ```
+
+    We can also specify which parameters interest us:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    confint(mod,parm=c("lgdppc"))
+    ```
+
+- It is also possible to get a summary of the fit with the `summary()` function:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    summary(mod)
+    ```
+
+    It is not necessary to display the entire summary, which is itself an object with attributes:
+    
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    names(summary(mod))
+    ```
+
+    As an example, here is how we would extract the parameter estimates and the corresponding significance tests:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    summary(mod)$coefficients
+    ```
+    
+    We can display the coefficient of determination $R^2$ as follows: 
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    summary(mod)$r.squared
+    ```
+
+    or the standard deviation of residuals $\sqrt{\text{MSE}}$:
+    
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    summary(mod)$sigma
+    ```
+
+\newpage
+
+## 2. Analysis of variance with `lm()`. {#LR-Ex-2}
+
+We will use a simple linear model to explain the life expectancy ($Y$) as a function of the infant mortality rate ($X$) in 2011 (we have $n=178$). 
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=FALSE, message=FALSE}
+gapminder.em <- gapminder |> 
+  filter(year==2011) |>
+  select(infant_mortality,life_expectancy) |>
+  drop_na()
+str(gapminder.em)
+head(gapminder)
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=TRUE, echo=FALSE, message=FALSE}
+gapminder.em <- gapminder |> 
+  filter(year==2011) |>
+  select(infant_mortality,life_expectancy) |>
+  drop_na()
+str(gapminder.em)
+knitr::kable(head(gapminder.em))
+```
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", out.width="50%", eval=TRUE, message=FALSE, fig.asp=1}
+plot(gapminder.em)
+```
+
+Visually, it is not unreasonable to expect the average response function to be given by $$E[Y\mid X=x]=\beta_0+\beta_1x.$$
+How can we check the significance of the infant mortality rate? We simply test
+$$H_0: \beta_1=0\qquad\text{vs.}\qquad H_1: \beta_1\neq 0.$$
+Since we have a simple model (a single predictor), it is also a test of the significance of the regression: we could instead use the statistic $$t^*=\frac{b_1}{s\{b_1\}}.$$ But there is another approach, the analysis of variance (ANOVA). The ANOVA table is obtained by calling the `anova()` function on an object of type `lm`.
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+mod <- lm(life_expectancy ~ infant_mortality, data=gapminder.em)
+anova(mod)
+```
+
+**Comments:**
+
+- The test statistic value is $F^*=528.73$. This means that the estimate of the variance of the error based on the sum of squares of the regression is $528.73$ times as large as the estimate of the variance of the error based on the sum of the residual squares. It is quite likely that MSR is not a good estimate $\sigma^2$, but is rather a much larger quantity. Since we know that $$E(\text{MSR})=E\left(\frac{\text{SSR}}{1}\right)=\sigma^2(1+\beta_1^2s_{xx}),$$ this strongly suggests that $\beta_1\neq 0$.
+
+- To get a measure of the significance of the evidence against $H_0:\beta_1=0$, we need to calculate the odds of having observed a $F^*$ statistic as high as $528.73$ assuming that $H_0$ was valid: if so, $F^*\sim F(1,n-2)$. Since the $P$ value is $$P(F(1,176)>528.73)<0.001,$$ the evidence is strong in favour of $H_1$.
+
+- This can also be done using an $F$-test that compares two models. In this case, we test $$H_0: E[Y\mid X=x]=\beta_0\qquad\text{vs.}\qquad H_1: E[Y\mid X=x]=\beta_0+ \beta_1x.$$ To evaluate the evidence against $H_0$ and in favor of $H_1$, it is sufficient to compare the fit of the two models according to the sum of squares of the residuals, which is again done with the `anova()` function.
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    mod.0 <- lm(life_expectancy ~ 1, data=gapminder.em)
+    anova(mod.0,mod)
+    ```
+
+    We compare the sum of squares of the full model $\text{SSE}=3094.8$ to the sum of squares of the reduced model $\text{SSE(R)}=12392.2$, by calculating the sum of additional squares $$\text{ExtraSS}=\text{SSE(R)}-\text{SSE}=9297.4.$$ The larger this difference, the more poorly the reduced model is considered to fit compared to the full model. If the evidence is strong (in this case, a reduction of nearly 75\% from the reduced model to the full model), it suggests that one should reject $H_0$ in favor of the hypothesis $H_1$ that the slope is non-zero. 
+
+\newpage
+
+## 3. Binary explanatory variables {#LR-Ex-3}
+
+### 3.1 Binary explanatory variables I {#LR-Ex-3-1}
+
+A study is being conducted on the development of ectomycorrhizae, a symbiotic relationship between tree roots and a fungus in which minerals are transferred from the fungus to the trees and in return sugar goes from the trees to the fungus. 20 northern red oaks exposed to the fungus _pisolithus tinctorus_ were grown in a greenhouse; all oaks were planted in the same type of soil and received the same amount of sun and water. Half of the specimens (selected at random) were treated with 368 ppm nitrogen in the form of NaNO3; the others were not ($X$). The mass of the stem, in grams, is measured after 140 days ($Y$). 
+
+The details are as follows:
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=FALSE, message=FALSE}
+azote = as.data.frame(unclass(data.frame(read.csv("Data/Azote.csv"))),
+                          stringsAsFactors=TRUE)
+azote
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=TRUE, message=FALSE, echo=FALSE}
+azote = as.data.frame(unclass(data.frame(read.csv("Data/Azote.csv"))),
+                          stringsAsFactors=TRUE)
+colnames(azote) <- c("Masse","Azote")
+knitr::kable(azote)
+```
+
+`R` uses the first category it encounters as the reference category: the oaks that did not receive nitrogen thus form the reference group (it is possible to change the order of the categories so that the nitrogen treatment group becomes the reference group, using: `nitrogen$Nitrogen <- factor(nitrogen$Nitrogen, levels=c("yes", "no"))`, for example.) In general, it is often the control group that is used as the reference group, which is already the case here.
+
+Here are some descriptive statistics for stem mass in each of the groups: 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+library(dplyr)
+azote.s <- azote |> group_by(Azote) |> 
+  summarise(mean = mean(Masse), 
+            var = var(Masse),
+            n = n()) |> 
+  as.data.frame()
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE, echo=FALSE}
+knitr::kable(azote.s)
+```
+
+If we assume that the variances of the two populations are equal, then we can approximate it by the weighted variance $$s^2_p=\frac{(n_1-1)s^2_1+(n_2-1)s^2_2}{n_1+n_2-2}=0.0156289.$$
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+s2p = sum((azote.s$n-1)*azote.s$var)/(sum(azote.s$n)-2) 
+s2p
+```
+
+To compare the two groups visually, we can use comparative box plots with an overlay of points, say.
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", message=FALSE}
+azote |> ggplot(aes(x=Masse,y=Azote,color=Azote)) + 
+  geom_boxplot() + 
+  geom_jitter(color="black", height=0.2) + 
+  theme_bw()
+```
+
+A Student's $T$ test can be used to compare the two means. The observed value of the test statistic is $$t^*=\frac{\overline{y}_1-\overline{y}_2}{s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}=-3.935.$$ The corresponding $p-$value is $$2P(T(18)>|-3.935|)=0.0009707.$$ 
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", message=FALSE}
+t.test(Masse~Azote,data=azote,var.equal=TRUE)
+```
+
+The treatment certainly seems to have an effect. We can also use a regression approach to perform this test (this will help us generalize the test to the comparison of more than 2 groups).
+
+To identify the groups, we use the dummy variable $$x_i=\begin{cases} 1 & \text{observation $i$ is in the treatment group} \\ 0 & \text{otherwise}\end{cases}$$
+
+Consider the simple linear regression model: $Y_1,Y_2,...,Y_n$ are independent normal random variables such that
+$$E[Y_i\mid X=x_i]=\beta_0+\beta_1x_i=\begin{cases}\beta_0=\mu_1, & x_i=0 \\ \beta_0+\beta_1=\mu_2, & x_i=1\end{cases}$$
+and $V[Y_i]=\sigma^2$ for $i=1,\ldots,n$. In our example, we have two independent normal populations with equal variances.
+
+When the explanatory variable is categorical (a `factor` in `R` terminology), `R` automatically encodes it as a dummy variable. We can display these dummy variables, using the `contrasts()` function.
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", message=FALSE}
+contrasts(azote$Azote)
+```
+
+We interpret this variable as follows: it takes the value 0 if it is an observation without nitrogen; 1 if it is an observation with nitrogen.
+
+We can now fit a linear model to describe the mass as a function of the treatment group. 
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", message=FALSE}
+mod<-lm(Masse~Azote,data=azote)
+mod$coefficients
+```
+
+The average mass is thus: $$\hat{\mu}_{Y \mid X=x}=b_0+b_1x=\begin{cases}b_0=0.398, & x_i=0 \\ b_0+b_1=0.398+0.220=0.618, & x_i=1\end{cases}$$
+
+The estimation of the variance $\sigma^2$ is thus $\text{MSE}=0.01562889$.
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", message=FALSE}
+summary(mod)$sigma^2
+```
+
+These are the obtained values of $\overline{y}_1$, $\overline{y}_2$, and $s^2_p$, respectively. 
+
+Note that $\mu_1=\mu_2$ if and only if $\beta_1=0$; when we test for the significance of the explanatory variable that identifies the treatment, we can also interpret it as a test of equality of means. 
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", message=FALSE}
+summary(mod)$coefficients
+```
+
+The observed value of the test statistic is $$t^*=\frac{b_1}{s\{b_1\}}=3.935$$ and the $p-$value of the test is $$2P(T(18)>|3.935|)=0.0009707.$$ 
+
+\newpage
+
+### 3.2 Binary explanatory variables II {#LR-Ex-3-2}
+
+We have two explanatory variables: \verb|x1| (categorical) and \verb|x2| (quantitative). We display the coding of the dummy variables for \verb|x1|.
+
+\begin{verbatim}
+> contrasts(x1)
+         group 2 group 3
+group 1        0       0
+group 2        1       0
+group 3        0       1
+\end{verbatim}
+
+Here is a summary of the model fit.
+
+\begin{verbatim}
+> summary(mod)
+
+Call:
+lm(formula = y ~ x1 + x2)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-25.702 -11.913   0.602   7.663  35.245
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)   5.3141    15.1880   0.350 0.729244
+x1groupe 2   -5.9883     6.9386  -0.863 0.396005
+x1groupe 3   -6.6344     6.9633  -0.953 0.349483
+x2            1.1677     0.3003   3.889 0.000624 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 15.51 on 26 degrees of freedom
+Multiple R-squared:  0.3788,    Adjusted R-squared:  0.3072
+F-statistic: 5.286 on 3 and 26 DF,  p-value: 0.005573
+\end{verbatim}
+
+
+
+(a) What is the size $n$ in this study?
+
+(b) Give the function of the estimated mean for each of the 3 levels of the categorical variable \verb|x1|.
+
+(c) Test for significance of the regression. Formulate the hypotheses, give the test statistic and the corresponding $p-$value. What is the conclusion when $\alpha=5\%$?
+
+(d) Assume that a reduced model has been fitted. We compare this reduced model to the full model above and obtain 
+
+\begin{verbatim}
+> mod0<-lm(y~x2)
+> summary(mod0)$sigma
+[1] 28.46512
+\end{verbatim}
+
+What hypotheses can we now test? Formulate them, give the test statistic, the corresponding $p-$value, and the conclusion of the test at $alpha=5\%$. 
+
+**Answers:**
+
+(a) We have $n-p=26$ and $p=4$, and so $n=26+4=30$.
+
+(b) The function of the estimated mean is
+\begin{eqnarray*}
+E\{Y\} &=& 5.3141-5.9883\,I\{x_1=\mbox{Groupe 2}\}-6.6344\,I\{x_1=\mbox{Groupe 3}\}+1.1677\,x_2  \\
+&=& \left\{
+\begin{array}{ll}
+5.3141+1.1677\,x_2, & \mbox{si $x_1=$ Groupe 1} \\
+ -0.6742+1.1677\,x_2, & \mbox{si $x_1=$ Groupe 2} \\
+-1.3203+1.1677\,x_2, & \mbox{si $x_1=$ Groupe 3} \\
+\end{array}
+\right.
+\end{eqnarray*}
+
+(c) We are testing $H_0:\beta_1=\beta_2=\beta_3=0$ vs. $H_a$: at least one of the $\beta$ is non-zero. The regression is significant since $(F(3,26)=5.286; p=0.0056)$. 
+
+(d) We test 
+$$
+H_0:~E\{Y\}=\beta_0+\beta_3\,x_2\quad\mbox{vs.}
+H_a:~E\{Y\}=\beta_0+\beta_1\,I\{x_1=\mbox{Groupe 1}\}+\beta_2\,I\{x_1=\mbox{Groupe 2}\}+\beta_3\,x_2.
+$$
+This is a test for the significance of the categorical predictor \verb|x1|. We will need the residual sum of squares for each model.
+
+\textbf{For the complete model}, we have $15.51=\sqrt{\text{MSE}}=\sqrt{\text{SSE}/(n-p)}=\sqrt{\text{SSE}/26}$, and so 
+$\text{SSE}=(15.51)^2(26)=6254.563.$
+
+\textbf{For the reduced model}, we have  $28.46512=\sqrt{\mbox{MSE(R)}}=\sqrt{\mbox{SSE(R)}/(n-q)}=\sqrt{\text{SSE}/28}$, and so 
+$\text{SSE}=(28.46512)^2(28)=22\,687.37.$
+
+\textbf{ExtraSS:} The difference of the residual sums of squares is  $\mbox{ExtraSS}=\mbox{SSE(R)}-\text{SSE}=22\,687.37-6254.563=16\,432.81.$
+
+The value of the test statistic is thus:
+$$
+F_0=\frac{\mbox{ExtraSS}/(p-q)}{\text{SSE}/(n-p)}=\frac{16\,432.81/(4-2)}{6254.563/26}=34.15531.
+$$
+\begin{verbatim}
+> 1-pf(34.15531,2,26)
+[1] 5.313317e-08
+\end{verbatim}
+
+The $p-$value is thus $P(F(2,26)>34.15531)=5.31\times 10^{-8}$, and we conclude that the predictor \verb|x1| is significant.
+
+
+\newpage
+
+## 4. Diagnostics and remedial measures {#LR-Ex-4}
+
+When assessing the suitability of a linear model, we should follow the following order:
+
+1. identify outliers and influential observations;
+
+2. test for errors in the specification of the mean function;
+
+3. test for heteroscedasticity;
+
+4. test for normality of random errors. 
+
+### 4.1 Diagnostic for the specification of the mean function {#LR-Ex-4-1}
+
+We can use the plot of the residuals against the fitted values, and/or we can perform the Ramsey RESET test (Regression Equation Specification Error Test). 
+
+Consider the linear model $$E\{Y\}=\beta_0+\beta_1x_1+\cdots+\beta_{p-1}x_{p-1}.$$ We fit the model to obtain the fitted values $$\hat{y}_i=b_0+b_1x_{1,i}+\cdots+b_{p-1}x_{p-1,i} $$ for $i=1,\ldots,n$. Then we add $\hat{y}^2$ and $\hat{y}^3$ as model predictors: $$E\{Y\}=\beta_0+\beta_1x_1+\cdots+\beta_{p-1}x_{p-1}+\gamma_1\hat{y}^2+\gamma_2\hat{y}^3.$$
+The Ramsey RESET test pits $$H_0:\gamma_1=\gamma_2=0~~~\text{vs.}~~~ H_1:\gamma_1\neq 0~\text{or}~\gamma_2\neq 0.$$
+If the Ramsey RESET test is significant, then we have evidence of missing higher order effects in the model. This means that we have significant evidence that there is an error in the specification of the mean function.
+
+The Ramsey test is general in the sense that it can identify errors in the model specification. However, it cannot tell us what the cause of the error is, only that there are nonlinear effects. We need to study the partial relationship between Y and the predictors and try to find a nonlinear relationship. Alternatively, the nonlinearity could be caused by interactions between the predictors.
+
+**Example:** we study the `sat` dataset from the `faraway` library. 
+
+```{r}
+library(faraway)
+str(sat)
+mod <- lm(total ~ salary + takers, dat=sat)
+plot(mod, which=1)
+```
+
+The graph of the residuals suggests that mean function is not well specified. We perform the Ramsey RESET test from the `lmtest` library. 
+
+```{r}
+library(lmtest)
+resettest(mod,power=c(2,3))
+```
+
+There is evidence that there is an error in the specification of the model ($F(1,45)=13.695$, $p<0.0001$).
+
+
+\newpage
+
+### 4.2 Homoscedasticity {#LR-Ex-4-3}
+
+Consider the dataset `BloodPressure.csv`. This is data from a health study where the association between diastolic blood pressure and age is studies on $n = 54$ women aged 20 to 60. We import the data and display some rows. 
+
+```{r}
+BP <- read.csv("Data/BloodPressure.csv")
+str(BP)
+```
+
+We fit a linear model to express diastolic blood pressure as a function of age, and we overlay the least squares line on the scatter plot of blood pressure versus age.
+
+```{r}
+mod <- lm(DiastolicBP ~ Age, data=BP)
+with(BP, plot(Age, DiastolicBP, ylab="Tension artérielle", xlab="Age"))
+abline(mod)
+```
+
+The diagram suggests that the relationship between blood pressure and age is linear, but that the variance of the error increases with age. If we wanted to express blood pressure as a linear function of age, we would have to perform a diagnostic on the model specification.
+
+There is no trend in the residual plot. This suggests that blood pressure expressed as a linear function of age is well specified. In addition, there is no significant evidence that the model is misspecified according to the Ramsey RESET test ($F(1, 50) = 0.077; p = 0,926$).
+
+```{r}
+plot(mod,which=1)
+library(lmtest)
+resettest(mod,powers=c(2,3))
+```
+
+After checking that the model is well specified, we can check the homoscedasticity of the model (i.e. that the variance of the error does not depend on the predictor levels/values).
+
+Recall that $\mathbf{e} = (\mathbf{I}_n - \mathbf{H}) \mathbf{Y}$ and that we can show that $\mathbf{e}\sim \mathcal{N}\left(\mathbf{0}, \sigma^2(\mathbf{I}_n - \mathbf{H})\right)$. Thus $$V[e_i] = \sigma^2 (1 - h_{ii}), \quad i = 1, 2, \ldots, n.$$ Then, even if the variance of the random error is constant, i.e., 
+$V [\varepsilon_i] = \sigma^2$, for $i = 1, 2, \ldots , n$, the residuals (which are the observed errors) do not necessarily have the same variance. So, to evaluate the homoscedasticity status, we use the standardized residuals 
+$$r_i=\frac{e_i}{s\{e_i\}}=\frac{e_i}{\sqrt{\text{MSE}(1-h_{ii})}},\quad i=1,\ldots, n.$$ 
+
+These standardized residuals will have a variance that is approximately equal to 1. We use a scaling and residual location plot as a visual tool to identify heteroscedasticity:  $\sqrt{|r_i|}$ vs. $\hat{y}_i$. 
+
+If the model is homoscedastic, then we should expect a horizontal trend (close to 1) in the plot. But, if there is a pronounced trend in the plot, this suggests that the variance is not constant. 
+
+This plot is obtained with the command `plot(mod, which=3)`, assuming that `mod` is an `lm` object.
+
+```{r}
+plot(mod, which=3)
+```
+
+There is a positive trend in the scaling and residual location plot for the blood pressure study. Thus, we conclude that the error variance increases with the value of the blood pressure estimate.
+
+But using a visual tool is subjective; are there formal tests to identify heteroscedasticity?
+
+Here are two: 
+
+(i) the Breusch-Pagan Studentized test, and 
+
+(ii) White's test with 2 degrees of freedom.
+
+
+The Breusch-Pagan Studentized test is performed as follows:
+
+- **Step 1:** fit the linear model and obtain the residuals;
+
+- **Step 2:** fit a linear model that expresses the square of the residual as a function of the predictors $x_1, x_{p-1}$, and obtain the corresponding coefficient of determination: $R^2_{e^2|x_1,...,x_{p-1}}$;
+
+- **Step 3:** the test statistic is $X^2_{\text{BP}} = nR^2_{e^2|x_1,...,x_{p-1}}$;
+
+- **Step 4:** the $p-$value of the test is 
+$$p=P(\chi^2(p-1)\geq X^2_{\text{BP}}),$$
+where $X^2_{\text{BP}}$ is the observed value of the test statistic.
+
+The Breusch-Pagan test is a score test (a Lagrange multiplier test): 
+
+- the test attempts to identify linear heteroscedasticity in $x_1, \ldots , x_{p-1}$; however, it is possible that
+heteroscedasticity is nonlinear in $x_1, \ldots , x_{p-1}$;
+
+- White (in 1980) suggested fitting ($e^2$) to the predictors by adding quadratic and bilinear terms to the model; the number of parameters to be estimated is large and the test is often difficult to perform. Here is a simplification of White's test.
+
+- **Step 1:** we fit the linear model and obtain the fitted values;
+
+- **Step 2:** we fit a linear model that expresses the square of the residual as a function of the fitted value $\hat{y}$ and its square $\hat{y}^2$: $R^2_{e^2|\hat{y},\hat{y}^2}$;
+
+- **Step 3:** the test statistic is $X^2_{\text{W}} = nR^2_{e^2|\hat{y},\hat{y}^2}$;
+
+- **Step 4:** the test’s $p-$value is
+$$p=P(\chi^2(2)\geq X^2_{\text{W}}),$$
+where $X^2_{\text{W}}$ is the observed value of the test statistic.
+
+Consider the data for blood pressure by age. According to the Breusch-Pagan Studentized test, there is significant evidence of heteroscedasticity ($X^2(2-1) = 12.5412$; $p = 0.000398$). It is not reasonable to assume that the variance of the error is constant.
+
+```{r}
+mod <- lm(DiastolicBP ~ Age, data=BP)
+# get the residuals
+e <- mod$residuals
+# fit e^2 vs predictors
+mod.BP <- lm(e^2 ~ Age, data=BP)
+# get R^2 and n
+p <- length(mod.BP$coefficients)
+n <- mod.BP$df.residual+p
+R.2 <- summary(mod.BP)$r.squared
+# observed value of the Breush-Pagan studentized test
+n*R.2
+```
+
+```{r}
+# p-value
+1-pchisq(n*R.2,p-1)
+```
+
+The Breusch-Pagan test assumes as an alternative that the error variance is a monotonic function of the predictors. However, the variance function may be more complex. There may be nonlinear effects that the Breusch-Pagan test fails to identify.
+
+White's 2-degree-of-freedom test for heteroscedasticity may be useful in identifying a variance function that is nonlinear from the predictors.
+
+The Breusch-Pagan test and the White test can sometimes contradict each other: 
+
+- if the error variance is a monotonic function of the predictors, then the Breusch-Pagan test will be more powerful than the White test because the latter is more general; 
+
+- if the Breush-Pagan test is significant but the White test is not, it is possible that the sample size is too small for the White test; 
+
+- if the variance function is non-linear with respect to the predictors, then White's test is more powerful.
+
+Thus, if White's test is significant, but the Breusch-Pagan test is not, then the variance function is most likely a nonlinear and complex function: if the function of the mean is not well specified, then we must proceed with caution in interpreting the significance of the heteroskedasticity tests. It could simply detect the error in the specification of the mean function.
+
+We perform White's test for heteroscedasticity with 2 degrees of freedom. There is significant evidence of
+heteroscedasticity ($X^2(2) = 12.6517$; $p = 0.0018$).
+
+```{r}
+mod <- lm(DiastolicBP ~ Age, data=BP)
+# get residuals and fitted values
+e <- mod$residuals
+y.chapeau <- mod$fitted.values
+# get n
+p <- length(mod$coefficients)
+n <- mod$df.residual+p
+# White's test
+mod.White <- lm(e^2 ~ y.chapeau + I(y.chapeau^2), data=BP)
+# get R^2 and n
+R.2 <- summary(mod.White)$r.squared
+# observed value of the White test
+n*R.2
+```
+
+```{r}
+# p-value
+1-pchisq(n*R.2,2)
+```
+
+
+\newpage
+
+## 5. Goodness-of-fit test of the linear model {#LR-Ex-5}
+
+A hotel chain offers a promotion during the month of February: at each of its 11 locations, management reduces the average daily rate, which varies from one location to another, and records the number of additional room-nights that are occupied during the month. 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+avg.price.discount <- c(125,100,200,75,150,175,75,175,125,200,100)
+n.add.rooms        <- c(160,112,124,28,152,156,42,124,150,104,136)
+hotels             <- data.frame(avg.price.discount,n.add.rooms)
+str(hotels)
+```
+
+Visually, it seems obvious that the relationship between the two variables is not linear: 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE, fig.cap=NULL, out.width="0.5\\linewidth"}
+plot(hotels$avg.price.discount,hotels$n.add.rooms,
+     xlab="Prix réduit quotidien moyen", 
+     ylab="Nombre de chambres-nuits occupées")
+mod <- lm(n.add.rooms ~ avg.price.discount, data=hotels)
+abline(mod)
+```
+
+We can obtain the residual charts as follows: 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE, fig.asp=1, fig.cap=NULL, out.width="0.5\\linewidth"}
+# produce residual vs. fitted plot
+olsrr::ols_plot_resid_fit(mod)
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE, fig.asp=1, fig.cap=NULL, out.width="0.5\\linewidth"}
+# create Q-Q plot for residuals
+olsrr::ols_plot_resid_qq(mod)
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE, fig.asp=1, fig.cap=NULL, out.width="0.5\\linewidth"}
+# histogram of residuals
+olsrr::ols_plot_resid_hist(mod)
+```
+
+We pit $$H_0: E\{Y\}=\beta_0+\beta_1X_1+\beta_2X_2+\beta_3X_3 \quad\text{vs.}\quad H_1: E\{Y\}\neq\beta_0+\beta_1X_1+\beta_2X_2+\beta_3X_3.$$
+
+To confront these two hypotheses, we nest the simple linear regression model in a more general model. We consider a stratification of units according to the value of $x$, i.e. units in the same group take the same value of $x$. 
+
+We obtain a frequency table for $x=$average daily discounted price. We observe that there are $c=6$ groups and that each group contains 2 units except for the $x=150$ group (which contains only one unit). 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+table(hotels$avg.price.discount)
+```
+
+If each group has its own average, we can consider that $x$ is a categorical variable with $c=6$ categories (implemented in `R` using the `factor()` function). We will add a categorical variable to the `hotels` data frame; we also display the levels of this variable. The corresponding ANOVA model is the most complex model possible since we do not impose any structure on $E\{Y\mid X=x\}$. 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+hotels$avg.price.discount.cat <- factor(hotels$avg.price.discount)
+levels(hotels$avg.price.discount.cat)
+```
+
+The (complete) linear model is
+
+$$Y_i=\beta_0+\beta_1x_{i,2}+\cdots + \beta_5x_{i,6}+\varepsilon_i = \begin{cases} \beta_0=\mu_1 & \text{if the $i$th unit is from group 1} \\ \beta_0+\beta_1=\mu_2 & \text{if the $i$th unit is from group 2} \\ \vdots & \vdots \\ 
+\beta_0+\beta_5=\mu_6 & \text{if the $i$th unit is from group 6}\end{cases} $$
+
+where $\varepsilon_1, \ldots,\varepsilon_n$ are i.i.d. normal random variables $\mathcal{N}(0,\sigma^2)$. This model is sometimes called an ANOVA model; the parameter $\beta_{j-1}=\mu_j-\mu_1$ is the **group effect** $j$ (in comparison with reference group 1).
+
+Here is a summary of the ANOVA model fit:
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+mod.ANOVA <- lm(n.add.rooms ~ avg.price.discount.cat, data=hotels)
+summary(mod.ANOVA)
+```
+
+The estimated model is thus 
+
+$$\hat{E}\{Y\mid X=x\}=
+\begin{cases} \overline{y}_1=35 & \text{si $x=75$} \\ \overline{y}_2=35+89=124 & \text{if $x=100$} \\ 
+\overline{y}_3=35+120=155 & \text{if $x=125$} \\ 
+\overline{y}_4=35+117=152 & \text{if $x=150$} \\ 
+\overline{y}_5=35+105=140 & \text{if $x=175$} \\ 
+\overline{y}_6=35+79=114 & \text{sifi $x=200$} \\ 
+\end{cases}$$
+
+The estimate of the variance (of the error) is $s^2_{\varepsilon}=\text{MSE}=(15.15)^2=229.52$; the coefficient of determination of the ANOVA model is $R^2=0.9423$. The coefficient of determination of the reduced model (the simple linear regression model obtained earlier), however, is $R^2=0.2586$.
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+mod <- lm(n.add.rooms ~ avg.price.discount, data=hotels)
+summary(mod)$r.squared
+```
+
+The difference in the fit of the two models seems to demonstrate that the assumption of linearity of the reduced model is not justified. Is the evidence significant? 
+
+We use the general linear test to compare the two models. In general, the test statistic is $$F=\frac{\text{ExtraSS}/(p-q)}{\text{MSE}}=\frac{(\text{SSE}(R)-\text{SSE})/(p-q)}{\text{MSE}} $$ where $p$ is the number of parameters of the complete model (ANOVA) and $\text{SSE}$ its sum of squares of the residuals (errors), $q$ is the number of parameters of the reduced (linear) model and $\text{SSE}(R)$ its sum of squares of the residuals, and $\text{MSE}$ is the standard deviation of the residuals of the full model; if $H_0$ is valid, then $F\sim F(p-q,n-p)$.  
+
+In the full model, there are $p=c=6$ parameters; in the reduced model, there are only $q=2$ (since $p-q=c-2>0$, we must have at least $c=3$ values of $x$). The observed value of the test statistic is calculated using the `anova()` function.  
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+anova(mod,mod.ANOVA)
+```
+
+The observed value of the test statistic is thus  $$F_0=\frac{(\text{SSE}-\text{SSE}(R))/(c-2)}{\text{MSE}}=\frac{(14742-1148)/(6-2)}{1148/5}=14.801; $$ the $p-$value of the test is $P(F(4,5)>14.801)=0.0056$, and so we reject the null hypothesis of linearity of the adjustment. 
+
+\newpage
+
+## 6. Correlations {#LR-Ex-6}
+
+### 6.1 Scatterplot I {#LR-Ex-6-1}
+
+Considérons les nuages de points ci-dessous.
+
+```{r  out.width="0.5\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
+knitr::include_graphics("scatter.jpg")
+```
+
+Match the following correlations $-0.977$, $-0.021$, $0.736$, and $0.951$, with the scatterplots above.
+
+**Answers:** (a) $-0.977$ (b) $0.736$ (c) $0.951$ (d) $-0.021$
+
+\newpage
+
+### 6.2 Scatterplots II {#LR-Ex-6-2}
+
+A horsepower is the power required to lift a weight of 550 pounds over a height of 1 foot in 1 second (or 33,000 pounds in one minute). Horsepowers are measured in terms of the speed at which the work is done. 
+
+In the file `Fuel_economy_2007.csv`, we have the claimed horsepower ratings and predicted fuel consumption (in mpg) for several vehicles in 2007. 
+
+We import the data with R and display some its rows. 
+
+```{r }
+cars<-read.csv("Data/Fuel_economy_2007.csv")
+head(cars)
+```
+
+(a) Provide a scatterplot of power versus gasoline consumption and overlay a smooth curve on the plot. Describe the orientation and shape of the association. 
+
+
+(b) Consider the following statistics obtained with `R`. 
+
+```{r}
+x <- cars$Horsepower
+y <- cars$Highway.Gas.Mileage..mpg.
+sum((x-mean(x))^2)
+sum((y-mean(y))^2)
+sum((x-mean(x))*(y-mean(y)))
+```
+
+**Notes:**
+
+- `y-mean(y)` is the vector $(y_1-\bar{y},y_2-\bar{y},\ldots,y_n-\bar{y})$ 
+
+- `sum` adds up the components of a vector
+
+- `mean` computes the mean value of the components of a vector.
+
+Using these statistics, calculate the Pearson correlation between power and gasoline consumption. 
+
+(c) Assuming that `x` and `y` are numerical vectors of the same size, then the command `cor(x,y)` calculates the Pearson correlation between `x` and `y`. Use the function `cor()` to compute the correlation between horsepower and gasoline consumption. 
+
+(d) In Canada, gasoline consumption is described in $\mbox{L}/100\mbox{km}$. The data, however, is measured in mpg. Let $w$ be the consumption in $\mbox{L}/100\mbox{km}$ and $y$ the consumption in mpg. Here is the conversion formula: $$ w=\frac{235.215}{y}. $$
+
+If we measure gasoline consumption in mpg, then the correlation between power and gasoline consumption is $r=-0.869$. If we measure fuel economy in $\mbox{L}/100\mbox{km}$, does the correlation between horsepower and fuel economy remain equal to $r=-0.869$? If not, compute the value for the correlation. 
+
+**Answers:**
+
+(a) The association between power and gasoline consumption (in mpg) is approximately linear and negative.  
+
+
+```{r }
+with(cars, 
+plot(x=Horsepower,y=Highway.Gas.Mileage..mpg.,
+xlab="Puissance (en chevaux)",
+ylab="Consommation d'essence (en mpg)"))
+## fit a smooth curve (loess=lowess=locally weighted scatterplot smoothing)
+mod.loess<-loess(Highway.Gas.Mileage..mpg.~Horsepower,
+data=cars)
+## get the range of x
+xlim<-range(cars$Horsepower)
+## build a new dataset
+xnew<-seq(xlim[1],xlim[2],length.out=100)
+ynew<-predict(mod.loess,data.frame(Horsepower=xnew))
+## add Lowess Smooth to the plot
+lines(x=xnew,y=ynew,lty=2)
+```
+
+
+(b) We have $s_{xy}=-5154.2$, $s_{xx}=61503.6$, and $s_{yy}=572.4$. The Pearson correlation between $x$ and $y$ is thus: 
+
+$$
+r=\frac{s_{xy}}{\sqrt{s_{xx}\,s_{yy}}}=-0.869.
+$$
+
+(c) The correlation between power and fuel consumption is $r=-0.867$:
+
+```{r }
+with(cars,cor(Horsepower,Highway.Gas.Mileage..mpg.))
+```
+
+(d) The conversion formula is not linear, so it is possible that the correlation could change if we measure gasoline consumption in $\mbox{L}/100\mbox{km}$. We use `R` to convert the fuel consumption to $\mbox{L}/100\mbox{km}$, and then calculate the correlation between power and fuel consumption (in $\mbox{L}/100\mbox{km}$). This correlation is $r=0.851$:
+
+```{r }
+w<-235.215/cars$Highway.Gas.Mileage..mpg.
+cor(w,cars$Horsepower)
+```
+
+\newpage
+
+### 6.3 Scatterplots III {#LR-Ex-6-3}
+
+A person's muscle mass should decrease with age. To explore this association in women, a nutritionist randomly selected 15 women from each of the 10-year age groups starting at age 40 and ending at age 79. The data are in the file `Masse.csv`. There are two variables in this dataset: $x=$ age of the participant, and $y=$ muscle mass of the participant. 
+
+We import the data with `R`, and display some rows of the dataset. 
+
+```{r }
+masse<-read.csv("Data/Masse.csv")
+head(masse)
+```
+
+Here is the structure of the dataset:
+
+```{r }
+str(masse)
+```
+
+
+(a) How many observations are there in this dataset?
+
+(b) We calculate some sums to summarize the data: 
+
+```{r}
+x<-masse$Age
+y<-masse$Masse
+c(sum(x), sum(y), sum(x^2), sum(y^2), sum(x*y))
+rx<-rank(masse$Age)
+ry<-rank(masse$Masse)
+c(sum(rx), sum(ry), sum(rx^2), sum(ry^2), sum(rx*ry))
+```
+
++ (i) Based on these sums, compute the covariance between age and mass and also compute the (Pearson) correlation between age and mass. 
++ (ii) Based on these sums, compute the Spearman correlation between age and mass.
+
+(c) Here is a scatter plot of muscle mass versus age with a smooth curve overlay. Describe the association between age and muscle mass (orientation, shape, and intensity). 
+
+
+```{r }
+with(masse, 
+plot(x=Age,y=Masse,
+xlab="Age",
+ylab="Masse musculaire"))
+## fit a smooth curve
+mod.loess<-loess(Masse~Age,
+data=masse)
+## get the range for x
+xlim<-range(masse$Age)
+## build a new dataset
+xnew<-seq(xlim[1],xlim[2],length.out=100)
+ynew<-predict(mod.loess,data.frame(Age=xnew))
+## add Lowess Smooth to the plot
+lines(x=xnew,y=ynew,lty=2)
+```
+
+**Answers:**
+
+(a) There are $n=60$ observations. 
+
+(b) Let' see....
+
++ (i) We have 
+$$
+s_{xy}=\left(\sum_{i=1}^n x_i\,y_i\right)-\left.\left(\sum_{i=1}^n x_i\right)\,\left(\sum_{i=1}^n y_i\right)\right/n=296\,024-(3599)(5098)/60=-9771.033,
+$$
+
+So the covariance between age and mass is: 
+
+$$
+\hat{\sigma}_{X,Y}=\frac{s_{xy}}{n-1}=\frac{-9771.033}{60-1}=-165.6107.
+$$
+
+In addition, we have: 
+
+$$
+s_{xx}=\left(\sum_{i=1}^n x_i^2\right)-\left.\left(\sum_{i=1}^n x_i\right)^2\,\right/n=224\,091-(3599)^2/60=8\,210.983,
+$$
+$$
+s_{yy}=\left(\sum_{i=1}^n y_i^2\right)-\left.\left(\sum_{i=1}^n y_i\right)^2\,\right/n=448\,662-5098^2/60=15\,501.93,
+$$   
+So the Pearson correlation between age and mass is 
+$$
+r=\frac{s_{xy}}{\sqrt{s_{xx}\,s_{yy}}}=\frac{-9\,771.033}{\sqrt{(8\,210,
+\!983)(15\,501.93)}}=-0.866.
+$$
+
+
++ (ii) We have 
+\begin{eqnarray*}
+s_{R_x,R_y}&=& \left(\sum_{i=1}^n R_{x,i}\,R_{y,i}\right)-\left.\left(\sum_{i=1}^n R_{x,i}\right)\,\left(\sum_{i=1}^n R_{y,i}\right)\right/n\\
+&=& 40\,256.25-(1830)(1830)/60=-15\,558.75.
+\end{eqnarray*}
+
+In addition, we have:
+
+$$
+s_{R_xR_x}=\left(\sum_{i=1}^n R_{x,i}^2\right)-\left.\left(\sum_{i=1}^n R_{x,i}\right)^2\,\right/n=73\,780-(1830)^2/60=17\,965,
+$$
+$$
+s_{R_yR_y}=\left(\sum_{i=1}^n R_{y,i}^2\right)-\left.\left(\sum_{i=1}^n R_{y,i}\right)^2\,\right/n=73\,794-1830^2/60=17\,979,
+$$   
+
+so the Spearman correlation between age and mass is 
+
+$$
+r_S=\frac{s_{R_xR_y}}{\sqrt{s_{R_xR_x}\,s_{R_yR_y}}}=\frac{-15\,558.75}{\sqrt{(17\,965)(17\,979)}}=-0.8657.
+$$
+
+
+(c) The association between age and mass is approximately linear, and negative, with a Pearson correlation of $r=-0.866$. 
+
+\newpage
+
+### 6.4 Inference concerning a correlation {#LR-Ex-6-4}
+
+We have data from a study with healthy volunteers. A stimulus is applied to the subject's fingers and the spinal cord conduction velocity (VC) is measured. We want to describe the association between the height of the individual (in cm) and the spinal cord conduction velocity for healthy individuals.
+
+We import the data with `R` and display some rows. 
+
+```{r}
+VC <- read.csv("Data/VC.csv")
+head(VC)
+```
+
+Test $H_0: \rho=0$ (o\`u $\rho$ is the (Pearson) correlation between the conduction velocity and the size of the individual) vs. $H_1:\rho\neq 0$.
+
+**Answer:**
+
+The correlation in the dataset is 
+
+```{r}
+cor(VC$Taille.en.cm,VC$VC)
+```
+
+This value is not very close to 0. We can use the function `cor.test()` to obtain a confidence interval of the correlation $\rho$:
+
+```{r}
+with(VC,cor.test(Taille.en.cm,VC))
+```
+
+The observed value of the test statistic is 
+t.star
+
+$$t^*=r\sqrt{\frac{n-2}{1-r^2}}=19.781 $$
+
+The $p-$value of the test is $2P(T(153)>|19.781|)<0.00001$; the evidence suggests that the correlation is indeed non-zero.
+
+\newpage
+
+## 7. Probability and statistics {#LR-Ex-7}
+
+### 7.1 Probability I {#LR-Ex-7-1}
+
+Compute the following probabilities assuming that $T$ follows a $t(15)$ distribution. 
+
+(a) $P(T > 2.45)$; 
+
+(b) $P(T < 2.45)$;
+
+(c) $2P(T > 4.34)$.
+
+**Answers:**
+
+(a) $P(T > 2.45)=0.0135$;
+
+```{r }
+1-pt(2.45,15)
+```
+
+(b) $P(T < 2.45)=0.9865$;
+
+```{r }
+pt(2.45,15)
+```
+
+(c) $2P(T > 4.34)=0.00058$.
+
+```{r }
+2*(1-pt(4.34,15))
+```
+
+### 7.2 Probability II {#LR-Ex-7-2}
+
+Obtain the following quantiles: 
+
+(a) $95^{\mbox{th}}$ centile of the $t(34)$ distribution; 
+
+(b) $97.5^{\mbox{th}}$  centile of the $t(44)$ distribution.
+
+**Answers:**
+
+(a) LThe $95^{\mbox{th}}$ centile of the $t(34)$ distribution is $t(0.95;34)=1.6909$. 
+
+
+```{r }
+qt(0.95,34)
+```
+
+(b) the $97.5^{\mbox{th}}$ centile of the $t(44)$ distribution is $t(0.975;44)=2.0154$. 
+
+```{r }
+qt(0.975,44)
+```
+
+### 7.3 Probability III {#LR-Ex-7-3} 
+
+Let $Y\sim N(\mu=125,\sigma^2=25)$ and $(1/\sigma^2)\,V\sim \chi^2(10)$. Assume that $Y$ and $V$ are independent. 
+
+(a) Compute  
+
+$$
+P\left(\frac{Y-125}{\sqrt{V/10}}>2.75 \right).
+$$
+
+(b) Compute 
+
+$$
+P\left(\frac{(Y-125)^2}{V/10}>7.12 \right).
+$$
+
+**Answers:**
+
+We have  
+$$
+Z=\frac{Y-125}{\sigma}\sim N(0,1), 
+$$
+
+and $Z$ is independent from $U=(1/\sigma^2)\,V\sim \chi^2(10)$, so that 
+$$
+T=\frac{Y-125}{\sqrt{V/10}}=\frac{(Y-125)/\sigma}{\sqrt{(1/\sigma^2)V/10}}=\frac{Z}{\sqrt{U/10}}\sim t(10).
+$$
+
+Thus 
+
+$$
+\frac{(Y-125)^2}{V/10}=T^2\sim F(1,10).
+$$
+
+(a) We have  
+
+$$
+P\left(\frac{Y-125}{\sqrt{V/10}}>2.75 \right)=P(t(10)>2.75)=0.0102.
+$$
+
+```{r }
+1-pt(2.75,10)
+```
+
+(b) We want 
+
+$$
+P\left(\frac{(Y-125)^2}{V/10}>7.12 \right)=P(F(1,10)>7.12)=0.02356.
+$$
+
+```{r }
+1-pf(7.12,1,10)
+```
+
+### 7.4 Statistics I {#LR-Ex-7-4}
+
+Suppose that $\hat{\theta}$ is an estimator of an unknown parameter $\theta$, and that   
+$$
+T=\frac{\hat{\theta}-\theta}{\mbox{se}(\hat{\theta})}\sim t(15). 
+$$
+From a random sample, we observe $\hat{\theta}=-3.2$ and $s\{\hat{\theta}\}=4.5.$ 
+
+a. Test $H_0:~\theta=0$ against $H_a:~\theta\neq 0$ at $\alpha=5\%$.  Give the observed value of the test statistic $t$ and the conclusion of the test. 
+
+b. Give a 95% confidence interval for $\theta$. 
+
+**Answers:**
+
+a. The observed value of the $t$ test statistic is  
+$$
+t_0=\frac{\hat{\theta}-0}{s\{\hat{\theta}\}}=\frac{-3.2-0}{4.5}=-0.71111.
+$$
+Since  $|t_0|=0.71111<2.13145=t(0.975;10)$, then the evidence  against $H_0$ is not significant at $\alpha=5\%$. 
+
+b. A 95% confidence interval for $\theta$ is given by: 
+
+$$
+\hat{\theta}\pm t(0.975;15)\,s\{\hat{\theta}\}=-3.2\pm 2.13145\,(4.5)=]\!-12.792;6.392[. 
+$$
+
+### 7.5 Statistics II {#LR-Ex-7-5}
+
+Suppose that $\hat{\theta}$ is an estimator of an unknown parameter $\theta$, and that  
+$$
+T=\frac{\hat{\theta}-\theta}{\mbox{se}(\hat{\theta})}\sim t(20). 
+$$
+From a random sample, we observe $\hat{\theta}=2.5$ and $s\{\hat{\theta}\}=0.75.$ 
+
+a. Test $H_0:~\theta=0$ against $H_a:~\theta\neq 0$ at $\alpha=5\%$.  Give the observed value of the test statistic $t$ and the conclusion of the test. 
+
+b. Give a 95% confidence interval for $\theta$. 
+
+**Answers:**
+
+a. The observed value of the $t$ test statistic is  
+$$
+t_0=\frac{\hat{\theta}-0}{s\{\hat{\theta}\}}=\frac{2.5-0}{0.75}=3.3333.
+$$
+Since  $|t_0|=3.3333\geq 2.08596=t(0.975;20)$, then the evidence against $H_0$ and in favour of $H_1$ is significant at $\alpha=5\%$. 
+
+```{r }
+qt(0.975,20)
+```
+
+b. A 95% confidence interval for $\theta$ is given by: 
+
+$$
+\hat{\theta}\pm t(0.975;15)\,s\{\hat{\theta}\}=2.5\pm 2.08596\,(0.75)=]0.936; 4.064[. 
+$$
+
+### 7.6 Statistiques III {#LR-Ex-7-6}
+
+Suppose that $\hat{\theta}$ is an estimator of an unknown parameter $\theta$, and that  
+$$
+T=\frac{\hat{\theta}-\theta}{\mbox{se}(\hat{\theta})}\sim t(28). 
+$$
+From a random sample, we observe $\hat{\theta}=-0.211$ and $s\{\hat{\theta}\}=3.235.$ 
+
+a. Test $H_0:~\theta=0$ against $H_a:~\theta\neq 0$ at $\alpha=5\%$.  Give the observed value of the test statistic $t$ and the $p-$value of the test.  
+
+b. What can you conclude at $\alpha=5\%$.  
+
+**Answers:**
+
+a. The observed value of the $t$ test statistic is  
+$$
+t_0=\frac{\hat{\theta}-0}{s\{\hat{\theta}\}}=\frac{-0.211-0}{3.235}=-0.06522.
+$$
+The $p-$value of the test is $2\,P(t(28)\geq |-0.06522|)=0.948.$ 
+
+```{r }
+2*(1-pt(.06522,28))
+```
+
+b. The evidence against $\theta=0$ in favour of $\theta\neq 0$ is not significative at $\alpha=5\%$ $(t(28)=-0.06522; p=0.948)$. 
+
+### 7.7 Statistics IV {#LR-Ex-7-7}
+
+Suppose that $\hat{\theta}$ is an estimator of an unknown parameter $\theta$, and that  
+$$
+T=\frac{\hat{\theta}-\theta}{\mbox{se}(\hat{\theta})}\sim t(28). 
+$$
+From a random sample, we observe $\hat{\theta}=2.5$ and $s\{\hat{\theta}\}=0.75.$ 
+
+a. Test $H_0:~\theta=0$ against $H_a:~\theta\neq 0$ at $\alpha=5\%$.  Give the observed value of the test statistic $t$ and the $p-$value of the test.  
+
+b. What can you conclude at $\alpha=5\%$.  D'un échantillon aléatoire, on observe $\hat{\theta}=2.5$ et $s\{\hat{\theta}\}=0.75$. 
+
+**Answers:**
+
+(a) The observed value of the $t$ test statistic is  
+$$
+t_0=\frac{\hat{\theta}-0}{s\{\hat{\theta}\}}=\frac{2.5-0}{0.75}=3.3333.
+$$
+The $p-$value of the test is $2\,P(t(28)\geq |3.3333|)=0.0024.$ 
+
+
+```{r }
+2*(1-pt(3.3333,28))
+```
+
+The evidence against $\theta=0$ in favour of $\theta\neq 0$ is significative at $\alpha=5\%$ $(t(28)=3.3333; p=0.0024)$. 
+
+### 7.8 Probability IV {#LR-Ex-7-8}
+
+Let $Y_1,Y_2,Y_3$ be normal independent random variables with 
+$$
+\mu_1=E\{Y_1\}=23; \mu_2=E\{Y_2\}=15; \mu_3=E\{Y_3\}=10 
+$$
+and  
+$$
+\sigma_1^2=V[Y_1]=2; \sigma_2^2=V[Y_2]=3;  \sigma_3^2=V[Y_3]=1.  
+$$
+What is the distribution of $W=2\,Y_1+3\,Y_2-Y_3$? 
+
+**Answer:**
+
+We have $W\sim N(E\{W\}; V[W])$ where 
+$$
+E\{W\}=2\,E\{Y_1\}+3\,E\{Y_2\}-E\{Y_3\}=2\,(23)+3\,(15)-10=81
+$$
+and 
+$$
+V[W]=2^2\,V[Y_1]+3^2\,V[Y_2]+(-1)^2\,V[Y_3]=2^2\,(2)+3^2\,(3)+(-1)^2(1)=36. 
+$$
+
+\newpage
+
+## 8. Fitting a linear model {#LR-Ex-8}
+
+### 8.1 Linear regression I {#LR-Ex-8-1}
+
+Suppose that $\hat{y}=b_0+b_1\,x$ is a linear model estimated by the least squares method. Find the missing values in the table below. 
+
+***Notation:*** 
+
+- $\bar{x}$ and $s_x$ are the sample mean and standard deviation for the variable $X$. 
+
+- $\bar{y}$ and $s_y$ are the sample mean and standard deviation for the variable $Y$.
+
+- $r$ is the Pearson correlation (of the sample) of $X$ and $Y$. 
+
+
+\begin{center}
+\begin{tabular}{c|cccccc}
+ & $\overline{x}$ & $s_x$ & $\overline{y}$ & $s_y$ & $r$ & $\hat{y}=b_0+b_1\,x$ \\
+ \hline
+i) & 30  & 4 & 18 & 6 & -0,2 & \\
+ii) & 100 & 18 & 60 & 10 & 0,9 & \\
+iii) &     & 0,8 & 50 & 15 &  & $\hat{y}=-10+15\,x$\\
+iv) &     &    & 18 & 4 & -0,6 & $\hat{y}=30-2\,x$ \\
+\end{tabular}
+ \end{center}
+
+
+From introductory statistics courses, we know that the sample variance and standard deviation for $X$ are respectively
+$$
+s^2_x=\frac{\sum_{i=1}^n (x_i-\bar{x})^2}{n-1}=\frac{s_{xx}}{n-1} ~~~ \mbox{ and } ~~ s=\sqrt{s^2}=\sqrt{s_{xx}/(n-1)}. 
+$$
+For $Y$, it's the same idea: $s_y=\sqrt{s_{yy}/(n-1)}$. 
+
+**Answers:**
+
+1. The line of best fit is $\hat{y}=b_0+b_1\,x$, where 
+$$
+b_1=\frac{r\,\sqrt{s_{yy}}}{\sqrt{s_{xx}}}=\frac{r\,\sqrt{s_{yy}/(n-1)}}{\sqrt{s_{xx}/(n-1)}}=r\,\frac{s_y}{s_x} ~~~ \mbox{ and } ~~~ b_0=\overline{y}-b_1\,\overline{x}.
+$$
+
+Here is the table with the missing values. The calculations are just below the table. 
+
+\begin{center}
+\begin{tabular}{c|cccccc}
+ & $\overline{x}$ & $s_x$ & $\overline{y}$ & $s_y$ & $r$ & $\hat{y}=b_0+b_1\,x$ \\
+ \hline
+i) & 30  & 4 & 18 & 6 & -0,2 & $\hat{y}=27-0.3\,x$\\
+ii) & 100 & 18 & 60 & 10 & 0,9 & $\hat{y}=10+0.5\,x$\\
+iii) &  4   & 0,8 & 50 & 15 & 0,8 & $\hat{y}=-10+15\,x$\\
+iv) &  6   & 1,2   & 18 & 4 & -0,6 & $\hat{y}=30-2\,x$ \\
+\end{tabular}
+ \end{center}
+
+\noindent (i) We have 
+$$
+b_1=\frac{r\,s_y}{s_x}=\frac{(-0.2)(6)}{4}=-0.3 ~~~ \mbox{ and } ~~~ b_0=\overline{y}-b_1\,\overline{x}=18-(-0.3)(30)=27.
+$$
+(ii) We have 
+$$
+b_1=\frac{r\,s_y}{s_x}=\frac{(0.9)(10)}{18}=0.5 ~~~ \mbox{ and } ~~~ b_0=\overline{y}-b_1\,\overline{x}=60-(0.5)(100)=10.
+$$
+(iii) We have 
+$$
+15=b_1=\frac{r\,s_y}{s_x}=\frac{r\,(15)}{0.8} ~~~ \mbox{ and } ~~~ -10=b_0=\overline{y}-b_1\,\overline{x}=50-(15)\,\overline{x}.
+$$
+Thus, $r=15\,(0.8)/15=0.8$ and $\overline{x}=(50-(-10))/15=4$.
+\\\\
+(iv) We have 
+$$
+-2=b_1=\frac{r\,s_y}{s_x}=\frac{(-0.6)\,(4)}{s_x} ~~~ \mbox{ and } ~~~ 30=b_0=\overline{y}-_1\,\overline{x}=18-(-2)\,\overline{x}.
+$$
+Thus, $s_x=(-0.6)\,(4)/(-2)=1.2$ and $\overline{x}=(30-18)/2=6$.
+
+### 8.2 Linear regression II {#LR-Ex-8-2}
+
+Here is a scatterplot of observations:
+
+```{r,  out.width="0.4\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
+knitr::include_graphics("CostLiving.png")
+```
+
+A cost of living survey determined the cost of living in the 25 most expensive cities in the world. This ranking takes New York City as 100 and expresses the other cities as a percentage of the cost of living in New York. For example, the cost of living in Tokyo in 2007 is 122.1, so the cost of living in Tokyo was 22.1% higher than in New York in 2007. The standard deviation of the cost of living in 2007 is 11.9147; while it is 10.8517 for 2008.
+
+(i) The least squares line to predict the cost of living in 2008 as a function of the cost of living in 2007 is
+
+$$
+\widehat{\mbox{cost08}}=21.75+0.84\,(\mbox{cost07}).
+$$
+Compute the (Pearson) correlation between the cost of living in 2007 and 2008.
+
+(ii) Describe the association between the cost of living in 2007 and 2008.
+
+(iii) Compute the coefficient of determination $R^2$ and interpret its value in the context of this study. 
+
+(iv) Use the least squares line from (i) to calculate the residual for Oslo.
+
+(v) What does the residual calculated in (iv) tell us about Oslo? 
+
+
+**Answers:**
+
+(i) We have 
+$$
+0.84=b_1=r\,s_y/s_x=r\,(10.8517/11.9147) ~~~ \Rightarrow ~~~ r=(11.9147)(0.84)/10.8517=0.922.
+$$
+
+
+(ii) The association between the cost of living in 2007 and 2008 is positive and nearly linear with a correlation of 0.922.
+
+(iii) $R^2=r^2=(0.922)^2=0.8501.$ Thus, 85% of the variability in the cost of living in 2008 is explained by the linear cost of living model in 2007. 
+
+(iv)  We have that $\mbox{cost07}=105.8$ and $\mbox{cost08}=118.3$ for Oslo.
+The fitted value for Oslo is thus 
+
+$$
+\widehat{\mbox{cost08}}=21.75+0.84\,(105.8)=110.622.
+$$
+
+The Oslo residual is thus  $e=\mbox{cost08}-\widehat{\mbox{cost08}}=118.3-110.622=7.678.$
+
+(v) The residual is positive, so the expected cost of living for 2008 is lower than the observed cost of living for 2008 by 7.678 units.
+
+
+\newpage
+
+### 8.3 Linear Regression III {#LR-Ex-8-3}
+
+Assume a regression model where  $Y_1,\ldots,Y_{50}$ are normal independent variables with a common variance $sigma^2$. We have two models for the mean function. We use the least squares method to estimate the parameters of the mean function for both models. Then we compute the residual sum of squares for both models. We obtain 
+$$
+\mbox{for model 1: $\text{SSE}=1222$}; ~~~ \mbox{for model 2: $\text{SSE}=995$}.
+$$
+
+(a) According to the residual sum of squares, which of the models is best? 
+
+(b) According to the max of the log likelihood, which of the models is the best? Is this surprising?
+
+**Answers:**
+
+(a) Model 2 has the smallest residual sum of squares. So according to \text{SSE}, model 2 is the best fit to the data.   
+
+(b) For model 1, we have $$
+\ell=-(n/2)\,\ln(2\,\pi\,\text{SSE}/n)-n/2=
+-(50/2)\,\ln(2\,\pi\,(1222/50))-50/2=-150.8525.
+$$
+For model 2, we have 
+$$
+\ell=-(n/2)\,\ln(2\,\pi\,\text{SSE}/n)-n/2=
+-(50/2)\,\ln(2\,\pi\,(995/50))-50/2=-145.7149.
+$$
+The larger of these two statistics is for model 2. Thus, according to the maximum log-likelihood statistic model 2 is better. This result should not be surprising since  \text{SSE} and $\ell$ are equivalent in the sense that they always prefer the same model. 
+
+### 8.4 Linear regression IV {#LR-Ex-8-4}
+
+The data concerning the resistance $(x)$ (in ohms) and the failure time $(y)$ (in minutes) of some overloaded resistors are in the file \verb|defaillance.csv|.
+
+We import the data and display the column names, the column standard deviations, the column means, and the dataset size.
+
+```{r }
+defaillance <- read.csv("Data/defaillance.csv")
+names(defaillance)
+sapply(defaillance,sd)
+sapply(defaillance,mean)
+dim(defaillance)
+```
+
+**Note:** the `apply()` function allows us to apply a function to all the columns of a dataframe. The command `sapply(defaillance,sd)` applies the `sd` function to all the columns of the `defaillance` dataset. 
+
+
+Here is the (Pearson) correlation between failure time and resistance.  
+
+```{r}
+with(defaillance,cor(temps.de.defaillance,resistance))
+```
+
+Here is a scatterplot for the failure time against resistance with the estimated regression line overlay.
+
+```{r}
+with(defaillance,plot(resistance,temps.de.defaillance,
+  xlab="Résistance (en ohms)",ylab="Temps de défaillance (en min)"))
+mod<-lm(temps.de.defaillance~resistance,data=defaillance)
+abline(mod)
+```
+
+(a) Give the least squares line that expresses the failure time as a function of resistance. 
+
+(b) Give the value of $R^2$ (the coefficient of determination) and interpret it in the context of this question. 
+
+(c) Give an estimate of the variance of the $\sigma^2$ error. 
+
+**Answers:**
+
+We have: 
+
+```{r}
+x = defaillance$resistance
+y = defaillance$temps.de.defaillance
+(bar.x = mean(x))
+(bar.y = mean(y))
+(s.x = sd(x))
+(s.y = sd(y))
+(s.xx = sum((x-mean(x))^2))
+(s.xy = sum((x-mean(x))*(y-mean(y))))
+(s.yy = sum((y-mean(y))^2))
+(r = cor(x,y))
+(n = length(x))
+```
+
+(a) The slope of the line of best fit is:
+
+$$b_1=r\,\frac{s_{y}}{s_{x}}=0.80851\,\left(\frac{8.54485}{6.78113}\right)
+=1.01880.$$
+
+```{r}
+(b1 = r*s.y/s.x)
+(b1 = s.xy/s.xx)
+```
+
+The intercept of the line of best fit is: 
+$$
+b_0=\bar{y}-b_1\,\bar{x}=33.83333-(1.01880)(38.62500)=-5.51782.
+$$
+
+```{r}
+(b0=bar.y-b1*bar.x)
+```
+
+The line of best fit is thus
+$$
+\hat{y}=-5.51782+1.01880\,x.
+$$
+
+(b) We have $R^2=r^2=(0.80851)^2=0.653$. Then, 65.3% of the variability in failure time is explained by the linear model. 
+
+```{r}
+(R.2 = r^2)
+```
+
+(c) We have 
+\begin{eqnarray*}
+\text{SSE} &=& s_{yy}-\text{SSR}=s_{yy}-b_1^2\,s_{xx}= (n-1)s_y^2-b_1^2\,(n-1)s_{xx}^2 \\
+&=& (24-1)(8.54485)^2-1.01880^2\,(24-1)(6.78113)^2
+= 581.5664.
+\end{eqnarray*}
+
+The estimate of $\sigma^2$ is  $$\text{MSE}=\frac{\text{SSE}}{n-2}=\frac{581.5664}{24-2}=26.43484.$$
+
+```{r}
+(MSE = (s.yy - b1^2*s.xx)/(n-2))
+```
+
+## 9. Multiple linear regression {#LR-Ex-9}
+
+### 9.1 Multiple Linear Regression I {#LR-Ex-9-1}
+
+Suppose we have a linear model with $p-1=9$ predictors and $n=125$ observations. We fit the model and calculate the residual sum of squares $\sum_{i=1}^{125} e_i^2=356$. The sample variance for the dependent variance is $s_y^2=34$. 
+
+(a) Give an estimate of the variance of the error. 
+
+(b) Give the residual standard deviation. 
+
+(c) Calculate the coefficient of determination $R^2$. 
+
+**Answers:**
+
+(a) We provide an estimate of $\sigma^2$: $\mbox{\text{MSE}}=\sqrt{\text{SSE}/(n-p)}=356/(125-10)=3.09565.$
+
+(b) The standard deviation of the residuals is  $s_e=\sqrt{\text{MSE}}=\sqrt{3.09565}$. 
+
+(c) We have $s_{yy}=(n-1)\,s_y^2=126\,(34)=4\,284$ and $\mbox{SSR}=s_{yy}-\text{SSE}=4\,284-356=3928$. The coefficient of determination is thus 
+$$
+R^2=\frac{\mbox{SSR}}{s_{yy}}=\frac{3\,928}{4\,284}=0.9169.
+$$
+
+### 9.2 Multiple Linear Regression II {#LR-Ex-9-2}
+
+We fitted a linear model with the following mean function:
+$$
+E\{Y\}=\beta_0+\beta_1\,x_1+\beta_2\,x_2+\beta_3\,x_3.
+$$
+We also extracted the design matrix $\mathbf{X}$ with `R`. 
+
+
+\begin{verbatim}
+> mod<-lm(y~x1+x2+x3)
+> X<-model.matrix(mod)
+\end{verbatim}
+
+We compute the inverse of the matrix $X'X$, i.e. we obtain $(X'X)^{-1}$. 
+
+\begin{verbatim}
+> ## inverse of (X'X)
+> solve(t(X) %*% X)
+            (Intercept)            x1            x2            x3
+(Intercept)  1.30376082 -4.873540e-03 -1.600293e-02 -8.779750e-03
+x1          -0.00487354  2.706184e-04 -1.285093e-04  3.860415e-05
+x2          -0.01600293 -1.285093e-04  4.201381e-04  1.267343e-05
+x3          -0.00877975  3.860415e-05  1.267343e-05  1.729348e-04
+\end{verbatim}
+
+We also display the parameter estimate of the function of the mean, the residual standard deviation, and the number of degrees of freedom of the error. 
+
+\begin{verbatim}
+> mod$coefficients
+(Intercept)          x1          x2          x3
+ 17.8425757  19.9823858 -18.9075439   0.9351907
+ > summary(mod)$sigma
+[1] 10.0958
+> mod$df.residual
+[1] 36
+\end{verbatim}
+
+**Note:** the symbol for matrix mutiplication in R is `%*%`; if `A` is an invertible matrix, then `solve(A)` computes its inverse. 
+
+
+(a) Test $H_0:\beta_1=0$ vs. $H_a:\beta_1\neq 0$. Use a significance level of $\alpha=5\%$.
+
+(b) Give a 95% confidence interval for $\beta_1$. 
+
+**Answers:**
+
+The residual standard deviation is $s_e=\sqrt{\text{MSE}}=10.0958$. The estimate of $\beta_1$ is $b_1=19.9823858$ and the standard error of the estimate is 
+$$
+s\{b_1\}=\sqrt{\text{MSE}(X'X)^{-1}_{11}}=s_e\,\sqrt{(X'X)^{-1}_{11}}=10.0958\,\sqrt{2.706184\times 10^{-4}}=0.16608.
+$$
+
+Note that the coefficient indices range from $j=0,1,2,\ldots,p-1$. Thus, $(X'X)^{-1}_{1,1}$ is the second value in the main diagonal of $X'X$. 
+
+The observed value of the test statistic is 
+$$
+t_0=\frac{b_1}{s\{b_1\}}=\frac{19.9823858}{0.16608}=120.3178.
+$$
+The $p-$value is thus $2\,P(t(36)\geq 120,3178)<0.0001$. 
+
+```{r }
+2*(1-pt(120.3178,36))
+```
+
+At a significance level of $\alpha=5\%$, the predictor $x_1$ is significant. 
+
+(b) Here is a 95% confidence interval for $\beta_1$: 
+$$
+b_1\pm t(0.975;36) s\{b_1\}=]19.65; 20.32[.
+$$
+where $t(0.975;36)=2.02809$, $b_1=19.9823858$ et $s\{b_1\}=0.16608.$
+
+
+```{r }
+qt(0.975,36)
+```
+
+### 9.3 Multiple Linear Regression {#LR-Ex-9-3}
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+library(dplyr)
+gapminder.rlm <- gapminder |> 
+  filter(year==2011) |>
+  select(infant_mortality, fertility, gdppc,life_expectancy)
+str(gapminder.rlm)
+plot(gapminder.rlm)
+head(gapminder.rlm)
+summary(gapminder.rlm)
+attributes(summary(gapminder.rlm))
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=TRUE, message=FALSE}
+mod.rlm.1 <- lm(life_expectancy ~ infant_mortality + fertility + gdppc, data=gapminder.rlm)
+summary(mod.rlm.1)
+plot(mod.rlm.1)
+
+mod.1 <- lm(infant_mortality ~ fertility + gdppc, data=gapminder.rlm)
+mod.2 <- lm(fertility ~ infant_mortality + gdppc, data=gapminder.rlm)
+mod.3 <- lm(gdppc ~ infant_mortality + fertility, data=gapminder.rlm)
+
+summary(mod.1)$r.squared
+summary(mod.2)$r.squared
+summary(mod.3)$r.squared
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=TRUE, message=FALSE}
+intercept_only <- lm(life_expectancy ~ 1, data=gapminder.rlm[complete.cases(gapminder.rlm),])
+
+#define model with all predictors
+all <- lm(life_expectancy ~ infant_mortality + fertility + gdppc, data=gapminder.rlm[complete.cases(gapminder.rlm),])
+
+#perform forward stepwise regression
+forward <- step(intercept_only, direction='forward', scope=formula(all))
+
+#view results of forward stepwise regression
+forward$anova
+
+#view final model
+forward$coefficients
+```
+
+
+### 9.4 Multiple Linear Regression {#LR-Ex-9-4}
+
+Consider data from an observational study to describe time to recovery (in months) based on a patient's pre-surgery form. Patient fitness level is a categorical predictor with 3 levels: 1=below average; 2=average; 3=above average.
+
+We import the data and display the structure of the dataset.
+
+```{r, out.width="0.8\\linewidth"}
+genou <- read.csv("Data/genou.csv")
+str(genou)
+plot(genou)
+```
+**Note:** genou = knee, Temps = Recovery time
+
+The variable `Groupe` (the fitness level) is a numerical variable; but in reality it is a categorical variable. We will transform it into a factor (a type of categorical variable in `R`).
+
+```{r}
+genou$Groupe<-factor(genou$Groupe)
+str(genou)
+```
+
+With a factor, you can display the levels, a frequency table, and the coding of the factor (for modelling).
+
+We display the levels; we notice that there are three of them.
+
+```{r}
+levels(genou$Groupe)
+```
+
+Here is the frequency table for the variable `Group'. We can see that this is not a balanced study; the number of observations is not constant in each group.
+
+```{r}
+table(genou$Groupe)
+```
+
+There are two **dummy variables**, one for group 2 and one for group 3. In the following, each column is a dummy variable. Dummy 2 takes the value 1 only if the observation is in group 2, otherwise it is 0; dummy 3 takes the value 1 only if the observation is in group 3, otherwise it is 0.
+
+```{r}
+contrasts(genou$Groupe)
+```
+
+The ANOVA model is fitted and a summary of the fit is displayed.
+
+```{r}
+mod<-lm(Temps ~ Groupe, data=genou)
+summary(mod)
+```
+
+The ANOVA model is significant ($F(2, 21) = 16.96$; $p < 0.0001$). This test is sometimes called an analysis of variance (ANOVA). It is a test for equality of means. 
+
+Thus, we can conclude that there is significant evidence that the mean time to recovery varies by patient group. Since there is only one predictor in the model, we can also display the ANOVA table for testing the significance of the regression.
+
+```{r}
+anova(mod)
+```
+
+Thus, the estimated recovery time for a patient with a **below average** fitness level is 38 months; the average recovery time for a patient with an **average** fitness level is $38 - 6 = $32 months, and that for a patient with an **above average** fitness level is $38 - 14 = $24 months. In addition, the residual standard deviation is 4.451 months.
+
+In the knee surgery example, we have an **observational factor**. The researchers did not assign the pre-surgery form to the patient; they come up with a certain form. It is possible that the observed differences can be explained by a confounding variable. 
+
+For example, the researchers may be unlucky in  that group 1 is populated by older patients, for instance. For observational studies, it is important to use the knowledge in the field of application (domain expertise) and to try to come up with potential confounding variables.
+
+In medical applications, age and gender are often used as confounding variables. Here, we control for the age of the participant. Gender is often an important explanatory variable in medicine; the common practice is to separate the sexes. Studies often use only men or only women: in this study, there are only men.
+
+We will describe the recovery time by patient fitness level and age. The general linear model has a categorical and a quantitative predictor. The systematic function of the mean response time is
+
+$$E\{Y \} =\beta_0 + \beta_1 I\{\texttt{Groupe} = 2\} + \beta_2 I\{\texttt{Groupe} = 3\} + \beta_3 \times \texttt{Age}.$$
+
+$\beta_0$ is the average rehabilitation time of a patient with an inferior fitness level, of age 0. But this is meaningless since we cannot deal with a patient of age zero.
+
+To give meaning to the intercept, we will center the quantitative predictor around the mean $x = 23.575$. We could also use a value close to the mean, like 24.
+
+```{r}
+mean(genou$Age)
+```
+
+The model then becomes: 
+
+$$E\{Y \} =\beta_0 + \beta_1 I\{\texttt{Groupe} = 2\} + \beta_2 I\{\texttt{Groupe} = 3\} + \beta_3 \times (\texttt{Age}-24).$$
+
+**Interpretation of the parameters:**
+
+- $\beta_0$ is the average recovery time of a 24-year-old patient with below-average form;
+
+- whatever the fitness level of the patient, the rate of change of $E\{Y\}$ with respect to age is $\beta_3$;
+
+- for two patients of the same age, the average recovery time between a patient of average and below-average fitness levels is $\beta_1$ (group 2 effect);
+
+- for two patients of the same age, the mean recovery time between a patient with above-average and below-average fitness levels is $\beta_2$ (group 3 effect).
+
+```{r}
+genou$Age.c <- genou$Age-24
+```
+
+A general linear model is fitted to describe mean recovery time by pre-surgical fitness level and patient age. The model is significant ($F(3,20) = $1170; $p < 0.0001$) and $R^2 = 0.9943$.
+
+```{r}
+mod.1 <- lm(Temps ~ Groupe + Age.c, data=genou)
+summary(mod.1)
+```
+
+The model is significant, so we can conclude that there is at least one useful predictor to describe the distribution of recovery time. Is the pre-surgical fitness level significant? Is age significant?
+
+We pit 
+$$H_0 : \beta_1 = \beta_2 = 0 \quad \text{vs.}\quad H_1 : \beta_1\neq  = 0 \text{ or }\beta_2\neq 0.$$
+In other words, we want to know if we can eliminate the predictor `Groupe` from the model. We can use a general linear test by comparing the full model to the reduced model. The pre-surgical form is a significant predictor ($F (2, 20) = 300.11$; $p < 0.0001$).
+
+```{r}
+mod.0 <- lm(Temps ~ Age.c,data=genou)
+anova(mod.0,mod.1)
+```
+
+The regression is significant: we reject $H_0$ in favor of $H_1$. 
+
+To test $$H_0 : \beta_3 = 0 \quad \text{vs.}\quad H_1: \beta_3\neq 0,$$ we invoke a hypothesis that contains only one parameter, so that we can use a $t$ test or an $F$ test. Both tests are equivalent, with $t^2 = F$.
+
+Here is the table of $t$ tests related to the coefficients. Age is a significant predictor ($t(20) = 36.4608$; $p < 0.0001$).
+
+```{r}
+summary(mod.1)$coefficients
+mod.1$df.residual
+```
+
+If we use the general linear test for the significance of age instead, we obtain that it is a significant predictor ($F (1, 20) = 1329.4$; $p < 0.0001$).
+
+```{r}
+mod.1 <- lm(Temps ~ Groupe + Age.c,data=genou)
+mod.2 <- lm(Temps ~ Groupe, data=genou)
+anova(mod.1,mod.2)
+```
+
+The estimated model parameters are: 
+
+```{r}
+mod <- lm(Temps ~ Groupe + Age.c,data=genou)
+mod$coefficients
+summary(mod)$sigma
+```
+
+It is estimated that a 24 year old patient with a below average fitness level will have an average recovery time of 35.4 months, and that the mean recovery time will increase by 1.16 months per year added to the patient's age. If a patient has an average fitness level instead of a below average fitness level, then the average recovery time is reduced by 1.85 months per year added to the patient's age. 
+
+The reduction is 8.72 months per year added to the patient's age for a patient with an above-average fitness level compared to a patient with a below-average fitness level. The residual standard deviation is 0.56 months.
+
+## 10. Quadratic forms {#LR-Ex-10}
+
+### 10.1 Quadratic forms I {#LR-Ex-10-1}
+
+For each of the cases below, the matrix $A$ is the quadratic form matrix $Q$ of the uncorrelated random variables $Y_1,Y_2,Y_3.
+Furthermore, suppose that $E\{Y_i\}=0$ and $V[Y_i]=\sigma^2=3$, for $i=1,2,3$. For each of the quadratic forms, calculate $E\{Q\}$.
+
+$$
+(i) ~~ A=\begin{bmatrix}
+1 & 4 & 6 \\
+4 & 0 & 6 \\
+6 & 6 & 5 \\
+\end{bmatrix};
+ ~~~ (ii) ~~ A=\begin{bmatrix}
+1 & 4 & 6 \\
+3 & 0 & 6 \\
+6 & 4 & 10 \\
+\end{bmatrix}; ~~~ (iii) ~~ A=\begin{bmatrix}
+2/3 & -1/3 & -1/3 \\
+-1/3 & 2/3 & -1/3 \\
+-1/3 & -1/3 & 2/3 \\
+\end{bmatrix}.
+$$
+
+**Answers:**
+
+We use the following result: 
+$$
+E\{Q\}=E\{Y\,A\,Y'\}=\sigma^2\,\mbox{tr}(A)+E\{Y\}\,A\,E\{Y'\}.
+$$
+But $E\{Y\}=0$, so that  $E\{Q\}=\sigma^2\,\mbox{tr}(A)=3\,\mbox{tr}(A)$. 
+
+(i) $E\{Q\}=3\,\mbox{tr}(A)=3\,(1+0+5)=18$
+
+(ii) $E\{Q\}=3\,\mbox{tr}(A)=3\,(1+0+10)=33$
+
+(iii) $E\{Q\}=3\,\mbox{tr}(A)=3\,(2/3+2/3+2/3)=6$
+
+### 10.2 Quadratic forms II {#LR-Ex-10-2}
+
+Here are quadratic forms of $Y_1, Y_2, Y_3$. In each case, give the matrix of the quadratic form, and compute the trace of the matrix.
+
+(a) $Q=Y_1^2-5\,Y_2^2+10\,Y_3^2-2\,Y_1\,Y_2-10\,Y_1\,Y_3+6\,Y_2\,Y_3.$
+
+(b)  $Q=5\,Y_1^2+3\,Y_2^2+2\,Y_3^2-10\,Y_1\,Y_2-8\,Y_1\,Y_3+5\,Y_2\,Y_3.$
+
+**Answers:**
+
+(a) The matrix of the quadratic form is  
+$$
+A=\begin{bmatrix}
+1 &  -1   & -5\\
+-1  & -5  & 3\\
+-5  &  3   & 10 \\
+\end{bmatrix}.
+$$
+Its trace is $\mbox{tr}(A)=1+(-5)+10=6$. 
+
+(b) The matrix of the quadratic form is 
+$$
+A=\begin{bmatrix}
+5 &  -5   & -4\\
+-5  & 3  & 2.5\\
+-4  &  2.5   & 2 \\
+\end{bmatrix}.
+$$
+Its trace is $\mbox{tr}(A)=5+3+2=10$. 
+
+\newpage
+
+## 11. Bonferroni {#LR-Ex-11}
+
+Let us imagine that the real linear relation linking $Y$ and $X$ is $y=75+15x+\varepsilon$, where $\varepsilon \sim N(0,1)$.
+
+Draw samples of the response $Y$ (of size $n$) for the following predictors values:
+
+```{r}
+n=20
+x = c(0.99,1.02,1.15,1.29,1.46,1.36,0.87,1.23,1.55,1.40,1.19,1.15,0.98,1.01,1.11,1.20,1.26,1.32,1.43,0.95)
+sum.X = sum(x)
+sum.X.2 = sum(x*x)
+```
+
+For the first sample, the observed responses are: 
+
+```{r}
+set.seed(0) # for replicability
+beta0 = 75
+beta1 = 15
+y = beta0 + beta1*x + rnorm(n)
+plot(x,y)
+```
+
+The equation of the line of best fit, in this case, is: 
+
+```{r}
+(mod = lm(y~x))
+plot(x,y)
+abline(mod)
+```
+
+We can compute the following quantities:
+
+```{r}
+sum.Y = sum(y)
+sum.X.Y = sum(x*y)
+sum.Y.2 = sum(y*y)
+b1 = (sum.X.Y-n*mean(x)*mean(y))/(sum.X.2-n*(mean(x))^2)
+b0 = mean(y) - b1*mean(x)
+SSE = sum.Y.2 -n*(mean(y))^2 - b1^2*(sum.X.2-n*(mean(x))^2)
+sigma.2.hat = SSE/(n-2)
+s.b1 = sqrt(sigma.2.hat/(sum.X.2-n*(mean(x))^2))
+s.b0 = sqrt(sigma.2.hat*(1/n+(mean(x))^2/(sum.X.2-n*(mean(x))^2)))
+```
+
+At a confidence level of 95%, the confidence interval for the intercept $\beta_0$ is thus:
+
+```{r}
+alpha=0.05
+c(b0-qt(1-alpha/2,n-2)*s.b0,b0+qt(1-alpha/2,n-2)*s.b0)
+```
+
+The real value of $\beta_0$ can indeed be found in the C.I.:
+
+```{r}
+(beta0 > b0-qt(1-alpha/2,n-2)*s.b0) & (beta0 < b0+qt(1-alpha/2,n-2)*s.b0)
+```
+
+The C.I. for the slope $\beta_1$ is: 
+
+```{r}
+c(b1-qt(1-alpha/2,n-2)*s.b1,b1+qt(1-alpha/2,n-2)*s.b1)
+```
+
+The real value of $\beta_0$ can also be found in the C.I.:
+
+```{r}
+(beta1 > b1-qt(1-alpha/2,n-2)*s.b1) & (beta1 < b1+qt(1-alpha/2,n-2)*s.b1)
+```
+
+Simultaneously, $(\beta_0,\beta_1)$ are both found in their respective C.I: 
+
+```{r}
+(beta0 > b0-qt(1-alpha/2,n-2)*s.b0) & (beta0 < b0+qt(1-alpha/2,n-2)*s.b0) & (beta1 > b1-qt(1-alpha/2,n-2)*s.b1) & (beta1 < b1+qt(1-alpha/2,n-2)*s.b1)
+```
+
+Now, let's repeat the experiment $m = 10,000$ times:
+
+```{r}
+m = 10000
+g=1
+set.seed(0)
+ICb0 = c()
+ICb1 = c()
+ICb0b1 = c()
+for(j in 1:m){
+  y = beta0 + beta1*x + rnorm(n, sd=10)
+  sum.Y = sum(y)
+  sum.X.Y = sum(x*y)
+  sum.Y.2 = sum(y*y)
+  b1 = (sum.X.Y-n*mean(x)*mean(y))/(sum.X.2-n*(mean(x))^2)
+  b0 = mean(y) - b1*mean(x)
+  SSE = sum.Y.2 -n*(mean(y))^2 - b1^2*(sum.X.2-n*(mean(x))^2)
+  sigma.2.hat = SSE/(n-2)
+  s.b1 = sqrt(sigma.2.hat/(sum.X.2-n*(mean(x))^2))
+  s.b0 = sqrt(sigma.2.hat*(1/n+(mean(x))^2/(sum.X.2-n*(mean(x))^2)))
+
+  ICb0[j] = (beta0 > b0-qt(1-(alpha/g)/2,n-2)*s.b0) & (beta0 < b0+qt(1-(alpha/g)/2,n-2)*s.b0)
+  ICb1[j] = (beta1 > b1-qt(1-(alpha/g)/2,n-2)*s.b1) & (beta1 < b1+qt(1-(alpha/g)/2,n-2)*s.b1)
+  ICb0b1[j] = (beta0 > b0-qt(1-(alpha/g)/2,n-2)*s.b0) & (beta0 < b0+qt(1-(alpha/g)/2,n-2)*s.b0) & (beta1 > b1-qt(1-(alpha/g)/2,n-2)*s.b1) & (beta1 < b1+qt(1-(alpha/g)/2,n-2)*s.b1)
+}
+```
+
+Individually, we have: 
+
+```{r}
+sum(ICb0)/m
+sum(ICb1)/m
+```
+Simultaneously, however: 
+
+```{r}
+sum(ICb0b1)/m
+```
+We do not reach the 95% mark!
+
+If we use the Bonferroni procedure, on the contrary: 
+
+```{r}
+m = 10000
+g=2
+set.seed(0)
+ICb0 = c()
+ICb1 = c()
+ICb0b1 = c()
+for(j in 1:m){
+  y = beta0 + beta1*x + rnorm(n, mean=0, sd = 400)
+  sum.Y = sum(y)
+  sum.X.Y = sum(x*y)
+  sum.Y.2 = sum(y*y)
+  b1 = (sum.X.Y-n*mean(x)*mean(y))/(sum.X.2-n*(mean(x))^2)
+  b0 = mean(y) - b1*mean(x)
+  SSE = sum.Y.2 -n*(mean(y))^2 - b1^2*(sum.X.2-n*(mean(x))^2)
+  sigma.2.hat = SSE/(n-2)
+  s.b1 = sqrt(sigma.2.hat/(sum.X.2-n*(mean(x))^2))
+  s.b0 = sqrt(sigma.2.hat*(1/n+(mean(x))^2/(sum.X.2-n*(mean(x))^2)))
+
+  ICb0[j] = (beta0 > b0-qt(1-(alpha/g)/2,n-2)*s.b0) & (beta0 < b0+qt(1-(alpha/g)/2,n-2)*s.b0)
+  ICb1[j] = (beta1 > b1-qt(1-(alpha/g)/2,n-2)*s.b1) & (beta1 < b1+qt(1-(alpha/g)/2,n-2)*s.b1)
+  ICb0b1[j] = (beta0 > b0-qt(1-(alpha/g)/2,n-2)*s.b0) & (beta0 < b0+qt(1-(alpha/g)/2,n-2)*s.b0) & (beta1 > b1-qt(1-(alpha/g)/2,n-2)*s.b1) & (beta1 < b1+qt(1-(alpha/g)/2,n-2)*s.b1)
+}
+sum(ICb0)/m
+sum(ICb1)/m
+sum(ICb0b1)/m
+```
+
+## 12. Supplementary Examples {#LR-12}
+
+### 12.1 Linearity test
+
+```{r}
+x=c(1,1,2,2,3)    
+y=c(10,11,10.5,12,13)
+
+data = data.frame(x,y)
+
+mod = lm(y~x, data=data)
+summary(mod)
+
+ggplot2::ggplot(data,ggplot2::aes(x=x,y=y)) + 
+  ggplot2::geom_point(size=1) + 
+  ggplot2::xlab("X") + 
+  ggplot2::ylab("Y") + 
+  ggplot2::geom_smooth(color="red", method="lm", se=FALSE) +
+  ggplot2::theme_bw()
+
+n=5
+p=2
+c=3
+n1 = 2
+n2 = 2
+n3 = 1
+SST = (n-1)*var(y)
+SSR = as.double(mod[[1]][2]^2*(n-1)*var(x))
+SSE = SST - SSR
+SSPE = (n1-1)*var(data[data$x == 1,2]) + (n2-1)*var(data[data$x == 2,2]) # + (n3-1)*var(data[data$x == 3,2])
+SSLF = SSE - SSPE
+Fstar = (SSLF/(c-p))/(SSPE/(n-c))
+qf(0.95,c-p,n-c)
+Fstar < qf(0.95,c-p,n-c)
+
+
+x=c(1,1,2,2,3)    
+y=c(10,11,10.5,12,33)
+
+data = data.frame(x,y)
+
+mod = lm(y~x, data=data)
+summary(mod)
+
+ggplot2::ggplot(data,ggplot2::aes(x=x,y=y)) + 
+  ggplot2::geom_point(size=1) + 
+  ggplot2::xlab("X") + 
+  ggplot2::ylab("Y") + 
+  ggplot2::geom_smooth(color="red", method="lm", se=FALSE) +
+  ggplot2::theme_bw()
+
+n=5
+p=2
+c=3
+n1 = 2
+n2 = 2
+n3 = 1
+SST = (n-1)*var(y)
+SSR = as.double(mod[[1]][2]^2*(n-1)*var(x))
+SSE = SST - SSR
+SSPE = (n1-1)*var(data[data$x == 1,2]) + (n2-1)*var(data[data$x == 2,2]) # + (n3-1)*var(data[data$x == 3,2])
+SSLF = SSE - SSPE
+Fstar = (SSLF/(c-p))/(SSPE/(n-c))
+qf(0.95,c-p,n-c)
+Fstar < qf(0.95,c-p,n-c)
+```
+
+### 12.2 Polynomial regression
+
+```{r}
+X=c(1,1,2,4,3,6)
+X2 = X^2
+Xm = X-mean(X)
+X2m = (X-mean(X))^2
+Y=c(0.8,1.3,4.1,15.3,8.8,36)
+data=data.frame(X,X2,Xm,X2m,Y)
+
+par(mfrow = c(1,2))
+
+summary(lm(Y~X, data=data))
+plot(data$X,data$Y)
+abline(lm(Y~X, data=data), col='red')
+
+summary((mod1<-lm(Y~X+X2, data=data)))
+modX = lm(X~X2, data=data)
+VIF1 = 1/(1-summary(modX)$r.squared)
+
+
+summary((mod2<-lm(Y~Xm+X2m, data=data)))
+
+t <- seq(0, 6, 0.1)
+y <- predict(mod1,list(X=t, X2=t^2))
+plot(data$X, data$Y)
+
+#add predicted lines based on quadratic regression model
+lines(t, y, col='blue')
+
+modXm = lm(Xm~X2m, data=data)
+VIF1m = 1/(1-summary(modXm)$r.squared)
+```
+
+### 12.3 Interaction terms
+
+```{r}
+x1 <- runif(50, 0, 10)
+x2 <- rnorm(50, 10, 3)
+modmat <- model.matrix(~x1 * x2, data.frame(x1 = x1, x2 = x2))
+coeff <- c(1, 2, -1, 1.5)
+y <- rnorm(50, mean = modmat %*% coeff, sd = 25)
+dat <- data.frame(y = y, x1 = x1, x2 = x2)
+dat2 = dat
+dat2[,c(2:3)] <- scale(dat[,c(2:3)], scale=FALSE)
+
+library(ggplot2)
+ggplot(dat2,aes(x=x1,y=x2,fill=y,size=y)) + geom_point(pch=21) + theme_bw()
+
+summary(lm(y ~ x1 * x2, data=dat2))
+plot(lm(y ~ x1 * x2, data=dat2))
+
+summary(lm(y ~ x1 + I(x1^2) + x1 * x2 + x2 + I(x2^2), data=dat2))
+plot(lm(y ~ x1 + I(x1^2) + x1 * x2 + x2 + I(x2^2), data=dat2))
+```
+
+### 12.4 Weighted least squares
+
+```{r, out.width="0.5\\linewidth"}
+n = nrow(x1)
+p = 2
+plot(data.frame(x1,x2,y))
+
+mod = lm(y ~ x1 + x2)
+summary(mod)
+plot(mod)
+
+(MSE = sum(mod$residuals^2)/(n-p))
+```
+
+```{r}
+poids <- 1 / lm(abs(mod$residuals) ~ x1 + x2)$fitted.values^2
+mod.wls <- lm(y ~ x1 + x2, weights=poids)
+
+(MSE.w = sum(mod.wls$residuals^2)/(n-p))
+summary(mod.wls)
+plot(mod.wls)
+```

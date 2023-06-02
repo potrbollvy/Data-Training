@@ -1,0 +1,2018 @@
+---
+title: "MAT3775"
+author: "Patrick Boily, Gilles Lamothe"
+date: '2022-12-27'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exemples 
+
+<!-- rmarkdown::render("MAT3775 - Exemples.Rmd") -->
+
+Un grand nombre d'exemples utiliseront l'ensemble de données suivant.
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=TRUE, message=FALSE}
+library(tidyverse)
+gapminder = as.data.frame(unclass(data.frame(read.csv("Data/gapminder_SS.csv"))),
+                          stringsAsFactors=TRUE)
+gapminder <- gapminder[,c("country","year","continent",
+                          "population","infant_mortality","fertility","gdp",
+                          "life_expectancy")]
+
+gapminder = gapminder |> mutate(lgdppc=log(gdp/population),gdppc=gdp/population)
+str(gapminder)
+```
+
+
+\newpage
+
+## 1. Ajustement d'un modèle linéaire avec `lm()` {#LR-Ex-1}
+
+On s'intéresse pour l'instant aux observations datant de 2011 et portant sur l'espérance de vie et sur le logarithme du revenu par habitant. 
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=FALSE, message=FALSE}
+gapminder.elr <- gapminder |> 
+  filter(year==2011) |>
+  select(lgdppc,life_expectancy)
+str(gapminder.elr)
+head(gapminder.elr)
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=TRUE, echo=FALSE, message=FALSE}
+gapminder.elr <- gapminder |> 
+  filter(year==2011) |>
+  select(lgdppc,life_expectancy)
+str(gapminder.elr)
+knitr::kable(head(gapminder.elr))
+```
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", out.width="70%", eval=TRUE, message=FALSE, fig.asp=1}
+plot(gapminder.elr)
+```
+
+On peut utiliser la fonction `lm()` afin d'ajuster le modèle linéaire qui décrit l'espérance de vie (variable réponse $Y$) en fonction du logarithme du revenu par habitant (variable prédicteur $X$) en 2011. 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+mod <- lm(life_expectancy ~ lgdppc, data=gapminder.elr)
+mod
+```
+
+Le modèle linéaire estimé est ainsi $$\widehat{\text{Life Expectancy}}_{2011}=37.23+4.30\cdot \log\text{GDP per capita}_{2011}. $$ 
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", out.width="70%", eval=TRUE, message=FALSE, fig.asp=1}
+plot(gapminder.elr)
+abline(mod)
+```
+
+**Commentaires**
+
+- Nous avons construit un objet de type `lm` nommé `mod`. Cet objet contient plusieurs composantes que l'on peut afficher  l'aide de la fonction `names()`.    
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    names(mod)
+    ```
+
+    La première composantes est le vecteur des estimations des coefficients $\vec{\beta}$. 
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    mod$coefficients
+    ```
+
+    Ainsi, $b_0=37.229550$ et $b_1=4.299686$.
+
+    La deuxième composante est le vecteur des résidus et la huitième composante est le nombre de degrés de liberté des résidus. On peut les utilisés pour calculer l'estimation de la variance de l'erreur, c'est-à-dire $$\text{MSE}=\frac{1}{n-2}\sum_{i=1}^ne_i^2.$$ L'écart type de cette variance est l'écart type des résiduels $$\text{se}=\sqrt{\text{MSE}}$$ qui décrit l'écart type de la droite d'ajustement.
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    MSE<-sum(mod$residuals^2)/mod$df.residual
+    MSE
+    sqrt(MSE)
+    ```
+
+- Nous pouvons utiliser plusieurs fonctions avec un object de type `lm`:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    methods(class=lm)
+    ```
+
+    Par exemple, nous savons que la droite ajustée est celle qui maximise le logarithme de la fonction de vraisemblance $$\log L=-\frac{n}{2}\left[\log\left(2\pi\cdot \frac{\text{SSE}}{n}\right)+1\right].$$ 
+    
+    Nous avons 3 degrés de liberté, puisqu'il y a 3 paramètres à estimer: $\beta_0$, $\beta_1$, et $\sigma^2$. 
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    logLik(mod)
+    ```
+
+    Voici comment on pourrait vérifier que `R` utilise bien la formule précédente afib de calculer le maximum du logarithme de la fonction de vraisemblance:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    p <- length(mod$coefficients)
+    n<-mod$df.residual+p
+    SSE<-sum(mod$residuals^2)
+    -n/2*(log(2*pi*SSE/n)+1)
+    ```
+
+- Nous pouvons également obtenir des intervalles de confiance pour les estimations des paramètres:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    confint(mod)
+    ```
+
+    Le niveau de confiance est 95% par défaut, mais il peut être modifié avec l'argument `level`:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    confint(mod,level=0.98)
+    ```
+
+    Il est aussi possible de spécifier les paramètres qui nous intéressent:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    confint(mod,parm=c("lgdppc"))
+    ```
+
+- Il est aussi possible d'obtenir un sommaire de l'ajustement avec la fonction `summary()`:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    summary(mod)
+    ```
+
+    Il n'est pas nécessaire d'afficher tout le sommaire,un object qui a lui-même des composantes:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    names(summary(mod))
+    ```
+
+    Par exemple, voici comment extraire l'estimation des paramètres et le test de la signification correspondant:
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    summary(mod)$coefficients
+    ```
+    
+    On peut afficher le coefficient de détermination $R^2$ comme suit: 
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    summary(mod)$r.squared
+    ```
+
+    ou encore l'écart type des résiduels $\sqrt{\text{MSE}}$:
+    
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    summary(mod)$sigma
+    ```
+
+\newpage
+
+## 2. Analyse de variance avec `lm()` {#LR-Ex-2}
+
+Nous allons utiliser un modèle linéaire simple pour décrire la l'ésperance de vie ($Y$) en fonction du taux de mortalité infantile ($X$) en 2011 (on a $n=178$). 
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=FALSE, message=FALSE}
+gapminder.em <- gapminder |> 
+  filter(year==2011) |>
+  select(infant_mortality,life_expectancy) |>
+  drop_na()
+str(gapminder.em)
+head(gapminder)
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=TRUE, echo=FALSE, message=FALSE}
+gapminder.em <- gapminder |> 
+  filter(year==2011) |>
+  select(infant_mortality,life_expectancy) |>
+  drop_na()
+str(gapminder.em)
+knitr::kable(head(gapminder.em))
+```
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", out.width="50%", eval=TRUE, message=FALSE, fig.asp=1}
+plot(gapminder.em)
+```
+
+Visuellement, il n'est pas irraisonable de s'attendre à ce que la fonction de réponse moyenne soit donnée par $$E[Y\mid X=x]=\beta_0+\beta_1x.$$
+Comment peut-on vérifier la signification du taux de mortalité infantile? On confronte tout simplement 
+$$H_0: \beta_1=0\qquad\text{à}\qquad H_1: \beta_1\neq 0.$$
+Puisque nous avons un modèle simple (un seul prédicteur, c'est aussi un test de la signification de la régression: on pourrait se servir de la statistiqur $$t^*=\frac{b_1}{s\{b_1\}}.$$ Mais il y s une autre approche, celle de l' analyse de variance (ANOVA). Le tableau d'ANOVA s'obtient en mettant un objet de type `lm` dans la fonction `anova()`.
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+mod <- lm(life_expectancy ~ infant_mortality, data=gapminder.em)
+anova(mod)
+```
+
+**Commentaires:**
+
+- La statistique du test est $F^*=528.73$. Ceci veut dire que l'estimation de la variance de l'erreur basée sur la somme des carrés de la régression est $528.73$ fois aussi grande que l'estimation de la variance de l'erreur basée sur la somme des carrés résiduels. Il est fort probable que MSR n'estime pas $\sigma^2$, mais plut\^ot une quantité plus élevée. Comme nous savons que $$E(\text{MSR})=E\left(\frac{\text{SSR}}{1}\right)=\sigma^2(1+\beta_1^2s_{xx}),$$ cela indique fortement que $\beta_1\neq 0$.
+
+- Pour avoir une mesure de la signification des preuves ayant à l'encontre de $H_0:\beta_1=0$, nous devons calculer les chances d'avoir observé une statistique $F^*$ aussi élevée que $528.73$ en supposant que $H_0$ était valide: si c'est le cas, $F^*\sim F(1,n-2)$. Puisque la valeur $P$ avec ce modèle est $$P(F(1,176)>528.73)<0.001,$$ il y a une forte évidence en faveur de $H_1$.
+
+- On peut aussi s'y prendre à l'aide d'un test $F$ qui compare deux modèles. Dans ce cas, on confronte  $$H_0: E[Y\mid X=x]=\beta_0\qquad\text{à}\qquad H_1: E[Y\mid X=x]=\beta_0+ \beta_1x.$$ Pour évaluer l'évidence contre $H_0$ et en faveur de $H_1$, il suffit de comparer l'ajustement des deux modèles selon la somme des carrés des résiduels, ce qui se fait de nouveau avec la fonction `anova()`.
+
+    ```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+    mod.0 <- lm(life_expectancy ~ 1, data=gapminder.em)
+    anova(mod.0,mod)
+    ```
+
+    Nous comparons la somme des carrés du modèle complet $\text{SSE}=3094.8$ à la somme des carrés du modèle réduit $\text{SSE(R)}=12392.2$, en calculant la somme des carrés supplémentaires $$\text{ExtraSS}=\text{SSE(R)}-\text{SSE}=9297.4.$$ Plus cette différence est élevée, plus le modèle réduit est considéré comme étant mal ajusté en comparaison avec le modèle complet. Si l'évidence est forte (ici, une réduction de près de 75\% en passant du modèle réduit au modèle complet), cela suggère que l'on devrait rejeter $H_0$ en faveur de l'hypothèse $H_1$ que la pente est non-nulle. 
+
+\newpage
+
+## 3. Variable explicative binaire {#LR-Ex-3}
+
+### 3.1 Variable explicative binaire II {#LR-Ex-3-1}
+
+On mène une étude sur le développement de l'ectomycorhizue, une relation symbiotique entre les racines des arbres et un champignon, dans laquelle les minéraux sont transférés du champignon aux arbres et du sucre des arbres au champignon. 20 chênes rouges du nord exposés au champignon _pisolithus tinctorus_ ont été cultivés dans une serre; tous les chênes ont été plantés dans le même type de terre et ont reçu la même quantité de soleil et d'eau. La moitié des spécimens (choisis au hasard) ont reçu un traitement de 368 ppm d'azote sous la forme NaNO3; les autres, non ($X$). On mesure la masse de la tige, en grammes, après 140 jours  ($Y$). 
+
+Les données sont les suivantes:
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=FALSE, message=FALSE}
+azote = as.data.frame(unclass(data.frame(read.csv("Data/Azote.csv"))),
+                          stringsAsFactors=TRUE)
+azote
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=TRUE, message=FALSE, echo=FALSE}
+azote = as.data.frame(unclass(data.frame(read.csv("Data/Azote.csv"))),
+                          stringsAsFactors=TRUE)
+colnames(azote) <- c("Masse","Azote")
+knitr::kable(azote)
+```
+
+`R` utilise la première catégorie rencontrée en tant que catégorie de référence: les chênes n'ayant pas reçu d'azote forment ainsi le groupe de référence (il est possible de changer l'ordre des catégories afin que le groupe de traitement d'azote devienne le groupe de référence, à l'aide de: `azote$Azote <- factor(azote$Azote, levels=c("oui","non"))`, par exemple.) En général, c'est souvent le groupe de contrôle qui est utilisé comme groupe de référence, ce qui est déjà le cas ici.
+
+Voici quelques statistiques descriptives pour la masse de la tige dans chacun des groupes: 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+library(dplyr)
+azote.s <- azote |> group_by(Azote) |> 
+  summarise(mean = mean(Masse), 
+            var = var(Masse),
+            n = n()) |> 
+  as.data.frame()
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE, echo=FALSE}
+knitr::kable(azote.s)
+```
+
+Si on suppose que les variances des deux populations sont égales, alors on peut l'approximer par la variance pondérée $$s^2_p=\frac{(n_1-1)s^2_1+(n_2-1)s^2_2}{n_1+n_2-2}=0.0156289.$$
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+s2p = sum((azote.s$n-1)*azote.s$var)/(sum(azote.s$n)-2) 
+s2p
+```
+
+Pour comparer les deux groupes visuellement, on peut utiliser des diagrammes à boîte comparatifs avec une superposition de points.
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", message=FALSE}
+azote |> ggplot(aes(x=Masse,y=Azote,color=Azote)) + 
+  geom_boxplot() + 
+  geom_jitter(color="black", height=0.2) + 
+  theme_bw()
+```
+
+On peut utiliser un test $T$ de Student afin de comparer les deux moyennes. La valeur observée de la statistique du test est $$t^*=\frac{\overline{y}_1-\overline{y}_2}{s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}=-3.935.$$ La valeur $p$ correspondante est $$2P(T(18)>|-3.935|)=0.0009707.$$ 
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", message=FALSE}
+t.test(Masse~Azote,data=azote,var.equal=TRUE)
+```
+
+Le traitement semble certainement avoir un effet. On peut aussi utiliser une approche de régression pour effectuer ce test (ceci va nous aider à généraliser le test à la comparaison de plus de 2 groupes).
+
+Pour identifier les groupes, nous utilisons la variable muette $$x_i=\begin{cases} 1 & \text{observation $i$ dans le groupe de traitement} \\ 0 & \text{autrement}\end{cases}$$
+
+Considérons le modèle de régression linéaire simple: $Y_1,Y_2,...,Y_n$ sont des variables aléatoires normales, indépendantes, et telles tel que
+$$E[Y_i\mid X=x_i]=\beta_0+\beta_1x_i=\begin{cases}\beta_0=\mu_1, & x_i=0 \\ \beta_0+\beta_1=\mu_2, & x_i=1\end{cases}$$
+et $V[Y_i]=\sigma^2$ for $i=1,\ldots,n$. Dans notre exemple, nous avons ainsi deux populations normales indépendantes, de variances égales.
+
+Lorsque la variable explicative est catégorique (un `factor` dans la terminologie de `R`), `R` code automatiquement des variables muettes. On affiche ces variables muettes, à l'aide de la fonction `contrasts()`.
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", message=FALSE}
+contrasts(azote$Azote)
+```
+
+On interprète cette variable de la façon suivante: elle prend la valeur 0 si c'est une observation sans azote; 1 si c'est une observation avec azote.
+
+On peut maintenant ajuster le modèle linéaire pour décrire la masse en fonction du groupe de traitement. 
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", message=FALSE}
+mod<-lm(Masse~Azote,data=azote)
+mod$coefficients
+```
+
+La masse moyenne est ainsi: $$\hat{\mu}_{Y \mid X=x}=b_0+b_1x=\begin{cases}b_0=0.398, & x_i=0 \\ b_0+b_1=0.398+0.220=0.618, & x_i=1\end{cases}$$
+
+L'estimation de la variance $\sigma^2$ est $\text{MSE}=0.01562889$.
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", message=FALSE}
+summary(mod)$sigma^2
+```
+
+Ce sont les valeurs obtenues de $\overline{y}_1$, $\overline{y}_2$, et $s^2_p$, respectivement. 
+
+Remarquons que $\mu_1=\mu_2$ si et seulement si $\beta_1=0$; lorsque l'on test pour la signification de la variable explicative qui identifie le traitement, nous pouvons aussi l'interpréter comme un test d'égalité des moyennes. 
+
+```{r, fig.cap=NULL, class.source="Rchunk", class.output="chunkout", message=FALSE}
+summary(mod)$coefficients
+```
+
+La valeur observée de la statistique du test est $$t^*=\frac{b_1}{s\{b_1\}}=3.935$$ et la valeur $p$ du test est $$2P(T(18)>|3.935|)=0.0009707.$$ 
+
+\newpage
+
+### 3.2 Variable explicative binaire II {#LR-Ex-3-2}
+
+Nous avons deux variables explicative \verb|x1| (qui est catégorique) et \verb|x2| (qui est quantitative). Nous affichons le codage des variables muettes pour \verb|x1|.
+
+\begin{verbatim}
+> contrasts(x1)
+         groupe 2 groupe 3
+groupe 1        0        0
+groupe 2        1        0
+groupe 3        0        1
+\end{verbatim}
+
+Voici un sommaire de l'ajustement du modèle.
+
+\begin{verbatim}
+> summary(mod)
+
+Call:
+lm(formula = y ~ x1 + x2)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-25.702 -11.913   0.602   7.663  35.245
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)   5.3141    15.1880   0.350 0.729244
+x1groupe 2   -5.9883     6.9386  -0.863 0.396005
+x1groupe 3   -6.6344     6.9633  -0.953 0.349483
+x2            1.1677     0.3003   3.889 0.000624 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 15.51 on 26 degrees of freedom
+Multiple R-squared:  0.3788,    Adjusted R-squared:  0.3072
+F-statistic: 5.286 on 3 and 26 DF,  p-value: 0.005573
+\end{verbatim}
+
+
+
+(a) Quelle est la taille $n$ de cette étude.
+
+(b) Donner la fonction de la moyenne estimée pour chacun des 3 niveaux de la variable catégorique \verb|x1|.
+
+(c) Tester pour la signification de la régression. Formuler les hypothèses, donner la statistique du test et la valeur $p$. 
+Donner la conclusion à $\alpha=5\%$. 
+
+(d) Nous avons ajusté un modèle réduit. Nous allons comparer ce modèle réduit au modèle complet ci-haut. Cette comparaison va nous permettre de tester quelles hypothèses? Formuler les hypothèses, donner la statistique du test, la valeur $p$ et la conclusion du test à $\alpha=5\%$. 
+
+\begin{verbatim}
+> mod0<-lm(y~x2)
+> summary(mod0)$sigma
+[1] 28.46512
+\end{verbatim}
+
+**Réponses:**
+
+(a) On a $n-p=26$ et $p=4$, alors, $n=26+4=30$.
+
+(b) La fonction de la moyenne estimée est
+\begin{eqnarray*}
+E\{Y\} &=& 5,\!3141-5,\!9883\,I\{x_1=\mbox{Groupe 2}\}-6,\!6344\,I\{x_1=\mbox{Groupe 3}\}+1,\!1677\,x_2  \\
+&=& \left\{
+\begin{array}{ll}
+5,\!3141+1,\!1677\,x_2, & \mbox{si $x_1=$ Groupe 1} \\
+ -0,\!6742+1,\!1677\,x_2, & \mbox{si $x_1=$ Groupe 2} \\
+-1,\!3203+1,\!1677\,x_2, & \mbox{si $x_1=$ Groupe 3} \\
+\end{array}
+\right.
+\end{eqnarray*}
+
+(c) On veut tester $H_0:\beta_1=\beta_2=\beta_3=0$ contre $H_a$: au moins un des ces $\beta$ est non nul. La régression est significative $(F(3,26)=5,\!286; p=0,\!0056)$. 
+
+
+(d) Nous allons tester
+$$
+H_0:~E\{Y\}=\beta_0+\beta_3\,x_2
+$$
+contre
+$$
+H_a:~E\{Y\}=\beta_0+\beta_1\,I\{x_1=\mbox{Groupe 1}\}+\beta_2\,I\{x_1=\mbox{Groupe 2}\}+\beta_3\,x_2.
+$$
+Ceci est un test pour la signification du prédicteur catégorique \verb|x1|. Il nous faudra la somme de carrés résiduelle pour chacun des modèles.
+
+\bigskip 
+
+\textbf{Pour le modèle complet~:} On a $15,\!51=\sqrt{\mbox{MSE}}=\sqrt{\mbox{SSE}/(n-p)}=\sqrt{\mbox{SSE}/26}$, alors
+$\mbox{SSE}=(15,\!51)^2(26)=6254,\!563.$
+
+\bigskip 
+
+
+\textbf{Pour le modèle réduit~:} On a $28,\!46512=\sqrt{\mbox{MSE(R)}}=\sqrt{\mbox{SSE(R)}/(n-q)}=\sqrt{\mbox{SSE}/28}$, alors
+$\mbox{SSE}=(28.46512)^2(28)=22\,687,\!37.$
+
+\bigskip 
+
+
+\textbf{ExtraSS~:} La différence des sommes de carrés résiduelle est  $\mbox{ExtraSS}=\mbox{SSE(R)}-\mbox{SSE}=22\,687,\!37-6254,\!563=16\,432,\!81.$
+
+\bigskip 
+
+La statistique du test est
+$$
+F_0=\frac{\mbox{ExtraSS}/(p-q)}{\mbox{SSE}/(n-p)}=\frac{16\,432,\!81/(4-2)}{6254,\!563/26}=34,\!15531.
+$$
+La valeur $p$ est $P(F(2,26)>34,\!15531)=5,\!31\times 10^{-8}.$ Le prédicteur \verb|x_1| est significatif.
+
+\begin{verbatim}
+> 1-pf(34.15531,2,26)
+[1] 5.313317e-08
+\end{verbatim}
+
+\newpage
+
+## 4. Diagnostiques et mesures correctives {#LR-Ex-4}
+
+Lors de l'évaluation de la pertinence du modèle linéaire, nous devons suivre l'ordre suivant
+
+1. Identifier les valeurs aberrantes et les observations influentes;
+
+2. Test des erreurs dans la spécification de la fonction de la moyenne;
+
+3. Test d'hétéroscédasticité;
+
+4. Testez la normalité des erreurs aléatoires. 
+
+### 4.1 Diagnostique pour la spécification de la fonction de la moyenne {#LR-Ex-4-1}
+
+Nous pouvons utiliser le diagramme des résidus contre les valeurs ajustées, et nous pouvons effectuer le test RESET de Ramsey (Regression Equation Specification Error Test). 
+
+Considérons le modèle linéaire: 
+
+$$E\{Y\}=\beta_0+\beta_1x_1+\cdots+\beta_{p-1}x_{p-1}.$$ Nous ajustons le modèle pour obtenir les valeurs ajustées $$\hat{y}_i=b_0+b_1x_{1,i}+\cdots+b_{p-1}x_{p-1,i} $$ pour $i=1,\ldots,n$. Ensuite, on ajoute $\hat{y}^2$ et $\hat{y}^3$ comme prédicteurs dans le modèle: $$E\{Y\}=\beta_0+\beta_1x_1+\cdots+\beta_{p-1}x_{p-1}+\gamma_1\hat{y}^2+\gamma_2\hat{y}^3.$$
+Le test RESET de Ramsey consiste à tester $$H_0:\gamma_1=\gamma_2=0~~~\text{vs.}~~~ H_1:\gamma_1\neq 0~\text{or}~\gamma_2\neq 0.$$
+Si le test RESET de Ramsey est significatif, alors nous avons des preuves d’effets d’ordre supérieur manquants dans le modèle. Cela signifie que nous avons des preuves significatives qu'il y a une erreur dans la spécification de la fonction de la moyenne.
+
+Le test de Ramsey est général dans le sens où il peut identifier des erreurs dans la spécification du modèle. Cependant, il ne peut pas nous dire quelle est la cause de l'erreur. Cela signifie qu'il y a des effets non linéaires. Nous devons étudier la relation partielle entre Y et les prédicteurs et essayer de trouver une relation non linéaire. Alternativement, la non-linéarité pourrait être causée par des interactions entre les prédicteurs.
+
+\newpage
+
+## 5. Test d'inadéquation de l'ajustement linéaire {#LR-Ex-5}
+
+Une chaîne d'hôtels offre une promotion durant le mois de février: dans chacune de 11 succursales, la direction réduit le prix quotidien moyen, qui varie d'une location à l'autre, et prend note du nombre de chambres-nuits supplémentaires qui sont occupé durant le mois. 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+prix.reduit.moyen <- c(125,100,200,75,150,175,75,175,125,200,100)
+n.chambres.supp   <- c(160,112,124,28,152,156,42,124,150,104,136)
+hotels            <- data.frame(prix.reduit.moyen,n.chambres.supp)
+str(hotels)
+```
+
+Visuellement, il semble évident que l'association entre les deux variables n'est pas linéaire. 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE, fig.cap=NULL, out.width="0.5\\linewidth"}
+plot(hotels$prix.reduit.moyen,hotels$n.chambres.supp,
+     xlab="Prix réduit quotidien moyen", 
+     ylab="Nombre de chambres-nuits occupées")
+mod <- lm(n.chambres.supp ~ prix.reduit.moyen, data=hotels)
+abline(mod)
+```
+
+Nous pouvons obtenir les diagrammes de résidus comme suit: 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE, fig.asp=1, fig.cap=NULL, out.width="0.5\\linewidth"}
+# produce residual vs. fitted plot
+olsrr::ols_plot_resid_fit(mod)
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE, fig.asp=1, fig.cap=NULL, out.width="0.5\\linewidth"}
+# create Q-Q plot for residuals
+olsrr::ols_plot_resid_qq(mod)
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE, fig.asp=1, fig.cap=NULL, out.width="0.5\\linewidth"}
+# histogram of residuals
+olsrr::ols_plot_resid_hist(mod)
+```
+
+Nous cherchons à tester $$H_0: E\{Y\}=\beta_0+\beta_1X_1+\beta_2X_2+\beta_3X_3 \quad\text{vs.}\quad H_1: E\{Y\}\neq\beta_0+\beta_1X_1+\beta_2X_2+\beta_3X_3.$$
+
+Pour confronter ces deux hypothèses, nous emboîtons le modèle de régression linéaire simple dans un modèle plus général. On considère une stratification des unités selon la valeur de $x$, c'est-à-dire que les unités dans le même groupe prennent la même valeur de $x$. 
+
+On obtient un tableau de fréquences pour $x=$prix réduit quotidien moyen. On observe qu'il y a $c=6$ groupes et que chaque groupe contient 2 unités sauf pour le groupe $x=150$ (ce dernier groupe contient une seule unité). 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+table(hotels$prix.reduit.moyen)
+```
+
+Si chaque groupe a sa propre moyenne, on peut considérer que $x$ est une variable catégorielle avec $c=6$ catégories (ce que l'on peut implémenter dans `R` à l'aide de la fonction `factor()`). Nous allons ajouter une variable catégorielle au *data frame* `hotels` ; on affiche aussi les niveaux de cette variable. Le modèle d'ANOVA correspondant est le modèle le plus complexe possible puisque nous n'imposons aucune structure à $E\{Y\mid X=x\}$. 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+hotels$prix.reduit.moyen.cat <- factor(hotels$prix.reduit.moyen)
+levels(hotels$prix.reduit.moyen.cat)
+```
+
+Le modèle linéaire (complet) est 
+
+$$Y_i=\beta_0+\beta_1x_{i,2}+\cdots + \beta_5x_{i,6}+\varepsilon_i = \begin{cases} \beta_0=\mu_1 & \text{si la $i$ème unité provient du groupe 1} \\ \beta_0+\beta_1=\mu_2 & \text{si la $i$ème unité provient du groupe 2} \\ \vdots & \vdots \\ 
+\beta_0+\beta_5=\mu_6 & \text{si la $i$ème unité provient du groupe 6}\end{cases} $$
+
+où $\varepsilon_1, \ldots,\varepsilon_n$ sont des variables aléatoires i.i.d. normales $\mathcal{N}(0,\sigma^2)$. Ce modèle est parfois appellé un modèle d'ANOVA; le paramètre $\beta_{j-1}=\mu_j-\mu_1$ est l'**effet de groupe** $j$ (en comparaison avec le groupe de référence 1).
+
+Voici un sommaire de l'ajustement du modèle d'ANOVA. 
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+mod.ANOVA <- lm(n.chambres.supp ~ prix.reduit.moyen.cat, data=hotels)
+summary(mod.ANOVA)
+```
+
+Le modèle estimé est ainsi 
+
+$$\hat{E}\{Y\mid X=x\}=
+\begin{cases} \overline{y}_1=35 & \text{si $x=75$} \\ \overline{y}_2=35+89=124 & \text{si $x=100$} \\ 
+\overline{y}_3=35+120=155 & \text{si $x=125$} \\ 
+\overline{y}_4=35+117=152 & \text{si $x=150$} \\ 
+\overline{y}_5=35+105=140 & \text{si $x=175$} \\ 
+\overline{y}_6=35+79=114 & \text{si $x=200$} \\ 
+\end{cases}$$
+
+L'estimation de la variance (de l'erreur) est $s^2_{\varepsilon}=\text{MSE}=(15.15)^2=229.52$; le coefficient de détermination du modèle d'ANOVA est $R^2=0.9423$. Le coefficient de détermination du modèle réduit (le modèle de régression linéaire simple obtenu un peu plus tôt), cependant, est $R^2=0.2586$.
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+mod <- lm(n.chambres.supp ~ prix.reduit.moyen, data=hotels)
+summary(mod)$r.squared
+```
+
+La différence dans l'ajustement des deux modèles semble démontrer que la supposition de linéarité du modèle réduit n'est pas justifiée. L'évidence est-elle significative? 
+
+Nous utilisons le test linéaire général afin de comparer les deux modèles. En général, la statistique de test est   $$F=\frac{\text{ExtraSS}/(p-q)}{\text{MSE}}=\frac{(\text{SSE}(R)-\text{SSE})/(p-q)}{\text{MSE}} $$ où $p$ est le nombre de paramètres du modèle complet (ANOVA) et $\text{SSE}$ sa somme de carrés des résidus (erreurs), $q$ le nombre de paramètres du modèle réduit (linéaire) et $\text{SSE}(R)$ sa somme de carrés des résidus, et $\text{MSE}$ est l'écart-type des résidus du modèle complet ; si $H_0$ est valide, nous avons  $F\sim F(p-q,n-p)$.  
+
+Dans le modèle complet, il y a $p=c=6$ paramètres ; dans le modèle réduit, il n'y en a $q=2$ (puisque $p-q=c-2>0$, on doit avoir au moins $c=3$ valeurs de $x$). La valeur observée de la statistique de test est calculée en utilisant la fonction `anova()`.  
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+anova(mod,mod.ANOVA)
+```
+
+Nous avons ainsi $$F_0=\frac{(\text{SSE}-\text{SSE}(R))/(c-2)}{\text{MSE}}=\frac{(14742-1148)/(6-2)}{1148/5}=14.801; $$ la valeur$-p$ du test est $P(F(4,5)>14.801)=0.0056$, d'ou l'on rejete l'hypothèse nulle de linéarité de l'ajustement. 
+
+\newpage
+
+## 6. Corrélations {#LR-Ex-6}
+
+### 6.1 Nuages de points I {#LR-Ex-6-1}
+
+Considérons les nuages de points ci-dessous.
+
+```{r  out.width="0.5\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Nuage de points"), echo=FALSE}
+#knitr::include_graphics("scatter.jpg")
+```
+
+Faire une correspondance avec les corrélations suivantes $-0,\!977$, $-0,\!021$, $0,\!736$, et $0,\!951$, et les nuages de points ci-haut.
+
+**Réponses:** (a) $-0,\!977$ (b) $0,\!736$ (c) $0,\!951$ (d) $-0,\!021$
+
+\newpage
+
+### 6.2 Nuages de points II {#LR-Ex-6-2}
+
+La puissance produite par un moteur est mesurée en chevaux-vapeur (ou chevaux, plus simplement). Elle correspond à la puissance nécessaire pour lever, sur une hauteur d’un pied, un poids de 550 livres en une seconde ou de 33 000 livres en une minute. Elle est mesurée en fonction de la vitesse à laquelle le travail est effectué. 
+
+Dans le fichier ```Fuel_economy_2007.csv```, on a les cotes de puissance (en chevaux) annoncées et la consommation d'essence prévue (en mpg) pour plusieurs véhicules en 2007. 
+
+Nous importons les données avec R et nous affichons quelques rangés du jeu de données. 
+
+```{r }
+voitures<-read.csv("Data/Fuel_economy_2007.csv")
+head(voitures)
+```
+
+(a) Donner un nuage de points de la puissance contre la consommation d'essence et superimposer une courbe lisse. Décrire l'orientation et la forme de l'association. 
+
+
+(b) Voici quelques statistiques obtenues avec `R`. 
+
+```{r}
+x <- voitures$Horsepower
+y <- voitures$Highway.Gas.Mileage..mpg.
+sum((x-mean(x))^2)
+sum((y-mean(y))^2)
+sum((x-mean(x))*(y-mean(y)))
+```
+
+***Remarques:*** 
+
+- ```y-mean(y)``` est le vecteur $(y_1-\bar{y},y_2-\bar{y},\ldots,y_n-\bar{y})$. 
+
+- ```sum``` calcul la somme des composantes du vecteur. 
+
+- ```mean``` calcul la moyenne des composantes du vecteur. 
+
+\bigskip 
+
+En utilisant ces statistiques, calculer la corrélation de Pearson entre la puissance contre la consommation d'essence. 
+
+(c) On supposant que ```x``` et ```y``` sont des vecteurs numériques de même taille, alors la commande ```cor(x,y)``` calcul la corrélation de ¨Pearson entre ```x``` et ```y```. Utiliser la fonction ```cor``` pour calculer la corrélation entre la puissance et la consommation d'essence. 
+
+(d) Au Canada, on décrit la consommation d'essence en $\mbox{L}/100\mbox{km}$. Nos données sont mesurées en mpg. Soit $w$ la consommation en $\mbox{L}/100\mbox{km}$ et $y$ la consommation en mpg. Voici une formule de conversion: $$ w=\frac{235,\!215}{y}. $$
+
+Si on mesure la consommation d'essence en mpg, alors la corrélation entre la puissance et la consommation d'essence est $r=-0,\!869$. Si nous mesurons la consommation en $\mbox{L}/100\mbox{km}$, est que la corrélation entre la puissance et la consommation d'essence demeure égal à $r=-0,\!869$? Sinon, calculer la correcte valeur de la corrélation. 
+
+**Réponses:**
+
+(a) L'association entre la puissance et la consommation d'essence (en mpg) est approximativement linéaire et négative.  
+
+
+```{r }
+with(voitures, 
+plot(x=Horsepower,y=Highway.Gas.Mileage..mpg.,
+xlab="Puissance (en chevaux)",
+ylab="Consommation d'essence (en mpg)"))
+## ajuster une courbe lisse (loess=lowess=locally weighted scatterplot smoothing)
+mod.loess<-loess(Highway.Gas.Mileage..mpg.~Horsepower,
+data=voitures)
+## obtenir l'étendue pour x
+xlim<-range(voitures$Horsepower)
+## construire un nouveau jeu de données
+xnew<-seq(xlim[1],xlim[2],length.out=100)
+ynew<-predict(mod.loess,data.frame(Horsepower=xnew))
+## add Lowess Smooth to the plot
+lines(x=xnew,y=ynew,lty=2)
+```
+
+
+(b) On a $s_{xy}=-5154,\!2$, $s_{xx}=61503,\!6$, et $s_{yy}=572,\!4$. Alors la corrélation de Pearson entre $x$ et $y$ est 
+$$
+r=\frac{s_{xy}}{\sqrt{s_{xx}\,s_{yy}}}=-0,\!869.
+$$
+
+(c) La corrélation entre la puissance et la consommation d'essence est $r=-0,\!867$.
+
+
+```{r }
+with(voitures,cor(Horsepower,Highway.Gas.Mileage..mpg.))
+```
+
+(d) La formule de conversion n'est pas linéaire. Alors, c'est possible que la corrélation puisse changer de valeur si nous mesurons la consommation d'essence en $\mbox{L}/100\mbox{km}$. Nous utilisons R ci-bas pour convertir la consommation en $\mbox{L}/100\mbox{km}$, et ensuite calculer la corrélation entre la puissance et la consommation d'essence (en$\mbox{L}/100\mbox{km}$). Cette corrélation est $r=0,\!851.$
+
+
+```{r }
+w<-235.215/voitures$Highway.Gas.Mileage..mpg.
+cor(w,voitures$Horsepower)
+```
+
+
+\newpage
+
+### 6.3 Nuages de points III {#LR-Ex-6-3}
+
+1. La masse musculaire d'une personne devrait diminuer avec l'âge. Pour explorer cette association chez les femmes, un nutritionniste a sélectionné au hasard 15 femmes parmi chacun des tranches d'âges de 10 ans, commençant à 40 ans et se terminant à 79 ans. Les données sont dans le fichier ```Masse.csv```. Il y a deux variables dans ce jeu de données: $x=$ l'âge de la participante, et $y=$ la masse musculaire de la partipante. 
+
+\bigskip 
+
+Nous importons les données avec R, et nous affichons quelques rangés du jeu de données. 
+
+\bigskip 
+
+```{r }
+masse<-read.csv("Data/Masse.csv")
+head(masse)
+```
+
+\bigskip 
+
+
+(N.B. Avec R markdown, on doit sauvegarder les fichier CSV dans le même dossier que le fichier .rmd.)
+
+\bigskip 
+
+Voici la structure du jeu de données. 
+
+```{r }
+str(masse)
+```
+
+
+(a) Il y a combien d'observations dans ce jeu de données. 
+
+(b) On calcul quelques sommes pour résumer les données. 
+
+```{r}
+x<-masse$Age
+y<-masse$Masse
+c(sum(x), sum(y), sum(x^2), sum(y^2), sum(x*y))
+rx<-rank(masse$Age)
+ry<-rank(masse$Masse)
+c(sum(rx), sum(ry), sum(rx^2), sum(ry^2), sum(rx*ry))
+```
+
++ (i) En se basant sur ces sommes, calculer la covariance entre l'âge et la masse et aussi calculer la corrélation (de Pearson) entre l'âge et la masse. 
++ (ii) En se basant sur ces sommes, calculer la corrélation de Spearman entre l'âge et la masse.
+
+(c) Voici un nuage de points de la masse musculaire contre l'âge avec une superposition d'une courve lisse. Décrire l'association entre l'âge et la masse musculaire (orientation, forme, et intensité). 
+
+
+```{r }
+with(masse, 
+plot(x=Age,y=Masse,
+xlab="Age",
+ylab="Masse musculaire"))
+## ajuster une courbe lisse 
+mod.loess<-loess(Masse~Age,
+data=masse)
+## obtenir l'étendue pour x
+xlim<-range(masse$Age)
+## construire un nouveau jeu de données
+xnew<-seq(xlim[1],xlim[2],length.out=100)
+ynew<-predict(mod.loess,data.frame(Age=xnew))
+## add Lowess Smooth to the plot
+lines(x=xnew,y=ynew,lty=2)
+```
+
+**Réponses:**
+
+(a) Il y a $n=60$ observations. 
+
+(b) On calcul quelques sommes pour résumer les données. 
+
+```{r}
+x<-masse$Age
+y<-masse$Masse
+c(sum(x), sum(y), sum(x^2), sum(y^2), sum(x*y))
+rx<-rank(masse$Age)
+ry<-rank(masse$Masse)
+c(sum(rx), sum(ry), sum(rx^2), sum(ry^2), sum(rx*ry))
+```
+
++ (i) On a 
+$$
+s_{xy}=\left(\sum_{i=1}^n x_i\,y_i\right)-\left.\left(\sum_{i=1}^n x_i\right)\,\left(\sum_{i=1}^n y_i\right)\right/n=296\,024-(3599)(5098)/60=-9771,\!033,
+$$
+alors la covariance entre l'âge et la masse est 
+$$
+\hat{\sigma}_{X,Y}=\frac{s_{xy}}{n-1}=\frac{-9771,\!033}{60-1}=-165,\!6107.
+$$
+
+En outre, on a 
+$$
+s_{xx}=\left(\sum_{i=1}^n x_i^2\right)-\left.\left(\sum_{i=1}^n x_i\right)^2\,\right/n=224\,091-(3599)^2/60=8\,210,\!983,
+$$
+$$
+s_{yy}=\left(\sum_{i=1}^n y_i^2\right)-\left.\left(\sum_{i=1}^n y_i\right)^2\,\right/n=448\,662-5098^2/60=15\,501,\!93,
+$$   
+alors la corrélation de Pearson entre l'âge et la masse est 
+$$
+r=\frac{s_{xy}}{\sqrt{s_{xx}\,s_{yy}}}=\frac{-9\,771,\!033}{\sqrt{(8\,210,
+\!983)(15\,501,\!93)}}=-0,\!866.
+$$
+
+
++ (ii) On a 
+\begin{eqnarray*}
+s_{R_x,R_y}&=& \left(\sum_{i=1}^n R_{x,i}\,R_{y,i}\right)-\left.\left(\sum_{i=1}^n R_{x,i}\right)\,\left(\sum_{i=1}^n R_{y,i}\right)\right/n\\
+&=& 40\,256,\!25-(1830)(1830)/60=-15\,558,\!75.
+\end{eqnarray*}
+
+En outre, on a 
+$$
+s_{R_xR_x}=\left(\sum_{i=1}^n R_{x,i}^2\right)-\left.\left(\sum_{i=1}^n R_{x,i}\right)^2\,\right/n=73\,780-(1830)^2/60=17\,965,
+$$
+$$
+s_{R_yR_y}=\left(\sum_{i=1}^n R_{y,i}^2\right)-\left.\left(\sum_{i=1}^n R_{y,i}\right)^2\,\right/n=73\,794-1830^2/60=17\,979,
+$$   
+alors la corrélation de Spearman entre l'âge et la masse est 
+$$
+r_S=\frac{s_{R_xR_y}}{\sqrt{s_{R_xR_x}\,s_{R_yR_y}}}=\frac{-15\,558,\!75}{\sqrt{(17\,965)(17\,979)}}=-0,\!8657.
+$$
+
+
+(c) L'association entre l'âge et la masse est approximativement linéaire, et négative, avec une corrélation de Pearson de $r=-0,\!866$. 
+
+\newpage
+
+### 6.4 Inférence concernant une corrélation {#LR-Ex-6-4}
+
+Nous avons des données provenant d'une étude avec des volontaires en bonne santé. Un stimulus est appliqué aux doigts du sujet et on mesure la vitesse de conduction de la moelle épinière (VC). On veut décrire l'association entre la taille de l'indivu (en cm) et la vitesse de conduction de la moelle épinière pour les individus en bonne santé.
+
+On importe les données avec R et on affiche quelques rangés. 
+
+```{r}
+VC <- read.csv("Data/VC.csv")
+head(VC)
+```
+
+Testons $H_0: \rho=0$ (o\`u $\rho$ est la corrélation (de Pearson) entre la vitesse de conduction et la taille de l'individu) vs $H_1:\rho\neq 0$.
+
+**Réponse:**
+
+La valeur de la corrélation dans l'ensemble de données est :
+
+```{r}
+cor(VC$Taille.en.cm,VC$VC)
+```
+
+Cette valeur n'est pas très proche de 0. On peut utiliser la fonction `cor.test()` afin d'obtenir un intervalle de confiance de la corrélation $\rho$:
+
+```{r}
+with(VC,cor.test(Taille.en.cm,VC))
+```
+
+La valeur observée de la statistique du test est 
+
+$$t^*=r\sqrt{\frac{n-2}{1-r^2}}=19.781 $$
+
+La valeur$-p$ du test est $2P(T(153)>|19.781|)<0.00001$; l'évidence suggère que la correee2élation est non-nulle a p
+
+\newpage
+
+## 7. Probabilités et statistiques {#LR-Ex-7}
+
+### 7.1 Probabilities I {#LR-Ex-7-1}
+
+Calculer les probabilités suivante tel que T suit une loi $t(15)$. 
+
+(a)  $P(T > 2,\!45)$; 
+
+(b) $P(T < 2,\!45)$;
+
+(c) $2 P(T > 4,\!34)$.
+
+**Réponses:**
+
+(a)  $P(T > 2,\!45)=0,\!0135$;
+
+```{r }
+1-pt(2.45,15)
+```
+
+(b) $P(T < 2,\!45)=0,\!9865$;
+
+```{r }
+pt(2.45,15)
+```
+
+(c) $2 P(T > 4,\!34)=0,\!00058$.
+
+```{r }
+2*(1-pt(4.34,15))
+```
+
+### 7.2 Probabilities II {#LR-Ex-7-2}
+
+Obtenir les quantiles suivants. 
+
+(a) le $95^{\mbox{e}}$ centile de la loi $t(34)$; 
+
+(b) le $97,\!5^{\mbox{e}}$  centile de la loi $t(44)$.
+
+**Réponses:**
+
+(a) Le $95^{\mbox{e}}$ centile de la loi $t(34)$ est $t(0,\!95;34)=1,\!6909$. 
+
+
+```{r }
+qt(0.95,34)
+```
+
+(b) le $97,\!5^{\mbox{e}}$  centile de la loi $t(44)$ est $t(0,\!975;44)=2,\!0154$. 
+
+```{r }
+qt(0.975,44)
+```
+
+### 7.3 Probabilities III {#LR-Ex-7-3} 
+
+Soit $Y\sim N(\mu=125,\sigma^2=25)$, et soit $(1/\sigma^2)\,V\sim \chi^2(10)$. Supponsons que $Y$ et $V$ sont indépendantes. 
+
+(a) Calculer 
+
+$$
+P\left(\frac{Y-125}{\sqrt{V/10}}>2,\!75 \right).
+$$
+
+(b) Calculer 
+
+$$
+P\left(\frac{(Y-125)^2}{V/10}>7,\!12 \right).
+$$
+
+**Réponses:**
+
+On a 
+$$
+Z=\frac{Y-125}{\sigma}\sim N(0,1), 
+$$
+et $Z$ et indépendant de $U=(1/\sigma^2)\,V\sim \chi^2(10)$, alors 
+$$
+T=\frac{Y-125}{\sqrt{V/10}}=\frac{(Y-125)/\sigma}{\sqrt{(1/\sigma^2)V/10}}=\frac{Z}{\sqrt{U/10}}\sim t(10).
+$$
+En outre, 
+$$
+\frac{(Y-125)^2}{V/10}=T^2\sim F(1,10).
+$$
+
+(a) On 
+$$
+P\left(\frac{Y-125}{\sqrt{V/10}}>2,\!75 \right)=P(t(10)>2,\!75)=0,\!0102.
+$$
+```{r }
+1-pt(2.75,10)
+```
+
+
+(b) On veut
+$$
+P\left(\frac{(Y-125)^2}{V/10}>7,\!12 \right)=P(F(1,10)>7,\!12)=0,\!02356.
+$$
+```{r }
+1-pf(7.12,1,10)
+```
+
+### 7.4 Statistiques I {#LR-Ex-7-4}
+
+Supposons que $\hat{\theta}$ est un estimateur d'un paramètre inconnu $\theta$, tel que  
+$$
+T=\frac{\hat{\theta}-\theta}{\mbox{se}(\hat{\theta})}\sim t(15). 
+$$
+D'un échantillon aléatoire, on observe $\hat{\theta}=-3,\!2$ et $s\{\hat{\theta}\}=4,\!5.$ 
+
+a. Tester $H_0:~\theta=0$ contre $H_a:~\theta\neq 0$ \`a $\alpha=5\%$. 
+Donner la valeur observée de la statistique $t$ du test et la conclusion du test. 
+
+b. Donner un intervalle de confiance à 95% pour $\theta$. 
+
+**Réponses:**
+
+a. La valeur observée de la statistique $t$ du test est  
+$$
+t_0=\frac{\hat{\theta}-0}{s\{\hat{\theta}\}}=\frac{-3,\!2-0}{4,\!5}=-0,\!71111.
+$$
+Puisque $|t_0|=0,\!71111<2,\!13145=t(0,\!975;10), alors les preuves 
+contre $H_0$ ne sont pas significatives à $\alpha=5\%$. 
+
+b. Un intervalle de confiance à 95% pour $\theta$ est
+$$
+\hat{\theta}\pm t(0,\!975;15)\,s\{\hat{\theta}\}=-3.2\pm 2.13145\,(4.5)=]\!-12.792;6.392[. 
+$$
+
+### 7.5 Statistiques II {#LR-Ex-7-5}
+
+Supposons que $\hat{\theta}$ est un estimateur d'un param\`etre inconnu $\theta$, et que  
+$$
+T=\frac{\hat{\theta}-\theta}{\mbox{se}(\hat{\theta})}\sim t(20). 
+$$
+D'un échantillon aléatoire, on observe $\hat{\theta}=2,\!5$ et $s\{\hat{\theta}\}=0,\!75$. 
+
+a. Tester $H_0:~\theta=0$ contre $H_a:~\theta\neq 0$ \`a $\alpha=5\%$.
+Donner la valeur observée de la statistique $t$ du test et la conclusion du test. 
+
+b. Donner un intervalle de confiance à 95% pour $\theta$. 
+
+**Réponses:**
+
+a. La valeur observée de la statistique $t$ du test est 
+$$
+t_0=\frac{\hat{\theta}-0}{s\{\hat{\theta}\}}=\frac{2,\!5-0}{0,\!75}=3,\!3333.
+$$
+Puisque $|t_0|=3,\!3333\geq 2,\!08596=t(0,\!975;20)$, alors les preuves 
+contre $H_0$  sont significatives à $\alpha=5\%$. 
+
+
+
+```{r }
+qt(0.975,20)
+```
+
+b. Un intervalle de confiance \`a 95% pour $\theta$ est 
+$$
+\hat{\theta}\pm t(0.975;20)\,s\{\hat{\theta}\}=2,\!5\pm 2,\!08596\,(0,\!75)=]0,\!936; 4,\!064[. 
+$$
+
+
+### 7.6 Statistiques III {#LR-Ex-7-6}
+
+Supposons que $\hat{\theta}$ est un estimateur d'un paramètre inconnu $\theta$, tel que  
+$$
+T=\frac{\hat{\theta}-\theta}{\mbox{se}(\hat{\theta})}\sim t(28). 
+$$
+D'un échantillon aléatoire, on observe $\hat{\theta}=-0,\!211$ et $s\{\hat{\theta}\}=3,\!235.$ 
+
+a) Tester $H_0:~\theta=0$ contre $H_a:~\theta\neq 0$. 
+Donner la valeur observée de la statistique $t$ du test, et la valeur $p$ du test.  
+
+b) Donner la conclusion du test de la partie a) à $\alpha=5\%$.  
+
+**Réponses:**
+
+a. La valeur observée de la statistique $t$ du test est  
+$$
+t_0=\frac{\hat{\theta}-0}{s\{\hat{\theta}\}}=\frac{-0,\!211-0}{3,\!235}=-0,\!06522.
+$$
+La valeur $p$ est $2\,P(t(28)\geq |-0,\!06522|)=0,\!948.$ 
+
+```{r }
+2*(1-pt(.06522,28))
+```
+
+b. Les preuves contre $\theta=0$ en faveur de $\theta\neq 0$ ne sont pas significatives à $\alpha=5\%$ $(t(28)=-0,\!06522; p=0,\!948)$. 
+
+### 7.7 Statistiques IV {#LR-Ex-7-7}
+
+Supposons que $\hat{\theta}$ est un estimateur d'un param\`etre inconnu $\theta$, et que  
+$$
+T=\frac{\hat{\theta}-\theta}{\mbox{se}(\hat{\theta})}\sim t(28). 
+$$
+D'un échantillon aléatoire, on observe $\hat{\theta}=2,\!5$ et $s\{\hat{\theta}\}=0,\!75$. 
+
+(a) Tester $H_0:~\theta=0$ contre $H_a:~\theta\neq 0$.
+Donner la valeur observée de la statistique $t$ du test et la valeur $p$.
+
+(b) Donner la conclusion du test de la partie a) à $\alpha=5\%$.  
+
+**Réponses:**
+
+(a) La valeur observée de la statistique $t$ du test est 
+$$
+t_0=\frac{\hat{\theta}-0}{s\{\hat{\theta}\}}=\frac{2,\!5-0}{0,\!75}=3,\!3333.
+$$
+La valeur $p$ est $2\,P(t(28)\geq |3,\!3333|)=0,\!0024.$ 
+
+
+```{r }
+2*(1-pt(3.3333,28))
+```
+
+(b) Les preuves contre $\theta=0$ en faveur de $\theta\neq 0$ sont significatives à $\alpha=5\%$ $(t(28)=3,\!3333; p=0,\!0024)$. 
+
+### 7.8 Probabilités IV {#LR-Ex-7-8}
+
+Supponsons que $Y_1,Y_2,Y_3$ sont des variables aléatoires indépendantes et normales tel que 
+$$
+\mu_1=E\{Y_1\}=23; \mu_2=E\{Y_2\}=15; \mu_3=E\{Y_3\}=10 
+$$
+et 
+$$
+\sigma_1^2=V[Y_1]=2; \sigma_2^2=V[Y_2]=3;  \sigma_3^2=V[Y_3]=1.  
+$$
+Quelle est la loi de probabilité à $W=2\,Y_1+3\,Y_2-Y_3$? 
+
+**Réponse:**
+
+On a $W\sim N(E\{W\}; V[W])$ où 
+$$
+E\{W\}=2\,E\{Y_1\}+3\,E\{Y_2\}-E\{Y_3\}=2\,(23)+3\,(15)-10=81
+$$
+et
+$$
+V[W]=2^2\,V[Y_1]+3^2\,V[Y_2]+(-1)^2\,V[Y_3]=2^2\,(2)+3^2\,(3)+(-1)^2(1)=36. 
+$$
+
+\newpage
+
+## 8. Ajustement d'un modèle linéaire {#LR-Ex-8}
+
+### 8.1 Régression linéaire I {#LR-Ex-8-1}
+
+Supposons que $\hat{y}=b_0+b_1\,x$ est un modèle linéaire estimé par la méthode des moindres carrés. Trouver les valeurs maquantes dans le tableau ci-bas. 
+
+***Notation:*** 
+
+- $\bar{x}$ et $s_x$ sont la moyenne et l'écart type de l'échantillon pour la variable $X$. 
+
+- $\bar{y}$ et $s_y$ sont la moyenne et l'écart type de l'échantillon pour la variable $Y$.
+
+- $r$ est la corrélation de Pearson (de l'échantillon) entre $X$ et $Y$. 
+
+
+\begin{center}
+\begin{tabular}{c|cccccc}
+ & $\overline{x}$ & $s_x$ & $\overline{y}$ & $s_y$ & $r$ & $\hat{y}=b_0+b_1\,x$ \\
+ \hline
+i) & 30  & 4 & 18 & 6 & -0,2 & \\
+ii) & 100 & 18 & 60 & 10 & 0,9 & \\
+iii) &     & 0,8 & 50 & 15 &  & $\hat{y}=-10+15\,x$\\
+iv) &     &    & 18 & 4 & -0,6 & $\hat{y}=30-2\,x$ \\
+\end{tabular}
+ \end{center}
+
+
+Rappel de vos cours d'intro à la statistique: La variance et l'écart type de l'échantillon pour $X$ sont respectivement
+$$
+s^2_x=\frac{\sum_{i=1}^n (x_i-\bar{x})^2}{n-1}=\frac{s_{xx}}{n-1} ~~~ \mbox{ et } ~~ s=\sqrt{s^2}=\sqrt{s_{xx}/(n-1)}. 
+$$
+Pour $Y$, c'est semblable. L'écart type de l'échantillon est $s_y=\sqrt{s_{yy}/(n-1)}$. 
+
+**Réponses:**
+
+1. La droite estimée est   $\hat{y}=b_0+b_1\,x$, où
+$$
+b_1=\frac{r\,\sqrt{s_{yy}}}{\sqrt{s_{xx}}}=\frac{r\,\sqrt{s_{yy}/(n-1)}}{\sqrt{s_{xx}/(n-1)}}=r\,\frac{s_y}{s_x} ~~~ \mbox{ et } ~~~ b_0=\overline{y}-b_1\,\overline{x}.
+$$
+
+Voici le tableau avec les valeurs manquantes. Les calculs sont sous le tableau. 
+
+\begin{center}
+\begin{tabular}{c|cccccc}
+ & $\overline{x}$ & $s_x$ & $\overline{y}$ & $s_y$ & $r$ & $\hat{y}=b_0+b_1\,x$ \\
+ \hline
+i) & 30  & 4 & 18 & 6 & -0,2 & $\hat{y}=27-0,\!3\,x$\\
+ii) & 100 & 18 & 60 & 10 & 0,9 & $\hat{y}=10+0,\!5\,x$\\
+iii) &  4   & 0,8 & 50 & 15 & 0,8 & $\hat{y}=-10+15\,x$\\
+iv) &  6   & 1,2   & 18 & 4 & -0,6 & $\hat{y}=30-2\,x$ \\
+\end{tabular}
+ \end{center}
+
+\noindent (i)
+On a
+$$
+b_1=\frac{r\,s_y}{s_x}=\frac{(-0,\!2)(6)}{4}=-0,\!3 ~~~ \mbox{ et } ~~~ b_0=\overline{y}-b_1\,\overline{x}=18-(-0,\!3)(30)=27.
+$$
+(ii)
+On a
+$$
+b_1=\frac{r\,s_y}{s_x}=\frac{(0,\!9)(10)}{18}=0,\!5 ~~~ \mbox{ et } ~~~ b_0=\overline{y}-b_1\,\overline{x}=60-(0,\!5)(100)=10.
+$$
+(iii)  On a
+$$
+15=b_1=\frac{r\,s_y}{s_x}=\frac{r\,(15)}{0,\!8} ~~~ \mbox{ et } ~~~ -10=b_0=\overline{y}-b_1\,\overline{x}=50-(15)\,\overline{x}.
+$$
+Thus, $r=15\,(0.8)/15=0,\!8$ et $\overline{x}=(50-(-10))/15=4$.
+\\\\
+(iv)  On a
+$$
+-2=b_1=\frac{r\,s_y}{s_x}=\frac{(-0.6)\,(4)}{s_x} ~~~ \mbox{ et } ~~~ 30=b_0=\overline{y}-_1\,\overline{x}=18-(-2)\,\overline{x}.
+$$
+Donc, $s_x=(-0,\!6)\,(4)/(-2)=1,\!2$ et $\overline{x}=(30-18)/2=6$.
+
+### 8.2 Régression linéaire II {#LR-Ex-8-2}
+
+Voici un nuage de points et de données.
+
+```{r  out.width="0.5\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Nuage de points"), echo=FALSE}
+#knitr::include_graphics("CostLiving.png")
+```
+
+Une enquête sur le coût de la vie a déterminé le coût de la vie dans les 25 villes les plus coûts de la vie du monde. Ce classement considère la ville de New York comme 100 et exprime les autres villes en pourcentage du coût de la vie à New York. Par exemple, le coût de la vie à Tokyo en 2007 est de 122,1, donc le coût de la vie à Tokyo était de 22,1% plus élevé qu'à New York en 2007. L'écart type du coût de la vie en 2007 est de 11,9147; alors que c'est de 10,8517 pour 2008.
+
+(i) La droite par les moindres carrés pour prévoir le coût de la vie en 2008 en fonction du coût de la vie en 2007 est
+
+$$
+\widehat{\mbox{coût08}}=21,\!75+0,\!84\,(\mbox{coût07}).
+$$
+Calculez la corrélation (de Pearson) entre le coût de la vie en 2007 et 2008.
+
+(ii) Décrivez l'association entre le coût de la vie en 2007 et 2008.
+
+(iii) Calculer le coefficient de détermination $R^2$ et interpréter sa valeur dans le contexte de cette étude. 
+
+(iv) Utilisez la droite des moindres carrés de (i) pour calculer le résidu pour Oslo.
+
+(v) Que nous dit le résidu calculé en (iv) sur Oslo? 
+
+
+**Réponses:**
+
+(i) On a 
+$$
+0,\!84=b_1=r\,s_y/s_x=r\,(10,\!8517/11,\!9147) ~~~ \Rightarrow ~~~ r=(11,\!9147)(0,\!84)/10,\!8517=0,\!922.
+$$
+
+
+(ii) L'association entre le coût de la vie en 2007 et 2008 est positive et linéaire avec une corrélation de 0,922.
+
+(iii) $R^2=r^2=(0,\!922)^2=0,\!8501.$ Alors, 85% de la variabilité dans les coûts de la vie en 2008 est expliquée par le modèle linéaire du coût de la vie en 2007. 
+
+(iv)  On a observé $\mbox{coût07}=105,\!8$ et $\mbox{coût08}=118,\!3$ pour Oslo.
+La valeur ajustée pour Oslo est 
+$$
+\widehat{\mbox{coût08}}=21,\!75+0,\!84\,(105,\!8)=110,\!622.
+$$
+Alors, le résidu pour Oslo est  $e=\mbox{coût08}-\widehat{\mbox{coût08}}=118,\!3-110,\!622=7,\!678.$
+
+
+(v) Le résidu est positif, donc le coût de la vie prévu pour 2008 est inférieur au coût de la vie observé pour 2008 de 7,678 unités.
+
+
+\newpage
+
+### 8.3 Régression linéaire III {#LR-Ex-8-3}
+
+Supposons un modèle de régression où nous supposons que $Y_1,\ldots,Y_{50}$ sont des variable indépendantes normales avec une variance commune $\sigma^2$. Nous avons deux modèles pour la fonction de la moyenne. Nous utilisons la méthode des moindres carrés pour estimer le paramètres de la fonction de la moyenne pour les deux modèles. Ensuite, nous calculons la somme de carrés résiduelle pour les deux modèles. On obtient 
+$$
+\mbox{pour le modèle 1: $SSE=1222$}; ~~~ \mbox{pour le modèle 2: $SSE=995$}.
+$$
+(a) Selon la somme de carrés résiduelle, lequel des modèles est le meilleur. 
+
+(b) Selon le max du log de vraisemblance, lequel des modèles est le meilleur. Cette réponse vous surprend-elle?
+
+**Réponses:**
+
+(a) La modèle 2 a la plus petite somme de carrés résiduelle. Alors selon SSE, le modèle 2 est le mieux ajusté aux données.   
+
+(b) Pour le modèle 1, on a 
+$$
+\ell=-(n/2)\,\ln(2\,\pi\,\mbox{SSE}/n)-n/2=
+-(50/2)\,\ln(2\,\pi\,(1222/50))-50/2=-150,\!8525.
+$$
+Pour le modèle 2, on a 
+$$
+\ell=-(n/2)\,\ln(2\,\pi\,\mbox{SSE}/n)-n/2=
+-(50/2)\,\ln(2\,\pi\,(995/50))-50/2=-145,\!7149.
+$$
+La plus grande de ces deux statistiques est pour le modèle 2. Ainsi, selon la statistique de la log-vraisemblance maximale,
+le modèle 2 est meilleur. Ce résultat ne devrait pas être surprenant puisque 
+SSE et $\ell$ sont équivalentes dans le sense qu'elle prèfère toujours le même modèle. 
+
+### 8.4 Régression linéaire IV {#LR-Ex-8-4}
+
+Les données concernant la résistance $(x)$ (en ohms) et le temps de défaillance $(y)$ (en minutes) de certaines résisteurs surchargées sont dans le fichier \verb|defaillance.csv|.
+
+Nous importons les données. Nous affichons les noms des colonnes, les écarts types des colonnes, les moyennes des colonnes et la dimension du jeu de données.
+
+```{r }
+defaillance <- read.csv("Data/defaillance.csv")
+names(defaillance)
+sapply(defaillance,sd)
+sapply(defaillance,mean)
+dim(defaillance)
+```
+
+***Remarque:*** La fonction ```sapply``` nous permet d'appliquer une fonction sur toute les colonnes d'un jeu de données (un dataframe). La commande ```sapply(defaillance,sd)``` applique la fonction ```sd``` sur toutes les colonnes du jeu de données ```defaillance```. 
+
+
+Voici la corrélation (de Pearson) entre le temps de défaillance et la résistance.  
+
+```{r }
+with(defaillance,cor(temps.de.defaillance,resistance))
+```
+
+Voici un nuage de points pour le temps de défaillance contre la résistance avec la superposition de la droite de régression estimée.
+
+```{r }
+with(defaillance,plot(resistance,temps.de.defaillance,
+  xlab="Résistance (en ohms)",ylab="Temps de défaillance (en min)"))
+mod<-lm(temps.de.defaillance~resistance,data=defaillance)
+abline(mod)
+```
+
+(a) Donner la droite des moindes carrées qui exprime le temps de défaillance en fonction de la résistance. 
+
+(b) Donner la valeur de $R^2$ (le coefficient de détermination) et interpréter dans le contexte de cette question. 
+
+(c) Donner une estimation de la variance de l'erreur $\sigma^2$. 
+
+**Réponses:**
+
+Dans la sortie de la question, on nous a donné les statistiques suivantes : 
+$s_x=6,\!78113; s_y=8,\!54485; \bar{x}=38,\!62500; \bar{y}= 33,\!83333;$  $r= 0,\!80851;$ et $n=24$. 
+
+(a) La pente estim\'ee est 
+$$b_1=r\,\frac{s_y}{s_x}=0,\!80851\,\left(\frac{8,\!54485}{6,\!78113}\right)
+=1,\!01880.$$
+L'ordonnée à l'origine estimée est 
+$$
+b_0=\bar{y}-b_1\,\bar{x}=33,\!83333-(1,\!01880)(38,\!62500)=-5,\!51782.
+$$
+Alors, la droite estimée est 
+$$
+\hat{y}=-5,\!51782+1,\!01880\,x.
+$$
+
+(b) On a $R^2=r^2=(0,\!80851)^2=0,\!653$. Alors, 65,3% de la variabilité dans le temps de défaillance est expliquée par le modèle linéaire. 
+
+(c) On a 
+\begin{eqnarray*}
+\mbox{SSE} &=& s_{yy}-\mbox{SSR}=s_{yy}-b_1^2\,s_{xx}= (n-1)s_y^2-b_1^2\,(n-1)s_{xx}^2 \\
+&=& (24-1)(8,\!54485)^2-1,\!01880^2\,(24-1)(6,\!78113)^2
+= 581,\!5664.
+\end{eqnarray*}
+
+L'estimation de $\sigma^2$ est $$\mbox{MSE}=\frac{\mbox{SSE}}{n-2}=\frac{581,\!5664}{24-2}=26,\!43484.$$
+
+### 8.5 Régression linéaire V {#LR-Ex-8-5}
+
+Considérons un modèle de régression linéaire simple. L'estimation de l'ordonnée à l'origine $\beta_0$ est $b_0=\bar{y}-b_1\,\bar{x}$. 
+
+(a) Démontrer que $E\{\bar{Y}\}=\beta_0+\beta_1\,\bar{x}$ où $\bar{Y}=\sum_{i=1}^n Y_i/n$. 
+
+(b) Nous avons démontrer durant une leçon que l'estimation de la pente $b_1=s_{xY}/s_{xx}$ est un estimateur non-biasé de la pente $\beta_1$, c'est-à-dire $E\{b_1\}=\beta_1$.  Là démontrer que $b_0$ est un estimateur non-biasé de $\beta_0$, c'est-à-dire $E\{b_0\}=\beta_0$. 
+
+(c) Démontrer que $b_0$ peut être écrit sous la forme suivante 
+$$
+b_0=\sum_{i=1}^n \left[\frac{1}{n}-\frac{(x_i-\bar{x})}{s_{xx}}\right]\,Y_i. 
+$$
+(e) Est-ce que $b_0$ est une variable aléatoire normale? (Pourquoi?)
+
+(f) Démontrer que 
+$$
+V[b_0]=\sigma^2\,\left(\frac{1}{n}+\frac{\bar{x}^2}{s_{xx}}\right).
+$$
+
+**Réponses:** 
+
+(a) D'après le modèle linéaire simple, on a $E\{Y_i\}=\beta_0+\beta_1\,x_i$, alors 
+$$
+E\{\bar{Y}\}=\sum_{i=1}^n (1/n)E\{Y_i\}=\sum_{i=1}^n (1/n)(\beta_0+\beta_1\,x_i)=\beta_0+\beta_1\,\sum_{i=1}^n x_i/n=\beta_0+\beta_1\,\bar{x}. 
+$$
+
+
+(b) En utilisant le résultat de la partie (a) et que $E\{b_1\}=\beta_1$, on a 
+$$
+E\{b_0\}=E\{\bar{Y}\}-\bar{x}\,E\{b_1\}=(\beta_0+\beta_1\,\bar{x})-\bar{x}\beta_1=\beta_0. 
+$$
+Alors, $b_0$ est un estimateur non-biasé de $\beta_0$. 
+
+
+(c) Rappelons-nous que $s_{xY}=\sum_{i=1}^n (x_i-\bar{x})\,Y_i$. Alors, 
+\begin{eqnarray*}
+b_0 &=& \bar{Y}-b_1\,\bar{x}=\bar{Y}-\frac{s_{xY}}{s_{xx}}\,\bar{x} \\
+&=& \left(\sum_{i=1}^n (1/n)Y_i\right)-\left(\frac{\sum_{i=1}^n (x_i-\bar{x})\,Y_i}{s_{xx}}\right)\,\bar{x} \\
+&=& \left(\sum_{i=1}^n (1/n)Y_i\right)-\left(\sum_{i=1}^n [(x_i-\bar{x})\bar{x}/s_{xx}]\,Y_i\right) \\
+&=& \sum_{i=1}^n \left[\frac{1}{n}-\frac{(x_i-\bar{x})\,\bar{x}}{s_{xx}}\right]\,Y_i. 
+\end{eqnarray*}
+
+(e) Selon la partie (d), $b_0$ est une combinaison linéaire de $Y_1,Y_2,\ldots,Y_n$ qui sont des variables aléatoires indépendantes et normales, alors $b_0$ est une variable aléatoire normale. 
+
+(f) De la partie (d), on a 
+$$
+b_0=\sum_{i=1}^n \left[\frac{1}{n}-\frac{(x_i-\bar{x})\,\bar{x}}{s_{xx}}\right]\,Y_i. 
+$$
+Puisque $Y_1,\ldots,Y_n$ sont indépendantes et $V[Y_i]=\sigma^2$ pour $i=1,2,\ldots,n$, alors  
+
+$$
+V[b_0]=\sum_{i=1}^n \left[\frac{1}{n}-\frac{(x_i-\bar{x})\,\bar{x}}{s_{xx}}\right]^2\,V[Y_i]=\sigma^2\,\sum_{i=1}^n \left[\frac{1}{n}-\frac{(x_i-\bar{x})\,\bar{x}}{s_{xx}}\right]^2. 
+$$
+Mais, 
+\begin{eqnarray*}
+&&\sum_{i=1}^n \left[\frac{1}{n}-\frac{(x_i-\bar{x})\,\bar{x}}{s_{xx}}\right]^2 \\
+&=& \sum_{i=1}^n \left[\frac{1}{n^2}-2\,\frac{(x_i-\bar{x})\,\bar{x}}{n\,s_{xx}}+ \frac{(x_i-\bar{x})^2\,\bar{x}^2}{s_{xx}^2}\right] \\
+&=& \frac{n}{n^2}-2\,\frac{\bar{x}}{n\,s_{xx}} \sum_{i=1}^n (x_i-\bar{x})+\frac{\bar{x}^2}{s_{xx}^2}\sum_{i=1}^n(x_i-\bar{x})^2. \\
+\end{eqnarray*}
+Mais, $s_{xx}=\sum_{i=1}^n(x_i-\bar{x})^2$ et $\sum_{i=1}^n (x_i-\bar{x})=0$, alors 
+$$
+\sum_{i=1}^n \left[\frac{1}{n}-\frac{(x_i-\bar{x})\,\bar{x}}{s_{xx}}\right]^2 
+= \frac{n}{n^2}-2\,\frac{\bar{x}}{n\,s_{xx}} \sum_{i=1}^n (x_i-\bar{x})+\frac{\bar{x}^2}{s_{xx}^2}\sum_{i=1}^n(x_i-\bar{x})^2 
+= \frac{1}{n}+\frac{\bar{x}^2}{s_{xx}}. 
+$$
+Alors, 
+$$
+V[b_0]=\sigma^2\,\left(\frac{1}{n}+\frac{\bar{x}^2}{s_{xx}}\right).
+$$
+
+## 9. Régression linéaire multiple {#LR-Ex-9}
+
+### 9.1 Régression linéaire multiple I {#LR-Ex-9-1}
+
+Supposons que nous avons un modèle linéaire avec $p-1=9$ prédicteurs et $n=125$ observations. Nous avons ajusté le modèle et nous avons calculer la somme de carré résiduelle $\sum_{i=1}^{125} e_i^2=356$. La variance de l'échantillon pour la variance dépendantes est $s_y^2=34$. 
+
+(a) Donner une estimation de la variance de l'erreur. 
+
+(b) Donner l'écart type résiduel. 
+
+(c) Calculer le coefficient de détermination $R^2$. 
+
+**Réponses:**
+
+(a) Une estimation de $\sigma^2$ est $\mbox{\mbox{MSE}}=\sqrt{\mbox{SSE}/(n-p)}=356/(125-10)=3,\!09565.$
+
+(b) L'écart type résiduel est $s_e=\sqrt{\mbox{MSE}}=\sqrt{3,\!09565}$. 
+
+(c) On a $s_{yy}=(n-1)\,s_y^2=126\,(34)=4\,284$ et $\mbox{SSR}=s_{yy}-\mbox{SSE}=4\,284-356=3928$. Alors, le coefficient de détermination est 
+$$
+R^2=\frac{\mbox{SSR}}{s_{yy}}=\frac{3\,928}{4\,284}=0,\!9169.
+$$
+
+### 9.2 Régression linéaire multiple II {#LR-Ex-9-2}
+
+Nous avons ajusté un modèle linéaire avec la fonction de la moyenne suivante
+$$
+E\{Y\}=\beta_0+\beta_1\,x_1+\beta_2\,x_2+\beta_3\,x_3.
+$$
+Nous avons aussi extrait la matrice du plan $X$ avec R. 
+
+
+\begin{verbatim}
+> mod<-lm(y~x1+x2+x3)
+> X<-model.matrix(mod)
+\end{verbatim}
+
+Là nous calculons l'inverse de la matrice $X'X$, c'est-à-dire nous obtenons $(X'X)^{-1}$. 
+
+\begin{verbatim}
+> ## inverse de (X'X)
+> solve(t(X) %*% X)
+            (Intercept)            x1            x2            x3
+(Intercept)  1.30376082 -4.873540e-03 -1.600293e-02 -8.779750e-03
+x1          -0.00487354  2.706184e-04 -1.285093e-04  3.860415e-05
+x2          -0.01600293 -1.285093e-04  4.201381e-04  1.267343e-05
+x3          -0.00877975  3.860415e-05  1.267343e-05  1.729348e-04
+\end{verbatim}
+
+Nous affichons aussi l'estimation des paramètres de la fonction de la moyenne, l'écart type résiduel, et le nombre de degré de liberté de l'erreur. 
+
+\begin{verbatim}
+> mod$coefficients
+(Intercept)          x1          x2          x3
+ 17.8425757  19.9823858 -18.9075439   0.9351907
+ > summary(mod)$sigma
+[1] 10.0958
+> mod$df.residual
+[1] 36
+\end{verbatim}
+
+
+
+\bigskip 
+
+N.B. Le symbole pour la mutiplication matricielle avec R est ```%*%```. En outre, si ```A``` est une matrice inversible, alors ```solve(A)``` donne l'inverse de la matrice. 
+
+
+(a) Tester $H_0:\beta_1=0$ contre $H_a:\beta_1\neq 0$. Utiliser un niveau de signification de $\alpha=5\%$.
+
+(b) Donner un intervalle de confiance à 95% pour $\beta_1$. 
+
+**Réponses:**
+
+L'écart type résiduel est $s_e=\sqrt{\mbox{MSE}}=10,\!0958$. L'estimation de $\beta_1$ est $b_1=19,\!9823858$ et l'erreur type estimée de l'estimation est 
+$$
+s\{b_1\}=\sqrt{\mbox{MSE}(X'X)^{-1}_{11}}=s_e\,\sqrt{(X'X)^{-1}_{11}}=10,\!0958\,\sqrt{2.706184\times 10^{-4}}=0,\!16608.
+$$
+N.B. L'indice pour les coefficients prend les valeurs $j=0,1,2,\ldots,p-1$. Alors, $(X'X)^{-1}_{11}$ est la deuxième valeur dans la diagonale principale de $X'X$. 
+
+\bigskip 
+
+La valeur observée de la statistique du test est 
+$$
+t_0=\frac{b_1}{s\{b_1\}}=\frac{19,\!9823858}{0,\!16608}=120,\!3178.
+$$
+La valeur $p$ est $2\,P(t(36)\geq 120,3178)<0,\!0001$. 
+
+```{r }
+2*(1-pt(120.3178,36))
+```
+
+À un niveau de signification de $\alpha=5\%$, le predicteur $x_1$ est significatif. 
+
+(b) Un intervalle de confiance à 95% pour $\beta_1$ est 
+$$
+b_1\pm t(0,\!975;36) s\{b_1\}=]19.65; 20,\!32[.
+$$
+où $t(0,\!975;36)=2,\!02809$, $b_1=19,\!9823858$ et $s\{b_1\}=0,\!16608.$
+
+
+```{r }
+qt(0.975,36)
+```
+
+### 9.3 Régression linéaire multiple {#LR-Ex-9-3}
+
+```{r, class.source="Rchunk", class.output="chunkout", message=FALSE}
+library(dplyr)
+gapminder.rlm <- gapminder |> 
+  filter(year==2011) |>
+  select(infant_mortality, fertility, gdppc,life_expectancy)
+str(gapminder.rlm)
+plot(gapminder.rlm)
+head(gapminder.rlm)
+summary(gapminder.rlm)
+attributes(summary(gapminder.rlm))
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=TRUE, message=FALSE}
+mod.rlm.1 <- lm(life_expectancy ~ infant_mortality + fertility + gdppc, data=gapminder.rlm)
+summary(mod.rlm.1)
+plot(mod.rlm.1)
+
+mod.1 <- lm(infant_mortality ~ fertility + gdppc, data=gapminder.rlm)
+mod.2 <- lm(fertility ~ infant_mortality + gdppc, data=gapminder.rlm)
+mod.3 <- lm(gdppc ~ infant_mortality + fertility, data=gapminder.rlm)
+
+summary(mod.1)$r.squared
+summary(mod.2)$r.squared
+summary(mod.3)$r.squared
+```
+
+```{r, class.source="Rchunk", class.output="chunkout", eval=TRUE, message=FALSE}
+intercept_only <- lm(life_expectancy ~ 1, data=gapminder.rlm[complete.cases(gapminder.rlm),])
+
+#define model with all predictors
+all <- lm(life_expectancy ~ infant_mortality + fertility + gdppc, data=gapminder.rlm[complete.cases(gapminder.rlm),])
+
+#perform forward stepwise regression
+forward <- step(intercept_only, direction='forward', scope=formula(all))
+
+#view results of forward stepwise regression
+forward$anova
+
+#view final model
+forward$coefficients
+```
+
+
+### 9.4 Régression linéaire multiple {#LR-Ex-9-4}
+
+Considérons les données provenant d'une étude observationelle pour décrire le temps de rétablissement (en mois) selon la forme pré-chirugie du patient. La forme du patient est un prédicteur catégorique avec 3 niveaux: 1=inférieure à la moyenne; 2=moyenne; 3=supérieure à la moyenne.
+
+On importe les données et on affiche la structure du jeu de données.
+
+```{r, out.width="0.8\\linewidth"}
+#genou <- read.csv("Data/genou.csv")
+#str(genou)
+#plot(genou)
+```
+
+On remarque que la variable `Groupe` (la forme) est une variable numérique; en réalité, c'est une variable catégorique. Nous allons la transformer en un facteur (un type de variable catégorique dans `R`).
+
+```{r}
+#genou$Groupe<-factor(genou$Groupe)
+#str(genou)
+```
+
+Avec un facteur, on peut afficher les niveaux, un tableau de fréquence, et le codage du facteur (pour la modèlisation).
+
+On affiche les niveaux; on remarque qu’il y en a trois.
+
+```{r}
+#levels(genou$Groupe)
+```
+
+Voici le tableau de fréquence pour la variable `Groupe`. On voit que ce n’est pas une étude équilibrée; le nombre d’observations n’est pas constant dans chaque groupe.
+
+```{r}
+#table(genou$Groupe)
+```
+
+Il y a deux **variables muettes**, une pour le groupe 2 et l’autre pour le groupe 3. Dans ce qui suit, chaque colonne est une variable muette. La variable muette 2 prend la valeur 1 seulement si l’observation est dans le groupe 2, sinon c’est 0; la variable muette 3 prend la valeur 1 seulement si l’observation est dans le groupe 3, sinon c’est 0.
+
+```{r}
+#contrasts(genou$Groupe)
+```
+
+On ajuste le modèle d’ANOVA et on affiche un sommaire de l’ajustement.
+
+```{r}
+#mod<-lm(Temps ~ Groupe, data=genou)
+#summary(mod)
+```
+
+Le modèle d’ANOVA est significatif ($F(2, 21) = 16.96$; $p < 0,0001$). On appelle parfois ce test une analyse de variance (ANOVA). C'est un test pour l’égalité des moyennes. 
+
+Ainsi, on peut conclure qu’il y a des preuves significatives que le temps moyen de rétablissement varie selon le groupe du patient. Puisqu’il n'y a qu'un prédicteur dans le modèle,on peut aussi afficher le tableau de l’ANOVA pour le test de la signification de la régression.
+
+```{r}
+#anova(mod)
+```
+
+Ainsi, on estime que le temps de rétablissement pour un patient avec un forme **inférieure** à la moyenne est 38 mois; le temps moyen de rétablissement pour un patient avec une forme **moyenne** est $38 - 6 = 32$ mois, et celui pour un patient avec une forme supérieure à la moyenne est $38 - 14 = 24$ mois. De plus, l’écart type résiduel est 4.451 mois.
+
+Dans l’exemple de la chirurgie des genoux, nous avons un **facteur observationnel**. Les chercheurs n’ont pas assigné la forme pré-chirurgie au patient; ils viennent avec une certaine forme. Il est possible que les différences observées peuvent être expliquer par une variable de confusion. 
+
+Par exemple, les chercheurs peuvent être malchanceux il se pourrait que le groupe 1 soit peuplé de patients plus agés, et c'est peut-être plutôt ceci qui a été observé. Pour des études observationnelles, il est important d’utiliser les connaissances dans le domaine d’application et d'essayer de proposer quelques variables de confusion.
+
+Dans les applications médicales, l’âge et le sexe sont souvent utilisées comme variables de confusion. Ici, on contrôle pour l’âge du participant. Le sexe est souvent une variable explicative importante en médécine; la pratique commune est de séparer les sexes. Les études utilisent souvent seulement des hommes ou seulement des femmes: dans cette étude, il n'y a que des hommes.
+
+Nous allons décrire le temps de rétablissement selon la forme du patient et son âge. Le modèle linéaire général possède un prédicteur catégorique et un prédicteur quantitatif. La fonction systématique du temps de réponse moyenne  est
+
+$$E\{Y \} =\beta_0 + \beta_1 I\{\texttt{Groupe} = 2\} + \beta_2 I\{\texttt{Groupe} = 3\} + \beta_3 \times \texttt{Age}.$$
+
+$\beta_0$ est le temps de réadaptation moyen d’un patient avec un forme inférieure, d’âge 0. Mais cela ne veut rien dire puisqu'on ne peut pas faire affaire à un patient d’âge zéro.
+
+On donne un sens à l’ordonnée à l’origine, nous allons centrer le prédicteur quantitatif autour de la moyenne  $x = 23.575$. On pourrait aussi utiliser une valeur proche de la moyenne, comme 24.
+
+```{r}
+#mean(genou$Age)
+```
+
+Le modèle devient:
+
+$$E\{Y \} =\beta_0 + \beta_1 I\{\texttt{Groupe} = 2\} + \beta_2 I\{\texttt{Groupe} = 3\} + \beta_3 \times (\texttt{Age}-24).$$
+
+**Interprétation des paramètres:**
+
+- $\beta_0$ est le temps moyen de rétablissement d’un patient de 24 ans avec une forme inférieure à la moyenne;
+
+- quelque soit la forme du patient, le taux de variation de $E\{Y\}$ par rapport à l’âge est $\beta_3$;
+
+- pour deux patients du même âge, le temps de rétablissement moyen entre un patient de forme moyenne et de forme inférieure à la moyenne est $\beta_1$ (effet du groupe 2);
+
+- pour deux patients du même âge, le temps de rétablissement moyen entre un patient de forme supérieure à la moyenne et de forme inférieure à la moyenne est $\beta_2$ (effet du groupe 3).
+
+```{r}
+#genou$Age.c <- genou$Age-24
+```
+
+On ajuste un modèle linéaire général pour décrire le temps de rétablissement moyen selon la forme pré-chirurgique et l’âge du patient. Le modèle est significatif ($F(3,20) = 1170$; $p < 0.0001$) et $R^2 = 0.9943$.
+
+```{r}
+#mod.1 <- lm(Temps ~ Groupe + Age.c, data=genou)
+#summary(mod.1)
+```
+
+Le modèle est significatif, alors on peut conclure qu’il y ait au moins un prédicteur utile pour décrire la distribution du temps de rétablissement. Est-ce que la forme pré-chirurgique est significative? Est-ce que l’âge est significatif?
+
+On cherche à tester
+$$H_0 : \beta_1 = \beta_2 = 0 \quad \text{envers}\quad H_1 : \beta_1\neq  = 0 \text{ or }\beta_2\neq 0.$$
+Autrement dit, on veut savoir si nous pouvons éliminer le prédicteur `Groupe` du modèle. On peut utiliser un test linéaire général en comparant le modèle complet au modèle réduit. La forme pré-chirurgique est un prédicteur significatif ($F (2, 20) = 300.11$; $p < 0.0001$).
+
+```{r}
+#mod.0 <- lm(Temps ~ Age.c,data=genou)
+#anova(mod.0,mod.1)
+```
+
+La régression est significative: on rejette $H_0$ en faveur de $H_1$. 
+
+Pour tester $$H_0 : \beta_3 = 0 \quad \text{envers}\quad H_1: \beta_3\neq 0;$$ on invoque une hypothèse qui ne contient qu’un seul paramètre, on peut utiliser un test $t$ ou un test $F$. Les deux tests sont équivalents, avec $t^2 = F$.
+
+Voici le tableau des tests $t$ liés aux coefficients. L’âge est un prédicteur significatif ($t(20) = 36.4608$; $p <
+0.0001$).
+
+```{r}
+#summary(mod.1)$coefficients
+#mod.1$df.residual
+```
+
+Si on utilise plutôt le test linéaire général pour la signification de l’âge, on obtient que c'est un prédicteur significatif ($F (1, 20) = 1329.4$; $p < 0.0001$).
+
+```{r}
+#mod.1 <- lm(Temps ~ Groupe + Age.c,data=genou)
+#mod.2 <- lm(Temps ~ Groupe, data=genou)
+#anova(mod.1,mod.2)
+```
+
+Voici l’estimation des paramètres du modèle:
+
+```{r}
+#mod <- lm(Temps ~ Groupe + Age.c,data=genou)
+#mod$coefficients
+#summary(mod)$sigma
+```
+
+On estime qu’un patient de 24 ans avec une forme inférieure à la moyenne aura un temps moyen de rétablissement de 35.4 mois. On estime que le temps moyen de rétablissement augmentera de 1.16 mois par année ajoutée à l’âge du patient. Si un patient a une forme moyenne au lieu d’une forme inférieure à la moyenne, alors le temps moyen de rétablissement est réduit de 1.85 mois par année ajoutée à l’âge du patient. 
+
+La réduction est 8.72 mois par année ajoutée à l’âge du patient pour un patient avec une forme supérieure à la moyenne en comparaison à un patient avec une forme inférieure à la moyenne. L’écart type résiduel est 0.56 mois.
+
+## 10. Formes quadratiques {#LR-Ex-10}
+
+### 10.1 Formes quadratiques I {#LR-Ex-10-1}
+
+Pour chacun des cas ci-dessous, la matrice $A$ est la matrice de forme quadratique $Q$ des variables aléatoires non corrélées $Y_1,Y_2,Y_3. $
+En outre, supposons que $E\{Y_i\}=0$ and $V[Y_i]=\sigma^2=3$, pour $i=1,2,3$. Pour chacune des formes quadratiques, calculer $E\{Q\}$.
+
+$$
+(i) ~~ A=\begin{bmatrix}
+1 & 4 & 6 \\
+4 & 0 & 6 \\
+6 & 6 & 5 \\
+\end{bmatrix};
+ ~~~ (ii) ~~ A=\begin{bmatrix}
+1 & 4 & 6 \\
+3 & 0 & 6 \\
+6 & 4 & 10 \\
+\end{bmatrix}; ~~~ (iii) ~~ A=\begin{bmatrix}
+2/3 & -1/3 & -1/3 \\
+-1/3 & 2/3 & -1/3 \\
+-1/3 & -1/3 & 2/3 \\
+\end{bmatrix}.
+$$
+
+**Réponses:**
+
+Nous utilisons le résultat suivant:
+$$
+E\{Q\}=E\{Y\,A\,Y'\}=\sigma^2\,\mbox{tr}(A)+E\{Y\}\,A\,E\{Y'\}.
+$$
+Mais, $E\{Y\}=0$, alors, $E\{Q\}=\sigma^2\,\mbox{tr}(A)=3\,\mbox{tr}(A)$. 
+
+(i) $E\{Q\}=3\,\mbox{tr}(A)=3\,(1+0+5)=18$
+
+(ii) $E\{Q\}=3\,\mbox{tr}(A)=3\,(1+0+10)=33$
+
+(iii) $E\{Q\}=3\,\mbox{tr}(A)=3\,(2/3+2/3+2/3)=6$
+
+### 10.2 Formes quadratiques II {#LR-Ex-10-2}
+
+Voici des formes quadratiques de $Y_1, Y_2, Y_3$. Dans chaque cas, donnez la matrice de la forme quadratique, et calculez la trace de la matrice.
+
+(a) $Q=Y_1^2-5\,Y_2^2+10\,Y_3^2-2\,Y_1\,Y_2-10\,Y_1\,Y_3+6\,Y_2\,Y_3.$
+
+(b)  $Q=5\,Y_1^2+3\,Y_2^2+2\,Y_3^2-10\,Y_1\,Y_2-8\,Y_1\,Y_3+5\,Y_2\,Y_3.$
+
+**Réponses:**
+
+(a) La matrice de la forme quadratique est  
+$$
+A=\begin{bmatrix}
+1 &  -1   & -5\\
+-1  & -5  & 3\\
+-5  &  3   & 10 \\
+\end{bmatrix}.
+$$
+Sa trace est $\mbox{tr}(A)=1+(-5)+10=6$. 
+
+(b) La matrice de la forme quadratique est 
+$$
+A=\begin{bmatrix}
+5 &  -5   & -4\\
+-5  & 3  & 2.5\\
+-4  &  2.5   & 2 \\
+\end{bmatrix}.
+$$
+Sa trace est $\mbox{tr}(A)=5+3+2=10$. 
+
+\newpage
+
+## 11. Bonferroni {#LR-Ex-11}
+
+Imaginons que la relation linéaire réelle liant $Y$ et $X$ soit $y=75+15x+\varepsilon$, où $\varepsilon \sim N(0,1)$.
+
+Nous prélevons des échantillons (de taille $n$) de la réponse pour les prédicteurs suivants:
+
+```{r}
+n=20
+x = c(0.99,1.02,1.15,1.29,1.46,1.36,0.87,1.23,1.55,1.40,1.19,1.15,0.98,1.01,1.11,1.20,1.26,1.32,1.43,0.95)
+somme.X = sum(x)
+somme.X.2 = sum(x*x)
+```
+
+Pour le premier échantillon, les réponses observées sont: 
+
+```{r}
+set.seed(0)
+beta0 = 75
+beta1 = 15
+y = beta0 + beta1*x + rnorm(n)
+plot(x,y)
+```
+
+L'équation de la droite de meilleur ajustement, dans ce cas, est: 
+
+```{r}
+(mod = lm(y~x))
+plot(x,y)
+abline(mod)
+```
+
+On peut calculer 
+
+```{r}
+somme.Y = sum(y)
+somme.X.Y = sum(x*y)
+somme.Y.2 = sum(y*y)
+b1 = (somme.X.Y-n*mean(x)*mean(y))/(somme.X.2-n*(mean(x))^2)
+b0 = mean(y) - b1*mean(x)
+SSE = somme.Y.2 -n*(mean(y))^2 - b1^2*(somme.X.2-n*(mean(x))^2)
+sigma.2.hat = SSE/(n-2)
+s.b1 = sqrt(sigma.2.hat/(somme.X.2-n*(mean(x))^2))
+s.b0 = sqrt(sigma.2.hat*(1/n+(mean(x))^2/(somme.X.2-n*(mean(x))^2)))
+```
+
+À un niveau de confiance de 95\%, l'intervalle de confiance pour l'ordonnée à l'origine $\beta_0$ est ainsi:
+
+```{r}
+alpha=0.05
+c(b0-qt(1-alpha/2,n-2)*s.b0,b0+qt(1-alpha/2,n-2)*s.b0)
+```
+
+La valeur réelle de $\beta_0$ se retrouve bien dans l'I.C.:
+
+```{r}
+(beta0 > b0-qt(1-alpha/2,n-2)*s.b0) & (beta0 < b0+qt(1-alpha/2,n-2)*s.b0)
+```
+
+Celui de la pente $\beta_1$ est: 
+
+```{r}
+c(b1-qt(1-alpha/2,n-2)*s.b1,b1+qt(1-alpha/2,n-2)*s.b1)
+```
+
+La valeur réelle de $\beta_0$ se retrouve bien dans l'I.C.:
+
+```{r}
+(beta1 > b1-qt(1-alpha/2,n-2)*s.b1) & (beta1 < b1+qt(1-alpha/2,n-2)*s.b1)
+```
+
+Simultanément, $(\beta_0,\beta_1)$ se retrouvent dans leurs I.C. respectifs: 
+
+```{r}
+(beta0 > b0-qt(1-alpha/2,n-2)*s.b0) & (beta0 < b0+qt(1-alpha/2,n-2)*s.b0) & (beta1 > b1-qt(1-alpha/2,n-2)*s.b1) & (beta1 < b1+qt(1-alpha/2,n-2)*s.b1)
+```
+
+Répétons l'expérience à $m = 10,000$ reprises:
+
+```{r}
+m = 10000
+g=1
+set.seed(0)
+ICb0 = c()
+ICb1 = c()
+ICb0b1 = c()
+for(j in 1:m){
+  y = beta0 + beta1*x + rnorm(n, sd=10)
+  somme.Y = sum(y)
+  somme.X.Y = sum(x*y)
+  somme.Y.2 = sum(y*y)
+  b1 = (somme.X.Y-n*mean(x)*mean(y))/(somme.X.2-n*(mean(x))^2)
+  b0 = mean(y) - b1*mean(x)
+  SSE = somme.Y.2 -n*(mean(y))^2 - b1^2*(somme.X.2-n*(mean(x))^2)
+  sigma.2.hat = SSE/(n-2)
+  s.b1 = sqrt(sigma.2.hat/(somme.X.2-n*(mean(x))^2))
+  s.b0 = sqrt(sigma.2.hat*(1/n+(mean(x))^2/(somme.X.2-n*(mean(x))^2)))
+
+  ICb0[j] = (beta0 > b0-qt(1-(alpha/g)/2,n-2)*s.b0) & (beta0 < b0+qt(1-(alpha/g)/2,n-2)*s.b0)
+  ICb1[j] = (beta1 > b1-qt(1-(alpha/g)/2,n-2)*s.b1) & (beta1 < b1+qt(1-(alpha/g)/2,n-2)*s.b1)
+  ICb0b1[j] = (beta0 > b0-qt(1-(alpha/g)/2,n-2)*s.b0) & (beta0 < b0+qt(1-(alpha/g)/2,n-2)*s.b0) & (beta1 > b1-qt(1-(alpha/g)/2,n-2)*s.b1) & (beta1 < b1+qt(1-(alpha/g)/2,n-2)*s.b1)
+}
+```
+
+Individuellement, nous avons: 
+
+```{r}
+sum(ICb0)/m
+sum(ICb1)/m
+```
+Simultanément: 
+
+```{r}
+sum(ICb0b1)/m
+```
+Nous n'atteignons pas le cap des 95%!!
+
+Si l'on utilise la procédure de Bonferroni, au contraire: 
+
+```{r}
+m = 10000
+g=2
+set.seed(0)
+ICb0 = c()
+ICb1 = c()
+ICb0b1 = c()
+for(j in 1:m){
+  y = beta0 + beta1*x + rnorm(n, mean=0, sd = 400)
+  somme.Y = sum(y)
+  somme.X.Y = sum(x*y)
+  somme.Y.2 = sum(y*y)
+  b1 = (somme.X.Y-n*mean(x)*mean(y))/(somme.X.2-n*(mean(x))^2)
+  b0 = mean(y) - b1*mean(x)
+  SSE = somme.Y.2 -n*(mean(y))^2 - b1^2*(somme.X.2-n*(mean(x))^2)
+  sigma.2.hat = SSE/(n-2)
+  s.b1 = sqrt(sigma.2.hat/(somme.X.2-n*(mean(x))^2))
+  s.b0 = sqrt(sigma.2.hat*(1/n+(mean(x))^2/(somme.X.2-n*(mean(x))^2)))
+
+  ICb0[j] = (beta0 > b0-qt(1-(alpha/g)/2,n-2)*s.b0) & (beta0 < b0+qt(1-(alpha/g)/2,n-2)*s.b0)
+  ICb1[j] = (beta1 > b1-qt(1-(alpha/g)/2,n-2)*s.b1) & (beta1 < b1+qt(1-(alpha/g)/2,n-2)*s.b1)
+  ICb0b1[j] = (beta0 > b0-qt(1-(alpha/g)/2,n-2)*s.b0) & (beta0 < b0+qt(1-(alpha/g)/2,n-2)*s.b0) & (beta1 > b1-qt(1-(alpha/g)/2,n-2)*s.b1) & (beta1 < b1+qt(1-(alpha/g)/2,n-2)*s.b1)
+}
+sum(ICb0)/m
+sum(ICb1)/m
+sum(ICb0b1)/m
+```
+
+## 12. Supplémentaire {#LR-12}
+
+### 12.1 Test de linéarité
+
+```{r}
+x=c(1,1,2,2,3)    
+y=c(10,11,10.5,12,13)
+
+data = data.frame(x,y)
+
+mod = lm(y~x, data=data)
+summary(mod)
+
+ggplot2::ggplot(data,ggplot2::aes(x=x,y=y)) + 
+  ggplot2::geom_point(size=1) + 
+  ggplot2::xlab("X") + 
+  ggplot2::ylab("Y") + 
+  ggplot2::geom_smooth(color="red", method="lm", se=FALSE) +
+  ggplot2::theme_bw()
+
+n=5
+p=2
+c=3
+n1 = 2
+n2 = 2
+n3 = 1
+SST = (n-1)*var(y)
+SSR = as.double(mod[[1]][2]^2*(n-1)*var(x))
+SSE = SST - SSR
+SSPE = (n1-1)*var(data[data$x == 1,2]) + (n2-1)*var(data[data$x == 2,2]) # + (n3-1)*var(data[data$x == 3,2])
+SSLF = SSE - SSPE
+Fstar = (SSLF/(c-p))/(SSPE/(n-c))
+qf(0.95,c-p,n-c)
+Fstar < qf(0.95,c-p,n-c)
+
+
+x=c(1,1,2,2,3)    
+y=c(10,11,10.5,12,33)
+
+data = data.frame(x,y)
+
+mod = lm(y~x, data=data)
+summary(mod)
+
+ggplot2::ggplot(data,ggplot2::aes(x=x,y=y)) + 
+  ggplot2::geom_point(size=1) + 
+  ggplot2::xlab("X") + 
+  ggplot2::ylab("Y") + 
+  ggplot2::geom_smooth(color="red", method="lm", se=FALSE) +
+  ggplot2::theme_bw()
+
+n=5
+p=2
+c=3
+n1 = 2
+n2 = 2
+n3 = 1
+SST = (n-1)*var(y)
+SSR = as.double(mod[[1]][2]^2*(n-1)*var(x))
+SSE = SST - SSR
+SSPE = (n1-1)*var(data[data$x == 1,2]) + (n2-1)*var(data[data$x == 2,2]) # + (n3-1)*var(data[data$x == 3,2])
+SSLF = SSE - SSPE
+Fstar = (SSLF/(c-p))/(SSPE/(n-c))
+qf(0.95,c-p,n-c)
+Fstar < qf(0.95,c-p,n-c)
+```
+
+### 12.2 Régression polynomiale
+
+```{r}
+X=c(1,1,2,4,3,6)
+X2 = X^2
+Xm = X-mean(X)
+X2m = (X-mean(X))^2
+Y=c(0.8,1.3,4.1,15.3,8.8,36)
+data=data.frame(X,X2,Xm,X2m,Y)
+
+par(mfrow = c(1,2))
+
+summary(lm(Y~X, data=data))
+plot(data$X,data$Y)
+abline(lm(Y~X, data=data), col='red')
+
+summary((mod1<-lm(Y~X+X2, data=data)))
+modX = lm(X~X2, data=data)
+VIF1 = 1/(1-summary(modX)$r.squared)
+
+
+summary((mod2<-lm(Y~Xm+X2m, data=data)))
+
+t <- seq(0, 6, 0.1)
+y <- predict(mod1,list(X=t, X2=t^2))
+plot(data$X, data$Y)
+
+#add predicted lines based on quadratic regression model
+lines(t, y, col='blue')
+
+modXm = lm(Xm~X2m, data=data)
+VIF1m = 1/(1-summary(modXm)$r.squared)
+```
+
+### 12.3 Effets d'interaction
+
+```{r}
+x1 <- runif(50, 0, 10)
+x2 <- rnorm(50, 10, 3)
+modmat <- model.matrix(~x1 * x2, data.frame(x1 = x1, x2 = x2))
+coeff <- c(1, 2, -1, 1.5)
+y <- rnorm(50, mean = modmat %*% coeff, sd = 25)
+dat <- data.frame(y = y, x1 = x1, x2 = x2)
+dat2 = dat
+dat2[,c(2:3)] <- scale(dat[,c(2:3)], scale=FALSE)
+
+library(ggplot2)
+ggplot(dat2,aes(x=x1,y=x2,fill=y,size=y)) + geom_point(pch=21) + theme_bw()
+
+summary(lm(y ~ x1 * x2, data=dat2))
+plot(lm(y ~ x1 * x2, data=dat2))
+
+summary(lm(y ~ x1 + I(x1^2) + x1 * x2 + x2 + I(x2^2), data=dat2))
+plot(lm(y ~ x1 + I(x1^2) + x1 * x2 + x2 + I(x2^2), data=dat2))
+```
+
+### 12.4 Moindres carrés pondérés
+
+```{r, out.width="0.5\\linewidth"}
+n = nrow(x1)
+p = 2
+plot(data.frame(x1,x2,y))
+
+mod = lm(y ~ x1 + x2)
+summary(mod)
+plot(mod)
+
+(MSE = sum(mod$residuals^2)/(n-p))
+```
+
+```{r}
+poids <- 1 / lm(abs(mod$residuals) ~ x1 + x2)$fitted.values^2
+mod.wls <- lm(y ~ x1 + x2, weights=poids)
+
+(MSE.w = sum(mod.wls$residuals^2)/(n-p))
+summary(mod.wls)
+plot(mod.wls)
+```

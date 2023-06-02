@@ -1,0 +1,198 @@
+﻿geo,name,four_regions,eight_regions,six_regions,members_oecd_g77
+aus,Australia,asia,east_asia_pacific,east_asia_pacific,oecd
+brn,Brunei,asia,east_asia_pacific,east_asia_pacific,g77
+khm,Cambodia,asia,east_asia_pacific,east_asia_pacific,g77
+chn,China,asia,east_asia_pacific,east_asia_pacific,g77
+fji,Fiji,asia,east_asia_pacific,east_asia_pacific,g77
+hkg,"Hong Kong, China",asia,east_asia_pacific,east_asia_pacific,others
+idn,Indonesia,asia,east_asia_pacific,east_asia_pacific,g77
+jpn,Japan,asia,east_asia_pacific,east_asia_pacific,oecd
+kir,Kiribati,asia,east_asia_pacific,east_asia_pacific,others
+prk,North Korea,asia,east_asia_pacific,east_asia_pacific,g77
+kor,South Korea,asia,east_asia_pacific,east_asia_pacific,oecd
+lao,Lao,asia,east_asia_pacific,east_asia_pacific,g77
+mys,Malaysia,asia,east_asia_pacific,east_asia_pacific,g77
+mhl,Marshall Islands,asia,east_asia_pacific,east_asia_pacific,g77
+fsm,"Micronesia, Fed. Sts.",asia,east_asia_pacific,east_asia_pacific,g77
+mng,Mongolia,asia,east_asia_pacific,east_asia_pacific,g77
+mmr,Myanmar,asia,east_asia_pacific,east_asia_pacific,g77
+nru,Nauru,asia,east_asia_pacific,east_asia_pacific,others
+nzl,New Zealand,asia,east_asia_pacific,east_asia_pacific,oecd
+plw,Palau,asia,east_asia_pacific,east_asia_pacific,others
+png,Papua New Guinea,asia,east_asia_pacific,east_asia_pacific,g77
+phl,Philippines,asia,east_asia_pacific,east_asia_pacific,g77
+wsm,Samoa,asia,east_asia_pacific,east_asia_pacific,g77
+sgp,Singapore,asia,east_asia_pacific,east_asia_pacific,g77
+slb,Solomon Islands,asia,east_asia_pacific,east_asia_pacific,g77
+twn,Taiwan,asia,east_asia_pacific,east_asia_pacific,others
+tha,Thailand,asia,east_asia_pacific,east_asia_pacific,g77
+tls,Timor-Leste,asia,east_asia_pacific,east_asia_pacific,g77
+ton,Tonga,asia,east_asia_pacific,east_asia_pacific,g77
+tuv,Tuvalu,asia,east_asia_pacific,east_asia_pacific,others
+vut,Vanuatu,asia,east_asia_pacific,east_asia_pacific,g77
+vnm,Vietnam,asia,east_asia_pacific,east_asia_pacific,g77
+alb,Albania,europe,europe_east,europe_central_asia,others
+and,Andorra,europe,europe_west,europe_central_asia,others
+arm,Armenia,europe,europe_east,europe_central_asia,others
+aut,Austria,europe,europe_west,europe_central_asia,oecd
+aze,Azerbaijan,europe,europe_east,europe_central_asia,others
+blr,Belarus,europe,europe_east,europe_central_asia,others
+bel,Belgium,europe,europe_west,europe_central_asia,oecd
+bih,Bosnia and Herzegovina,europe,europe_east,europe_central_asia,g77
+bgr,Bulgaria,europe,europe_east,europe_central_asia,others
+hrv,Croatia,europe,europe_east,europe_central_asia,others
+cyp,Cyprus,europe,europe_west,europe_central_asia,others
+cze,Czech Republic,europe,europe_east,europe_central_asia,oecd
+dnk,Denmark,europe,europe_west,europe_central_asia,oecd
+est,Estonia,europe,europe_east,europe_central_asia,others
+fin,Finland,europe,europe_east,europe_central_asia,oecd
+fra,France,europe,europe_west,europe_central_asia,oecd
+geo,Georgia,europe,europe_east,europe_central_asia,others
+deu,Germany,europe,europe_west,europe_central_asia,oecd
+grc,Greece,europe,europe_west,europe_central_asia,oecd
+hun,Hungary,europe,europe_east,europe_central_asia,oecd
+isl,Iceland,europe,europe_west,europe_central_asia,oecd
+irl,Ireland,europe,europe_west,europe_central_asia,oecd
+ita,Italy,europe,europe_west,europe_central_asia,oecd
+kaz,Kazakhstan,asia,asia_west,europe_central_asia,others
+kgz,Kyrgyz Republic,asia,asia_west,europe_central_asia,others
+lva,Latvia,europe,europe_east,europe_central_asia,others
+lie,Liechtenstein,europe,europe_west,europe_central_asia,others
+ltu,Lithuania,europe,europe_east,europe_central_asia,others
+lux,Luxembourg,europe,europe_west,europe_central_asia,oecd
+mkd,"Macedonia, FYR",europe,europe_east,europe_central_asia,others
+mda,Moldova,europe,europe_east,europe_central_asia,others
+mco,Monaco,europe,europe_west,europe_central_asia,others
+mne,Montenegro,europe,europe_east,europe_central_asia,others
+nld,Netherlands,europe,europe_west,europe_central_asia,oecd
+nor,Norway,europe,europe_west,europe_central_asia,oecd
+pol,Poland,europe,europe_west,europe_central_asia,oecd
+prt,Portugal,europe,europe_west,europe_central_asia,oecd
+rou,Romania,europe,europe_east,europe_central_asia,others
+rus,Russia,europe,europe_east,europe_central_asia,others
+smr,San Marino,europe,europe_west,europe_central_asia,others
+srb,Serbia,europe,europe_east,europe_central_asia,others
+svk,Slovak Republic,europe,europe_east,europe_central_asia,oecd
+svn,Slovenia,europe,europe_east,europe_central_asia,others
+esp,Spain,europe,europe_west,europe_central_asia,oecd
+swe,Sweden,europe,europe_west,europe_central_asia,oecd
+che,Switzerland,europe,europe_west,europe_central_asia,oecd
+tjk,Tajikistan,asia,asia_west,europe_central_asia,others
+tur,Turkey,europe,europe_east,europe_central_asia,oecd
+tkm,Turkmenistan,asia,asia_west,europe_central_asia,g77
+ukr,Ukraine,europe,europe_east,europe_central_asia,others
+gbr,United Kingdom,europe,europe_west,europe_central_asia,oecd
+uzb,Uzbekistan,asia,asia_west,europe_central_asia,others
+atg,Antigua and Barbuda,americas,america_north,america,g77
+arg,Argentina,americas,america_south,america,g77
+bhs,Bahamas,americas,america_north,america,g77
+brb,Barbados,americas,america_north,america,g77
+blz,Belize,americas,america_north,america,g77
+bol,Bolivia,americas,america_south,america,g77
+bra,Brazil,americas,america_south,america,g77
+chl,Chile,americas,america_south,america,g77
+col,Colombia,americas,america_south,america,g77
+cri,Costa Rica,americas,america_north,america,g77
+cub,Cuba,americas,america_north,america,g77
+dma,Dominica,americas,america_north,america,g77
+dom,Dominican Republic,americas,america_north,america,g77
+ecu,Ecuador,americas,america_south,america,g77
+slv,El Salvador,americas,america_north,america,g77
+grd,Grenada,americas,america_north,america,g77
+gtm,Guatemala,americas,america_north,america,g77
+guy,Guyana,americas,america_south,america,g77
+hti,Haiti,americas,america_north,america,g77
+hnd,Honduras,americas,america_north,america,g77
+jam,Jamaica,americas,america_north,america,g77
+mex,Mexico,americas,america_north,america,oecd
+nic,Nicaragua,americas,america_north,america,g77
+pan,Panama,americas,america_north,america,g77
+pry,Paraguay,americas,america_south,america,g77
+per,Peru,americas,america_south,america,g77
+kna,St. Kitts and Nevis,americas,america_north,america,g77
+lca,St. Lucia,americas,america_north,america,g77
+vct,St. Vincent and the Grenadines,americas,america_north,america,g77
+sur,Suriname,americas,america_south,america,g77
+tto,Trinidad and Tobago,americas,america_north,america,g77
+ury,Uruguay,americas,america_south,america,g77
+ven,Venezuela,americas,america_south,america,g77
+dza,Algeria,africa,africa_north,middle_east_north_africa,g77
+bhr,Bahrain,asia,asia_west,middle_east_north_africa,g77
+dji,Djibouti,africa,africa_north,middle_east_north_africa,g77
+egy,Egypt,africa,africa_north,middle_east_north_africa,g77
+irn,Iran,asia,asia_west,middle_east_north_africa,g77
+irq,Iraq,asia,asia_west,middle_east_north_africa,g77
+isr,Israel,asia,asia_west,middle_east_north_africa,others
+jor,Jordan,asia,asia_west,middle_east_north_africa,g77
+kwt,Kuwait,asia,asia_west,middle_east_north_africa,g77
+lbn,Lebanon,asia,asia_west,middle_east_north_africa,g77
+lby,Libya,africa,africa_north,middle_east_north_africa,g77
+mlt,Malta,europe,europe_west,europe_central_asia,others
+mar,Morocco,africa,africa_north,middle_east_north_africa,g77
+omn,Oman,asia,asia_west,middle_east_north_africa,g77
+qat,Qatar,asia,asia_west,middle_east_north_africa,g77
+sau,Saudi Arabia,asia,asia_west,middle_east_north_africa,g77
+syr,Syria,asia,asia_west,middle_east_north_africa,g77
+tun,Tunisia,africa,africa_north,middle_east_north_africa,g77
+are,United Arab Emirates,asia,asia_west,middle_east_north_africa,g77
+pse,Palestine,asia,asia_west,middle_east_north_africa,g77
+yem,Yemen,asia,asia_west,middle_east_north_africa,g77
+can,Canada,americas,america_north,america,oecd
+usa,United States,americas,america_north,america,oecd
+afg,Afghanistan,asia,asia_west,south_asia,g77
+bgd,Bangladesh,asia,asia_west,south_asia,g77
+btn,Bhutan,asia,asia_west,south_asia,g77
+ind,India,asia,asia_west,south_asia,g77
+mdv,Maldives,asia,asia_west,south_asia,g77
+npl,Nepal,asia,asia_west,south_asia,g77
+pak,Pakistan,asia,asia_west,south_asia,g77
+lka,Sri Lanka,asia,asia_west,south_asia,g77
+ago,Angola,africa,africa_sub_saharan,sub_saharan_africa,g77
+ben,Benin,africa,africa_sub_saharan,sub_saharan_africa,g77
+bwa,Botswana,africa,africa_sub_saharan,sub_saharan_africa,g77
+bfa,Burkina Faso,africa,africa_sub_saharan,sub_saharan_africa,g77
+bdi,Burundi,africa,africa_sub_saharan,sub_saharan_africa,g77
+cmr,Cameroon,africa,africa_sub_saharan,sub_saharan_africa,g77
+cpv,Cape Verde,africa,africa_sub_saharan,sub_saharan_africa,g77
+caf,Central African Republic,africa,africa_sub_saharan,sub_saharan_africa,g77
+tcd,Chad,africa,africa_sub_saharan,sub_saharan_africa,g77
+com,Comoros,africa,africa_sub_saharan,sub_saharan_africa,g77
+cod,"Congo, Dem. Rep.",africa,africa_sub_saharan,sub_saharan_africa,g77
+cog,"Congo, Rep.",africa,africa_sub_saharan,sub_saharan_africa,g77
+civ,Cote d'Ivoire,africa,africa_sub_saharan,sub_saharan_africa,g77
+gnq,Equatorial Guinea,africa,africa_sub_saharan,sub_saharan_africa,g77
+eri,Eritrea,africa,africa_sub_saharan,sub_saharan_africa,g77
+eth,Ethiopia,africa,africa_sub_saharan,sub_saharan_africa,g77
+gab,Gabon,africa,africa_sub_saharan,sub_saharan_africa,g77
+gmb,Gambia,africa,africa_sub_saharan,sub_saharan_africa,g77
+gha,Ghana,africa,africa_sub_saharan,sub_saharan_africa,g77
+gin,Guinea,africa,africa_sub_saharan,sub_saharan_africa,g77
+gnb,Guinea-Bissau,africa,africa_sub_saharan,sub_saharan_africa,g77
+ken,Kenya,africa,africa_sub_saharan,sub_saharan_africa,g77
+lso,Lesotho,africa,africa_sub_saharan,sub_saharan_africa,g77
+lbr,Liberia,africa,africa_sub_saharan,sub_saharan_africa,g77
+mdg,Madagascar,africa,africa_sub_saharan,sub_saharan_africa,g77
+mwi,Malawi,africa,africa_sub_saharan,sub_saharan_africa,g77
+mli,Mali,africa,africa_sub_saharan,sub_saharan_africa,g77
+mrt,Mauritania,africa,africa_sub_saharan,sub_saharan_africa,g77
+mus,Mauritius,africa,africa_sub_saharan,sub_saharan_africa,g77
+moz,Mozambique,africa,africa_sub_saharan,sub_saharan_africa,g77
+nam,Namibia,africa,africa_sub_saharan,sub_saharan_africa,g77
+ner,Niger,africa,africa_sub_saharan,sub_saharan_africa,g77
+nga,Nigeria,africa,africa_sub_saharan,sub_saharan_africa,g77
+rwa,Rwanda,africa,africa_sub_saharan,sub_saharan_africa,g77
+stp,Sao Tome and Principe,africa,africa_sub_saharan,sub_saharan_africa,g77
+sen,Senegal,africa,africa_sub_saharan,sub_saharan_africa,g77
+syc,Seychelles,africa,africa_sub_saharan,sub_saharan_africa,g77
+sle,Sierra Leone,africa,africa_sub_saharan,sub_saharan_africa,g77
+som,Somalia,africa,africa_sub_saharan,sub_saharan_africa,g77
+zaf,South Africa,africa,africa_sub_saharan,sub_saharan_africa,g77
+sdn,Sudan,africa,africa_sub_saharan,sub_saharan_africa,g77
+swz,Swaziland,africa,africa_sub_saharan,sub_saharan_africa,g77
+tza,Tanzania,africa,africa_sub_saharan,sub_saharan_africa,g77
+tgo,Togo,africa,africa_sub_saharan,sub_saharan_africa,g77
+uga,Uganda,africa,africa_sub_saharan,sub_saharan_africa,g77
+zmb,Zambia,africa,africa_sub_saharan,sub_saharan_africa,g77
+zwe,Zimbabwe,africa,africa_sub_saharan,sub_saharan_africa,g77
+ssd,South Sudan,africa,africa_sub_saharan,sub_saharan_africa,g77
+hos,Holy See,europe,europe_west,europe_central_asia,others

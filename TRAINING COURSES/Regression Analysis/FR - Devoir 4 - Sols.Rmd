@@ -1,0 +1,393 @@
+---
+title: "Devoir 4 - Solutions"
+author: "Patrick Boily"
+date: '2023-02-25'
+output: pdf_document
+---
+
+## Préliminaires 1
+
+Nous importons l'ensemble `Autos.xlsx` se retrouvant sur
+Brightspace. Nous ne nous intéressons qu'aux véhicules de type VPAS, avec prédicteurs `VKM.q` ($X_1$, distance quotidienne
+moyenne, en km) et `Age` ($X_2$, age du véhicule, en années), et réponse `CC.q` ($Y$, consommation de carburant
+quotidienne moyenne, en L). 
+
+```{r}
+library(tidyverse)  # pour avoir acces a select() et |>
+
+Autos <- readxl::read_excel("Data/Autos.xlsx") |> 
+  filter(Type == "VPAS") |> select(VKM.q,Age,CC.q) 
+str(Autos)
+x1 = Autos$VKM.q
+x2 = Autos$Age
+y = Autos$CC.q
+```
+
+\newpage\noindent 
+
+## Q31 
+
+Calculez directement le
+    coefficient de détermination multiple et le coefficient de
+    détermination multiple ajusté (sans utiliser `lm()`). Qu'est-ce que
+    ces valeurs vous disent au sujet de la qualité de l'ajustement
+    multiple dans l'ensemble de données?
+
+\textbf{Solution:} on commence par trouver le vecteur des valeurs ajustées $\mathbf{\hat{Y}}$ (sans utiliser `lm()`, comme le demande la question).
+
+```{r}
+n = nrow(Autos)
+p = 2
+X = cbind(rep(1,n), x1, x2)
+(b = solve(t(X)%*%X) %*% t(X) %*% y)
+y.hat = X %*% b
+```
+
+Si $\beta_0\neq 0$, le coefficient de détermination $R^2$ est  $r^2_{Y,\hat{Y}}$, le carré de la corrélation de Pearson entre les valeurs réelles de la réponse et les valeurs ajustées de cette dernière. 
+
+L'estimateur $b_0$ n'est pas nul, mais cela ne revient pas nécessairement à dire que $\beta_0\neq 0$. L'erreur-type $s\{b_0\}$ est donnée par: 
+
+```{r}
+e = y - y.hat
+(SSE = sum(e^2))
+MSE = SSE/(n-p)
+sigma.b = MSE * solve(t(X) %*% X)
+
+```
+
+L'intervalle de confiance de $\beta_0$ à environ 95% est ainsi
+
+```{r}
+c(b[1] - qt(1-0.05/2,n-p)*sqrt(sigma.b[1,1]), b[1] + qt(1-0.05/2,n-p)*sqrt(sigma.b[1,1]))
+```
+
+Alors on ne sait pas vraiment si $\beta_0\neq 0$ et il faut utiliser une autre approche; pourquoi ne pas se servir de la définition: $R^2=1-\frac{\text{SSE}}{\text{SST}}$? 
+
+Nous avons déjà calculé $\text{SSE}$; voici $\text{SST}$:
+
+```{r}
+(SST = sum((y-mean(y))^2))
+```
+
+d'où 
+
+```{r}
+(R.2 = 1 - SSE/SST)
+```
+
+Le coefficient de détermination multiple, quant à lui, est: 
+
+```{r}
+(R.2.a = 1 - (n-1)/(n-p)*SSE/SST)
+```
+
+\newpage\noindent 
+
+## Q32  
+
+Est-ce que l'hypothèse de
+    linéarité est raisonable? Justifiez votre réponse.
+
+\textbf{Solution:} on peut bien commencer par visualiser les résidus et les valeurs ajustées.
+
+```{r}
+mod = lm(y ~ x1 + x2)
+plot(mod, which=1)
+```
+
+Ouais, à vue d'oeil, la linéarité ne semble pas garantie (il y a définitivement une tendance dans les résidus). Nous allons utiliser le test RESET de Ramsey afin de tester la spécification linéaire de la fonction de la moyenne. 
+
+```{r, warning=FALSE, message=FALSE}
+library(lmtest)
+resettest(mod, powers=c(2,3))
+```
+
+Comme la valeur $p$ du test est assez élevée, on ne peut donc pas rejeter l'hypothèse nulle que le modèle est mal spécifiée selon le test RESET de Ramsey (!).
+
+Mais ce n'est pas la seule façon de s'y prendre; par exemple, avec le test d'inadéquation vu dans les notes, on viendrait à en conclure que la réponse moyenne n'est pas une combinaison linéaire des prédicteurs (mais à peine) -- en pratique, c'est plus ou moins toujours comme cela que ça se déroule... les résultats sont assez rarement catégoriques. Tant que vous justifiez votre réponse. 
+
+\newpage\noindent 
+
+## Q33  
+
+Est-ce que l'hypothèse de variance
+    constante est raisonable? Justifiez votre réponse.
+
+\textbf{Solution:} comme le modèle linéaire est présumément bien spécifié, on peut vérifier l’homoscédasticité du modèle (la variance de l’erreur ne dépend pas des prédicteurs). 
+
+On commence avec le diagramme des racines des résidus standardisés en fonction des valeurs ajustées. Si le modèle est homoscédastique, on devrait s’attendre à ce qu’il y ait une tendance horizontale (près de 1) dans le diagramme. Mais, s’il y a une tendance prononcée dans le diagramme, ceci suggère que la variance n’est pas constante.
+
+```{r}
+plot(mod, which=3)
+```
+
+Mmmhhh... ce n'est pas diable. Utilisons le test Breusch-Pagan Studentizé, mettons (ce n'est pas la seule option).
+
+```{r}
+e <- mod$residuals
+# le test de Breusch-Pagan
+mod.BP <- lm(e^2 ~ x1 + x2)
+R.2 <- summary(mod.BP)$r.squared
+# valeur observée de la statistique de test de Breush-Pagan Studentizé
+n*R.2
+```
+
+Mais la valeur $p$ du test BP est:
+
+```{r}
+1 - pchisq(n*R.2,p-1)
+```
+
+La valeur $p$ est assez élevée pour que nous ne puissions pas rejeter l'hypothèse d'homoscédasticité (valeur constante... en venons nous à la même conclusion avec le test de Brown-Forsythe ou le test de White?)
+
+<!--
+```{r}
+# extraire les résidus et les valeurs ajustés
+e <- mod$residuals
+y.hat <- mod$fitted.values
+# le test de White
+mod.White <- lm(e^2 ~ y.hat + I(y.hat^2))
+R.2 <- summary(mod.White)$r.squared
+# valeur observée del la statistique de test de White
+n*R.2
+# valeur p
+1-pchisq(n*R.2,2)
+```
+-->
+
+\newpage\noindent 
+
+## Q34  
+
+Est-ce que l'hypothèse de
+    l'indépendance des termes d'erreur est raisonable? Justifiez votre
+    réponse.
+
+\textbf{Solution:} à peu près le seul truc que l'on peut s'imaginer utiliser ici, c'est la corrélation entre les résidus $e_i$ et les valeurs ajustées $\hat{y}_i$. 
+
+Nous avons: 
+
+```{r}
+cor(e,y.hat)
+```
+
+La corrélation est vraiment faible, alors nous n'avons pas à nous inquiéter outre mesure: les termes d'erreurs sont sans doute indépendents. 
+
+\newpage\noindent 
+
+## Q35  
+
+Est-ce que l'hypothèse de la
+    normalité des termes d'erreur est raisonable? Justifiez votre
+    réponse.
+
+
+\textbf{Solution:} on commence par un tracé de l'histogramme des résidus studentisés:
+
+```{r, out.width="0.5\\linewidth"}
+H = X %*% solve(t(X) %*% X) %*% t(X)
+h = diag(H)
+r = e/sqrt(MSE*(1-h)) 
+hist(r)
+```
+
+L'histogramme a une longue queue vers la droite, mais ce ne sont peut-être que des valeurs aberrantes. Cela vaut la peine de tracer le diagrame quantile-quantile.
+
+```{r}
+plot(mod, which=2)
+```
+
+La queue vers la droite semble effectivement être problématique. Suffisamment, en fait, pour en conclure que les termes d'erreurs ne suivent pas une loi normale.
+
+\newpage\noindent 
+
+## Q36  
+
+Dans son ensemble, est-ce que vous
+    croyez que le modèle de régression linéaire multiple est approprié?
+    Justifiez votre réponse.
+
+
+\textbf{Solution:} nous avons vu que nous ne pouvons ni rejeter l'hypothèse de spécification linéaire pour la moyenne de la réponse, ni celle de l'homoscédasticité (variance constante), ni celle de l'indépendence des termes d'erreur, mais que l'hypothèse de la normalité peut fort probablement être rejetée, surtout dans le régime de la longue queue à droite. Dépendammentdu test utilisé, on pourrait aussi finir par en conclure que la moyenne n'est pas une combinaison linéaire des prédicteurs. 
+
+Visuellement, les tracés diagnostiques ne sont pas hyper-appétissants; de toute évidence, il y a de la structure dans les données (p-ê puisque `Age` est une variable ordinale?), mais cette structure n'est pas capturée par les tests formels. 
+
+Et même lorsque l'on capture un problème avec la normalité, le problème ne semble pas si énorme que cela. En réalité, les données ne sont jamais normales, mais on veut savoir si le fait qu'elles ne le sont pas viendra occasionner des problèmes. Mais il y a peut-être quand même quelque chose à corriger ici. 
+
+Nous semblons nous trouver dans un cas limite: le modèle n'est pas idéal, bien sûr, mais de là à dire qu'il n'est pas approprié... j'imagine que cela dépend des applications que nous avons en tête, mais avoir à me prononcer, je lui donnerais un "C" -- note de passage, certes, mais je ne lui fournirais pas de lettre de recommendation, disons. 
+
+S'il y avait un truc à mettre en doute, cela pourrait peut-être être qu'il semble y avoir une composante non-aléatoire aux données -- j'ai rarement vu de telles tendances dans des données. C'est l'effet que cela me donne, tout du moins. 
+
+Et vous, qu'en pensez-vous? 
+
+\newpage\noindent 
+
+## Q37  
+
+Utilisez les mesures correctives
+    appropriées afin d'améliorer les résultats d'ajustement multiple.
+
+\textbf{Solution:} vu la solution à la question 36, on peut essayer de jouer avec la normalité. Il n'y a pas de transformations suggérées par la tendance des réponses, des résidus, et des valeurs ajustées; dans de tels cas, on peut toujours s'essayer avec Box-Cox (on utilise une variable $y$ transformée $\mapsto y+\eta$, $\eta$ petit, afin d'éviter d'avoir à diviser par 0 dans la transformation de Box-Cox ou encore de prendre le log de 0 ... on pourait peut-être aussi se débarasser des observations pour lesquelles $y=0$ et voir ce dont il en découle, ou encore n'utiliser que des valeurs positives de $\lambda$?). 
+
+Avec $\eta = 0.01$, nous avons: 
+
+```{r}
+k = -1 + (0:100)*0.0261
+SSE=array()
+i = 0
+for(lambda in k){
+  i = i + 1
+  y.lambda = ((y+0.01)^(lambda)-1)/lambda
+  mod.tmp = lm(y.lambda ~ x1 + x2)
+  SSE[i] = sum(mod.tmp$residuals^2)
+}
+
+k[which(SSE == min(SSE))]
+
+y.lambda = (y^(k[which(SSE == min(SSE))])-1)/k[which(SSE == min(SSE))]
+mod.lambda = lm(y.lambda ~ x1 + x2)
+summary(mod.lambda)
+plot(mod.lambda)
+```
+
+La transformation optimale résoud le problème de la normalité des termes d'erreur, mais au détrimant des autres suppositions; étant donné que nous n'étions pas si ``fâché'' de la qualité du modèle au départ, nous pourrions le laisser comme tel. 
+
+Vaut-il la peine d'utiliser les moindres carrés pondérés? On utilise $|e_i|\approx \sigma_i$, et $w_i = \frac{1}{\hat{s}_i}$, où les $\hat{s}_i$ sont les valeurs ajustées des $|e_i|$ en fonction  
+
+```{r, out.width="0.5\\linewidth"}
+poids <- 1 / lm(abs(mod$residuals) ~ x1 + x2)$fitted.values^2
+mod.wls <- lm(y ~ x1 + x2, weights=poids)
+(MSE.w = sum(mod.wls$residuals^2)/(n-p))
+summary(mod.wls)
+plot(mod.wls)
+```
+
+En comparant avec le modèle initial: 
+
+```{r, out.width="0.5\\linewidth"}
+mod <- lm(y ~ x1 + x2)
+summary(mod)
+plot(mod)
+```
+
+Encore une fois, pas super excitant. Ni la transformation de Box-Cox et le modèle WLS n'améliore vraiment la situation (faible réduction de SSE), mais ce n'est vraiment pas exceptionnel dans les 2 cas.  
+
+
+\newpage\noindent 
+
+## Q38  
+
+Les prédicteurs de l'ensemble de
+    données sont-ils multicollinéaires? Justifiez votre réponse.
+
+
+\textbf{Solution:} il n'y a que deux prédicteurs, $x1$ et $x2$. Il suffit d'aller calculer le coefficient de détermination $R^2$ entre les deux. 
+
+Commençons par centrer et standardiser les données (pas essentiel pour la multi-collinéarité, mais je veux vous montrer comment on le ferait).
+
+```{r}
+data = X[,2:3]
+data = data.frame(scale(data, center=TRUE, scale=TRUE))
+colnames(data) = c("V1","V2")
+plot(data$V1, data$V2)
+summary(lm(V1 ~ V2, data=data))
+```
+
+Le coefficient de détermination est minuscule: les prédicteurs ne sont pas collinéaires.
+
+\newpage\noindent 
+
+## Q39  
+
+Pour cette question, nous allons
+    laisser tomber la variable `Age`. Ajustez la réponse à une
+    régression cubique centrée sur le prédicteur
+    $x_1=X_1-\overline{X}_1$ en ajoutant une variable à la fois, afin
+    d'obtenir  $$E\{Y\mid x_1\}=\beta_0+\beta_1x_1+\beta_2x_1^2+\beta_3x_1^3.$$ En
+    utilisant $\alpha = 0.05$, testez $H_0 : \beta_{2} = \beta_{3} = 0$
+    vs. $H_1 : \beta_{2} \neq 0 \mbox{ ou }\beta_{3} \neq 0$.
+
+
+\textbf{Solution:} nous centrons la variable $x_1$. 
+
+```{r}
+x.c = x1 - mean(x1)
+x.c.2 = x.c^2
+x.c.3 = x.c^3
+```
+
+```{r}
+mod.3 = lm(y ~ x.c + x.c.2 + x.c.3)
+```
+
+```{r}
+anova(mod.3)
+```
+
+Si $H_0$ est valide, la statistique $$F^*=\frac{\text{SSR}(R)/(4-2)}{\text{SSR}(F)/(n-4)}=\frac{\text{SSR}(x^2,x^3|x)/(4-2)}{\text{SSE}(x,x^2,x^3)/(n-4)}$$ suit une loi $F(4-2,n-4)$, où $q=2$ est le nombre de paramètres dans le modèle réduit (R), $v=4$ est le nombre de paramètres dans le modèle complet (F) et $n-4=490$ est le \# de degr\'es de libert\'e de l'erreur. \newline\newline 
+
+Si $\alpha=0.05$, la valeur critique est $F(0.95;2,490)$:
+
+```{r}
+qf(0.95,2,490)
+```
+
+Puisque $$F^*=\frac{\left[\text{SSR}(x^2|x)+\text{SSR}(x^3|x,x^2)\right]/2}{\text{SSE}(x,x^2,x^3)/490}$$
+
+```{r}
+((0.9+0.6)/2)/(2119.6/490)
+```
+
+alors $F^*<F(0.95;2,490)$ et on ne rejette pas $H_0$ à ce niveau de confiance.
+
+\newpage\noindent 
+
+## Q40  
+
+Pour cette question, nous
+    ré-introduisons la variable `Age`. Préparez un modèle polynomial de
+    degré 2 en $X_1$ et $X_2$ qui inclu un terme d'interaction (le
+    modèle complet) et un modèle n'étant que de degré 1 en $X_1$ et
+    $X_2$, mais qui contient quand même un terme d'interaction (modèle
+    réduit). Déterminez les coefficients dans les deux cas. Lequel des
+    deux modèles est préférable?
+    
+    
+\textbf{Solution:} préparons les variables séparément (nous allons centrer de nouveau).
+
+```{r}
+x1.c = x1 - mean(x1) # pred centre x1
+x2.c = x2 - mean(x2) # pred centre x2
+x1.c.2 = x1.c^2      # pred centre x1^2
+x1.c.x2.c = x1.c * x2.c # terme d'interaction
+x2.c.2 = x2.c^2      # pred centre x2^2
+```
+
+Le modèle complet est: 
+
+```{r, out.width="0.5\\linewidth"}
+mod.c <- lm(y ~ x1.c + x2.c + x1.c.2 + x1.c.x2.c + x2.c.2)
+summary(mod.c)
+anova(mod.c)
+plot(mod.c)
+```
+
+Le modèle réduit est: 
+
+```{r, out.width="0.5\\linewidth"}
+mod.r <- lm(y ~ x1.c + x2.c + x1.c.x2.c)
+summary(mod.r)
+anova(mod.r)
+plot(mod.r)
+```
+
+En comparant avec le modèle qui ne contient qu'un seul prédicteur, on se rend compte que ni l'utilisation de termes d'interaction ou de termes d'ordre supérieurs ne peuvent vraiment venir aider le modèle. 
+
+```{r, out.width="0.5\\linewidth"}
+mod.0 <- lm(y ~ x1.c)
+summary(mod.0)
+anova(mod.0)
+plot(mod.0)
+```
+
+Alors pourquoi avoir fait tout ce travail (Q31 à Q40)? Quand un modèle ne nous laisse ni chaud, ni froid, on a souvent tendance à s'essayer avec des truc de plus en plus sophistiqués (transformations, ajout de prédicteurs et de termes d'interaction, etc.) Cela fonctionne souvent. Mais il ne faut pas non plus aller chercher midi à 14 heures et reconnaître que le meilleur modèle sera parfois quand même assez médiocre. Et c'est acceptable. Les données réelles ne se portent pas toujours à nos attentes/demandes. 
