@@ -1,0 +1,498 @@
+
+==== Front
+AAPS PharmSciTechAAPS PharmSciTechAAPS PharmSciTech1530-9932Springer US Boston 22215291974010.1208/s12249-011-9740-9White PaperPassive Transdermal Systems Whitepaper Incorporating Current Chemistry, Manufacturing and Controls (CMC) Development Principles Van Buskirk Glenn A. vanbuskirk@drugdevconsult.com Arsulowicz Daniel Basu Prabir Block Lawrence Cai Bing Cleary Gary W. Ghosh Tapash González Mario A. Kanios David Marques Margareth Noonan Patrick K. Ocheltree Terrance Schwarz Peter Shah Vinod Spencer Thomas S. Tavares Lino Ulman Katherine Uppoor Rajendra Yeoh Thean  Nonclinical Drug Development Consulting Services, LLC, Basking Ridge, New Jersey 07920 USA  Corium International, Inc., Grand Rapids, Michigan 49512 USA  National Institute of Pharmaceutical Technology and Engineering (NIPTE), Prospect, Illinois 60056 USA  Duquesne University, Pittsburgh, Pennsylvania 15282 USA  Food & Drug Administration, Rockville, Maryland 20855 USA  Corium International, Inc., Menlo Park, California 94025 USA  Food & Drug Administration, Silver Spring, Maryland 20993 USA  P’Kinetics International, Inc., Pembroke Pines, Florida 33027 USA  Pharmaceutical Research Consultant, Palmetto Bay, Florida 33157 USA  United States Pharmacopeia, Rockville, Maryland 20852 USA  PK Noonan & Associates, LLC, Richmond, Virginia 23233 USA  Lohmann Therapie Systeme, AG, Andernach, Germany  Pharmaceutical Consultant to USP, North Potomac, Maryland 20878 USA  Becwar–Spencer Associates, Billingham, Washington 98226 USA  Purdue Pharma, LP, Stamford, Connecticut 06901 USA  Dow Corning Corp., Midland, Michigan 48686 USA  Pfizer Inc., Groton, Connecticut 06340 USA 4 1 2012 3 2012 13 1 218 230 4 11 2011 29 11 2011 © The Author(s) 2011In this whitepaper, the Manufacturing Technical Committee (MTC) of the Product Quality Research Institute has updated the 1997 Transdermal Drug Delivery Systems Scale-Up and Post Approval Change workshop report findings to add important new product development and control principles. Important topics reviewed include ICH harmonization, quality by design, process analytical technologies, product and process validation, improvements to control of critical excipients, and discussion of Food and Drug Administration’s Guidance on Residual Drug in Transdermal and Related Drug Delivery Systems as well as current thinking and trends on in vitro–in vivo correlation considerations for transdermal systems.
+
+Key words
+CMCICHquality by design (QbD)residual drugTDSissue-copyright-statement© American Association of Pharmaceutical Scientists 2012
+==== Body
+INTRODUCTION
+In 1997, three scientific organizations, the American Association of Pharmaceutical Scientists, the Food & Drug Administration (FDA), and the United States Pharmacopeia (USP) collaborated to organize a workshop to explore the Scale-Up and Post Approval Change (SUPAC) principles for Adhesive Transdermal Drug Delivery Systems (TDS). The 1997 SUPAC Workshop was the fourth in a series. Previous workshops covered other major pharmaceutical dosage forms; namely, oral solid dosage forms, extended release oral dosage forms, and semisolid and liquid topical dosage forms. The findings of the Transdermal Dosage Form Workshop followed the established SUPAC format of discussing the impact of (1) formulation or compositional changes, (2) process variable changes, (3) process scale changes, and (4) process site changes on the finished quality parameters of the transdermal products. Each area of change was further divided to reflect a hierarchy of “significance” and hence aided in establishing post approval change filing documentation.
+
+Although the findings of the workshop were published (1), unlike the outcome of prior workshop publications, the findings of the TDS Workshop did not result in the publication of a guidance document for use by both the pharmaceutical industry and the worldwide regulatory communities. For this reason, and also because the passage of time has introduced a number of important innovations and practices for use in both in-process and finished product control, it is timely to revisit and update the TDS Workshop findings.
+
+It is the hope of the authors that the updated information presented herein will be useful to those in the industry involved in the development of such products in presenting comprehensive Chemistry, Manufacturing and Controls (CMC) information to the USA and international regulatory bodies involved in the review of the TDS dossier. It is our further hope that the added information will lead to improved submission review times and approvals. While much of this information is not contained in any “official guidance document” it should nevertheless be a useful template for development of the original submission Pharmaceutics Development Report and aid in developing and justifying post approval change submissions as well.
+
+This whitepaper, sponsored by the Product Quality Research Institute, is a result of that thinking and is designed to engender additional discussion and commentary from other experts within the industry, academia and worldwide regulatory bodies. Although the document retains the spirit of the original TDS Workshop report it encourages the inclusion of new tools for the development, testing and control of TDS. The use of such tools and approaches as process analytical technologies (PAT), quality by design (QbD), in vitro–in vivo correlation (IVIVC) and excipient characterization should improve the robustness of the finished TDS and minimize or prevent unintended drift in the quality of the commercial drug product.
+
+REVIEW OF 1997 TDS WORKSHOP REPORT FINDINGS
+It is important to note that this whitepaper follows the same convention as the 1997 TDS Workshop Report in that it reviews passive TDS only. While, we, the authors recognize the development and advent of active TDS, we feel that a discussion of these is best left for a subsequent whitepaper as the potential array of active systems is sufficiently broad to warrant its own discussion. Our definition of “passive” systems is any system that uses only nonfacilitated flux to deliver drug to the stratum corneum; that is, they exclude facilitated systems involving physical approaches such as mechanical force, electrical force, heat, and sound. We begin our 2011 TDS whitepaper with a brief review of the salient findings of the 1997 publication.
+
+Compositional Variables
+In 1997, it was recognized that “transdermal delivery systems typically contain, in addition to the drug(s), vehicles such as oils, alcohols, glycerin, water, fatty acid esters, surfactants, and may also contain fillers or excipients such as lactose, silicone dioxide, cellulose and cross-linking agents”(1). Furthermore it was recognized that “the TDS platform will contain several materials such as backing film, peelable liner, etc. which have inherent lot to lot variation and may influence drug release, product wearability or product stability” (1). The passage of time has certainly confirmed the truth of these statements and therefore argues in favor of an updating of the TDS Workshop principles based on current scientific thinking and capability. The authors have undertaken to do this in the section of this whitepaper entitled Improvements in Control of Critical Excipients (see “Glossary” for definition) wherein, both traditional excipients such as adhesives, viscosity agents, permeation enhancers as well as release membranes and other critical components are discussed.
+
+In regards to compositional variables, the 1997 TDS Workshop Report concluded: “no a priori allowable range in excipients or platform materials was established by the workshop group” (1). The Workshop Report concludes: “…that for each TDS, the development report should identify those excipients/components which have minor impact on system functionality or performance and those that are critical” (1). We note in this update that current technology allows improved identification, testing, and control of these critical compositional components. We also feel that the use of the current improved statistical design packages when combined with QbD approaches can afford substantial information about the allowable range of both minor excipients/components and those that are critical to the TDS. In addition, the use of these approaches when combined with improved testing techniques associated with PAT and enhanced finished product testing such as in vitro release can and should be used to facilitate review and approval of post-approval TDS CMC submissions involving compositional variables. Each of these techniques will be discussed fully in subsequent sections of this whitepaper.
+
+Process Variables
+Since 1997, substantial progress has been made by the pharmaceutical industry in the development of robust manufacturing processes. Techniques such as PAT are becoming more common in process control of manufacturing operations and in continual feedback and feedforward loops that adjust manufacturing operations thereby providing more consistent end product. In parallel, improvements to end-product testing have further increased the ability of companies to manufacture more consistent products and to monitor and control variation. Improvements to in-process and finished product testing were anticipated in the 1997 Workshop Report which recognized the value of “control of unit operations” and the “characterization of the interplay between process variables and end-product performance”, especially, “drug delivery”, and “adhesion and wearability” (1). Our experts have elaborated on these control strategies in several sections of this whitepaper; notably those on process analytical technology approaches, and, improvements to test methods and controls of transdermal delivery systems. The latter topic provides an update on improvements to testing of drug flux, drug release, adhesion and tackiness, and, finally, in vitro/in vivo correlations approaches.
+
+In Vitro Tests
+In vitro testing was common in 1997 and was regarded as “a basic quality control tool used along with stability data to control scale-up and post-approval changes” (1). In this whitepaper, we review modernization of those techniques and the testing equipment used to monitor drug flux, drug release, adhesion, tackiness, and IVIVC.
+
+In Vitro/In Vivo Correlation
+The 1997 Workshop Report stated that three possible in vitro/in vivo correlations could be investigated; those being: in vitro release/in vivo skin permeation, in vitro release/in vivo bioavailability, and in vitro permeation/in vivo bioavailability (1). At that time, the authors concluded “there are very few recorded in vitro/in vivo correlations for transdermal systems…” Since that time, the USP has published several updates to the general chapter Drug Release <724>, and a number of drug product manufacturers have added specifications to the drug product monographs describing drug release.
+
+However, at this time, it appears that the number of attempted and submitted in vitro/in vivo correlations has not increased. In fact, there is no published information indicating that an IVIVC has been established for any currently marketed passive transdermal system. Nevertheless, the authors of this whitepaper have included current thinking about the application of IVIVC in this update.
+
+CURRENT PRINCIPLES THAT AFFECT TDS DEVELOPMENT
+Impact of ICH Harmonization
+Since the 1997 Workshop article, various International Conference on Harmonization (ICH) guidelines have issued to help globally harmonize technical requirements for the manufacture and use of active pharmaceutical ingredients (APIs) and drug products. Of specific interest are: ICH Q8 (R2) entitled “Pharmaceutical Development” initially finalized in November 2005 (Revision 2 published in November 2009) (http://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/UCM073507.pdf), ICH Q9 entitled “Quality Risk Management” published in June 2006 (http://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/UCM073511.pdf), and ICH Q10 entitled “Pharmaceutical Quality Systems” published in April 2009 (http://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/UCM073517.pdf). Collectively, these guidelines were developed and designed to help create a science- and risk-based approach to quality while encouraging continuous improvement under an effective pharmaceutical quality control system. By employing systematic approaches to implement science and risk-based concepts provided in these guidelines, throughout a product’s lifecycle, enhanced pharmaceutical product quality should be achieved (see Product Life Cycle figure below).
+
+ICH Q8(R2)—Pharmaceutical Development
+ICH Q8 encourages manufacturers to establish (during design/development) detailed understanding about their manufacturing process using QbD principles or other alternative methodology, and to define appropriate design space through assessment of process parameters that might impact product quality. Based on this detailed understanding, manufacturers would be able to better assess how future variation of critical material attributes and process parameters within their ranges (design space) could provide continuous assurance of product safety, quality, and efficacy (http://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/UCM073507.pdf).
+
+ICH Q9—Quality Risk Management
+Principles defined in ICH Q9 are intended to describe development and use of systematic processes for the assessment, control, communication, and review of quality risks, throughout a product’s lifecycle (development, manufacturing, and distribution; 2,3). The ICH Q9 guideline recommends identification and utilization of appropriate quality risk management tools to ensure that product and/or process changes are:based on scientific knowledge
+
+linked to patient safety and efficacy
+
+extended over the life cycle of the product
+
+
+
+ICH Q10—Pharmaceutical Quality System
+The principles described in ICH Q10 encourage manufacturers to identify, establish, and maintain a state of control for process performance and product quality which will ultimately help facilitate and control continual improvements and potential changes to a product attribute and/or process parameter. Some critical elements described in ICH Q10 (http://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/UCM073517.pdf; 3) include tracking and trending of product quality
+
+development, maintenance, and update of plans and/or models as needed
+
+internal verification that product/process changes are successful
+
+
+
+Utilizing sound pharmaceutical development principles (ICH Q6 and Q8) in combination with a robust product quality system (Q10) should provide opportunities for flexible regulatory approaches to managing future product and/or process changes for transdermal drug delivery systems.
+
+Quality Target Product Profile and Identification of Critical Quality Attributes
+During development of a TDS, the development team can benefit from creating a comprehensive Quality Target Product Profile (QTPP) for the product. QTTP is a prospective summary of the quality characteristics of a drug product that ideally will be achieved to ensure the desired quality, taking into account safety and efficacy of the drug product (http://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/UCM073507.pdf). It may include the following target elements: (1) intended use in clinical setting, for example: route of administration, dosage form, intended use period/conditions, residual drug, patient instructions/safety advice, and container closure system; (2) quality attributes of the drug product, for example: physical attributes, identity, strength, assay, uniformity, crystalline form/particle size, purity/impurity, stability, microbial test, and other critical quality attributes related to a TDS product; (3) active pharmaceutical ingredient release or delivery and attributes affecting pharmacokinetic characteristics; for example: dissolution and permeation. For a TDS product, it is very important for the development team to address all safety precautions that are related to the use of the product.
+
+A critical quality attribute (CQA) is a physical, chemical, biological, or microbiological property or characteristic that should be within limit, range, or distribution to ensure the desired product quality (http://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/UCM073507.pdf). The selection of a CQA from quality attributes is based on its potential impact on patient safety and efficacy. The product specifications and regulatory guidance for TDS are a good start to determine a list of potential CQAs. For a TDS product, the development team should specifically consider additional attributes such as adhesion, cohesion, leakage, cold flow, compatibility among all TDS components, rate-controlling membrane (if used), and patch size/shape.
+
+FDA’s Guidance—Residual Drug in Transdermal and Related Drug Delivery Systems
+The FDA’s Guidance on Residual Drug in Transdermal and Related Drug Delivery Systems (4), finalized August 2011, recommends that an enhanced design and development approach as described in ICH Q8 (R2) be used when developing and manufacturing TDS and other topical patches. Some currently marketed TDS patches retain up to 95% of the initial total amount of drug after the intended use period. While it is understood that an excess amount of drug substance may be needed to facilitate delivery of the intended amount of the drug to the patient, the amount of residual drug substance in TDS patches has a significant potential to impact the products’ quality, safety, and efficacy. Therefore, it is necessary to ensure that an appropriate scientific approach is used to design and develop these products to ensure that the amount of residual drug substance is minimized consistent with the current state of technology. The choice of formulation, design, and system components may provide potential pathways to optimize drug delivery and minimize residual drug. Examples include, but are not limited to, the following:the use of penetration enhancers
+
+use of self-depleting solvent systems
+
+judicious choice of adhesive
+
+
+
+Other factors may include the type and concentration of excipients, drug load, adhesive thickness, and the composition and thickness of the backing layer. The level of information in the justification should be sufficient to demonstrate product and process understanding and ensure that a scientific, risk-based approach has been taken to minimize the amount of residual drug in a system after use.
+
+Utilization of IPEC Guidance
+Independent of the ICH guidelines developed for APIs, the International Pharmaceutical Excipient Council (IPEC) has developed various guides targeted for use by excipient manufacturers, handlers, distributors, users, and regulators to ensure safety and performance of these materials and their subsequent use in drug products.
+
+Of special interest for TDS scale-up and post-approval changes are IPEC guides that describe how excipient suppliers can partner with their pharmaceutical customers to ensure proper management and communication of current excipient specifications and potential future changes to their product (excipient) and/or its manufacturing process, such as:IPEC Significant Change Guide for Bulk Pharmaceutical Ingredients—establishes uniform considerations for evaluating the significance of changes involving the manufacture of pharmaceutical excipients while assessing the need to inform excipient users and regulatory authorities about the nature of the change (5).
+
+IPEC Qualification of Excipients for Use in Pharmaceuticals—establishment of relationship between supplier and users by concentrating on potential issues between the parties and offering examples of potential best practices for resolution (6).
+
+IPEC Quality Agreement Guide and Template—highlights factors to consider when planning and executing quality agreements (7).
+
+IPEC Excipient Information Package Guide—offers best practice and guidance in the establishment of “standard” excipient information packages intended to provide information on excipient product regulatory datasheets as well as overview of manufacturing site/supply chain security (8).
+
+IPEC QbD Guide (in development)—although currently still under development, this guide is intended to offer guidance on the use and application of experimental methodology, such as quality by design, in the development, commercialization, and use of pharmaceutical excipients.
+
+
+
+Improvements in the Characterization and Control of Critical Excipients—Adhesives
+The adhesive of the TDS is critical to the safety, efficacy, and quality of the product. As noted in the 1997 SUPAC article, special attention is required of the adhesive composition since it is in intimate contact with the drug or other excipients that may alter either the adhesive properties (mechanical characteristics) and/or may influence the release of drug (extent and/or rate of release). Adhesive parameters other than adhesive/drug interactions that might influence drug release profiles could include filler composition and the porosity, tortuosity (nonlinear channeling), and thickness of the matrix layer. Improper and/or poor adhesion of a transdermal patch could result in improper patient dosing due to surface area reduction and/or fall off; therefore, adhesion should be considered as an important design parameter when developing transdermal patches and for managing post-approval changes (8).
+
+Three common classes of adhesives used in transdermal drug delivery systems include acrylic, silicone, and synthetic rubber (e.g., polyisobutylene). The primary role of the adhesive is to affix the transdermal system to the skin. A secondary role could be to act as a carrier and/or as a component of the formulation matrix for the drug. Typically, the adhesive is laminated as a continuous adhesive layer on the TDS surface; however, it could also be only placed around the periphery or edges of the system. Ideally, the selected adhesive is compatible with the drug and excipients and optimized in the final TDS formulation to ensure acceptable mechanical characteristics (wear performance) and drug delivery rates.
+
+When making a post-approval change to an adhesive used in a TDS, in addition to the obvious assessment of the impact on the chemical stability of the dosage form, it is beneficial to consider the impact of the change on such properties as: adhesive performance (adhesion, cohesion, tack), functionality, adhesive monomer content and impurities, drug and/or excipient solubility/stability, backing and/or release liner compatibility, etc. These represent the common techniques used in the developmental evaluation process and selection of the optimum adhesive composition of the TDS. Also, it is prudent to assess potential impact of the change on skin irritation and or sensitization. When evaluating the impact for changes in adhesive, it is advisable to consider whether or not the test method used will assure lot-to-lot consistency/quality, is stability indicating, is sufficiently discriminating to detect changes that may influence product performance and is reproducible (4). Adhesive performance characteristics often considered as “critical quality attributes of adhesives” used in TDS include adhesion, tack (or quick stick) and shear. Some of the common test methods used to measure these critical quality attributes, as well as other test methods often used to characterize adhesive physical and/or chemical characteristics can be found below.
+
+Dry Adhesive (Bulk) Performance Testing
+Historical tests used to measure adhesive performance (peel adhesion, tack, and shear strength) were originally developed for industrial pressure sensitive tapes and these tests are dependent on substrates, backing materials, and test parameters1.Adhesion—force to remove adhesive from a defined substrate.Peel adhesion (PSTC 101, ASTM D3330/D 3330 M-04)—force to remove adhesive from a rigid substrate such as stainless steel
+
+Release force (PSTC 4)—force to remove an adhesive strip from a release liner
+
+
+
+Tack—capacity of an adhesive to form a bond with another surface after brief contactThumb tack—perceived force to remove thumb from an adhesive surface
+
+Rolling ball tack (PSTC 6)—measure of the capacity of an adhesive to form a bond with the surface of another material upon brief contact under virtually no pressure
+
+Probe tack (ASTM D2979-01)—force to remove adhesive from an inverted probe under defined conditions (peak force)
+
+Loop tack (PSTC 16)—force to remove a loop of adhesive from a substrate (e.g., stainless steel) under defined conditions (peak force)
+
+Texture Analyzer “tack”—force to remove a probe from an adhesive under defined conditions (peak force and area under curve)
+
+
+
+Shear strength—measure of the internal or cohesive strength of an adhesive filmStatic shear (PSTC 107, ASTM D 3654/D 3654 M-06)—ability of a tape to resist static forces applied in the same plane as the backing
+
+Dynamic shear—“peak load” or “yield stress” of adhesive strip adhered to untreated polyester using tensile equipment/test method
+
+
+
+Rheology—measure of the visco-elastic properties (deformation and flow) properties of a material
+
+
+
+One additional test that is useful to measure residual solvent and/or monomers in bulk adhesives is GC headspace analysis.
+
+Wet Adhesive (Solution) Performance Testing
+Other tests that are often performed to evaluate the impact of an adhesive change on the identity, composition, and/or physical properties of a transdermal drug delivery system include:Identity—fingerprint of chemical identity
+
+Appearance—visual examination for defined characteristics
+
+Nonvolatility or % solids—determination of final concentration of the adhesive solids
+
+Viscosity—measure of shear thinning and/or resistance of a liquid to flowRotational “dynamic” viscosity—measure of the non-Newtonian, shear thinning property of a liquid
+
+Relative “kinematic” viscosity—measure of the resistive flow of a fluid under the influence of gravity
+
+
+
+
+
+Pressure Sensitive Adhesive Performance
+It is appropriate to evaluate bulk pressure sensitive adhesive (PSA) performance for any changes made to an adhesive used to produce drug-loaded patches since changes in the adhesive could also result in changes in stability or performance of the final TDS. In order to ensure acceptable adhesive quality/safety, it is also critical to evaluate the impact of the change of PSA on subsequent TDS process steps (e.g., blending, laminating, cleaning) and final product performance (mechanical properties, stability, drug release profile, toxicity, etc.). Post-approval changes in the adhesive can change the bioavailability and/or bioequivalence (BA/BE) in products that depend on the adhesive to be the release matrix, so, the drug product’s bioequivalence may have to be reassessed.
+
+Improvements in the Characterization and Control of Critical Excipients—Rate-Controlling Membranes2
+Rate controlling membranes (RCM) serve two primary functions within a TDS. The RCM places a limit on the maximum delivery rate of the drug from the system and it is also a structural component of the system. Typically, the RCM does not come into direct contact with skin. As a structural component of the complete transdermal system it is essential that the RCM remains firmly adhered to the components above and below it during wear and removal. Ideally the RCM possesses an appropriate level of flexibility to avoid a detrimental impact on system comfort and wearability.
+
+The two broad classes of materials used as RCM can be divided into homogenous polymer films and films with pores in the micro- and nanometer range. Delivery rate control is achieved by the diffusion rate across a homogenous film or by transport across a film with a defined number and size distribution of pores.
+
+Suitable materials for the RCM include the wide array of polymer films and fabrics used in various skin contact applications. It is desirable that the RCM candidate materials do not contain any leachable irritating or sensitizing compounds. RCM materials are often selected from suppliers producing materials originally for different applications. Therefore, the TDS formulator may wish to carefully compile a list of RCM physical and chemical properties desired for the RCM to function as designed. It is likely that the vendor certificate of analysis may not contain adequate data to ensure the performance of the RCM and additional characterization may be needed.
+
+PAT Approaches
+As noted in the previous section, the use of QbD is critical in the development of pharmaceutical products and processes. The focus of QbD is defining a design space for critical process parameters to ensure that CQA’s and the overall QTPP are continuously met. To help ensure this is done repeatedly in commercial operations, FDA issued a guidance document for industry in September 2004 that was entitled, “PAT—A framework for innovative pharmaceutical development, manufacturing and quality assurance” (9). The goal of using PAT is to understand and control the manufacturing process, which is consistent with FDA’s current drug quality system recommendations. The system states that quality cannot be tested into products; it should be built-in by design.
+
+As defined by FDA, process analytical technology is:a system for designing, analyzing, and controlling manufacturing through timely measurements (i.e., during processing) of critical quality and performance attributes of raw and in-process materials and processes with the goal of ensuring final product quality
+
+
+
+It is important to note that the term analytical in PAT is viewed broadly to include chemical, physical, microbiological, mathematical, and risk analysis conducted in an integrated manner.
+
+This section of the paper will discuss the use of PAT in the manufacture of TDS. PAT can be used through development, scale-up, and commercialization. In addition, some of the generated data can be used to scientifically justify post-approval CMC changes.
+
+As noted in the 1997 Paper, “Scale-Up of Adhesive Transdermal Drug Delivery Systems”, the manufacture of transdermal delivery systems typically involves several unit operations. A summary of these are described below.Liquid blending—Drug, excipients, and polymers are blended together. Drug-in-adhesive (e.g., “matrix”) TDS require the blending of the drug into the adhesive. The “reservoir” TDS does not blend the adhesive, but rather blends the drug with the excipients. This liquid is then placed in the reservoir on the finished patch.
+
+Coating, drying, and laminating—In matrix TDS, the blend is coated onto a substrate (film) and the solvent used in the adhesive is dried and removed from the patch to meet ICH limits. Upon exiting the dryer, another substrate (film) is laminated on top of the dried adhesive before it is wound into a roll.
+
+Filling, laminating, and sealing—In reservoir TDS, the blend is filled onto a substrate (typically a multilayer film with the skin contact adhesive attached to it), laminated with a substrate (film) and sealed together.
+
+Die-cutting and pouching—After the coating, drying, and laminating (matrix TDS) or filling, laminating and sealing (reservoir TDS), the final part is die cut to the pre-determined size and shape. The finished dosage form is then placed into a primary package prior to the secondary carton.
+
+
+
+Each of these unit operations has critical process parameters (CPPs) that can impact the CQA of the product. The following sections explain how process analytical technology can be used to ensure real-time monitoring and control of the CQA.
+
+Control Approaches for Development
+During product development activities, the formulation scientist develops a product through measuring critical quality attributes. Often the methods used during development are just preliminary. In that manner, many of the tests have long run times and limited accuracy. They are used as a means to screen formulations before more robust monitoring is put in place. As products move forward through animal pharmacokinetic (PK) and subsequently human PK studies, the method robustness is improved dramatically. The data acquisition and monitoring is typically done in offline, batch-type processing. Given the relatively small number of batches, this approach is appropriate as long as CQAs are properly identified and can be passed to the next phase of development.
+
+Control Approaches for Scale-Up and Commercialization
+As products move into the later stage clinical work, the process scale-up work is initiated. The scale-up work begins in an effort to develop a process that will yield a product that meets the CQAs identified during initial product development activities. Given the significantly larger clinical investment as the product moves past the preliminary clinical studies, PAT has advantages in the identification and control of CPPs and the operating ranges for the process parameters that ensure the CQAs identified during product development are met. TDS have a combination of batch and continuous processes that enable the use of PAT for one or more manufacturing operations.
+
+Designed experiments can be used to correlate CPPs to CQAs. Due to the large number of variables that can impact the CQAs of TDS, the designed experiments typically start with screening studies. These do not identify single variables or independent interaction effects that may impact a CQA, but rather they provide directional information for further experimentation, which often includes more refined full-factorial design of experiments (DOE). The full-factorial DOE approach takes the most significant factors from the screening studies and then works to identify which factor(s) have primary and interaction effects on the CQAs. As the most significant CPPs are identified, it can be beneficial to look to identify ways to use PAT approaches to analyze and control these CPPs. The ultimate goal is to use validation data to conclusively show the linkage of a CPP to a CQA of the finished drug product. The section below walks through each major unit operation in TDS and where PAT may be used.Liquid BlendingCritical Process Parameters—PAT can be used to analyze and control liquid blending. Typically the process inputs that are identified as CPPs are product temperature, agitation speeds, and agitation times. To ensure real-time monitoring of these parameters, systems exist that can report actual values at a predetermined intervals. It is important to understand the design space in these applications and understand what intervals should be monitored.
+
+Critical Quality Attributes—PAT can be used to monitor inputs, as well as product outputs. In blends, CQAs typically include drug identification/content, product viscosity, appearance and sometimes particle size. With the advancement in technology, there are many available tools to monitor these CQAs including in situ Fourier transform infrared spectroscopy for monitoring complex liquid blend reactions, in-process video microscopy or laser-based detection systems to monitor particle size or inline and intank viscometers that can provide real-time viscosity measurement.
+
+
+
+Coating, Drying, and LaminatingCritical Process Parameters—PAT can be used to analyze and control coating, drying, and laminating processes. Typically, the process inputs that are identified as CPPs are dryer temperatures, dryer air flow/exhaust, line speed, and/or pump speed. These CPPs can be monitored using data collection software. As with liquid blending, it is important to understand the design space in these applications and understand what intervals are required to be monitored.
+
+Critical Quality Attributes—In coating, drying, and laminating operations, the CQAs that could be monitored include product web temperature, product thickness, and drug/excipient identification and/or assay. Infrared sensors can be used in these applications including web thickness and moisture sensing equipment that monitor product attributes as the web moves through the system. In drying operations, product web temperature is often a critical attribute that can signal process upsets. The web temperature is a key factor in the drying rate of the adhesive. If dryer set points or air flows are not functioning as designed, the product web temperature can help identify this issue in real-time to enable in-process adjustments.
+
+
+
+Filing, Laminating, and SealingCritical Process Parameters—PAT can be used to analyze and control filling, laminating, and sealing processes. Typically, the process inputs that are identified as CPPs are fill volumes, sealing station temperature, time, and pressure. These parameters could be monitored real-time through data collection software. Identification of recording intervals can be critical to maximize value.
+
+Critical Quality Attributes—CQAs that could be monitored include fill weight, seal integrity/seal strength, drug/excipient identification/and assay, and liquid presence. Gel or liquid presence can be monitored online through the use of vision systems.
+
+When designed and validated, the vision systems can be tied into rejection systems such that TDS without liquid are automatically rejected. Fill weight drives the drug/excipient assay and its on-line monitoring can be done through the use of check-weigh systems. With these systems though, it is imperative that the system be properly designed to ensure it can handle material variations. TDS typically have low fill volumes so ensuring that systems are designed to properly tare material is critical to ascertaining quality without false positives for fill weight events. In addition to fill weight, the importance of seal integrity and seal strength to reservoir TDS is well documented. In fall 2010, the USP published a draft revision that was heavily focused on leak control of TDS and topical systems (10). The draft suggested that 100% online leak detection systems could be implemented and that if that is not possible, significant offline monitoring should be utilized. PAT can be implemented to test 100% of patches for leakage.
+
+
+
+Die Cutting and PouchingCritical Process Parameters—PAT can be used to analyze and control die cutting and pouching process. Typically the process inputs that are identified as CPP are web tension, die and sealing station temperatures, time, and pressure. Data collection software can be used to monitor these process inputs.
+
+Critical Quality Attributes—In the unit operation used to cut the TDS, shape and place it in its primary package, the process outputs of size, pouch seal integrity/strength, and drug/excipient identification/assay could be monitored. Online vision systems can be validated to reject any TDS that does not meet size specifications. Because surface area is critical to drug delivery with TDS, these systems can help ensure that the proper size units are packaged. Though less critical than with reservoir systems, online mechanisms for the monitoring of pouch seal integrity/strength are also available.
+
+
+
+
+
+The information collected through PAT is valuable, but only if used properly. In addition to collecting the data in each key unit operation, it is critical that systems be put in place to properly monitor and review the data. It is also recommended that groups using this data be given the training and tools to be autonomous in the decision-making related to reacting to the data. In addition to real-time reporting, it is recommended that the data be presented in a manner so that trends can be identified and monitored to prevent problems before they occur.
+
+Using PAT to Justify SUPAC Changes
+Process, Equipment or Site Changes
+Most FDA guidance for changes to an approved drug product post-approval typically state that in vitro comparisons, stability testing, and possibly in vivo clinical studies are required for some changes. The use of process analytical technology can help support the understanding and reduce the risks associated with changes to manufacturing parameters, equipment, or sites. Through the use of regulatory mechanisms, such as comparability protocols, it may be possible to reduce the reporting requirements for these changes.
+
+PAT can also support process or equipment changes and minimize potential adverse effects on product CQAs For example, if a blend is being scaled up to a larger size, the inline viscosity, appearance, and/or particle size data can provide meaningful support for process comparisons. Similarly, the monitoring of product web temperature and product thickness in coating, drying, and laminating operations can provide meaningful data to help justify product/process equivalence.
+
+Product and Process Validation
+Process validation requirements for the TDS are expected to focus on important principles that affect product quality. Upon installation and qualification of all the manufacturing equipment, the product development information captured in the development pharmaceutics report and during execution of process qualification batches will be pivotal to the design and execution of the product/process validation protocol. The PAT tools referenced earlier also provide good tools to help prove process robustness during the execution of process validation. The current approach to TDS validation is similar to oral dosage forms and consists of: (1) development work that establishes the anticipated manufacturing targets, (2) manufacture and testing of validation batches demonstrating adequacy of in-process and finished product control criteria and overall product quality, and (3) periodic confirmation of product consistency during the product life cycle as well as tracking/trending for early detection of problems.
+
+Some of the key processing steps and parameters to consider in the validation protocol are:Solutions Manufacture (drug-containing or drug-free)mixing equipment design specifications, order of addition, mixing speed, mixing time
+
+open or closed vessel
+
+
+
+During development and scale up it may be beneficial to consider component changes either by the developer or raw material suppliers.
+
+Coating of drug-containing or drug-free matrix layersmachine speed
+
+temperature settings in each drying zone
+
+air flow rate in each drying zone
+
+
+
+Also consider die design changes—number of lanes, gap, etc.…
+
+Slittingmachine speed
+
+cutting width
+
+roll tension
+
+
+
+Also consider equipment changes—e.g., knives—fixed slitting blades vs. rotary knife
+
+Punching/pouchingMachine speed
+
+Pouch sealing temperature
+
+Pouch sealing pressure
+
+Optical/vision systems for detection of all applicable functions
+
+
+
+
+
+The above items are the most widely used steps in the manufacture of matrix TDS. Reservoir type products would include similar steps except for the fabrication step which typically requires validation of the following additional steps:Optical/vision systems (used in the in-process control of TDSproduction)
+
+Fabrication/pouchingMachine speed
+
+Patch sealing temperature, pressure, and dwell time
+
+Pouch sealing temperature
+
+Pouch sealing pressure
+
+
+
+
+
+Finished Product Testing—Product Quality Tests
+The product quality attributes typically include: description, identification, assay (strength), impurities, uniformity of dosage units, residual solvent levels, creep resistance (cold flow property), mechanical properties, microbial limits, pouch seal integrity, and other tests that may be product specific. Some product quality attributes such as coating weight, residual solvents, and pouch seal integrity are commonly tested in-process. It is desirable that physical tests are quantitative and have minimum and maximum acceptance criteria, where applicable. Product performance testing assesses drug release and other attributes that affect drug release from the finished dosage form. Several product performance tests are available to assess in vitro drug release from TDS (11).
+
+Description
+The qualitative description of the drug product and packaging. It typically includes a visual examination of the patch to identify the shape and size dimensions, changes in color, adhesive migration that are specific to the drug product and appearance of the packaging including the content or the label claim of the article.
+
+Identification
+Identification tests establish the identity of the drug or drugs present in the article and discriminate between compounds of closely related structures that are likely to be present.
+
+Assay
+A specific and stability-indicating test used to determine the strength (content) of the drug product.
+
+Impurities
+This test assesses process impurities, synthetic by-products, residual solvents, elemental impurities, and other inorganic and organic impurities that may be present in the drug substance and excipients used in the manufacture of the drug product and those arising during the manufacturing process of the drug product.
+
+Uniformity of Dosage Units
+This test is applicable for all TDS to evaluate intrabatch consistency.
+
+Uniformity of Content within the Patch
+An appropriate test can assure that there is no migration of API from the active portion of the patch to any of the patch components during storage and that the drug concentration is homogenous throughout the TDS.
+
+Polymorphism
+It can be essential during development of a TDS to determine if any polymorphic changes to the drug substance can occur during the manufacturing process or during the shelf life of the product. In addition, it is advisable to check for polymorphic changes due to changes in the formulation, manufacturing process or packaging of the TDS.
+
+Residual Solvent Levels
+The levels of residual solvents can be tested per ICH Q3C (R4) Impurities: Guideline for Residual Solvents (http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/ucm125820.htm; http://www/fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/UCM073395.pdf). Ideally residual solvents of TDS are sufficiently low so that they do not pose a safety concern nor impact the functional and performance properties of the TDS.
+
+Creep Resistance (Cold Flow Property)
+Cold flow is a unique aspect of pressure sensitive adhesives that manifests itself through adhesive migration out of the edge of the patch during storage or when the patch is applied to the patient. Excessive cold flow can lead to adhesive sticking to the inside pouch surfaces, which may lead to a reduction in drug potency and inadvertent separation of the liner during patch removal from the pouch. Excessive cold flow can also lead to appearance of a “dirty ring around the patch” upon application to the skin of the patient leading to product esthetic complaints. Clothing adherence to the adhesive creep serves to magnify patient complaints.
+
+Adhesion Evaluation Test
+Three types of TDS adhesion tests are generally used to evaluate adhesive properties of the drug product: Peel Adhesion Test (from a standard substrate), Release Liner Peel Test, and Probe Tack Test. The peel adhesion test and release liner test assess two different TDS drug product attributes. Adhesion test acceptance criteria are product specific and are typically defined generally to assure that adhesion of each batch of TDS is within the range defined by the product design and is consistent between batches based on the product development specifications and statistical assessment of multiple product batches over the product’s shelf life or wear studies. Ideal adhesive characteristics in TDS permit easy removal of the release liner before use, adhere properly to human skin upon application, maintain adhesion to the skin during the prescribed period of use, permit easy removal of the TDS at the end of use without leaving a residue or causing damage to the skin or other undesirable effect(s) and maintain the performance of the TDS throughout the shelf life of the drug product.
+
+Peel Adhesion Test
+This test measures the force required to remove (peel away) a TDS attached to a standard substrate surface (usually polished stainless steel). The TDS is applied to the substrate using specified techniques for application and is conditioned at specified temperature and time. Then, the TDS is peeled away from the substrate with an instrument that allows control of peel angle (usually 90° or 180°) and peel rate (usually 300 mm/min), and the peel force is recorded. This procedure is typically repeated using a minimum of five independent samples.
+
+Release Liner Peel Test
+This test measures the force required to separate the release liner from the adhesive layer of the TDS. The test is typically performed with a finished product sample. The test sample is conditioned using specific procedures (temperature and time). Then the release liner is pulled away from the TDS with an instrument that allows for control of peel angle (usually 90° or 180°) and the peel rate and peel force are then recorded. This procedure is typically repeated using a minimum of five independent samples.
+
+Probe Tack Test Method
+This test measures the force required to separate the tip of the test probe from the adhesive layer of the TDS. This test employs an instrument designed to create a bond between the tip of a test probe of defined roughness and the TDS using a controlled force (light pressure) and specified test conditions (i.e., rate, contact time, pressure). Then, while controlling the rate of probe removal, the test measures the profile of force required to separate the probe tip from the TDS and the maximum force required to break the bond (tack).
+
+Rolling Ball Method
+This test measures the distance traveled by a defined weight (ball) across the adhesive layer of the TDS under defined conditions (12). The resulting measurement is a parameter dependent on the tack properties of the adhesive layer.
+
+Water Content
+A test for water content is appropriate for some TDS, e.g., for hydro-alcoholic reservoir type patches.
+
+Antioxidant Content
+Evaluation of the antioxidant content in the drug product can help assure the levels of antioxidant necessary to maintain the product’s stability at all stages throughout its proposed usage and shelf life.
+
+Particle Size
+Particle size testing is relevant when the drug substance is designed to be suspended in the TDS. The test typically includes examination for evidence of particle size alteration (i.e., appearance of particles, changes in particle form, size, shape, habit, or aggregation) of the active drug substance that may occur during the course of product processing and storage.
+
+Crystal Formation Test
+When a TDS does not contain suspended API, but rather, dissolved API, it is recommended that the potential of formation of crystals during storage (e.g., due to change of crystal form of the amorphous drug substances) be evaluated during product development. Multiple approaches including a crystal seeding study may be useful for this purpose.
+
+Leak Test
+This test is applicable to form-fill-seal (liquid reservoir) type TDS and certain matrix TDS. A leak test can help assure that form-fill-seal patches are manufactured with zero tolerance for leaks because of their potential for dose dumping if leaking occurs. In-process control methods can examine 100% of the TDS for leakers or potential leakers. The manufacturing process can also be evaluated for the presence of leakage, or potential for leakage due to patch perforation, cuts, faulty seals, or other factors. These leaks may result from failures such as air bubbles, gel splash or misalignment of a patch’s backing and release liner layers. PAT and in-process testing may be beneficial to identify these defects.
+
+Finished Product Leak Test (aka Pouch Integrity Test)
+A pouch integrity test may be useful for all TDS to evaluate leaks that may have occurred after the TDS are manufactured and packaged in their primary packaging material and on stability.
+
+Microbial Test
+The microbial integrity of the TDS is important. Some TDS formulations will not support microbial growth; however, assurance data from development can be useful to reconfirm this if any post approval changes to the TDS or TDS package are made.
+
+Product Performance Test (In Vitro Drug Release)
+In vitro drug release methods for transdermal delivery systems include the use of Apparatus 5 (Paddle over Disk Method), Apparatus 6 (Rotating Cylinder Method), and Apparatus 7 (Reciprocating Holder Method) as described in USP 34/NF29, General Chapter <724 > Drug Release (11).
+
+Finished Product Testing—Product Quality Tests (Current IVIVC Considerations)
+Background
+Historically, IVIVC analyses have been applied to extended-release solid oral dosage forms. An IVIVC describes the relationship between the in vitro performance (e.g., dissolution) and the in vivo characteristics (e.g., plasma drug concentrations or derived pharmacokinetic parameters such as Cmax or area under the curve, AUC) following administration of the dosage form. Ideally, an IVIVC is a quantitative relationship which predicts drug concentrations from in vitro dissolution. The pharmacokinetics and in vitro/in vivo relationships of transdermal (systemic drug administration) and topical (locally acting) drugs, are more complex than for oral drug products. Although in vitro dissolution of solid oral dosage forms may be correlated with in vivo performance (pharmacokinetics), in most cases, the use of dissolution for transdermal or topical dosage forms is limited to being a quality control measure. The complex mechanism of permeation of drugs across epidermal layers of skin cannot possibly be replicated using dissolution methods. Therefore, other in vitro methods such as flux studies using Franz cells with excised human skin may be useful to assess in vitro performance of transdermal and topical dosage forms during product development (13–15).
+
+Most transdermal dosage forms are designed to deliver drug molecules to the systemic circulation. Thus, plasma concentrations can be measured. However, systemic concentrations observed after application of locally acting, topical dosage forms (e.g., TDS) may not be relevant and clinical trials are typically needed to establish BE. Although topical products provide high concentrations of drug at the local site of action (the dermis), the concentrations in blood are often too low to measure and/or may not be predictive of the topical efficacy; accordingly, it is recommended that systemic exposure be assessed when there is risk of systemic adverse reactions (16). With the advent of new and very sensitive analytical methods, it may now be possible to measure systemic concentrations of some drugs after topical administration. However, one should not confuse the ability to measure systemic concentrations with the ability to measure or predict efficacy. In the absence of PK/PD data showing relevance of plasma concentration to effect, the ability to measure systemic levels after topical applications may not correlate with a local effect (efficacy).
+
+In Vitro Drug Release (Dissolution) Versus In Vitro Permeation Cells (e.g., Franz cells)
+In vitro drug release profiles can be assessed using established methods. In vitro drug release testing is traditionally used as a quality control tool. The contents of patches are tested by release into an appropriate sink medium within timeframes that may or may not have physiological relevance. Most TDS are manufactured to deliver their contents over 24 h or longer, although the content may be released relatively more quickly when evaluated using in vitro dissolution.
+
+Dickenson et al. (17) described several important aspects needed to ensure that dissolution methods are relevant for the following purposes:To distinguish among different processing and formulation variables, and
+
+To complete dissolution within a timescale appropriate for a routine control test.
+
+
+
+Dickenson’s criteria are equally relevant to in vitro permeation studies.
+
+General Considerations for Use in Developing an IVIVC for TDS
+The following general concepts as described in the IVIVC guidance for Extended Release Dosage Forms (18) are generally applicable to TDS with some necessary modifications.In vivo human data from sufficient subjects (a statistically powered sample) are preferred for IVIVC correlations to statistically differentiate between Cmax values obtained for different formulation used in a clinical study.
+
+Crossover studies are preferred, but appropriate powered parallel studies may be acceptable.
+
+To correlate in vitro drug release/dissolution data, the same validated and reproducible in-vitro drug release/dissolution method is preferred to be used for assessing all transdermal formulations in the IVIVC.
+
+Because of inherent variability in absorption between individuals and between anatomical sites (e.g., abdominal versus forearm skin), it is important to control for skin source and viability and to evaluate in vitro permeability across skin from several donors in cases where in-vitro skin permeation data is correlated.
+
+
+
+Categories of In Vitro/In Vivo Correlations
+The categories for IVIVCs for transdermal products can be classified the same as those identified for oral drug products. However, because dissolution is not being utilized for transdermal IVIVC, level B (which uses mean dissolution time) and level C categories are probably not applicable to transdermal dosage forms.
+
+Level A Correlations
+Level A IVIVC correlations provide the strongest evidence that a quantitative relationship exists between in vivo absorption and in vitro drug release. The in vivo absorption–time curve may be determined using classical techniques such as Wagner–Nelson or Loo–Riegelman methods or may be estimated using numerical deconvolution. Ideally, the in vitro and in vivo input rate curves are superimposable; if not, a scaling factor may be used to improve the superimposability. Alternatively, the in vitro and in vivo data may be modeled to develop a relationship that predicts plasma concentrations based on in vitro dissolution/release rates. For each of these modeling techniques it is critical that the in vitro data predict the entire in vivo concentration versus time profile.
+
+An important advantage of a level A correlation is that, since an in vitro dissolution/release curve is used as a surrogate for in vivo performance, changes in manufacturing conditions, raw material suppliers or minor formulation alterations may be justified on the basis of in vitro data, rather than in vivo bioavailability studies.
+
+Level B Correlations
+This correlation utilizes the principles of statistical moment analysis, although, not easily applicable to transdermal products. The mean in vitro dissolution or release time is compared to either the mean residence time or the in vivo mean dissolution time. Even though level B correlations utilize all of the in vitro and in vivo data points, they do not provide point-to-point correlations and do not correlate the actual in vivo plasma profiles. The weakness in this approach is that it is possible for different plasma concentration-time profiles to produce similar mean residence time values. Thus, it is not possible for a level B correlation alone to predict a plasma profile from in vitro dissolution data.
+
+Level C Correlations
+The level C IVIVC relates a single point relationship between in vitro dissolution or drug release parameters (e.g., the time to 50% dissolution or release) to a single pharmacokinetic parameter such as AUC or Cmax. This single point correlation does not reflect the complete shape of the plasma profile, which best defines the in vivo performance of transdermal products. Since this type of correlation is not predictive of actual in vivo product performance, it has limited utility but may be useful as a guide in formulation development. Overall, considerations for the development of an IVIVC for passive TDS should follow the same steps outlined for oral drug products from development, validation, and predictability aspects (18).
+
+IVIVC for Locally Acting Transdermal Drug Products
+In 2001, Shah published “Progress in Methodologies for Evaluating Bioequivalence of Topical Formulations” (19). He described three areas which require addressing in order to have confidence in the ability of DPK methodology to predict topical bioequivalence. These areas are also quite relevant to develop confidence that systemic drug concentrations are related to a topical (skin) clinical effect. These three areas are:relevance to clinical efficacy
+
+ability to differentiate between strengths and formulations
+
+reliability and reproducibility
+
+
+
+Recently, the agency has published a draft Guidance for Topical Lidocaine Patches (20). It allows a BE study which relies on systemic blood levels to be used. To date, there have been few publications which have described a relationship between in vitro release data and in vivo blood levels for either transdermal or topical products (14,15,21). The difficulty may lie in formulating these products with different rates of release; however, this does not preclude the validation of IVIVC in the near future.
+
+The Future of TDS Development
+As noted earlier, the authors foresee the introduction of a large array of transdermal delivery systems that utilize “active transport” approaches to improving drug flux of compounds that heretofore were not able to be delivered by the traditional passive TDS platforms. The approaches to non-passive transport include, but may not be limited to, electrophoresis, electroporesis, needle array systems, facilitated transport in the presence of specialty additives or complexing agents, high pressure microjet transport, and transport across compromised or abraded skin. These approaches hold great promise for delivery of peptides, proteins and other previously unsuccessful drug candidates (due to poor flux or low potency). An additional aspect to the future development of TDS involves nanoparticulate forms of APIs. Such nanoparticulates may undergo successful, substantial follicular uptake, and provide for a more extended residence time in the skin in contrast to more conventional forms. While much of the information on product development and scale-up remains the same as their passive-molecule counterparts, there are unique aspects to both the delivery system and the delivered drugs that warrant a separate discussion and consideration of development and change management issues. Therefore, the authors propose to review scientific and regulatory principles of nonpassive TDS at some time in the future.
+
+1 References to Pressure Sensitive Tape Council methods are provided in the “Glossary” to this whitepaper
+
+2 Backing films and release liners are not considered rate controlling membranes and are therefore dealt with separately within this document.
+
+Notice to Readers: This document represents a consensus of the personal views of the authors and does not necessarily represent the views of the author’s respective company or organization nor does it represent the policies or guidelines of those companies or organizations.
+
+Open Access
+This article is distributed under the terms of the Creative Commons Attribution Noncommercial License which permits any noncommercial use, distribution, and reproduction in any medium, provided the original author(s) and source are credited.
+
+Glossary
+Glossary of Selected Terms and Test Methods Used in this Paper
+Change ControlA process used for management review of proposed changes that may impact the quality or regulatory conformance of the excipient (5).
+
+Critical ExcipientAny material that can increase, decrease or change the profile of drug release in the TDS (1).
+
+Critical Process Parameters (CPP)A process parameter whose variability has an impact on a critical quality attribute and therefore should be monitored or controlled to ensure the process produces the desired quality (2).
+
+Critical Quality Attributes (CQA)A physical, chemical, biological or microbiological property or characteristic that should be within an appropriate limit, range, or distribution to ensure the desired product quality (2).
+
+Design SpaceThe multidimensional combination and interaction of input variables (e.g., material attributes) and process parameters that have been demonstrated to provide assurance of quality. Design space is proposed by the applicant and is subject to regulatory assessment and approval (ICH Q8) (2).
+
+ExcipientSubstances other than the API which have been appropriately evaluated for safety and are intentionally included in a drug delivery system (5).
+
+ICHInternational Conference on Harmonization (2).
+
+Loop TackA measure of the force required to separate the adhesive from the adherent at the interface shortly after they have been brought into contact under a load equal only to the weight of the pressure sensitive article (e.g., tape, label, sticker, etc.) on a one square inch contact area (22).
+
+Peel AdhesionSee definition provided previously (23).
+
+Process Analytical TechnologyA system for designing, analyzing, and controlling manufacturing through timely measurements (i.e., during processing) of critical quality and performance attributes of raw and in-process materials and processes with the goal of ensuring final product quality (9).
+
+Quality by DesignThe development of the design space, specifications, and manufacturing controls that result from pharmaceutical development studies using Design of Experiments, process analytical technology (PAT) and or prior knowledge (7).
+
+Release ForceThe measure of the force required to separate a unit width of pressure sensitive tape from a release liner at controlled angle and speed (24).
+
+Residual SolventsResidual solvents are defined as organic chemicals that are used or produced in the manufacture of active substances or excipients, or in the preparation of medicinal products (8).
+
+Rolling Ball TackSee definition provided previously (25).
+
+ShearAbility of a tape to resist static forces applied in the same plane as the backing (26).
+
+Significant ChangeAny change that alters an excipient physical or chemical property from the norm, or that is likely to alter the excipient performance in the dosage form (5).
+
+Relevant List of PSTC Adhesion Test Methods
+PSTC-101International Standard for Peel Adhesion of Pressure Sensitive Tape—ISO Approved
+
+PSTC-4Relative Performance of Release Coatings
+
+PSTC-5Quick Stick of Pressure Sensitive Tapes
+
+PSTC-6Tack Rolling Ball
+
+PSTC-107International Standard for Shear Adhesion of Pressure Sensitive Tape—ISO Approved
+
+PSTC-8Unwind Force of Pressure Sensitive Tape
+
+PSTC-9Accelerated Aging of Pressure Sensitive Tape
+
+PSTC-11Adherence to Linerboard of Pressure Sensitive Tapes at Low Temperature
+
+PSTC-13High Speed Unwind Adhesion of Pressure Sensitive Tapes
+
+PSTC-14Adhesion of Pressure Sensitive Tapes to Fiberboard at 90° Angle and Constant Stress
+
+PSTC-15Determination of Adhesion to Release Coated Substrates: Wet Spread Method
+
+PSTC-16Loop Tack
+==== Refs
+References
+1. Van Buskirk GA, González MA, Shah VP, Barnhardt S, Barrett C, Berge S, Cleary G, Chan K, Flynn G, Foster T, Gale R, Garrison R, Gochnour S, Gotto A, Govil S, Gray VA, Hammar J, Harder, S, Hoiberg C, Hussain A, Karp C, Llanos H, Mantelle J, Noonan P, Swanson D, Zerbe H. Scale-up of Adhesive Transdermal Delivery Systems. Pharm Res. 1997;14(7)
+2. ICH International Conference on Harmonization guideline ICH Q9, Quality Risk Management. http://www.ich.org/fileadmin/Public_Web_Site/ICH_Products/Guidelines/Quality/Q9/Step4/Q9_Guideline.pdf. Accessed 9 Nov 2005
+3. ICH International Conference on Harmonization guideline ICH Q10 Pharmaceutical Quality Systems. http://www.ich.org/fileadmin/Public_Web_Site/ICH_Products/Guidelines/Quality/Q10/Step4/Q10_Guideline.pdf. Accessed 4 June 2008
+4. Residual Drug in Transdermal and Related Drug Delivery Systems. http://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/UCM220796.pdf. Accessed August 2011
+5. IPEC Significant Change Guide for Bulk Pharmaceutical Ingredients, 2nd Revision, March 2009. http://ipecamericas.org.sites/default/files/IPECSignificantChangeGuide2009.pdf
+6. IPEC Qualification of Excipients for Use in Pharmaceuticals, 2008. http://ipecamericas.org/sites/default/files/ExcipientQualificationGuide.pdf
+7. IPEC Quality Agreement Guide and Template, 2009. http://ipecamericas.org.sites/default/files/QualityAgreementGuide2009.pdf
+8. IPEC Excipient Information Package User Guide, 2009. http://ipecamericas.org/sites/default/files/ExcipientInformationPackage2009.pdf
+9. PAT—A Framework for Innovative Pharmaceutical Development, Manufacturing, and Quality Assurance, September 2004. http://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/ucm070305.pdf
+10. USP General Chapter 3, Topical and transdermal drug products: quality tests, to be revised. http://www.usp.org/USPNF/compendialNotices/revisionGC3TopicalTransdermal.html
+11. USP 34/NF29, General Chapter 724. Drug Release
+12. ASTM D3121. http://www.astm.org/standards/D3121.htm
+13. Franz TJ   The cadaver skin absorption mode and the drug development process Pharmacopeial Forum 2008 34 5 1349 1356 
+14. Franz TJ  Lehamn PA  Raney S   Use of excised skin to assess the bioequivalence of topical products Skin Pharmacol Physiol 2009 22 276 286 10.1159/000235828 19707043 
+15. Franz TJ  Lehamn PA  Raney S   Percutaneous absorption in man: in vitro –in vivo  correlation Skin Pharmacol Physiol 2011 24 224 230 10.1159/000324884 21455015 
+16. The European Agency for the Evaluation of Medicinal Products Evaluation of Medicines for Human Use, Committee for Proprietary Medicinal Products (CPMP), Note for Guidance on the Investigation of Bioavailability and Bioequivalence, London, 26 July 2001, CPMP/EWP/QWP/10401/98.
+17. Dickinson PA  Lee WW  Stott PW  Townsend AI  Smart JP  Ghahramani P  Hammett T  Billett L  Behn S  Gibb RC  Abrahamsson B   Clinical relevance of dissolution testing in quality by design AAPS J 2008 10 2 280 290 10.1208/s12248-008-9034-7 
+18. U.S. Department of Health and Human Services, Food and Drug Administration, Center for Drug Evaluation and Research (CDER). Guidance for Industry, Extended Release Oral Dosage Forms: development, evaluation, and application of in vitro/in vivo correlations, September 1997, BP 2, http://www.fda.gov/cder/guidance/1713bp1.pdf. Accessed 10 Sept 2008.
+19. Shah V   Progress in methodologies for evaluating bioequivalence of topical formulations Amer J Clin Derm 2001 2 5 275 280 10.2165/00128071-200102050-00001 
+20. Bioequivalence Recommendations for Specific Products: Draft Guidance on Lidocaine, U.S. Department of Health and Human Services, Food and Drug Administration, Center for Drug Evaluation and Research (CDER), Recommended Dec 2006; May 2007 http://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/ucm086293.pdf (accessed 05/20/2011)
+21. Kiptoo PK  Paudel KS  Hammell DC  Pinninti RR  Chen J  Crooks PA  Stinchcomb AL   Transdermal delivery of bupropion and its active metabolite, hydroxybupropion: a prodrug strategy as an alternative approach J Pharm Sci 2009 98 2 583 594 10.1002/jps.21463 18623203 
+22. Pressure Sensitive Tape Council (PSTC) Test for Loop Tack (PSTC 16) http://www.pstc.org/i4a/pages/index.cfm?pageID=3807
+23. Pressure Sensitive Tape Council (PSTC) Test for Peel Adhesion of Pressure Sensitive Tape (PSTC 101). http://www.pstc.org/i4a/pages/index.cfm?pageID=3823
+24. Pressure Sensitive Tape Council (PSTC) Test for Relative Performance of Release Coatings (PSTC 4) http://www.pstc.org/i4a/pages/index.cfm?pageID=3798
+25. Pressure Sensitive Tape Council (PSTC) Test for Tack Rolling Ball (PSTC 6) http://www.pstc.org/i4a/pages/index.cfm?pageID=3800
+26. Pressure Sensitive Tape Council (PSTC) Test for Shear Adhesion of Pressure Sensitive Tape (PSTC 107). http://www.pstc.org/i4a/pages/index.cfm?pageID=3824

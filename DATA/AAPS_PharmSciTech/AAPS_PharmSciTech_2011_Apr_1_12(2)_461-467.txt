@@ -1,0 +1,156 @@
+
+==== Front
+AAPS PharmSciTechAAPS PharmSciTechAAPS PharmSciTech1530-9932Springer US Boston 21455817955410.1208/s12249-010-9554-1Research ArticleAnalysis of Two Commercially Available Bortezomib Products: Differences in Assay of Active Agent and Impurity Profile Byrn Stephen R. +1-765-4941460+1-765-4946545stephen.byrn@verizon.net Tishmack Patrick A. Milton Mark J. van de Velde Helgi  Department of Industrial and Physical Pharmacy, Purdue University, 575 Stadium Mall Drive, West Lafayette, Indiana 47906 USA  SSCI, A division of Aptuit, West Lafayette, Indiana USA  Analytical Development, Millennium Pharmaceuticals, Inc., Cambridge, Massachusetts USA  Ortho Biotech Oncology Research & Development, Janssen Pharmaceutica NV, Beerse, Belgium 1 4 2011 6 2011 12 2 461 467 23 2 2010 30 11 2010 © The Author(s) 2010The analytical properties of two commercially available bortezomib products (VELCADE® and Bortenat) were compared using nuclear magnetic resonance, mass spectrometry, high-performance liquid chromatography, and gas chromatography. The data showed differences between the two products. Based on these data, Bortenat samples contained more active ingredients than indicated by the label (mean, 116.5% and 117.9% of label, in 2-mg and 3.5-mg vials, respectively). In comparison, VELCADE samples contained a mean of 99.3% of active ingredient, which was consistent with the approved specification range (US, 90–110%; EU, 95–105%). Clinical data demonstrate that patients exposed to higher than recommended doses of bortezomib on the standard twice-weekly dosing schedule are likely to have an increased risk of major toxicities. Bortenat 2-mg vials contained an isovaleraldehyde impurity; the origin of this is unknown. Additionally, the ratio of boronic acid to boronic ester differed between Bortenat 2 mg (0.27:1) and 3.5 mg (0.13:1) and VELCADE (0.10:1) samples reconstituted in saline indicating that the Bortenat product is not equivalent to the VELCADE product.
+
+KEY WORDS
+assaybortenatbortezomibimpuritiesVELCADEissue-copyright-statement© American Association of Pharmaceutical Scientists 2011
+==== Body
+INTRODUCTION
+There is an increasing interest in comparing the physical and chemical properties of drug products sold throughout the world. A recent paper has outlined the different physical and chemical properties of various recombinant human erythropoietin products sold around the world. This study showed significant differences between such large protein products, with drug products from Korea, India, and China containing more glycoforms and other impurities compared with the innovator product manufactured by Amgen, Inc. (1). The results of this study prompted an investigation comparing two drug products containing the small molecule proteasome inhibitor bortezomib, a product made in India (Bortenat, Natco Pharma) and the innovator product (VELCADE®, Millennium Pharmaceuticals, Inc., and Janssen-Cilag), which is manufactured in the United States and Europe. VELCADE has had its new drug application (NDA) approved by the United States Food and Drug Administration (US FDA) and holds the marketing authorization application approved by the European Medicines Agency.
+
+Bortezomib is a modified dipeptidyl boronic acid. The chemical name for bortezomib, the monomeric boronic acid, is [(1R)-3-methyl-1-[[(2S)-1-oxo-3-phenyl-2-[(pyrazinylcarbonyl) amino] propyl]amino]butyl] boronic acid (2). VELCADE is approved in the US for the treatment of patients with multiple myeloma and for the treatment of patients with mantle cell lymphoma following at least one prior therapy (3). In the European Union (EU) (4) and Canada, VELCADE in combination with melphalan and prednisone is an approved treatment for patients with previously untreated multiple myeloma who are ineligible for high-dose therapy and stem cell transplantation. In these countries and in many other countries worldwide, VELCADE is also approved as a single-agent treatment for patients with multiple myeloma who have received at least one prior therapy. The chemical structure of bortezomib (the free boronic acid) is shown in Fig. 1a (2). The drug product is provided as a mannitol boronic ester, Fig. 1b, which, in reconstituted form, consists of the mannitol ester in equilibrium with its hydrolysis product, the monomeric boronic acid (2). This equilibrium means that drug products containing bortezomib are unique and chemically complex. VELCADE is supplied as a lyophilized powder in single-dose vials containing 3.5 mg bortezomib and 35 mg mannitol, USP, which is reconstituted in 0.9% saline to a final concentration of 1 mg/1 mL and administered by intravenous injection (2). The drug substance in the solid state exists in its cyclic anhydride form as a trimeric boroxine (2).
+Fig. 1 Chemical structure of a bortezomib, [(1R)-3-methyl-1-[[(2S)-1-oxo-3-phenyl-2-[(pyrazinylcarbonyl) amino]propyl]amino]butyl] boronic acid and b its symmetrical mannitol ester. The carbons are numbered for reference to the NMR resonance assignments
+
+
+
+This paper reports the analysis of Bortenat and VELCADE, and compares the analytical data for these products. The study reported herein shows differences between bortezomib products produced by different manufacturers.
+
+METHODS AND MATERIALS
+Samples
+Bortenat vials containing 2 mg and 3.5 mg of bortezomib were obtained in India. The manufacturing lot numbers were 201556 and 200446, respectively. The samples were sealed with gray elastomeric stoppers in glass vials containing the lyophilized product, a white loose powder. Each 2- and 3.5-mg vial contained 18.06 and 30.52 mg of lyophilized material, respectively. VELCADE samples, in the containers in which VELCADE is marketed, containing 3.5 mg bortezomib were randomly selected from the Janssen Pharmaceutica site in Beerse, Belgium; the manufacturing lot number was 100478/2415-00-1486051. Samples were stored and handled according to label conditions. The chain of custody was identical for Bortenat and VELCADE samples, using SSCI’s standard operating procedure for sample handling.
+
+NMR Spectroscopy
+The 1D 1H-nuclear magnetic resonance (NMR) analyses were performed at 25°C using a Varian Unity INOVA 600 MHz NMR spectrometer at Purdue University, West Lafayette, IN. Instruments were calibrated and maintained according to standard practice. All spectra were acquired using a 5 mm indirect detection triple resonance gradient probe. The drug product was dissolved in approximately 0.6 mL of either DMSO-d6 or a solution of 0.9% NaCl in 10% D2O/90% H2O. The NMR spectra were acquired using the following parameters: 14 ppm spectral width, 7.4 μs pulse width, 3 s acquisition time, 40 scans, 960 Hz B1 field strength for transmitter saturation of the water resonance for 5 s during the pulse delay, 50,400 acquired data points zero-filled to 131,072 data points for Fourier transformation, and 0.2 Hz exponential multiplication to improve the signal-to-noise ratio.
+
+Mass Spectrometry
+The direct infusion mass spectra analyses were performed using a Waters Acquity TQD mass spectrometer at PPD, Madison, WI. Samples were prepared by adding 2 mL of water to a 2-mg vial of Bortenat to achieve a final sample concentration of 1 mg/mL. The instrument parameters used are shown in Table I.
+Table I Mass Spectrometry Instrument Parameters
+
+Ionization mode	ESI negative	
+Capillary (kV)	3.55	
+Cone (V)	40	
+Extractor (V)	3	
+Source temperature (°C)	90	
+Probe temperature (°C)	130	
+Desolvation gas flow (L/h)	400	
+Cone gas flow (L/h)	20	
+Scan range (amu)	100–600	
+Syringe pump (μL/min)	20	
+
+
+GC/MS Analysis
+The headspace gas chromatography mass spectrometry (GC/MS) analyses were performed using an Agilent 6890N GC instrument equipped with an MSD (Agilent 5973N) and a headspace autosampler (Agilent 7694) at PPD, Madison, WI. Instruments were calibrated and maintained according to standard practice and were qualified for the analysis performed herein. Drug product samples were prepared by adding 2 mL of water to 2- and 3.5-mg vials. One milliliter of this solution was added to a 10 mL headspace vial. A DB-Wax column (60 m × 0.32 mm ID, 1 μm film thickness) was employed. The headspace autosampler had the following settings: oven temperature, 75°C; loop temperature, 11°C; and transfer line temperature, 140°C. The GC temperature program was 40°C (4 min), 10°C/min, and 220°C (20 min). The injector port was 220°C. Helium gas was used at a flow rate of 1 mL/min with a split ratio of 5:1.
+
+GC/FID Analysis
+The GC/flame ionization detector (FID) analyses were performed using an Agilent 6890N GC instrument equipped with a headspace autosampler (Agilent 7694) at PPD, Madison, WI. A DB-Wax column (60 m × 0.32 mm ID, 1 μm film thickness) was employed. Instruments were calibrated and maintained according to standard practice and were qualified for the analysis performed herein. The settings of the autosampler and GC were the same as for GC/MS, except that the flow rate was increased to 3.5 mL/min. The FID temperature was 260°C with a hydrogen flow rate of 35 mL/min, air at 400 mL/min, and make up gas helium 25 mL/min. The t-butanol standard was prepared at 0.04 mg/mL, isovaleraldehyde was at 0.025 mg/mL, and isobutyl formate, t-butylacetate, and butylated hydroxytoluene were at 0.01 mg/mL. Dodecamethylpentasiloxane was also used to quantitate other unknown siloxane compounds. The drug product sample preparation was the same as in GC/MS analysis.
+
+High-Performance Liquid Chromatography
+The HPLC analyses were performed at Aptuit Inc., Kansas City, MO. The HPLC analysis was run with a Symmetry C18 column (250 × 4.6 mm ID packed with 5 μm particles) themostated at 25°C and operated at 1.0 mL/min. Gradient elution was used with mobile phase A (acetonitrile/water, 30/70, v/v) and mobile phase B (acetonitrile/water, 80/20, v/v). Both mobile phases A and B contained 0.1% formic acid. The following gradient program was used: 100% A for 15 min, 100% A to 100% B in 15 min, and hold for 15 min. The injection volume was 20 μL, and the UV detector was set at 270 nm. The drug product samples were prepared by reconstituting ten drug product vials with normal saline to obtain a final concentration of 1 mg/mL based on label claim. The reported assay is based on the mean assay of ten individual vials. This was a validated HPLC method and used a well-characterized and qualified reference standard with a known purity to determine differences in assay of active ingredient. System suitability evaluation was performed prior to each analysis. System suitability parameters were as follows: no significant peaks are present in the blank chromatogram which elute in the retention window of the drug substance or impurities; the resolution between the drug substance and diastereomer peaks (impurities G & H) is ≥2.0 (refer to USP <621> for determination of resolution); the number of theoretical plates for the drug substance peak is ≥2,000 (refer to USP <621> for determination of theoretical plates); the tailing factor for the drug substance peak is ≤2.0 (refer to USP <621> for determination of tailing factor); the %RSD of the peak area response in five consecutive injections of working standard is ≤2.0%; the percentage difference in average response factors between the working and check standard injections is ≤ ±2.0%. The limit of detection was 0.001% for the assay method, and the limit of quantitation was 0.03%.
+
+RESULTS
+Characterization of Bortezomib
+The Bortenat 2- and 3.5-mg and VELCADE 3.5-mg samples were analyzed by 1D 1H-NMR spectroscopy. The NMR spectrum of Bortenat 2 mg in DMSO-d6 was very similar to that of the VELCADE 3.5-mg sample and indicated the presence of bortezomib in the Bortenat 2 mg sample. In addition, the 1H-NMR spectra indicated the presence of free boronic acid in the aqueous solution of 0.9% NaCl in 10% D2O/90% H2O (Fig. 2). Integrating the signal from the H4 resonances revealed a boronic acid to boronic ester ratio of approximately 0.27:1 for Bortenat 2 mg and 0.13:1 for Bortenat 3.5 mg samples. In comparison, a boronic acid to boronic ester ratio of approximately 0.10:1 was found in the VELCADE 3.5-mg samples (Fig. 2).
+Fig. 2 Comparison of the 1H-NMR spectra of 3.5 mg samples of a Bortenat and b VELCADE. The samples were dissolved in 0.9% NaCl, 10% D2O/90% H2O. The region from 2.35 to 2.85 ppm shows the resonances and integrated areas from the H4 protons of the boronic acid and ester. The H4 proton is the proton attached to the same carbon as the boron atom in Fig. 1. The peak at ~2.73 ppm is due to the boronic acid, and the peak at ~2.62 ppm is the boronic ester. The peak shifting is likely due to chemical exchange differences between the two samples as described in the “Results” section
+
+
+
+The largest impurity observed in the 1H-NMR spectra of the Bortenat and VELCADE samples was a compounding solvent, t-butanol. For the 3.5-mg samples, Bortenat had approximately 1.8 times more t-butanol than the VELCADE sample, which is reasonably consistent with the GC result of approximately 1.7 times more t-butanol in Bortenat (Table II). The integral ratios of silicon-containing impurities (silanes and siloxanes) to the combined integrals of the H4 resonances of the boronic acid and ester in the Bortenat 3.5-mg sample was 0.55:1 versus 0.10:1 for the VELCADE 3.5-mg sample (Fig. 3). A similar result was also observed in the spectra of the DMSO-d6 solutions. For the Bortenat 2-mg samples, this ratio was 0.12:1. The Bortenat 1H-NMR spectra had four or more separate low-frequency peaks characteristic of silicon-containing impurities while the VELCADE spectra had one or two peaks (Fig. 3).
+Table II Headspace GC/FID Analysis of the Volatile Content of Bortenat 2.0- and 3.5-mg vials and VELCADE 3.5-mg Vials
+
+Bortenat 2.0 mg	Bortenat 3.5 mg	VELCADE 3.5 mg	
+Compound identification	Concentration (μg/vial)	Compound identification	Concentration (μg/vial)	Compound identification	Concentration (μg/vial)	
+Unknown 1	7.27	
+t-Butanol	224.26	
+t-Butanol	131.79	
+
+t-Butanol	88.75	Unknown siloxane 1	0.65	
+t-Butyl acetate	1.99	
+Isovaleraldehyde	3.83	Unknown siloxane 2	0.23	Isobutyl formate	2.83	
+Unknown 2	2.28	Dodecamethylpentasiloxane	0.11	Unknown siloxane 2	0.11	
+Dodecamethylpentasiloxane	0.05	Unknown siloxane 3	0.19	Unknown siloxane 3	0.08	
+Unknown siloxane 1	0.45	Unknown siloxane 4	0.97	BHT	2.03	
+Unknown siloxane 2	3.74	Unknown siloxane 5	0.30			
+Unknown siloxane 6	0.08	Unknown siloxane 6	0.16			
+Unknown siloxane 3	0.12	Unknown siloxane 7	9.17			
+Unknown siloxane 4	0.18	Unknown siloxane 8	0.65			
+Unknown siloxane 5	1.78	Unknown siloxane 9	0.49			
+BHT	0.08	Unknown siloxane 10	0.58			
+		Unknown siloxane 11	0.08			
+		Unknown siloxane 12	20.21			
+		Unknown siloxane 13	0.79			
+		Unknown siloxane 14	0.27			
+		Unknown siloxane 15	4.06			
+Fig. 3 Comparison of the 1H-NMR spectra of 3.5 mg samples of a Bortenat and b VELCADE. The samples were dissolved in 0.9% NaCl, 10% D2O/90% H2O. The region from −0.10 to 0.30 ppm shows the resonances and integrated areas of the silicon-containing compounds in each sample. The differences in the number of peaks and their relative quantities are readily observed
+
+
+
+The NMR spectra of both VELCADE and Bortenat in aqueous solutions were also collected at 0 and 180 min. The resulting boronic acid to ester ratios were the same at both time points, indicating that the difference between VELCADE and Bortenat persists long after equilibrium is expected to be achieved. The bortezomib to mannitol ratio was higher for Bortenat than VELCADE (0.55:1 versus 0.33:1), which is likely to be one reason that the boronic acid to ester ratios are consistently maintained in aqueous solution.
+
+The slight peak shifting observed in Fig. 2 is attributed to chemical exchange. The peaks that shift are not from the exchanging protons (OH and/or NH) because the water resonance dominates most of the exchanging protons and prevents them from being observed under these conditions. The peak shifting may be caused by the variable exchange of mannitol protons in the Bortenat and VELCADE samples, which then affects the peak positions of protons several bonds away. The peak shifting may also be due to differences in the acid/ester equilibrium, which is clearly different for Bortenat and VELCADE (Fig. 2). The observed chemical shifts are determined by the population-weighted average chemical shift of each environment experienced by the exchanging protons even though they do not produce observable peaks in the spectra. The peak shifting was not due to a systematic referencing error because the aromatic protons of the benzyl group in the spectra of both the Bortenat and VELCADE samples were essentially superimposable under these conditions, which is consistent with the fact that these aromatic protons would be almost entirely unaffected by chemical exchange.
+
+The Bortenat 2-mg sample was also analyzed by the direct-infusion MS method. The mass spectrum of the Bortenat 2-mg sample in aqueous solution clearly showed a peak for boronic ester (m/z 529) and a peak for free boronic acid (m/z 383) (data not shown). The Bortenat solution was also monitored at 2, 5, 8, and 24 h by MS, and the relative ratio of ester to free acid was constant.
+
+HPLC Analysis
+The amount of bortezomib present (assay) in the Bortenat 2- and 3.5-mg vials and VELCADE 3.5-mg vials was analyzed using a validated HPLC method. Ten vials of each product were analyzed individually. The mean value of ten vials was reported as the overall assay for each bortezomib product, as shown in Table III, along with the content uniformity of each product. The assays of Bortenat 2 mg (116.5%) and 3.5 mg (117.9%) were above the approved specification limit for assay of bortezomib in VELCADE; 90.0–110.0% in the US and 95–105% in the EU. In addition, Bortenat 2-mg vials showed a higher level of total impurities (0.96%) than Bortenat 3.5 mg (0.23%) and VELCADE 3.5 mg (0.28%) vials.
+Table III Assay of Bortezomib and Analysis of Impurities by HPLC in the Bortenat 2.0- and 3.5-mg Vials, and VELCADE 3.5-mg Vials
+
+	Bortenat 2.0 mg	Bortenat 3.5 mg	VELCADE 3.5 mg	
+Mean bortezomib assay (%)	116.5	117.9	99.3	
+Sample 1	117.2	117.7	99.5	
+Sample 2	115.6	117.3	98.5	
+Sample 3	118.0	118.7	99.7	
+Sample 4	116.3	116.5	100.3	
+Sample 5	115.9	117.2	99.0	
+Sample 6	116.7	119.0	99.0	
+Sample 7	117.9	118.3	100.3	
+Sample 8	114.8	117.7	98.4	
+Sample 9	115.7	118.7	98.5	
+Sample 10	117.3	117.9	99.2	
+%RSD (content uniformity)	0.9	0.7	0.6	
+Total impurities (w/wt.%)	0.96	0.23	0.28	
+
+RSD relative standard deviation
+
+
+
+Analysis of Impurities and Volatile Compounds
+Headspace GC/MS analysis identified 13 volatile compounds in the Bortenat 2-mg vials, and 17 in the Bortenat 3.5-mg vials, compared with six in the VELCADE 3.5-mg vials. Table II lists the volatile compounds identified by GC/MS and quantitated by GC/FID. All samples contain t-butanol, which is used as a compounding solvent. Two unknown siloxane derivatives were found in VELCADE 3.5-mg vials at trace levels (0.08–0.11 μg/vial). Six and 14 unknown siloxane derivatives were observed in Bortenat 2- and 3.5-mg vials, respectively, at concentrations of 0.08–3.74 and 0.08–20.21 μg/vial. Isovaleraldehyde, a compound typically found in fragrance and flavoring agents, was also detected in the Bortenat 2-mg vials (3.83 μg/vial) but not in the Bortenat 3.5-mg vials or in the VELCADE samples. The source of this material is not known.
+
+DISCUSSION
+The finding that the Bortenat samples analyzed did not comply with the US- and European-approved regulatory assay limits and contained higher than labeled amounts of active drug has potential clinical consequences. If this bortezomib-containing product were administered in accordance with the approved single-agent dose and schedule for VELCADE in patients with multiple myeloma (1.3 mg/m2 on days 1, 4, 8, and 11 every 3 weeks), the potencies of 116.5% and 117.9% determined for the Bortenat 2-mg and 3.5-mg vials would result in the equivalent administration of 1.51 and 1.53 mg/m2 bortezomib, respectively, at each dosing. There are several indications in the medical literature (5–8) as well as in publicly available regulatory review documents from the US FDA (9) and European Medicines Agency (10) that administering bortezomib at doses greater than 1.3 mg/m2 on the standard biweekly schedule increases the incidence of toxicities known to be associated with bortezomib use.
+
+This increase in toxicity with higher bortezomib dose has been demonstrated in several clinical trials. An early dose-finding phase I study of bortezomib using the standard biweekly schedule initially recommended administering bortezomib at 1.56 mg/m2 (5). This was later revised to 1.3 mg/m2 (10,11) due to dose-limiting toxicities that included diarrhea and painful sensory neuropathy (5,9,10). Across a variety of phase I studies, the dose–toxicity relationship was confirmed, with the proportion of patients that stopped receiving treatment due to toxicity being higher with increased dose (10% at doses of 0.7–1.3 mg/m2 and 30% at doses greater than 1.3 mg/m2) (10). After these findings were reported, the development of bortezomib for the treatment of multiple myeloma continued using the standard twice-weekly schedule with the 1.3 mg/m2 dose (12–14). Similarly, in two separate phase II studies investigating bortezomib using the twice-weekly schedule in patients with advanced renal cell carcinoma and in recurrent ovarian cancer, the initial dose of 1.5 mg/m2 had to be decreased to 1.3 mg/m2 during the course of the study as the majority of patients treated at the 1.5 mg/m2 dose required dose reductions or premature treatment discontinuations due to toxicity (6,8). Recently, a case series of three patients with newly diagnosed multiple myeloma and renal impairment reported the development of severe neuropathy in two of these three patients after treatment with Bortenat, at a reduced dose in the first cycle and at a dose of 1.3 mg/m2 in subsequent cycles (15).
+
+Additional differences between the two products were identified. Bortenat 2-mg vials contained isovaleraldehyde, a compound used in fragrances or as a flavoring agent; the origin of this compound is unknown. Bortenat also contained higher levels of polysiloxane compounds. The toxicologic and clinical impact of these differences is unknown. It is also interesting to note that the NMR and MS analyses indicated the presence of a higher proportion of free boronic acid in the aqueous Bortenat solution. The ratio of free acid to boronic ester was higher in the Bortenat 2-mg (0.27:1) and 3.5-mg (0.13:1) vials than in the VELCADE 3.5-mg vials (0.10:1). Ratio data were included in regulatory applications for VELCADE and the ratio of boronic acid to boronic ester is used to characterize the innovator product. These ratio data also indicate that the Bortenat bortezomib product is not equivalent to the innovator product. The clinical impact of these differences is unknown.
+
+CONCLUSION
+Overall, these analyses of Bortenat and VELCADE indicate differences between these two products. The difference in assay results may have a clinical impact, potentially resulting in increased toxicities if patients are administered the Bortenat product at a dose of 1.3 mg/m2 according to the prescribing information on single-agent use of VELCADE.
+
+ACKNOWLEDGMENTS
+Funding for this study was provided by Janssen-Cilag International NV, Beerse, Belgium. The authors would like to acknowledge the editorial assistance of Steve Hill of FireKite during the development of this publication, which was funded by Millennium Pharmaceuticals Inc., and Johnson & Johnson Pharmaceutical Research & Development, L.L.C.
+
+CONFLICTS OF INTEREST
+PAT is an employee of SSCI, a division of Aptuit; MJM is an employee of Millennium Pharmaceuticals, Inc; and HvdV is an employee of Janssen Pharmaceutica NV and is a stock owner of Johnson & Johnson.
+
+DISCLOSURE
+As noted in the “Acknowledgments,” funding for this study was provided to SSCI/Aptuit by Janssen-Cilag International NV, Beerse, Belgium. VELCADE is marketed by Janssen-Cilag and Millennium Pharmaceuticals, Inc. Janssen-Cilag scientists contributed to the planning of the studies reported herein, but other than the specific roles attributed to the individual authors below, funders had no role in the analysis and interpretation of the data. All authors meet the three specific requirements of ICMJE authorship criteria: (1) substantial intellectual contribution to concept or design, or acquisition of data, or analysis and interpretation of data; (2) drafting the article or revising it critically for important intellectual content; (3) final approval of the version to be published. SRB takes responsibility for the integrity of the data, the accuracy of the data analysis, and the conclusions drawn from the analysis. SRB and PAT were involved in the design of the studies, in the collection, management, analysis, and interpretation of the data, and in the conclusions drawn from the analysis. MJM is an employee of Millennium Pharmaceuticals, Inc., and was involved in the analysis and discussions regarding the interpretation of the NMR data. HvdV is an employee of Janssen-Cilag and was involved in the clinical interpretation of the data in the context of the available literature.
+
+Open Access
+This article is distributed under the terms of the Creative Commons Attribution Noncommercial License which permits any noncommercial use, distribution, and reproduction in any medium, provided the original author(s) and source are credited.
+==== Refs
+REFERENCES
+1. Park SS  Park J  Ko J  Chen L  Meriage D  Crouse-Zeineddini J    Biochemical assessment of erythropoietin products from Asia versus US Epoetin alfa manufactured by Amgen J Pharm Sci 2009 98 1688 99 10.1002/jps.21546 18781649 
+2. Bross PF  Kane R  Farrell AT  Abraham S  Benson K  Brower ME    Approval summary for bortezomib for injection in the treatment of multiple myeloma Clin Cancer Res 2004 10 3954 64 10.1158/1078-0432.CCR-03-0781 15217925 
+3. Millennium Pharmaceuticals Inc. VELCADE® (bortezomib) for injection. Prescribing information. Cambridge, MA, USA. 2008; Issued June 2008, Rev 9.
+4. Janssen-Cilag International N.V. VELCADE® (bortezomib)  Summary of product characteristics 2009 Belgium Beerse 
+5. Aghajanian C  Soignet S  Dizon DS  Pien CS  Adams J  Elliott PJ    A phase I trial of the novel proteasome inhibitor PS341 in advanced solid tumor malignancies Clin Cancer Res 2002 8 2505 11 12171876 
+6. Kondagunta GV  Drucker B  Schwartz L  Bacik J  Marion S  Russo P    Phase II trial of bortezomib for patients with advanced renal cell carcinoma J Clin Oncol 2004 22 3720 5 10.1200/JCO.2004.10.155 15365068 
+7. Troch M  Jonak C  Mullauer L  Puspok A  Formanek M  Hauff W    A phase II study of bortezomib in patients with MALT lymphoma Haematologica 2009 94 738 42 10.3324/haematol.2008.001537 19336742 
+8. Aghajanian C  Blessing JA  Darcy KM  Reid G  DeGeest K  Rubin SC    A phase II evaluation of bortezomib in the treatment of recurrent platinum-sensitive ovarian or primary peritoneal cancer: a Gynecologic Oncology Group study Gynecol Oncol 2009 115 215 20 10.1016/j.ygyno.2009.07.023 19712963 
+9. United States Food and Drug Administration Center for Drug Evaluation and Research: NDA 21-602 VELCADE™ (bortezomib) for injection. http://www.fda.gov/cder/foi/nda/2003-21602_Velcade_medr.pdf (2003).
+10. European Medicines Agency: European public assessment report—VELCADE—scientific discussion. www.emea.europa.eu/humandocs/PDFs/EPAR/velcade/166104en6.pdf (2004).
+11. Kane RC  Bross PF  Farrell AT  Pazdur R   Velcade: U.S. FDA approval for the treatment of multiple myeloma progressing on prior therapy Oncologist 2003 8 508 13 10.1634/theoncologist.8-6-508 14657528 
+12. Richardson PG  Barlogie B  Berenson J  Singhal S  Jagannath S  Irwin D    A phase 2 study of bortezomib in relapsed, refractory myeloma N Engl J Med 2003 348 2609 17 10.1056/NEJMoa030288 12826635 
+13. Richardson PG  Sonneveld P  Schuster MW  Irwin D  Stadtmauer EA  Facon T    Bortezomib or high-dose dexamethasone for relapsed multiple myeloma N Engl J Med 2005 352 2487 98 10.1056/NEJMoa043445 15958804 
+14. San Miguel JF  Schlag R  Khuageva NK  Dimopoulos MA  Shpilberg O  Kropff M    Bortezomib plus melphalan and prednisone for initial treatment of multiple myeloma N Engl J Med 2008 359 906 17 10.1056/NEJMoa0801479 18753647 
+15. Chakrabarti P  Chaudhuri U  Nath U   Generic bortezomib induced severe peripheral neuropathy in newly diagnosed multiple myeloma patients Clin Lymphoma Myeloma 2009 9 S86 7

@@ -1,0 +1,524 @@
+
+==== Front
+Behav PharmacolBehav PharmacolFBPBehavioural Pharmacology0955-88101473-5849Lippincott Williams and Wilkins 10.1097/FBP.0000000000000109Review ArticlesEndocannabinoids and striatal function: implications for addiction-related behaviours Moreira Fabricio A. abJupp Bianca bBelin David cDalley Jeffrey W. bda Department of Pharmacology, Institute of Biological Science, Universidade Federal de Minas Gerais, Belo Horizonte, BrazilDepartments of b Psychologyc Pharmacology, University of Cambridged Department of Psychiatry, Addenbrookes’s Hospital University of Cambridge, Cambridge, UKCorrespondence to Jeffrey W. Dalley, PhD, Department of Psychology, University of Cambridge, Downing St., Cambridge CB2 3EB, UK E-mail: jwd20@cam.ac.uk2 2015 02 1 2015 26 1- 59 72 23 6 2014 26 9 2014 Copyright © 2015 Wolters Kluwer Health, Inc. All rights reserved.2015This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. http://creativecommons.org/licenses/by-nc-nd/3.0.Since the identification and cloning of the major cannabinoid receptor expressed in the brain almost 25 years ago research has highlighted the potential of drugs that target the endocannabinoid system for treating addiction. The endocannabinoids, anandamide and 2-arachidonoyl glycerol, are lipid-derived metabolites found in abundance in the basal ganglia and other brain areas innervated by the mesocorticolimbic dopamine systems. Cannabinoid CB1 receptor antagonists/inverse agonists reduce reinstatement of responding for cocaine, alcohol and opiates in rodents. However, compounds acting on the endocannabinoid system may have broader application in treating drug addiction by ameliorating associated traits and symptoms such as impulsivity and anxiety that perpetuate drug use and interfere with rehabilitation. As a trait, impulsivity is known to predispose to addiction and facilitate the emergence of addiction to stimulant drugs. In contrast, anxiety and elevated stress responses accompany extended drug use and may underlie the persistence of drug intake in dependent individuals. In this article we integrate and discuss recent findings in rodents showing selective pharmacological modulation of impulsivity and anxiety by cannabinoid agents. We highlight the potential of selective inhibitors of endocannabinoid metabolism, directed at fatty acid amide hydrolase and monoacylglycerol lipase, to reduce anxiety and stress responses, and discuss novel mechanisms underlying the modulation of the endocannabinoid system, including the attenuation of impulsivity, anxiety, and drug reward by selective CB2 receptor agonists.
+
+Keywords:
+anxietycompulsivitydopamineimpulsivitynucleus accumbensprefrontal cortexOPEN-ACCESSTRUE
+==== Body
+Introduction
+Drug addiction is a chronic, relapsing brain disorder characterized by compulsive drug seeking and repeated bouts of binge intoxication and withdrawal. Research over a number of decades has defined the principal pharmacological mechanisms underlying the primary reinforcing effects of many substances abused by people, which directly or indirectly activate the mesolimbic dopamine (DA) system (Di Chiara and Imperato, 1988; Nestler, 2005). Yet fundamental questions remain, including especially how drugs come to dominate behaviour so powerfully and why addiction afflicts only a small subset of all users. A common framework to address these questions rests on the principle that addiction is a progressive disorder involving a series of transitions from (i) initial drug contact and experimentation, (ii) recreational and mostly occasional use, (iii) a preoccupation to use drugs more regularly and (iv) consumption levels that ultimately lead to harm and are life threatening (Everitt and Robbins, 2005; Belin et al., 2009, 2013; Koob and Volkow, 2010). Diagnostic criteria of addiction or substance use disorder, based on the Diagnostic and Statistical Manual of Mental Disorders, 5th ed. (DSM-5; American Psychiatric Association), include taking substances in larger amounts than originally intended, a persistent desire to cut down or moderate drug use, longer periods of time using the drug or recovering from its effects, and intense craving. Neurally, the development of addiction is hypothesized to align with the emergence of drug seeking habits controlled by dopaminergic mechanisms in the dorsal striatum and a shift away from prefrontal cortical control mechanisms (Jentsch and Taylor 1999; Everitt and Robbins, 2005; Kalivas and Volkow, 2005; Belin et al., 2013).
+
+Although a distinguishing feature of addiction is a persistent underlying change in the brain reward and stress systems, caused by protracted drug use (Kalivas and Volkow, 2005; Nestler, 2005; Koob and Volkow, 2010), the path to addiction for some may be predestined by underlying impairments in self-control (Wills et al., 1994; Verdejo-García et al., 2008; Van den Heuvel et al., 2009). Indeed, increasing evidence suggests that certain personality traits, including the seeking out of intense forms of sensation, novelty, and impulsivity may predispose to addiction (Sher et al., 2000; Adams et al., 2003; Verdejo-García et al., 2008). Moreover, prospective studies in adolescents unambiguously demonstrate that impulsivity precedes the onset of drug use and possibly the development of addiction (Nigg et al., 2006; Wong et al., 2006), consistent with analogous research in rodents (Belin et al., 2008; Diergaarde et al., 2008; Economidou et al., 2009; Dalley et al., 2007).
+
+A complementary view, the opponent process theory, focuses on progressive drug-induced changes in the hedonic state of addicts (Koob and Le Moal, 1997). It is derived from the concept of homoeostasis, the capacity of an organism to maintain a constant internal environment despite change, and allostasis, where prolonged contact with salient stimuli results in adaptations at pathological set-points. According to this theory addicts take drugs because they are initially reinforcing. However, with more protracted drug use not only does this driving mechanism diminish, a concomitant increase in the activity of anxiety-related and stress-related circuits ensues. At this point drug use is driven by compulsive behaviour and attempts to avoid the aversive reactions associated with its withdrawal. This hypothesis, therefore, emphasizes changes in emotional states, in line with the view that anxiety and stress contribute to the maintenance of addiction (Cleck and Blendy, 2008; Kessler et al., 2010). The growth of the opponent process governing negative reinforcement involves reductions in DA, gamma-amino-butyric acid (GABA) and endogenous opioid neurotransmission together with facilitated noradrenaline (NA) and corticotrophin-releasing factor activity. Key structures mediating this altered motivational state include the central amygdala and bed nucleus of the stria terminalis (Koob, 2013).
+
+Despite considerable research investment a surprisingly small number of medications have been developed and approved for the treatment of addiction (Xi, 2011; Pierce et al., 2012). This deficiency may reflect in part the dominance over many years of DA-based theories, which although intuitively attractive have led to no major breakthroughs in treatment. An alternative approach is to treat underlying traits that predispose and are often comorbid with addiction, notably as discussed above impulsivity and anxiety. Understanding the biological mechanisms of these addiction-linked behavioural traits may provide new targets for pharmacological intervention in addiction. In this article we review putative applications of drugs targeting the endocannabinoid system in ameliorating impulsivity and anxiety.
+
+Endocannabinoids are lipid-derived substances found mainly in the DA-rich basal ganglia, which play a major role in regulating synaptic function and plasticity in the striatum (Lovinger and Mathur, 2012). Cannabinoid receptors in the brain mediate the effects of cannabis (or marijuana), a widely abused drug that carries significant adverse health effects, especially among young people (Volkow et al., 2014). Nevertheless, considerable work, reviewed below, suggests that pharmacological modulation of the endocannabinoid system can moderate high levels of anxiety and impulsivity and attenuate the reinstatement of drug seeking. We first review the defining features and neural substrates of impulsivity and anxiety before considering how these addiction-relevant traits can be selectively modulated by compounds that facilitate or suppress the function of the endocannabinoid system. Finally, we discuss the implications of this research for the treatment of drug addiction.
+
+Impulsivity and addiction
+Impulsivity is a heterogeneous construct defining behaviours that are premature, poorly planned, inappropriate, risky and poorly inhibited (Monterosso and Ainslie, 1999; Evenden, 1999b). Although it can be advantageous to take risks in certain circumstances, when excessively and inappropriately expressed, impulsiveness can lead to suboptimal outcomes (Dickman, 1990). Moreover, impulsivity has been suggested to contribute to specific disorders such as addiction, attention deficit hyperactivity disorder, obsessive–compulsive disorder, bipolar disorder, aggression, self-harm and suicidality (Moeller et al., 2001; Skegg, 2005; Hawton and van Heeringen, 2009; Coccaro et al., 2011; Bari and Robbins, 2013). As a result, therefore, there has been a growing interest in investigating the biological mechanisms of impulsivity to facilitate the development of new therapies for a range of neuropsychiatric disorders (Jupp and Dalley, 2014).
+
+Different classifications have been proposed to define impulsivity, which can be deconstructed in several ways (Evenden, 1999b). In its simplest forms, impulsivity can be divided into (i) impulsive action, involving impaired motor inhibition, and (ii) impulsive choice, defined by the abnormal preference for small immediate or likely rewards versus larger-magnitude but delayed or uncertain rewards (Pattij and Vanderschuren, 2008; Dalley and Roiser, 2012). On the basis of this dichotomy a variety of tests have been developed for studying impulsivity in humans and laboratory animals (Winstanley, 2011; Jupp et al., 2013). Impulsive action can be assessed as responses that are premature, mistimed or difficult to suppress. Some of the main paradigms are the 5-choice serial reaction time task (5-CSRTT) and its analogues (Robbins, 2002; Voon et al., 2014), the stop-signal reaction time task (Eagle et al., 2008), the go/no go task (Harrison et al., 1999) and differential reinforcement of low rates of responding (Evenden, 1999a). Impulsive choice can be assessed by tasks that measure aversion for delayed rewards and are often referred to as delay discounting procedures (Monterosso and Ainslie, 1999; Bari and Robbins, 2013).
+
+Neurally, impulsivity depends on subregions of the prefrontal cortex (PFC), basal ganglia (particularly the ventral region of the striatum), hippocampus, and modulation by serotonin (5-HT), DA and NA (Evenden, 1999a, 1999b; Cardinal et al., 2004; Pattij and Vanderschuren, 2008; Dalley et al., 2011; Dalley and Roiser, 2012). In humans, the delineation of substrates underlying impulsivity has relied on neuroimaging and psychological analysis in healthy individuals and patients with brain damage or psychiatric disorders such as attention deficit hyperactivity disorder (Castellanos et al., 2006; Garavan and Hester, 2007). In experimental animals, considerable research has shown that distinct corticostriatal ‘loops’ underlie several distinct forms of impulsivity (Winstanley, 2011), including the proposed subdivision of waiting versus stopping impulsivity (Dalley et al., 2011). Work over many years has established that impulsivity, in its many forms, is sensitive to modulation by drugs that affect monoaminergic transmission, including psychostimulant drugs (Pattij and Vanderschuren, 2008) and drugs that block the reuptake of catecholamines in the brain such as atomoxetine (Economidou et al., 2012; Ansquer et al., 2014; Feldman and Reiff, 2014). Increasingly, however, current research has shifted to new targets that offer putative explanatory mechanisms, including evident GABA-ergic dysfunction in the nucleus accumbens core of trait impulsive rats (Caprioli et al., 2014) and pharmacological agents that reduce both impulsivity and addiction-like behaviours in animal models (Jupp and Dalley, 2014). This research has revealed several promising lead compounds targeting cholinergic, glutamatergic and opioid-ergic transmission, in addition to continued interest in the endocannabinoid system (Pattij and Vanderschuren, 2008).
+
+Impulsivity is a widely recognized risk marker for addiction (Perry and Carroll, 2008; Verdejo-García et al., 2008; de Wit, 2009) predicting the onset and escalation of drug use (Diergaarde et al., 2008; Zernicke et al., 2010; Dalley et al., 2011), rates of relapse (Economidou et al., 2009; Ersche et al., 2010), and the development of compulsive drug-taking (Belin et al., 2008). It is widely recognized that impulsive choice for immediate rewards is present in opiate addicts (Kirby and Petry, 2004), alcoholics (Vuchinich and Simpson, 1998) and stimulant abusers (Kirby and Petry, 2004; Monterosso et al., 2007). Other forms of impulsivity, including impulsive action, as assessed with such tasks as the stop-signal reaction time task and go/no go, are evident in alcoholics (Noël et al., 2007), and abusers of cocaine (Fillmore and Rush, 2002; Hester and Garavan, 2004) and methamphetamine (Monterosso et al., 2005). On the basis of the research in experimental animals different subtypes of impulsivity appear to affect distinct stages of drug addiction. Thus, increased impulsive action on the 5-CSRTT was found to predict an increased motivation to initiate and maintain nicotine self-administration, whereas impulsive choice on a delay discounting procedure predicted impaired inhibition of drug seeking and an higher probability for relapse (Diergaarde et al., 2008).
+
+Impulsivity may also arise, in turn, as a consequence of chronic drug abuse through perturbation of prefrontal cortical control over basal ganglia function (Jentsch and Taylor 1999). As a result impulsivity has been hypothesized to facilitate the shift in behavioural control over drug-taking from the PFC to the striatum, as well as promoting a maladaptive ventral to dorsal striatal transition in the control over drug seeking (Everitt and Robbins, 2005). Elucidating the molecular mechanisms underlying the transitions from initial drug use to habitual and eventual compulsive drug taking remains an area of intensive research activity (Belin et al., 2013; Everitt, 2014).
+
+Anxiety and addiction
+Anxiety is postulated to contribute to an evolutionary preserved repertory that prepares and optimizes behavioural and physiological defensive responses for approaching, confronting, avoiding or escaping innate or learnt threatening stimuli (Canteras et al., 2010). However, excessive levels of anxiety may impair performance and lead to suboptimal behavioural responses and ultimately to psychiatric disorders including generalized anxiety disorder, panic disorder, post-traumatic stress disorder and obsessive–compulsive disorder. Such disorders are highly prevalent and have significant individual and social impacts (Kessler et al., 2010).
+
+Anxiety is often assessed as a subjective state in humans in conjunction with objective measures of autonomic function (Canteras et al., 2010). In laboratory rodents, anxiety-like responses can be quantified by measuring avoidance or escape responses to innate or conditioned aversive stimuli. Typical tests include the elevated mazes and the light–dark shuttle box, which assess ethological aspects of fear, in addition to tests of conditioned aversive responses to cues and contexts previously paired with noxious stimuli (Cryan and Sweeney, 2011; Blanchard et al., 2013). The neuroanatomical substrates of anxiety-related behaviours have been extensively investigated and include the amygdala-ventral striatal interactions underlying cue-conditioned fear, the hippocampal-dependent processing of contextual fear, the medial hypothalamic nuclei and the periaqueductal grey underlying escape behaviour, and the PFC in stress and extinction of conditioned aversive responses (Canteras et al., 2010). A number of neurotransmitters modulate anxiety-related responses, including GABA and the monoamines 5-HT and NA, which are the major targets for currently available anxiolytic drugs, as well as glutamate, DA and the endocannabinoids (Griebel and Holmes, 2013).
+
+Anxiety and exaggerated stress-related responses are known to predispose to drug use (Cleck and Blendy, 2008; Kessler et al., 2010) whilst facilitating the acquisition of stimulant drug self-administration (Piazza and Le Moal, 1998). Furthermore, the interruption of chronic drug consumption results in the emergence of negative emotional states that lie at the core of the motivational withdrawal/abstinence syndrome, one of the major catalysts for relapse and persistent drug-taking behaviour (Koob and Le Moal, 1997, 2008). This shift in motivational state is a putative consequence of neural adaptations resulting from chronic drug exposure and involves, in particular, the recruitment of locus coeruleus noradrenergic neurons and corticotrophin-releasing factor in the central nucleus of the amygdala and the bed nucleus of the stria terminalis (Koob, 2008). Thus, the anxiety and stress systems of the brain have a major impact on the escalation and persistence of drug abuse. In experimental animals, trait anxiety-like behaviour predicts the escalation of intravenous cocaine self-administration, but not an increased propensity to acquire cocaine self-administration (Dilleen et al., 2012), indicating that high anxiety may be a predisposing endophenotype underlying the loss-of-control over cocaine intake. These data further suggest that the mechanisms underlying the initiation of drug use are not necessarily the same as those contributing to the development of addiction. Anxiety also correlates with vulnerability to alcohol intake. Thus, a high comorbidity between anxiety disorders and alcohol abuse has been reported; this has led to the tension-reduction hypothesis, which posits that anxious or stressed individuals tend to consume more alcohol to alleviate anxiety (Cappell and Herman, 1972; Pohorecky, 1981; Young et al., 1990). Accordingly, experimental studies in rats show that higher levels of anxiety-like behaviour in the elevated plus maze predicts higher alcohol intake and escalation of intake in voluntary drinking procedures compared with low-anxious animals (Spanagel et al., 1995; Hayton et al., 2012). Such findings accord with the notion that many drugs may be used to self-medicate high levels of anxiety and other negative emotional states (Khantzian, 1985).
+
+Cannabis sativa, cannabinoids and the endocannabinoid system
+Biochemical and neurophysiological processes that inherent to the endocannabinoid system have been extensively reviewed elsewhere (Howlett et al., 2002; Piomelli, 2003; Di Marzo, 2008; Pertwee et al., 2010; Castillo et al., 2012). Here we provide a brief synopsis of endocannabinoid pharmacology and its relevance to impulsivity, anxiety and addiction.
+
+The endocannabinoid system is named after the herb Cannabis sativa (‘hashish’, ‘marijuana’), which although widely abused can have beneficial effects in some settings (Zuardi, 2006; Russo, 2007). Its main active constituent Δ9-tetrahydrocannabinol (Δ9-THC) is one of more than 60 compounds, termed phytocannabinoids, found in C. sativa (Mechoulam, 1970). The chemical characterization of this plant and subsequent development of synthetic cannabinoids provided the impetus for the identification and cloning of the major brain expressed cannabinoid-1 (CB1) receptor (Devane et al., 1988; Matsuda et al., 1990), which is Gi-protein-coupled (Fig. 1) and densely expressed throughout the brain, particularly in mesocorticolimbic brain areas (Herkenham et al., 1990, 1991b; Tsou et al., 1998). Soon after the discovery of the CB1 receptor, the endogenously produced cannabinoid (endocannabinoid) and arachidonic acid derivative, arachidonoylethanolamide (AEA) was isolated and coined with the name anandamide after the Sanskrit word for ‘bliss’ (Devane et al., 1992). Subsequently, a second metabotropic cannabinoid receptor was discovered, the cannabinoid-2 (CB2) receptor (Munro et al., 1993) as well as a second endocannabinoid, 2-arachidonoyl glycerol (2-AG) (Mechoulam et al., 1995). Interestingly, although CB2 receptors are postulated to be predominately expressed in the peripheral immune system, with low expression levels in the brain, CB2 selective compounds can modulate several centrally mediated processes, including cocaine reward (Onaivi et al., 2006; Xi et al., 2011).
+
+Fig. 1 A schema of the currently proposed model for endocannabinoid neurotransmission. Anandamide (AEA) and 2-arachidonoyl glycerol (2-AG) are synthesized and released from postsynaptic membranes to activate Gi-protein-coupled CB1 cannabinoid receptors. This interaction initiates a cascade of signal transduction mechanisms that include inhibition of adenylate cyclase (AC), activation of MAP kinase (MAPK), inhibition of calcium influx and facilitation of potassium efflux. AEA also activates transient receptor potential vanilloid type-1 (TRPV1) channels to facilitate calcium influx. The effects of AEA and 2-AG are terminated by internalization facilitated by a specific membrane transporter (T), followed by hydrolysis by fatty acid amide hydrolase (FAAH) and monoacylglycerol lipase (MAGL), respectively.
+
+The synaptic effects of anandamide are mainly terminated by cellular uptake and hydrolytic catabolism by fatty acid amide hydrolase (FAAH) (Di Marzo et al., 1994; Cravatt et al., 1996; Beltramo et al., 1997). By contrast, the inactivation of 2-AG is mediated by monoacylglycerol lipase (MAGL) (Dinh et al., 2002). Unlike conventional neurotransmitters and modulators, endocannabinoids act as retrograde neural messengers (Wilson and Nicoll, 2002), being synthesized from membrane lipids of postsynaptic neurons in response to increased neural activity. Newly synthesized endocannabinoids diffuse across the synaptic cleft where they activate CB1 receptors located on presynaptic terminals. The CB1 receptor is coupled to a myriad of signal transduction mechanisms, initiated by Gi-protein activation and culminating in the inhibition of adenylate cyclase, the activation of MAP kinase, inhibition of calcium influx, and facilitation of potassium efflux. Collectively, these interactions result in the inhibition of neuronal activity and neurotransmitter release (Egertova et al., 1998; Pettit et al., 1998; Kreitzer and Regehr, 2001; Ohno-Shosaku et al., 2001; Wilson and Nicoll, 2001). It should be noted, however, that CB1 receptor expression and function is not necessarily exclusively mediated at presynaptic terminals and that other receptors and endocannabinoids have been proposed; these include the transient receptor potential vanilloid type-1 channel (TRPV1) for which anandamide may act as the main endogenous agonist (Starowicz et al., 2007) (Fig. 1).
+
+Cannabinoids are known to regulate the activity of a number of neuroactive substances through effects mediated presynaptically by CB1 receptors located on glutamatergic and GABA-ergic nerve terminals (Katona et al., 1999; Marsicano and Lutz, 1999; Hermann et al., 2002; Julian et al., 2003; Katona et al., 2006; Haring et al., 2007). Activation of CB1 receptors inhibits the release of glutamate, GABA and acetylcholine in the nucleus accumbens (Schoffelmeer et al., 2006) where it also suppresses excitatory transmission at glutamatergic synapses (Robbe et al., 2002; Fig. 2). In addition, stimulation of CB1 receptors increases the firing rate of dopaminergic neurons and facilitates DA release in the nucleus accumbens through a GABA-ergic disinhibitory mechanism (Chen et al., 1990; French, 1997; Tanda et al., 1997; Sperlagh et al., 2009). Endocannabinoids can therefore strongly influence information processing in the striatum by modulating DA inputs not only from the ventral tegmental area (Szabo et al., 2002; Riegel and Lupica, 2004; Melis et al., 2004b) but also the substantia nigra zona compacta innervating the dorsal striatum (Melis et al., 2000; Szabo et al., 2000), as well as excitatatory glutamatergic afferents from the PFC (Fitzgerald et al., 2012). CB1 receptors are densely located in the ventral and dorsal striatum (Herkenham et al., 1990, 1991a; Herkenham, 1992; Tsou et al., 1998) where they are present on medium spiny neurons (Rodriguez et al., 2001; Pickel et al., 2006) positive for D1 and D2 receptors (Hermann et al., 2002; Robbe et al., 2002; Monory et al., 2007; Martin et al., 2008) and glutamatergic terminals (Fitzgerald et al., 2012). The endocannabinoid hydrolyzing enzymes, FAAH and MAGL, are also expressed in the striatum and related projection areas (Egertova et al., 1998). Thus, endocannabinoids are ideally placed to fine-tune processing in mesocorticolimbic brain networks by regulating inhibitory and excitatory synaptic transmission (Sidhpura and Parsons, 2011; El Khoury et al., 2012).
+
+Fig. 2 Brain loci underlying the modulation of dopamine (DA)-mediated neurotransmission by the endocannabinoid system. Endocannabinoids (eCBs) inhibit local gamma-aminobutyric acid (GABA)-ergic interneurons that synapse on dopaminergic neurons in the ventral tegmental area (VTA) and substantia nigra (SNc). In the striatum, eCBs inhibit glutamate (Glut) release from afferents arising from different cortical regions (e.g. prefrontal cortex, amygdala, hippocampus) and indirectly stimulates dopamine release by inhibiting GABA-ergic interneurons.
+
+The endocannabinoid system and impulsivity
+An involvement of the endocannabinoid system in impulsivity has come to light from current research in humans and experimental animals. In this regard marijuana users tend to have higher levels of impulsivity than nondrug abusing controls (Cousijn et al., 2013; Dougherty et al., 2013). Acute use of this drug induces altered time perception, psychomotor and cognitive impairment, reduced inhibitory control, and increased risk-taking behaviour (Hall and Solowij, 1998; Iversen, 2003; Murray et al., 2007). Moreover, Δ9-THC administration to healthy volunteers elicits impulsive responding on the stop-signal task but has no effect on delay discounting or go/no-go discriminative performance (McDonald et al., 2003). The impairing effect of Δ9-THC on stopping behaviour has been replicated (Ramaekers et al., 2006b; Van Wel et al., 2013) and is generally consistent with the disruptive effects of marijuana on tasks requiring motor inhibition and risk evaluation (Lane et al., 2005; Ramaekers et al., 2006a; Metrik et al., 2012).
+
+Complementary research in rodents confirms a role of the endocannabinoid system in specific subtypes of impulsivity, as summarized in Table 1. Thus, although acute administration of Δ9-THC was reported not to affect impulsivity assessed by the 5-CSRTT this substance decreased impulsivity on a delay discounting task, an effect that was blocked by the CB1 receptor antagonist/inverse CB1 receptor agonist, rimonabant (Wiskerke et al., 2011). In other studies, the synthetic cannabinoid WIN55,212-2 had no effect on impulsivity assessed on a lateralized reaction time task (Arguello and Jentsch, 2004) or the 5-CSRTT (Pattij et al., 2007). Interestingly, however, this compound normalized enhanced levels of delay discounting impulsivity in spontaneously hypertensive rats compared with Wistar–Kyoto rats (Adriani et al., 2003). These rats also exhibit a reduced density of CB1 receptors in the PFC, suggesting a potential contribution of the endocannabinoid system in this region to the enhanced levels of impulsivity (Adriani et al., 2003). Anandamide, a nonselective endogenous ligand exerts a plethora of effects through multiple mechanisms, including the TRPV1 channel. Systemic administration of this cannabinoid reduced anticipatory responding (i.e. impulsivity) on the 5-choice task; however this compound also significantly increased omission errors, possibly reflecting attentional interference (Panlilio et al., 2009). Intriguingly, these effects were blocked by the TRPV1 antagonist capsazepine, but not rimonabant. However, the FAAH inhibitor, URB597, which increases endogenous levels of anandamide, failed to mimic the effects of anandamide (Panlilio et al., 2009).
+
+Table 1 A summary of the effects of acute pharmacological interventions on the endocannabinoid system on two major subtypes of impulsivity in experimental animals
+
+To date the majority of studies have focused on the blockade of the endocannabinoid system in the assessment of impulsivity. Rimonabant has been widely used for this purpose and has shown to be effective, for example, in reducing impulsivity on the 5-choice task but not the delay discounting task (Pattij et al., 2007). This relatively selective effect on motor impulsivity was later confirmed and extended to other CB1 receptor antagonists (O-2050, SLV330), which unlike rimonabant do not act as an inverse agonist at the CB1 receptor (De Bruin et al., 2011; Wiskerke et al., 2011). Both compounds were also effective in attenuating the effects of amphetamine on delay discounting and motor impulsivity (Wiskerke et al., 2011). Subsequently, rimonabant was shown to antagonize nicotine-induced motor impulsivity (Wiskerke et al., 2012) and cocaine-induced impulsivity in a delay discounting task (Hernandez et al., 2014). Rimonabant has also been investigated in obese Zucker rats, which show a preference for immediate, small-magnitude rewards compared with lean rats. Obese rats also exhibit increased levels of endocannabinoids and higher CB1 receptor expression in brain regions that regulate feeding (Boomhower et al., 2013). Consistent with a role of CB1 receptors in mediating behavioural choice in the delay discounting paradigm rimonabant reduced impulsivity in obese Zucker rats but increased impulsivity in lean rats (Boomhower et al., 2013). Given the paucity of studies in this field it is difficult to draw firm conclusions. Nevertheless, CB1 receptor antagonists appear to reduce impulsivity in a baseline-dependent manner, particularly when this behaviour is elevated in various trait models or evoked by psychostimulant drugs. Interestingly, the same profile of effects can be achieved using selective CB2 receptor agonists (e.g. JWH133) in DBA/2 mice, which express a number of behaviours, including some that appear to reflect increased impulsivity (Navarrete et al., 2012). Notably, DBA/2 mice also show higher levels of CB2 receptor expression in the cingulate cortex, nucleus accumbens, and amygdala compared with a less impulsive mouse strain (Navarrete et al., 2012).
+
+The studies reviewed above have mainly investigated the acute effects of cannabinoids on impulsivity. Yet an important question is whether evident neurocognitive impairment in adolescent cannabis users (Hester et al., 2009; Gonzalez et al., 2012; Solowij et al., 2012), including increased risky and impulsive decision-making (Solowij et al., 2012), extends well into adulthood. Possibly relevant to this question are data showing that inhibition of anandamide hydrolysis during adolescence, a manipulation that persistently stimulates endocannabinoid receptors, blocked the expected increase in impulsivity of adult rats previously deprived of early maternal contact (Marco et al., 2007). This interesting and potentially important study merits further research to understand how the endocannabinoid system influences the developmental trajectory of inhibitory control circuitry during adolescence, which also has an impact on social behaviours during this period (Trezza and Vanderschuren, 2008; Trezza et al., 2014).
+
+The endocannabinoid system and anxiety
+The involvement of the endocannabinoid system in anxiety has been more extensively investigated than its role in impulsivity (Viveros et al., 2005; Moreira and Lutz, 2008; Moreira and Wotjak, 2010; Marco et al., 2011). C. sativa induces a well-described state of relaxation and reduced anxiety; unfortunately, however, this has not been easily demonstrated in experimental settings. Studies administering pure Δ9-THC or synthetic CB1 receptor agonists to laboratory animals report complex findings, which depend on the dose, route of administration, and animal species used (Viveros et al., 2005). Also, the effects of CB1 receptor agonists depend on environmental stress, which may vary between different laboratories. As a general rule, however, low doses of cannabinoids tend to have anxiolytic effects, whereas higher doses induce anxiogenic effects (Moreira and Wotjak, 2010; Marco et al., 2011). Finally, the anxiolytic-like properties of CB1 receptor agonists are often restricted by nonspecific motor impairment resulting in narrow dose–response effects. Despite this complexity, however, the anxiolytic-like effects of CB1 receptor agonists can be reliably detected under appropriate doses and experimental conditions (Moreira and Lutz, 2008).
+
+As an alternative, drugs that increase endogenous levels of anandamide by inhibiting its neuronal internalization and/or hydrolysis diminish anxiety-like responses in animals with a more favourable pharmacological profile compared with CB1 receptor agonists (Moreira and Wotjak, 2010). Anandamide is normally produced and released at low physiological levels but its synthesis and release increases in response to increased neural activation (Piomelli, 2003). Interestingly, FAAH inhibitors, which increase anandamide levels, appear to have more consistent effects on anxiety responses under highly aversive conditions, presumably because anandamide appears to be recruited as a protective mechanism in response to stress (Kathuria et al., 2003; Patel and Hillard, 2006; Naidu et al., 2007; Moreira et al., 2008). Recent research has revealed that blocking the degradation of 2-AG may also be a useful approach to reduce anxiety-like responses (Busquets-Garcia et al., 2011). Endocannabinoid hydrolysis inhibitors may therefore be a promising strategy for developing new anxiolytic drugs (Batista et al., 2014). Intriguingly, the effect of MAGL inhibitors appears to be mediated by CB2 rather than CB1 receptors (Busquets-Garcia et al., 2011) and confirms recent interest in the CB2 receptor as a target to modulate aversive responses (Garcia-Gutierrez et al., 2012). Alternative potential targets include: (i) the TRPV1 channel, whose function in modulating anxiety seems to be diametrically opposite to the CB1 receptor (Moreira and Wotjak, 2010; Moreira et al., 2012b); (ii) dual FAAH and TRPV1 blockade (Micale et al., 2009) and (iii) site-specific inhibition of cyclo-oxygenase (Hermanson et al., 2013).
+
+The effects of CB1 receptor antagonists/inverse agonists, particularly rimonabant and AM251, have been extensively investigated in experimental animals and, in the case of rimonabant, in humans as well (Bergamaschi et al., 2014). Most studies demonstrate that these compounds tend to magnify responses to aversive stimuli in mice and rats. Thus, in tests used to assess anxiety, they exert anxiogenic-like effects (Moreira and Wotjak, 2010) and impair the extinction of conditioned aversive memories (Marsicano et al., 2002). CB1 receptor blockade also interferes with stress coping responses and increases the activation of the neuroendocrine stress axis, with possible implications for mood regulation in humans (Hill et al., 2009; Gunduz-Cinar et al., 2013). These preclinical data have been confirmed in humans treated with rimonabant for obesity. The clinical efficacy of rimonabant was similar to other antiobesity drugs, with a modest reduction in body weight, but unfortunately its use was accompanied by anxiety, depression and suicidal thoughts (Moreira and Crippa, 2009). The CB1 receptor exhibits constitutive activity when expressed in artificial cell systems, in which rimonabant and other cannabinoid blockers act as inverse agonists. Thus, neutral antagonists have been investigated as a safer alternative to reduce CB1-mediated signalling (McLaughlin, 2012) These compounds reduce body weight similarly to rimonabant, without inducing anxiogenic-like effects or reducing motivation for reward in rats (Sink et al., 2010; Meye et al., 2013). This research opens the interesting possibility of dissociating the effects of CB1 receptors on motivation and aversion based on constitutive receptor activity, with potential therapeutic implications. A summary of the predominant effects on anxiety of pharmacological interventions that target the endocannabinoid system is shown in Table 2.
+
+Table 2 A summary of the effects of genetic and pharmacological interventions on the endocannabinoid system on anxiety-like responses
+
+The neuroanatomical loci underlying the effects of cannabinoid-related compounds on anxiety have been extensively investigated using selective molecular approaches and intracranial pharmacology. As anticipated from their behavioural pharmacological profile, cannabinoids modulate brain regions involved in generating defensive responses against stressful and threatening stimuli, including the medial PFC, amygdala, hippocampus and the midbrain periaqueductal grey (Moreira et al., 2012a). Neurochemically, these effects involve interactions with various neurotransmitters and neuromodulators, including GABA, glutamate, 5-HT and DA (Marco et al., 2004; Bambico et al., 2010; Terzian et al., 2011; Rey et al., 2012). Through such mechanisms, facilitation of the endocannabinoid system leads to a reduction in aversive responses to both innate and conditioned threatening stimuli whilst facilitating the extinction of already acquired aversive responses (Moreira and Wotjak, 2010; Marco et al., 2011).
+
+Implications for addiction
+On the basis of the research findings reviewed above some general conclusions can be made about the putative efficacy of cannabinoid-based compounds to treat addiction. Impulsivity and anxiety have been extensively investigated as behavioural endophenotypes in addiction (Koob and Le Moal, 1997, 2008; Jentsch and Taylor 1999; Everitt et al., 2008; Dalley et al., 2011; Ersche et al., 2012) where their causal impacts appear to manifest at quite distinct stages of the addiction process. Specifically, whereas impulsivity is widely regarded as an antecedent behavioural marker involved in the initiation of drug use and in facilitating the development of stimulant addiction (Kreek et al., 2005; Belin et al., 2008; Koob and Le Moal, 2008; Dalley et al., 2007) anxiety is considered to have its greatest impact following protracted drug use where continued drug intake increasingly comes to depend on negative reinforcement mechanisms (Koob and Le Moal, 2008). Leaving aside the possibility that the separation between impulsivity and anxiety, in terms of temporally distinct risk markers for addiction, could be driven in part by the class of predominately abused drug (i.e. stimulants vs. opiates/alcohol) cannabinoid-based treatments may have utility during both the early and late stages of addiction. Thus, for example, whereas natural and synthetic cannabinoids reduce inhibitory control and increase risk-taking behaviour (Tanda et al., 1997; Giuffrida et al., 1999; Melis et al., 2004a; Lafourcade et al., 2007; Pillolla et al., 2007; Sperlagh et al., 2009; Chiu et al., 2010), CB1 receptor antagonists generally strengthen impulse control (Pattij et al., 2007) thereby putatively reducing the initiation of drug abuse and later emergence of compulsive drug intake in vulnerable individuals (Fig. 3).
+
+Fig. 3 Putative sites of action of compounds selective for the endocannabinoid system underlying the remediation of impulsivity, anxiety and perpetuation of drug abuse. Amyg, amygdala; BNST, bed nucleus of the stria terminalis; CB1, cannabinoid-1 receptor; CB2, cannabinoid-2 receptor; FAAH, fatty acid amide hydrolase; Hipp, hippocampus; LC, locus coeruleus; MAGL, monoacylglycerol lipase; PFC, prefrontal cortex; PAG, periaqueductal grey; VS, ventral striatum; VTA, ventral tegmental area.
+
+Notably, CB1 receptor antagonists attenuate several drug-evoked/motivated behaviours, including sensitization, self-administration and reinstatement (De Vries et al., 2001; Gerdeman et al., 2008; Xi et al., 2008). Likewise, CB1 receptor antagonists block the acquisition and expression of nicotine-induced conditioned place preference in rats and mice (Le Foll and Goldberg, 2004; Merritt et al., 2008) and reduce self-administration of this drug (Cohen et al., 2002; Shoaib, 2008). CB1 receptor antagonists also reduce opioid and alcohol intake. Indeed, there is evidence for functional interactions between the endogenous cannabinoid and opioid systems. Thus, CB1 receptor antagonists and genetic deletion of the CB1 receptor impair conditioned place preference and self-administration of morphine and heroin (Navarro et al., 2001; De Vries et al., 2003; Solinas et al., 2003). Moreover, CB1 receptor antagonists reduce ethanol consumption and conditioned place preference (Arnone et al., 1997; Wang et al., 2003; Economidou et al., 2006). In addition, CB1 receptor knock-out mice show reduced responses to alcohol (Houchi et al., 2005; Thanos et al., 2005).
+
+There is thus substantial evidence that CB1 receptor antagonists reduce responses to drugs of various classes, including cocaine, nicotine, opioids and alcohol (for a detailed review, see Serrano and Parsons, 2011). It should be noted, however, that CB1 receptor antagonists can augment the consequences of aversive stimuli, as discussed above, and may therefore be more appropriate as therapeutic agents for individuals in which impulsivity, rather than anxiety, is the driving endophenotype in addiction. In this regard, neutral antagonists, lacking inverse agonistic actions, might represent a superior approach, as discussed above. In addition, interventions targeting the CB2 receptor may have utility since selective CB2 receptor agonists reduce impulsivity (Navarrete et al., 2012), as well as the primary reinforcing actions of cocaine, effects that are presumed to depend on the mesocorticolimbic dopaminergic systems (Xi et al., 2011). Furthermore, pharmacological blockade or genetic deletion of this receptor reduces nicotine-induced conditioned place preference and self-administration in mice (Navarrete et al., 2013). CB2 receptor knock-out mice also exhibit increased responses to ethanol in both conditioned place preference and self-administration paradigms (Ortega-Álvaro et al., 2013). However, the precise mechanism through which CB2 receptors modulate drug-motivated behaviours requires further elucidation.
+
+Therapies targeting the endocannabinoid system may be useful adjuncts to treat anxiety and elevated stress associated with chronic addiction (Fig. 3). As reviewed above, much research suggests that the endocannabinoid system functions as a protective mechanism against diverse forms of aversive stimuli and is a key modulator of anxiety, stress and depression (Hill et al., 2009; Moreira and Wotjak, 2010; Gunduz-Cinar et al., 2013). Natural and synthetic CB1 receptor agonists can attenuate anxiety-like behaviour at specific doses but with ancillary effects on motor and mnemonic functions and with attendant psychotomimetic effects, these compounds do not represent an attractive approach to treat addiction. Indeed, CB1 receptor stimulation can facilitate drug-induced and cue-induced relapse, possibly by indirectly stimulating the dopaminergic mesocorticolimbic pathways (Fattore et al., 2007). As an alternative, the CB2 receptor has emerged as a potential target for alleviating anxiety (Garcia-Gutierrez et al., 2012) and reportedly reducing impulsivity in rodents (Navarrete et al., 2012). In addition, FAAH inhibitors selectively enhance the ‘on-demand’ actions of anandamide and attenuate anxiety and stress responses (Moreira et al., 2012b). Thus, FAAH, and possibly MAGL inhibitors as well, may be useful therapies to alleviate withdrawal symptoms that trigger relapse and perpetuate drug use (Panlilio et al., 2013).
+
+Conclusion
+The research findings reviewed in this article indicate that pharmacological interventions that selectively target the endocannabinoid system can moderate the expression of impulsivity and anxiety, two behavioural endophenotypes that predispose to the development of drug addiction. The effects of such agents are mediated within the basal ganglia, including especially the striatum and limbic afferents to this region from the PFC, hippocampus and amygdala. Although this field is still relatively nascent, findings to date suggest several promising leads for research, not least the delineation of specific functions and molecular targets of anandamide and 2-AG, and the clear value of additional studies to define the neuropsychopharmacology of selective CB2 receptor agonists, which show promise as novel therapies in addiction. Such research may reveal novel mechanisms underlying the aetiology of predisposing behavioural endophenotypes in addiction, thereby enabling the development of new therapies to facilitate abstinence and rehabilitation.
+
+Acknowledgements
+Research findings reviewed in this article were supported, in part, by Medical Research Council (MRC) grants to J.D. (G0701500, G0802729) and by a joint award from the MRC (G1000183) and Wellcome Trust (093875/Z/10/Z) in support of the Behavioural and Clinical Neuroscience Institute at Cambridge University. The authors acknowledge additional funding from the MRC Imperial College-Cambridge University-Manchester University (ICCAM) strategic addiction cluster (G1000018). F.A.M. is a recipient of a Research Productivity Fellowship (Level 2) from the Brazilian Research Council (CNPq). B.J. is supported by grants from the AXA Research Fund and the Australian National Health and Medical Research Council (1016313).
+
+Conflicts of interest
+There are no conflicts of interest.
+==== Refs
+References
+Adams JB Heath AJ Young SE Hewitt JK Corley RP Stallings MC   (2003 ). Relationships between personality and preferred substance and motivations for use among adolescent substance abusers . Am J Drug Alcohol Abuse 
+29 :691 –712 .14510047 
+Adriani W Caprioli A Granstrem O Carli M Laviola G   (2003 ). The spontaneously hypertensive-rat as an animal model of ADHD: evidence for impulsive and non-impulsive subpopulations . Neurosci Biobehav Rev 
+27 :639 –651 .14624808 
+Ansquer S Belin-Rauscent A Dugast E Duran T Benatru I Mar AC   (2014 ). Atomoxetine decreases vulnerability to develop compulsivity in high impulsive rats . Biol Psychiatry 
+75 :825 –832 .24252357 
+Arguello PA Jentsch JD   (2004 ). Cannabinoid CB1 receptor-mediated impairment of visuospatial attention in the rat . Psychopharmacology (Berl) 
+177 :141 –150 .15290005 
+Arnone M Maruani J Chaperon F Thiébot MH Poncelet M Soubrié P Le Fur G   (1997 ). Selective inhibition of sucrose and ethanol intake by SR 141716, an antagonist of central cannabinoid (CB1) receptors . Psychopharmacology (Berl) 
+132 :104 –106 .9272766 
+Bambico FR Cassano T Dominguez-Lopez S Katz N Walker CD Piomelli D   (2010 ). Genetic deletion of fatty acid amide hydrolase alters emotional behavior and serotonergic transmission in the dorsal raphe, prefrontal cortex, and hippocampus . Neuropsychopharmacology 
+35 :2083 –2100 .20571484 
+Bari A Robbins TW   (2013 ). Inhibition and impulsivity: behavioral and neural basis of response control . Prog Neurobiol 
+108 :44 –79 .23856628 
+Batista LA Gobira PH Viana TG Aguiar DC Moreira FA   (2014 ). Inhibition of endocannabinoid neuronal uptake and hydrolysis as strategies for developing anxiolytic drugs . Behav Pharmacol 
+25 :425 –433 .25083569 
+Belin D Mar AC Dalley JW Robbins TW Everitt BJ   (2008 ). High impulsivity predicts the switch to compulsive cocaine-taking . Science 
+320 :1352 –1355 .18535246 
+Belin D Jonkman S Dickinson A Robbins TW Everitt BJ   (2009 ). Parallel andinteractive learning processes within the basal ganglia: relevance for theunderstanding of addiction . Behav Brain Res 
+199 :89 –102 .18950658 
+Belin D Belin-Rauscent A Murray JE Everitt BJ   (2013 ). Addiction: failure of control over maladaptive incentive habits . Curr Opin Neurobiol 
+23 :564 –572 .23452942 
+Beltramo M Stella N Calignano A Lin SY Makriyannis A Piomelli D   (1997 ). Functional role of high-affinity anandamide transport, as revealed by selective inhibition . Science 
+277 :1094 –1097 .9262477 
+Bergamaschi MM Queiroz RH Chagas MH Linares IM Arrais KC de Oliveira DC   (2014 ). Rimonabant effects on anxiety induced by simulated public speaking in healthy humans: a preliminary report . Hum Psychopharmacol 
+29 :94 –99 .24424711 
+Blanchard DC Summers CH Blanchard RJ   (2013 ). The role of behavior in translational models for psychopathology: functionality and dysfunctional behaviors . Neurosci Biobehav Rev 
+37 :1567 –1577 .23791787 
+Boomhower SR Rasmussen EB Doherty TS   (2013 ). Impulsive-choice patterns for food in genetically lean and obese Zucker rats . Behav Brain Res 
+241 :214 –221 .23261877 
+Busquets-Garcia A Puighermanal E Pastor A de la Torre R Maldonado R Ozaita A   (2011 ). Differential role of anandamide and 2-arachidonoylglycerol in memory and anxiety-like responses . Biol Psychiatry 
+70 :479 –486 .21684528 
+Canteras NS Resstel LB Bertoglio LJ Carobrez Ade P Guimaraes FS   (2010 ). Neuroanatomy of anxiety . Curr Top Behav Neurosci 
+2 :77 –96 .21309107 
+Cappell H Herman CP   (1972 ). Alcohol and tension reduction. A review . Q J Stud Alcohol 
+33 :33 –64 .4551021 
+Caprioli D Sawiak SJ Merlo E Theobald DE Spoelder M Jupp B   (2014 ). Gamma aminobutyric acidergic and neuronal structural markers in the nucleus accumbens core underlie trait-like impulsive behavior . Biol Psychiatry 
+75 :115 –123 .23973096 
+Cardinal RN Winstanley CA Robbins TW Everitt BJ   (2004 ). Limbic corticostriatal systems and delayed reinforcement . Ann N Y Acad Sci 
+1021 :33 –50 .15251872 
+Castellanos FX Sonuga-Barke EJ Milham MP Tannock R   (2006 ). Characterizingcognition in ADHD: beyond executive dysfunction . Trends Cogn Sci 
+10 :117 –123 .16460990 
+Castillo PE Younts TJ Chavez AE Hashimotodani Y   (2012 ). Endocannabinoid signaling and synaptic function . Neuron 
+76 :70 –81 .23040807 
+Chen J Paredes W Lowinson JH Gardner EL   (1990 ). Delta 9-tetrahydrocannabinol enhances presynaptic dopamine efflux in medial prefrontal cortex . Eur J Pharmacol 
+190 :259 –262 .1963849 
+Chiu CQ Puente N Grandes P Castillo PE   (2010 ). Dopaminergic modulation of endocannabinoid-mediated plasticity at GABAergic synapses in the prefrontal cortex . J Neurosci 
+30 :7236 –7248 .20505090 
+Cleck JN Blendy JA   (2008 ). Making a bad thing worse: adverse effects of stress on drug addiction . J Clin Invest 
+118 :454 –461 .18246196 
+Coccaro EF Sripada CS Yanowitch RN Phan KL   (2011 ). Corticolimbic function in impulsive aggressive behavior . Biol Psychiatry 
+69 :1153 –1159 .21531387 
+Cohen C Perrault G Voltz C Steinberg R Soubrie P   (2002 ). SR141716, a central cannabinoid (CB(1) receptor antagonist, blocks the motivational and dopaminereleasing effects of nicotine in rats . Behav Pharmacol 
+13 :451 –463 .12394421 
+Cousijn J Snoek RW Wiers RW   (2013 ). Cannabis intoxication inhibits avoidance action tendencies: a field study in the Amsterdam coffee shops . Psychopharmacology (Berl) 
+229 :167 –176 .23595593 
+Cravatt BF Giang DK Mayfield SP Boger DL Lerner RA Gilula NB   (1996 ). Molecular characterization of an enzyme that degrades neuromodulatory fatty-acid amides . Nature 
+384 :83 –87 .8900284 
+Cryan JF Sweeney FF   (2011 ). The age of anxiety: role of animal models of anxiolytic action in drug discovery . Br J Pharmacol 
+164 :1129 –1161 .21545412 
+Dalley JW Roiser JP   (2012 ). Dopamine, serotonin and impulsivity . Neuroscience 
+215 :42 –58 .22542672 
+Dalley JW Fryer TD Brichard L Robinson ES Theobald DE Lääne K   (2007 ). Nucleus accumbens D2/3 receptors predict trait impulsivity and cocaine reinforcement . Science 
+315 :1267 –1270 .17332411 
+Dalley JW Everitt BJ Robbins TW   (2011 ). Impulsivity, compulsivity, and top-down cognitive control . Neuron 
+69 :680 –694 .21338879 
+De Bruin NM Lange JH Kruse CG Herremans AH Schoffelmeer AN van Drimmelen M   (2011 ). SLV330, a cannabinoid CB(1) receptor antagonist, attenuates ethanol and nicotine seeking and improves inhibitory response control in rats . Behav Brain Res 
+217 :408 –415 .21074574 
+De Vries TJ Shaham Y Homberg JR Crombag H Schuurman K Dieben J   (2001 ). A cannabinoid mechanism in relapse to cocaine seeking . Nat Med 
+7 :1151 –1154 .11590440 
+De Vries TJ Homberg JR Binnekade R Raasø H Schoffelmeer AN   (2003 ). Cannabinoidmodulation of the reinforcing and motivational properties of heroin andheroin-associated cues in rats . Psychopharmacology (Berl) 
+168 :164 –169 .12669182 
+de Wit H   (2009 ). Impulsivity as a determinant and consequence of drug use: a review of underlying processes . Addict Biol 
+14 :22 –31 .18855805 
+Devane WA Dysarz FA 3rdJohnson MR Melvin LS Howlett AC   (1988 ). Determination and characterization of a cannabinoid receptor in rat brain . Mol Pharmacol 
+34 :605 –613 .2848184 
+Devane WA Hanus L Breuer A Pertwee RG Stevenson LA Griffin G   (1992 ). Isolation and structure of a brain constituent that binds to the cannabinoid receptor . Science 
+258 :1946 –1949 .1470919 
+Di Chiara G Imperato A   (1988 ). Drugs abused by humans preferentially increasesynaptic dopamine concentrations in the mesolimbic system of freely moving rats . Proc Natl Acad Sci USA 
+85 :5274 –5278 .2899326 
+Di Marzo V   (2008 ). Targeting the endocannabinoid system: to enhance or reduce ? Nat Rev Drug Discov 
+7 :438 –455 .18446159 
+Di Marzo V Fontana A Cadas H Schinelli S Cimino G Schwartz JC   (1994 ). Formation and inactivation of endogenous cannabinoid anandamide in central neurons . Nature 
+372 :686 –691 .7990962 
+Dickman SJ   (1990 ). Functional and dysfunctional impulsivity: personality and cognitive correlates . J Pers Soc Psychol 
+58 :95 –102 .2308076 
+Diergaarde L Pattij T Poortvliet I Hogenboom F de Vries W Schoffelmeer AN De Vries TJ   (2008 ). Impulsive choice and impulsive action predict vulnerability to distinct stages of nicotine seeking in rats . Biol Psychiatry 
+63 :301 –308 .17884016 
+Dilleen R Pelloux Y Mar AC Molander A Robbins TW Everitt BJ   (2012 ). High anxiety is a predisposing endophenotype for loss of control over cocaine, but not heroin, self-administration in rats . Psychopharmacology (Berl) 
+222 :89 –97 .22245944 
+Dinh TP Carpenter D Leslie FM Freund TF Katona I Sensi SL   (2002 ). Brain monoglyceride lipase participating in endocannabinoid inactivation . Proc Natl Acad Sci USA 
+99 :10819 –10824 .12136125 
+Dougherty DM Mathias CW Dawes MA Furr RM Charles NE Liguori A   (2013 ). Impulsivity, attention, memory, and decision-making among adolescent marijuana users . Psychopharmacology (Berl) 
+226 :307 –319 .23138434 
+Eagle DM Bari A Robbins TW   (2008 ). The neuropsychopharmacology of action inhibition: cross-species translation of the stop-signal and go/no-go tasks . Psychopharmacology (Berl) 
+199 :439 –456 .18542931 
+Economidou D Mattioli L Cifani C Perfumi M Massi M Cuomo V   (2006 ). Effect of the cannabinoid CB1 receptor antagonist SR-141716A on ethanol self-administration and ethanol-seeking behaviour in rats . Psychopharmacology (Berl) 
+183 :394 –403 .16261315 
+Economidou D Pelloux Y Robbins TW Dalley JW Everitt BJ   (2009 ). High impulsivity predicts relapse to cocaine-seeking after punishment-induced abstinence . Biol Psychiatry 
+65 :851 –856 .19181308 
+Economidou D Theobald DE Robbins TW Everitt BJ Dalley JW   (2012 ). Norepinephrineand dopamine modulate impulsivity on the five-choice serial reaction time task through opponent actions in the shell and core sub-regions of the nucleusaccumbens . Neuropsychopharmacology 
+37 :2057 –2066 .22510726 
+Egertova M Giang DK Cravatt BF Elphick MR   (1998 ). A new perspective on cannabinoid signalling: complementary localization of fatty acid amide hydrolase and the CB1 receptor in rat brain . Proc Biol Sci 
+265 :2081 –2085 .9842734 
+El Khoury MA Gorgievski V Moutsimilli L Giros B Tzavara ET   (2012 ). Interactions between the cannabinoid and dopaminergic systems: evidence from animal studies . Prog Neuropsychopharmacol Biol Psychiatry 
+38 :36 –50 .22300746 
+Ersche KD Turton AJ Pradhan S Bullmore ET Robbins TW   (2010 ). Drug addiction endophenotypes: impulsive versus sensation-seeking personality traits . Biol Psychiatry 
+68 :770 –773 .20678754 
+Ersche KD Turton AJ Chamberlain SR Müller U Bullmore ET Robbins TW   (2012 ). Cognitive dysfunction and anxious-impulsive personality traits are endophenotypes for drug dependence . Am J Psychiatry 
+169 :926 –936 .22952072 
+Evenden J   (1999a ). Impulsivity: a discussion of clinical and experimental findings . J Psychopharmacol 
+13 :180 –192 .10475725 
+Evenden JL   (1999b ). Varieties of impulsivity . Psychopharmacology (Berl) 
+146 :348 –361 .10550486 
+Everitt BJ   (2014 ). Neural and psychological mechanisms underlying compulsive drug seeking habits and drug memories – indications for novel treatments of addiction . Eur J Neurosci 
+40 :2163 –2182 .24935353 
+Everitt BJ Robbins TW   (2005 ). Neural systems of reinforcement for drug addiction: from actions to habits to compulsion . Nat Neurosci 
+8 :1481 –1489 .16251991 
+Everitt BJ Belin D Economidou D Pelloux Y Dalley JW Robbins TW   (2008 ). Neural mechanisms underlying the vulnerability to develop compulsive drug-seeking habits and addiction . Philos Trans R Soc Lond B Biol Sci 
+363 :3125 –3135 .18640910 
+Fattore L Spano MS Deiana S Melis V Cossu G Fadda P   (2007 ). An endocannabinoid mechanism in relapse to drug seeking: a review of animal studies and clinical perspectives . Brain Res Rev 
+53 :1 –16 .16839608 
+Feldman HM Reiff MI   (2014 ). Clinical practice. Attention deficit-hyperactivity disorder in children and adolescents . N Engl J Med 
+370 :838 –846 .24571756 
+Fillmore MT Rush CR   (2002 ). Impaired inhibitory control of behavior in chronic cocaine users . Drug Alcohol Depend 
+66 :265 –273 .12062461 
+Fitzgerald ML Shobin E Pickel VM   (2012 ). Cannabinoid modulation of the dopaminergic circuitry: implications for limbic and striatal output . Prog Neuropsychopharmacol Biol Psychiatry 
+38 :21 –29 .22265889 
+French ED   (1997 ). Delta9-Tetrahydrocannabinol excites rat VTA dopamine neurons through activation of cannabinoid CB1 but not opioid receptors . Neurosci Lett 
+226 :159 –162 .9175591 
+Garavan H Hester R   (2007 ). The role of cognitive control in cocaine dependence . Neuropsychol Rev 
+17 :337 –345 .17680368 
+Garcia-Gutierrez MS Garcia-Bueno B Zoppi S Leza JC Manzanares J   (2012 ). Chronic blockade of cannabinoid CB2 receptors induces anxiolytic-like actions associated with alterations in GABA(A) receptors . Br J Pharmacol 
+165 :951 –964 .21838753 
+Gerdeman GL Schechter JB French ED   (2008 ). Context-specific reversal of cocaine sensitization by the CB1 cannabinoid receptor antagonist rimonabant . Neuropsychopharmacology 
+33 :2747 –2759 .18059436 
+Giuffrida A Parsons LH Kerr TM Rodriguez de Fonseca F Navarro M Piomelli D   (1999 ). Dopamine activation of endogenous cannabinoid signaling in dorsal striatum . Nat Neurosci 
+2 :358 –363 .10204543 
+Gonzalez R Schuster RM Mermelstein RJ Vassileva J Martin EM Diviak KR   (2012 ). Performance of young adult cannabis users on neurocognitive measures of impulsive behavior and their relationship to symptoms of cannabis use disorders . J Clin Exp Neuropsychol 
+34 :962 –976 .22882144 
+Griebel G Holmes A   (2013 ). 50 years of hurdles and hope in anxiolytic drug discovery . Nat Rev Drug Discov 
+12 :667 –687 .23989795 
+Gunduz-Cinar O Hill MN McEwen BS Holmes A   (2013 ). Amygdala FAAH and anandamide: mediating protection and recovery from stress . Trends Pharmacol Sci 
+34 :637 –644 .24325918 
+Hall W Solowij N   (1998 ). Adverse effects of cannabis . Lancet 
+352 :1611 –1616 .9843121 
+Haring M Marsicano G Lutz B Monory K   (2007 ). Identification of the cannabinoid receptor type 1 in serotonergic cells of raphe nuclei in mice . Neuroscience 
+146 :1212 –1219 .17383106 
+Harrison AA Everitt BJ Robbins TW   (1999 ). Central serotonin depletion impairs both the acquisition and performance of a symmetrically reinforced go/no-go conditional visual discrimination . Behav Brain Res 
+100 :99 –112 .10212057 
+Hayton SJ Mahoney MK Olmstead MC   (2012 ). Behavioral traits predicting alcohol drinking in outbred rats: an investigation of anxiety, novelty seeking, and cognitive flexibility . Alcohol Clin Exp Res 
+36 :594 –603 .22004189 
+Hawton K van Heeringen K   (2009 ). Suicide . Lancet 
+373 :1372 –1381 .19376453 
+Herkenham M   (1992 ). Cannabinoid receptor localization in brain: relationship to motor and reward systems . Ann N Y Acad Sci 
+654 :19 –32 .1385932 
+Herkenham M Lynn AB Little MD Johnson MR Melvin LS de Costa BR   (1990 ). Cannabinoid receptor localization in brain . Proc Natl Acad Sci USA 
+87 :1932 –1936 .2308954 
+Herkenham M Lynn AB de Costa BR Richfield EK   (1991a ). Neuronal localization of cannabinoid receptors in the basal ganglia of the rat . Brain Res 
+547 :267 –274 .1909204 
+Herkenham M Lynn AB Johnson MR Melvin LS de Costa BR Rice KC   (1991b ). Characterization and localization of cannabinoid receptors in rat brain: a quantitative in vitro autoradiographic study . J Neurosci 
+11 :563 –583 .1992016 
+Hermann H Marsicano G Lutz B   (2002 ). Coexpression of the cannabinoid receptor type 1 with dopamine and serotonin receptors in distinct neuronal subpopulations of the adult mouse forebrain . Neuroscience 
+109 :451 –460 .11823058 
+Hermanson DJ Hartley ND Gamble-George J Brown N Shonesy BC Kingsley PJ   (2013 ). Substrate-selective COX-2 inhibition decreases anxiety via endocannabinoid activation . Nat Neurosci 
+16 :1291 –1298 .23912944 
+Hernandez G Oleson EB Gentry RN Abbas Z Bernstein DL Arvanitogiannis A   (2014 ). Endocannabinoids promote cocaine-induced impulsivity and its rapid dopaminergic correlates . Biol Psychiatry 
+75 :487 –498 .24138924 
+Hester R Garavan H   (2004 ). Executive dysfunction in cocaine addiction: evidence for discordant frontal, cingulate, and cerebellar activity . J Neurosci 
+24 :11017 –11022 .15590917 
+Hester R Nestor L Garavan H   (2009 ). Impaired error awareness and anterior cingulate cortex hypoactivity in chronic cannabis users . Neuropsychopharmacology 
+34 :2450 –2458 .19553917 
+Hill MN Hillard CJ Bambico FR Patel S Gorzalka BB Gobbi G   (2009 ). The therapeutic potential of the endocannabinoid system for the development of a novel class of antidepressants . Trends Pharmacol Sci 
+30 :484 –493 .19732971 
+Houchi H Babovic D Pierrefiche O Ledent C Daoust M Naassila M   (2005 ). CB1 receptor knockout mice display reduced ethanol-induced conditioned place preference and increased striatal dopamine D2 receptors . Neuropsychopharmacology 
+30 :339 –349 .15383833 
+Howlett AC Barth F Bonner TI Cabral G Casellas P Devane WA   (2002 ). International Union of Pharmacology. XXVII. Classification of cannabinoid receptors . Pharmacol Rev 
+54 :161 –202 .12037135 
+Iversen L   (2003 ). Cannabis and the brain . Brain 
+126 :1252 –1270 .12764049 
+Jentsch JD Taylor JR   (1999 ). Impulsivity resulting from frontostriatal dysfunction in drug abuse: implications for the control of behavior by reward-related stimuli . Psychopharmacology (Berl) 
+146 :373 –390 .10550488 
+Julian MD Martin AB Cuellar B Rodriguez De Fonseca F Navarro M Moratalla R   (2003 ). Neuroanatomical relationship between type 1 cannabinoid receptors and dopaminergic systems in the rat basal ganglia . Neuroscience 
+119 :309 –318 .12763090 
+Jupp B Dalley JW   (2014 ). Convergent pharmacological mechanisms in impulsivity and addiction: insights from rodent models . Br J Pharmacol 
+171 :4729 –4766 .24866553 
+Jupp B Caprioli D Dalley JW   (2013 ). Highly impulsive rats: modelling an endophenotype to determine the neurobiological, genetic and environmental mechanisms of addiction . Dis Model Mech 
+6 :302 –311 .23355644 
+Kalivas PW Volkow ND   (2005 ). The neural basis of addiction: a pathology ofmotivation and choice . Am J Psychiatry 
+162 :1403 –1413 .16055761 
+Kathuria S Gaetani S Fegley D Valino F Duranti A Tontini A   (2003 ). Modulation of anxiety through blockade of anandamide hydrolysis . Nat Med 
+9 :76 –81 .12461523 
+Katona I Sperlagh B Sik A Kafalvi A Vizi ES Mackie K   (1999 ). Presynaptically located CB1 cannabinoid receptors regulate GABA release from axon terminals of specific hippocampal interneurons . J Neurosci 
+19 :4544 –4558 .10341254 
+Katona I Urban GM Wallace M Ledent C Jung KM Piomelli D   (2006 ). Molecular composition of the endocannabinoid system at glutamatergic synapses . J Neurosci 
+26 :5628 –5637 .16723519 
+Kessler RC Ruscio AM Shear K Wittchen HU   (2010 ). Epidemiology of anxiety disorders . Curr Top Behav Neurosci 
+2 :21 –35 .21309104 
+Khantzian EJ   (1985 ). The self-medication hypothesis of addictive disorders: focus on heroin and cocaine dependence . Am J Psychiatry 
+142 :1259 –1264 .3904487 
+Kirby KN Petry NM   (2004 ). Heroin and cocaine abusers have higher discount rates for delayed rewards than alcoholics or non-drug-using controls . Addiction 
+99 :461 –471 .15049746 
+Koob GF   (2008 ). A role for brain stress systems in addiction . Neuron 
+59 :11 –34 .18614026 
+Koob GF   (2013 ). Negative reinforcement in drug addiction: the darkness within . Curr Opin Neurobiol 
+23 :559 –563 .23628232 
+Koob GF Le Moal M   (1997 ). Drug abuse: hedonic homeostatic dysregulation . Science 
+278 :52 –58 .9311926 
+Koob GF Le Moal M   (2008 ). Review. Neurobiological mechanisms for opponent motivational processes in addiction . Philos Trans R Soc Lond B Biol Sci 
+363 :3113 –3123 .18653439 
+Koob GF Volkow ND   (2010 ). Neurocircuitry of addiction . Neuropsychopharmacology 
+35 :217 –238 .19710631 
+Kreek MJ Nielsen DA Butelman ER LaForge KS   (2005 ). Genetic influences on impulsivity, risk taking, stress responsivity and vulnerability to drug abuse and addiction . Nat Neurosci 
+8 :1450 –1457 .16251987 
+Kreitzer AC Regehr WG   (2001 ). Retrograde inhibition of presynaptic calcium influx by endogenous cannabinoids at excitatory synapses onto Purkinje cells . Neuron 
+29 :717 –727 .11301030 
+Lafourcade M Elezgarai I Mato S Bakiri Y Grandes P Manzoni OJ   (2007 ). Molecular components and functions of the endocannabinoid system in mouse prefrontal cortex . PLoS One 
+2 :e709 .17684555 
+Lane SD Cherek DR Tcheremissine OV Lieving LM Pietras CJ   (2005 ). Acute marijuana effects on human risk taking . Neuropsychopharmacology 
+30 :800 –809 .15775958 
+Le Foll B Goldberg SR   (2004 ). Rimonabant, a CB1 antagonist, blocks nicotine conditioned place preferences . Neuroreport 
+15 :2139 –2143 .15486497 
+Lovinger DM Mathur BN   (2012 ). Endocannabinoids in striatal plasticity . Parkinsonism Relat Disord 
+18 Suppl 1 S132 –S134 .22166411 
+Marco EM Perez-Alvarez L Borcel E Rubio M Guaza C Ambrosio E   (2004 ). Involvement of 5-HT1A receptors in behavioural effects of the cannabinoid receptor agonist CP 55,940 in male rats . Behav Pharmacol 
+15 :21 –27 .15075623 
+Marco EM Adriani W Canese R Podo F Viveros MP Laviola G   (2007 ). Enhancement of endocannabinoid signalling during adolescence: modulation of impulsivity and long-term consequences on metabolic brain parameters in early maternally deprived rats . Pharmacol Biochem Behav 
+86 :334 –345 .17101171 
+Marco EM Garcia-Gutierrez MS Bermudez-Silva FJ Moreira FA Guimaraes F Manzanares J   (2011 ). Endocannabinoid system and psychiatry: in search of a neurobiological basis for detrimental and potential therapeutic effects . Front Behav Neurosci 
+5 :63 .22007164 
+Marsicano G Lutz B   (1999 ). Expression of the cannabinoid receptor CB1 in distinct neuronal subpopulations in the adult mouse forebrain . Eur J Neurosci 
+11 :4213 –4225 .10594647 
+Marsicano G Wotjak CT Azad SC Bisogno T Rammes G Cascio MG   (2002 ). The endogenous cannabinoid system controls extinction of aversive memories . Nature 
+418 :530 –534 .12152079 
+Martin AB Fernandez-Espejo E Ferrer B Gorriti MA Bilbao A Navarro M   (2008 ). Expression and function of CB1 receptor in the rat striatum: localization and effects on D1 and D2 dopamine receptor-mediated motor behaviors . Neuropsychopharmacology 
+33 :1667 –1679 .17957223 
+Matsuda LA Lolait SJ Brownstein MJ Young AC Bonner TI   (1990 ). Structure of a cannabinoid receptor and functional expression of the cloned cDNA . Nature 
+346 :561 –564 .2165569 
+McDonald J Schleifer L Richards JB de Wit H   (2003 ). Effects of THC on behavioral measures of impulsivity in humans . Neuropsychopharmacology 
+28 :1356 –1365 .12784123 
+McLaughlin PJ   (2012 ). Reports of the death of CB1 antagonists have been greatly exaggerated: recent preclinical findings predict improved safety in the treatment of obesity . Behav Pharmacol 
+23 :537 –550 .22743603 
+Mechoulam R   (1970 ). Marihuana chemistry . Science 
+168 :1159 –1166 .4910003 
+Mechoulam R Ben-Shabat S Hanus L Ligumsky M Kaminski NE Schatz AR   (1995 ). Identification of an endogenous 2-monoglyceride, present in canine gut, that binds to cannabinoid receptors . Biochem Pharmacol 
+50 :83 –90 .7605349 
+Melis M Gessa GL Diana M   (2000 ). Different mechanisms for dopaminergic excitation induced by opiates and cannabinoids in the rat midbrain . Prog Neuropsychopharmacol Biol Psychiatry 
+24 :993 –1006 .11041539 
+Melis M Perra S Muntoni AL Pillolla G Lutz B Marsicano G   (2004a ). Prefrontal cortex stimulation induces 2-arachidonoyl-glycerol-mediated suppression of excitation in dopamine neurons . J Neurosci 
+24 :10707 –10715 .15564588 
+Melis M Pistis M Perra S Muntoni AL Pillolla G Gessa GL   (2004b ). Endocannabinoids mediate presynaptic inhibition of glutamatergic transmission in rat ventral tegmental area dopamine neurons through activation of CB1 receptors . J Neurosci 
+24 :53 –62 .14715937 
+Merritt LL Martin BR Walters C Lichtman AH Damaj MI   (2008 ). Theendogenous cannabinoid system modulates nicotine reward and dependence . J Pharmacol Exp Ther 
+326 :483 –492 .18451315 
+Metrik J Kahler CW Reynolds B McGeary JE Monti PM Haney M   (2012 ). Balanced placebo design with marijuana: pharmacological and expectancy effects on impulsivity and risk taking . Psychopharmacology (Berl) 
+223 :489 –499 .22588253 
+Meye FJ Trezza V Vanderschuren LJ Ramakers GM Adan RA   (2013 ). Neutral antagonism at the cannabinoid 1 receptor: a safer treatment for obesity . Mol Psychiatry 
+18 :1294 –1301 .23070073 
+Micale V Cristino L Tamburella A Petrosino S Leggio GM Drago F   (2009 ). Anxiolytic effects in mice of a dual blocker of fatty acid amide hydrolase and transient receptor potential vanilloid type-1 channels . Neuropsychopharmacology 
+34 :593 –606 .18580871 
+Moeller FG Barratt ES Dougherty DM Schmitz JM Swann AC   (2001 ). Psychiatric aspects of impulsivity . Am J Psychiatry 
+158 :1783 –1793 .11691682 
+Monory K Blaudzun H Massa F Kaiser N Lemberger T Schutz G   (2007 ). Genetic dissection of behavioural and autonomic effects of delta(9)-tetrahydrocannabinol in mice . PLoS Biol 
+5 :e269 .17927447 
+Monterosso J Ainslie G   (1999 ). Beyond discounting: possible experimental models of impulse control . Psychopharmacology (Berl) 
+146 :339 –347 .10550485 
+Monterosso JR Aron AR Cordova X Xu J London ED   (2005 ). Deficits in response inhibition associated with chronic methamphetamine abuse . Drug Alcohol Depend 
+79 :273 –277 .15967595 
+Monterosso JR Ainslie G Xu J Cordova X Domier CP London ED   (2007 ). Frontoparietal cortical activity of methamphetamine-dependent and comparison subjects performing a delay discounting task . Hum Brain Mapp 
+28 :383 –393 .16944492 
+Moreira FA Crippa JA   (2009 ). The psychiatric side-effects of rimonabant . Rev Bras Psiquiatr 
+31 :145 –153 .19578688 
+Moreira FA Lutz B   (2008 ). The endocannabinoid system: emotion, learning and addiction . Addict Biol 
+13 :196 –212 .18422832 
+Moreira FA Wotjak CT   (2010 ). Cannabinoids and anxiety . Curr Top Behav Neurosci 
+2 :429 –450 .21309120 
+Moreira FA Kaiser N Monory K Lutz B   (2008 ). Reduced anxiety-like behaviour induced by genetic and pharmacological inhibition of the endocannabinoid-degrading enzyme fatty acid amide hydrolase (FAAH) is mediated by CB1 receptors . Neuropharmacology 
+54 :141 –150 .17709120 
+Moreira FA Aguiar DC Resstel LB Lisboa SF Campos AC Gomes FV   (2012a ). Neuroanatomical substrates involved in cannabinoid modulation of defensive responses . J Psychopharmacol 
+26 :40 –55 .21616976 
+Moreira FA Aguiar DC Terzian AL Guimaraes FS Wotjak CT   (2012b ). Cannabinoid type 1 receptors and transient receptor potential vanilloid type 1 channels in fear and anxiety-two sides of one coin ? Neuroscience 
+204 :186 –192 .21906661 
+Munro S Thomas KL Abu-Shaar M   (1993 ). Molecular characterization of a peripheral receptor for cannabinoids . Nature 
+365 :61 –65 .7689702 
+Murray RM Morrison PD Henquet C Di Forti M   (2007 ). Cannabis, the mind and society: the hash realities . Nat Rev Neurosci 
+8 :885 –895 .17925811 
+Naidu PS Varvel SA Ahn K Cravatt BF Martin BR Lichtman AH   (2007 ). Evaluation of fatty acid amide hydrolase inhibition in murine models of emotionality . Psychopharmacology (Berl) 
+192 :61 –70 .17279376 
+Navarrete F Perez-Ortiz JM Manzanares J   (2012 ). Cannabinoid CB(2) receptor-mediated regulation of impulsive-like behaviour in DBA/2 mice . Br J Pharmacol 
+165 :260 –273 .21671903 
+Navarrete F Rodríguez-Arias M Martín-García E Navarro D García-Gutiérrez MS Aguilar MA   (2013 ). Role of CB2 cannabinoid receptors in the rewarding, reinforcing, and physical effects of nicotine . Neuropsychopharmacology 
+38 :2515 –2524 .23817165 
+Navarro M Carrera MR Fratta W Valverde O Cossu G Fattore L   (2001 ). Functional interaction between opioid and cannabinoid receptors in drug self-administration . J Neurosci 
+21 :5344 –5350 .11438610 
+Nestler EJ   (2005 ). Is there a common molecular pathway for addiction ? Nat Neurosci 
+8 :1445 –1449 .16251986 
+Nigg JT Wong MM Martel MM Jester JM Puttler LI Glass JM   (2006 ). Poor response inhibition as a predictor of problem drinking and illicit drug use in adolescents at risk for alcoholism and other substance use disorders . J Am Acad Child Adolesc Psychiatry 
+45 :468 –475 .16601652 
+Noël X Van der Linden M d’Acremont M Bechara A Dan B Hanak C Verbanck P   (2007 ). Alcohol cues increase cognitive impulsivity in individuals with alcoholism . Psychopharmacology (Berl) 
+192 :291 –298 .17279375 
+Ohno-Shosaku T Maejima T Kano M   (2001 ). Endogenous cannabinoids mediate retrograde signals from depolarized postsynaptic neurons to presynaptic terminals . Neuron 
+29 :729 –738 .11301031 
+Onaivi ES Ishiguro H Gong JP Patel S Perchuk A Meozzi PA   (2006 ). Discovery of the presence and functional expression of cannabinoid CB2 receptors in brain . Ann N Y Acad Sci 
+1074 :514 –536 .17105950 
+Ortega-Álvaro A Ternianov A Aracil-Fernández A Navarrete F García-Gutiérrez MS Manzanares J   (2013 ). Role of cannabinoid CB(2) receptor in the reinforcing actions of ethanol . Addict Biol 
+[Epub ahead of print] .
+Panlilio LV Mazzola C Medalie J Hahn B Justinova Z Drago F   (2009 ). Anandamide-induced behavioral disruption through a vanilloid-dependent mechanism in rats . Psychopharmacology (Berl) 
+203 :529 –538 .19015836 
+Panlilio LV Justinova Z Goldberg SR   (2013 ). Inhibition of FAAH and activation of PPAR: new approaches to the treatment of cognitive dysfunction and drug addiction . Pharmacol Ther 
+138 :84 –102 .23333350 
+Patel S Hillard CJ   (2006 ). Pharmacological evaluation of cannabinoid receptor ligands in a mouse model of anxiety: further evidence for an anxiolytic role for endogenous cannabinoid signaling . J Pharmacol Exp Ther 
+318 :304 –311 .16569753 
+Pattij T Vanderschuren LJ   (2008 ). The neuropharmacology of impulsive behaviour . Trends Pharmacol Sci 
+29 :192 –199 .18304658 
+Pattij T Janssen MC Schepers I Gonzalez-Cuevas G de Vries TJ Schoffelmeer AN   (2007 ). Effects of the cannabinoid CB1 receptor antagonist rimonabant on distinct measures of impulsive behavior in rats . Psychopharmacology (Berl) 
+193 :85 –96 .17387457 
+Perry JL Carroll ME   (2008 ). The role of impulsive behavior in drug abuse . Psychopharmacology (Berl) 
+200 :1 –26 .18600315 
+Pertwee RG Howlett AC Abood ME Alexander SP Di Marzo V Elphick MR   (2010 ). International Union of Basic and Clinical Pharmacology. LXXIX. Cannabinoid receptors and their ligands: beyond CB(1) and CB(2) . Pharmacol Rev 
+62 :588 –631 .21079038 
+Pettit DA Harrison MP Olson JM Spencer RF Cabral GA   (1998 ). Immunohistochemical localization of the neural cannabinoid receptor in rat brain . J Neurosci Res 
+51 :391 –402 .9486774 
+Piazza PV Le Moal M   (1998 ). The role of stress in drug self-administration . Trends Pharmacol Sci 
+19 :67 –74 .9550944 
+Pickel VM Chan J Kearn CS Mackie K   (2006 ). Targeting dopamine D2 and cannabinoid-1 (CB1) receptors in rat nucleus accumbens . J Comp Neurol 
+495 :299 –313 .16440297 
+Pierce RC O’Brien CP Kenny PJ Vanderschuren LJ   (2012 ). Rational development of addiction pharmacotherapies: successes, failures, and prospects . Cold Spring Harb Perspect Med 
+2 :a012880 .22675669 
+Pillolla G Melis M Perra S Muntoni AL Gessa GL Pistis M   (2007 ). Medial forebrain bundle stimulation evokes endocannabinoid-mediated modulation of ventral tegmental area dopamine neuron firing in vivo . Psychopharmacology (Berl) 
+191 :843 –853 .17334799 
+Piomelli D   (2003 ). The molecular logic of endocannabinoid signalling . Nat Rev Neurosci 
+4 :873 –884 .14595399 
+Pohorecky LA   (1981 ). The interaction of alcohol and stress. A review . Neurosci Biobehav Rev 
+5 :209 –229 .6115346 
+Ramaekers JG Kauert G van Ruitenbeek P Theunissen EL Schneider E Moeller MR   (2006a ). High-potency marijuana impairs executive function and inhibitory motor control . Neuropsychopharmacology 
+31 :2296 –2303 .16572123 
+Ramaekers JG Moeller MR van Ruitenbeek P Theunissen EL Schneider E Kauert G   (2006b ). Cognition and motor control as a function of delta9-THC concentration in serum and oral fluid: limits of impairment . Drug Alcohol Depend 
+85 :114 –122 .16723194 
+Rey AA Purrio M Viveros MP Lutz B   (2012 ). Biphasic effects of cannabinoids in anxiety responses: CB1 and GABA(B) receptors in the balance of GABAergic and glutamatergic neurotransmission . Neuropsychopharmacology 
+37 :2624 –2634 .22850737 
+Riegel AC Lupica CR   (2004 ). Independent presynaptic and postsynaptic mechanisms regulate endocannabinoid signaling at multiple synapses in the ventral tegmental area . J Neurosci 
+24 :11070 –11078 .15590923 
+Robbe D Kopf M Remaury A Bockaert J Manzoni OJ   (2002 ). Endogenous cannabinoids mediate long-term synaptic depression in the nucleus accumbens . Proc Natl Acad Sci USA 
+99 :8384 –8388 .12060781 
+Robbins TW   (2002 ). The 5-choice serial reaction time task: behavioural pharmacology and functional neurochemistry . Psychopharmacology (Berl) 
+163 :362 –380 .12373437 
+Rodriguez JJ Mackie K Pickel VM   (2001 ). Ultrastructural localization of the CB1 cannabinoid receptor in mu-opioid receptor patches of the rat Caudate putamen nucleus . J Neurosci 
+21 :823 –833 .11157068 
+Russo EB   (2007 ). History of cannabis and its preparations in saga, science, and sobriquet . Chem Biodivers 
+4 :1614 –1648 .17712811 
+Schoffelmeer AN Hogenboom F Wardeh G De Vries TJ   (2006 ). Interactions between CB1 cannabinoid and mu opioid receptors mediating inhibition of neurotransmitter release in rat nucleus accumbens core . Neuropharmacology 
+51 :773 –781 .16806307 
+Serrano A Parsons LH   (2011 ). Endocannabinoid influence in drug reinforcement, dependence and addiction-related behaviors . Pharmacol Ther 
+132 :215 –241 .21798285 
+Sher KJ Bartholow BD Wood MD   (2000 ). Personality and substance use disorders: a prospective study . J Consult Clin Psychol 
+68 :818 –829 .11068968 
+Shoaib M   (2008 ). The cannabinoid antagonist AM251 attenuates nicotine self-administration and nicotine-seeking behaviour in rats . Neuropharmacology 
+54 :438 –444 .18054052 
+Sidhpura N Parsons LH   (2011 ). Endocannabinoid-mediated synaptic plasticity and addiction-related behavior . Neuropharmacology 
+61 :1070 –1087 .21669214 
+Sink KS Segovia KN Sink J Randall PA Collins LE Correa M   (2010 ). Potential anxiogenic effects of cannabinoid CB1 receptor antagonists/inverse agonists in rats: comparisons between AM4113, AM251, and the benzodiazepine inverse agonist FG-7142 . Eur Neuropsychopharmacol 
+20 :112 –122 .20015619 
+Skegg K   (2005 ). Self-harm . Lancet 
+366 :1471 –1483 .16243093 
+Solinas M Panlilio LV Antoniou K Pappas LA Goldberg SR   (2003 ). The cannabinoid CB1 antagonist N-piperidinyl-5-(4-chlorophenyl)-1-(2,4-dichlorophenyl) -4-methylpyrazole-3-carboxamide (SR-141716A) differentially alters the reinforcing effects of heroin under continuous reinforcement, fixed ratio, and progressive ratio schedules of drug self-administration in rats . J Pharmacol Exp Ther 
+306 :93 –102 .12660305 
+Solowij N Jones KA Rozman ME Davis SM Ciarrochi J Heaven PC   (2012 ). Reflection impulsivity in adolescent cannabis users: a comparison with alcohol-using and non-substance-using adolescents . Psychopharmacology (Berl) 
+219 :575 –586 .21938415 
+Spanagel R Montkowski A Allingham K Stöhr T Shoaib M Holsboer F Landgraf R   (1995 ). Anxiety: a potential predictor of vulnerability to the initiation of ethanol self-administration in rats . Psychopharmacology (Berl) 
+122 :369 –373 .8657835 
+Sperlagh B Windisch K Ando RD Sylvester Vizi E   (2009 ). Neurochemical evidence that stimulation of CB1 cannabinoid receptors on GABAergic nerve terminals activates the dopaminergic reward system by increasing dopamine release in the rat nucleus accumbens . Neurochem Int 
+54 :452 –457 .19428788 
+Starowicz K Nigam S Di Marzo V   (2007 ). Biochemistry and pharmacology of endovanilloids . Pharmacol Ther 
+114 :13 –33 .17349697 
+Szabo B Wallmichrath I Mathonia P Pfreundtner C   (2000 ). Cannabinoids inhibit excitatory neurotransmission in the substantia nigra pars reticulata . Neuroscience 
+97 :89 –97 .10771342 
+Szabo B Siemes S Wallmichrath I   (2002 ). Inhibition of GABAergic neurotransmission in the ventral tegmental area by cannabinoids . Eur J Neurosci 
+15 :2057 –2061 .12099913 
+Tanda G Pontieri FE Di Chiara G   (1997 ). Cannabinoid and heroin activation of mesolimbic dopamine transmission by a common mu1 opioid receptor mechanism . Science 
+276 :2048 –2050 .9197269 
+Terzian AL Drago F Wotjak CT Micale V   (2011 ). The dopamine and cannabinoid interaction in the modulation of emotions and cognition: assessing the role of cannabinoid CB1 receptor in neurons expressing dopamine D1 receptors . Front Behav Neurosci 
+5 :49 .21887137 
+Thanos PK Dimitrakakis ES Rice O Gifford A Volkow ND   (2005 ). Ethanol self-administration and ethanol conditioned place preference are reduced in mice lacking cannabinoid CB1 receptors . Behav Brain Res 
+164 :206 –213 .16140402 
+Trezza V Vanderschuren LJ   (2008 ). Bidirectional cannabinoid modulation of social behavior in adolescent rats . Psychopharmacology (Berl) 
+197 :217 –227 .18058088 
+Trezza V Baarendse PJ Vanderschuren LJ   (2014 ). On the interaction between drugs of abuse and adolescent social behavior . Psychopharmacology (Berl) 
+231 :1715 –1729 .24553578 
+Tsou K Brown S Sanudo-Pena MC Mackie K Walker JM   (1998 ). Immunohistochemical distribution of cannabinoid CB1 receptors in the rat central nervous system . Neuroscience 
+83 :393 –411 .9460749 
+Van den Heuvel OA van der Werf YD Verhoef KM de Wit S Berendse HW Wolters ECh   (2009 ). Frontal-striatal abnormalities underlying behaviours in the compulsive-impulsive spectrum . J Neurol Sci 
+289 :55 –59 .19729172 
+Van Wel JH Kuypers KP Theunissen EL Toennes SW Spronk DB Verkes RJ   (2013 ). Single doses of THC and cocaine decrease proficiency of impulse control in heavy cannabis users . Br J Pharmacol 
+170 :1410 –1420 .24106872 
+Verdejo-García A Lawrence AJ Clark L   (2008 ). Impulsivity as a vulnerability marker for substance-use disorders: review of findings from high-risk research, problem gamblers and genetic association studies . Neurosci Biobehav Rev 
+32 :777 –810 .18295884 
+Viveros MP Marco EM File SE   (2005 ). Endocannabinoid system and stress and anxiety responses . Pharmacol Biochem Behav 
+81 :331 –342 .15927244 
+Volkow ND Baler RD Compton WM Weiss SR   (2014 ). Adverse health effects of marijuanause . N Engl J Med 
+370 :2219 –2227 .24897085 
+Vuchinich RE Simpson CA   (1998 ). Hyperbolic temporal discounting in social drinkers and problem drinkers . Exp Clin Psychopharmacol 
+6 :292 –305 .9725113 
+Voon V Irvine MA Derbyshire K Worbe Y Lange I Abbott S   (2014 ). Measuring ‘waiting’ impulsivity in substance addictions and binge eating disorder in a novel analogue of rodent serial reaction time task . Biol Psychiatry 
+75 :148 –155 .23790224 
+Wang L Liu J Harvey-White J Zimmer A Kunos G   (2003 ). Endocannabinoid signaling via cannabinoid receptor 1 is involved in ethanol preference and its age-dependent decline in mice . Proc Natl Acad Sci USA 
+100 :1393 –1398 .12538878 
+Wills TA Vaccaro D McNamara G   (1994 ). Novelty seeking, risk taking, and related constructs as predictors of adolescent substance use: an application of Cloninger’s theory . J Subst Abuse 
+6 :1 –20 .8081104 
+Wilson RI Nicoll RA   (2001 ). Endogenous cannabinoids mediate retrograde signalling at hippocampal synapses . Nature 
+410 :588 –592 .11279497 
+Wilson RI Nicoll RA   (2002 ). Endocannabinoid signaling in the brain . Science 
+296 :678 –682 .11976437 
+Winstanley CA   (2011 ). The utility of rat models of impulsivity in developing pharmacotherapies for impulse control disorders . Br J Pharmacol 
+164 :1301 –1321 .21410459 
+Wiskerke J Stoop N Schetters D Schoffelmeer AN Pattij T   (2011 ). Cannabinoid CB1 receptor activation mediates the opposing effects of amphetamine on impulsive action and impulsive choice . PLoS One 
+6 :e25856 .22016780 
+Wiskerke J van Mourik Y Schetters D Schoffelmeer AN Pattij T   (2012 ). On the role of cannabinoid CB1- and mu-opioid receptors in motor impulsivity . Front Pharmacol 
+3 :108 .22701425 
+Wong MM Nigg JT Zucker RA Puttler LI Fitzgerald HE Jester JM   (2006 ). Behavioral control and resiliency in the onset of alcohol and illicit drug use: a prospective study from preschool to adolescence . Child Dev 
+77 :1016 –1033 .16942503 
+Xi ZX   (2011 ). Medication development for the treatment of cocaine addiction – progress at preclinical and clinical levels in addiction. From pathophysiology to treament 
+Rijeka, Croatia : InTech ;498 .
+Xi ZX Spiller K Pak AC Gilbert J Dillon C Li X   (2008 ). Cannabinoid CB1 receptor antagonists attenuate cocaine’s rewarding effects: experiments with self-administration and brain-stimulation reward in rats . Neuropsychopharmacology 
+33 :1735 –1745 .17728698 
+Xi ZX Peng XQ Li X Song R Zhang HY Liu QR   (2011 ). Brain cannabinoid CB2 receptors modulate cocaine’s actions in mice . Nat Neurosci 
+14 :1160 –1166 .21785434 
+Young RM Oei TP Knight RG   (1990 ). The tension reduction hypothesis revisited: an alcohol expectancy perspective . Br J Addict 
+85 :31 –40 .2178706 
+Zernicke KA Cantrell H Finn PR Lucas J   (2010 ). The association between earlier age of first drink, disinhibited personality, and externalizing psychopathology in young adults . Addict Behav 
+35 :414 –418 .20074861 
+Zuardi AW   (2006 ). History of cannabis as a medicine: a review . Rev Bras Psiquiatr 
+28 :153 –157 .16810401

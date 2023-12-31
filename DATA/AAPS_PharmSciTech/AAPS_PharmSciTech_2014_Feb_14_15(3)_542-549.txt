@@ -1,0 +1,185 @@
+
+==== Front
+AAPS PharmSciTechAAPS PharmSciTechAAPS PharmSciTech1530-9932Springer US Boston 9410.1208/s12249-014-0094-yBrief/Technical NoteApplication of QbD Principles for the Evaluation of Empty Hard Capsules as an Input Parameter in Formulation Development and Manufacturing Stegemann Sven +49-172-6054869+49-241-4092010sven.stegemann@capsugel.com Connolly Paul Matthews Wayne Barnett Rodger Aylott Mike Schrooten Karin Cadé Dominique Taylor Anthony Bresciani Massimo  Capsugel, Rijksweg 11, 2880 Bornem, Belgium  GlaxoSmithKline, New Frontier Science Park, Third Avenue, Harlow, CM195AW UK  Capsugel, Rue Timken 10, 68000 Colmar, France  Research Center Pharmaceutical Engineering, Inffeldgasse 13, 8010 Graz, Austria 14 2 2014 14 2 2014 6 2014 15 3 542 549 29 8 2013 20 11 2013 © American Association of Pharmaceutical Scientists 2014Understanding the product and process variable on the final product performance is an essential part of the quality-by-design (QbD) principles in pharmaceutical development. The hard capsule is an established pharmaceutical dosage form used worldwide in development and manufacturing. The empty hard capsules are supplied as an excipient that is filled by pharmaceutical manufacturers with a variety of different formulations and products. To understand the potential variations of the empty hard capsules as an input parameter and its potential impact on the finished product quality, a study was performed investigating the critical quality parameters within and in between different batches of empty hard gelatin capsules. The variability of the hard capsules showed high consistency within the specification of the critical quality parameters. This also accounts for the disintegration times, when automatic endpoint detection was used. Based on these data, hard capsules can be considered as a suitable excipient for product development using QbD principles.
+
+KEY WORDS
+capsule developmentcapsule specificationhard capsulesquality-by-designissue-copyright-statement© American Association of Pharmaceutical Scientists 2014
+==== Body
+INTRODUCTION
+Pharmaceutical products are high-quality products to combat acute or chronic diseases in a reproducible manner. These require that the products achieve the claims set forth on their label, are not contaminated and are readily available to the patients (13). Benchmarking of the pharmaceutical development and manufacturing process in the pharmaceutical industry against other industries in the late 1990s led to the introduction of the concept of quality-by-design (QbD) for pharmaceutical products. Guidelines were developed at the beginning of this century and introduced in 2006 through the ICH guidelines Q8, Q9, and Q10. QbD target the rational design and development of the formulation and manufacturing process based on a solid product and process understanding (14). Over the past few years, QbD has gained considerable acceptance throughout the pharmaceutical industry and has been successfully applied (5,9).
+
+Hard gelatin capsule are a traditional pharmaceutical dosage form whereby the empty capsules are provided as an excipient for development and manufacturing. As a major excipient of the pharmaceutical product, the quality attributes of empty hard capsule is expected to play an important role in the final product quality and performance. The key quality attributes of capsules that determine the processability on the high-speed filling machines are the dimensional characteristics and the weight variability. The pharmacopoeial requirements regarding sulfur dioxide, sulfated ash, lubricants, and water content are considered by default as CQAs. With regard to the in vivo performance, the disintegration time can be considered as key quality attributes of the empty hard capsules.
+
+The objective of this study was to understand the nature and extent of empty hard gelatin capsule variation over a manufacturing period of 24 months, analyze for potential variation within specification, identify any seasonality and impact of supply from different supplier manufacturing sites and to evaluate the criticality of the material attributes and characteristics of the empty capsules in consistently achieving the respective performance criteria. The data are supporting the risk assessment and will provide guidance to QbD product development describing the range of variability of the empty hard capsule as an input parameter in product development and manufacturing.
+
+MATERIALS AND METHODS
+The study was performed on hard gelatin capsules each of size 1 clear and size 1 opaque white capsules (ConiSnap®, Capsugel) stored within the recommended storage conditions of 15–25°C and 35–65% RH. For the evaluation of the physical data cap length, body length, weight, and disintegration, data from 42 different batches produced over 24 months between October 2007 and October 2009 were used, of which 21 batches were transparent capsules and 21 batches white opaque capsules. Data on disintegration, sulfur dioxide, sulfated ash, and lubricant content are regularly tested on random samples and the results monitored in a central data base were used in this study from nine worldwide manufacturing sites representing a period of 9 years. Additional disintegration tests using an automated endpoint detection system were performed on two different sizes (size 1 and 0) on a total of 144 samples of white opaque or transparent capsules.
+
+The size 1 hard gelatin capsule is the major capsule size used for pharmaceutical products. A size 1 capsule has an approximate volume of 0.5 ml which can be filled with different types and amounts of solid, semi-solid or liquid formulations. The general specifications of the size 1 capsules are shown in Table I.Table I Specification for the size 1 hard gelatin capsule
+
+Type of capsule	Hard gelatin capsule (ConiSnap®)	
+Size	1	
+Cap length	9.78 ± 0.46 mm	
+Body length	16.61 ± 0.46 mm	
+Close length	19.4 ± 0.3 mm	
+Weight	76 ± 5 mg	
+Water content (LOD)	13–16% w/w
+	
+Disintegration time	<15 min	
+Sulfur dioxide	<50 ppm	
+Sulfated ash	Transparent capsule < 2%	
+Combined capsules < 5%	
+Colored capsules < 7%	
+Lubricant content	<0.5% w/w
+	
+
+
+Capsule weight was measured using a Mettler Toledo-Type SAG 245 with an accuracy ± 0.2 mg. The weight was determined as a mean of 100 capsules for each batch across batches (overall weight) or on individual capsules (individual weight).
+
+The length was measured using Capsize in-house dimension measurement system. The length was determined in the 42 different batches manufactured.
+
+The disintegration test was performed according to European Pharmacopoeia (7th Ed) method 2.9.1., which defines the complete disintegration as the “state in which any residue of the unit, except fragments of insoluble coating or capsule shell, remaining on the screen of the test apparatus or adhering to the lower surface of the disks, if used, is a soft mass having no palpably firm core.” Disintegration of capsules was measured using a disintegration apparatus Sotax DT3 consisting of a rigid basket-rack assembly supporting six cylindrical glass tubes. Water at 37° ± 2°C was used as a medium and a disk was added to keep the capsules in the media. For each test, the basket and the disk was dried prior to use in the disintegration test. The endpoint was determined visually by the operator and by an automated endpoint detection system using a disintegration apparatus equipped with automated detection of the endpoint—model from Sotax DT2 Serie N°5021.023. The endpoint of the automatic detection system is defined as the time by when the dosage form is disintegrated and the disk gets in contact with the stainless steel wire cloth at the bottom of the disintegration tube.
+
+Loss on drying (LOD) was determined according to European Pharmacopoeia (7th Ed) 2.2.32. Loss on drying (d) based on ∼3 g of capsules (weighed to 1 mg accuracy representing ∼40 size 1 capsules). The capsules were placed on a previously dried weighing dish and dried in an oven at 105 ± 2°C to constant mass and cooled down to room temperature in a desiccator over silica gel before weighing. Loss on drying is the loss of mass expressed as volume percent.
+
+Sulfated ash was determined according to the monograph in the European Pharmacopoeia (7th Ed.) method 2.4.14 Sulfated Ash. The analysis was performed using 2 g of capsules, which is equivalent to about 80 size 1 capsules.
+
+The sulfur dioxide content was determined applying the European Pharmacopoeia (7th Ed.) monograph 2.5.29 Sulfur dioxide; 25 g of capsules were used for each analysis.
+
+The microbiological testing was performed according to the European Pharmacopoeia (7th Ed.) Chapter 2.6.12 Microbiological examination of non sterile products: Microbial enumeration tests and Chapter 2.6.13 Microbiological examination of non sterile products: Test for specified microorganisms. The specifications are listed in Table II.Table II Microbiological specification for capsules according to the European Pharmacopoeia
+
+Test	Specification	
+Total aerobic microbial count	Maximum 1,000/g	
+Total yeasts/molds count	Maximum 100/g	
+
+Escherichia coli
+	Absence in 1 g	
+
+Salmonella species	Absence in 10 g	
+
+Staphylococcus aureus
+	Absence in 1 g	
+
+Pseudomonas aeruginosa
+	Absence in 1 g	
+
+
+Lubricant content was measured in 4 g of capsules separated into cap and body. Methylene chloride was added to the capsules until completely covered and then the capsules were agitated for 5 min minimum. The extract was transferred to a previously dried and tarred flask and the operation was repeated once more with a further sufficient amount of methylene chloride. The solvent was gently evaporated avoiding any boiling, the flask was dried in the oven (103–107°C) for about 2 h before cooling down to room temperature in a desiccator. The residue was weighed and calculated as a percentage of capsule weight. The lubricant content should not exceed 0.5%.
+
+Data analysis was performed using the Minitab software. The data were processed through the software using the capability analysis of the statistical quality tool of the software.
+
+RESULTS
+Weight
+The weight of a size 1 hard gelatin capsule is 76 mg with a lower and an upper weight of 71 and 81 respectively. The overall weight distribution for the size 1 capsules was centered on the targeted weight of 76 mg and remained within the specification with a mean weight of 75.6 mg (Fig. 1). As expected, the overall weight distribution determined as the average weight of 100 capsules was narrower than the individual data and ranged from 73.4 to 76.7 mg. The process capability for the performance (Ppk) was calculated with a Ppk 2.53 based on average weight data, which dropped down to a Ppk 0.98 when individual data were assessed. However, the individual capsule weight data did not exceed the specification limits but showing individual capsules at the upper and lower limit.Fig. 1 Overall weight (n = 84) (a) and the individual weight (n = 8,404) (b) distribution of size 1 hard gelatin capsules. LSL lower specification limit, USL upper specification limit
+
+
+
+The overall and individual weight distribution between transparent and white opaque capsules (Fig. 2) did not reveal differences and were also within the specifications of the capsules.Fig. 2 Comparative data of overall weight (n = 42) (a) and the individual weight (n = 4,202) (b) distribution of transparent and white opaque size 1 hard gelatin capsules. LSL lower specification limit, USL upper specification limit
+
+
+
+Dimension
+The dimensions were measured on individual capsules across batches for the capsule cap and the capsule body part (Fig. 3). The length specification for the body of a size 1 capsule is 16.61 mm ± 0.46 mm. The lengths were well within the specified dimensional limits of 16.15 and 17.07 mm as the lower and the upper specification for the body. The process capability on individual capsule length was Ppk 1.16. None of the capsules exceeded the upper or lower limits. No statistical difference was seen between transparent or white opaque capsules.Fig. 3 Body length distribution of size 1 hard gelatin capsules on individual capsules (n = 8404) (a) and comparative length distribution between transparent and white opaque capsules (n = 4,202) (b). LSL lower specification limit, USL upper specification limit
+
+
+
+Similar results were observed for the cap length distribution (specified at 9.78 mm ± 0.46 mm) across batches (Fig. 4). The majority of capsules were centered on the targeted length with no capsule observed at or close to the upper and lower specification of 9.32 and 10.24 mm for the cap, respectively, hence the process capability was at Ppk 1.28.Fig. 4 Cap length distribution of size 1 hard gelatin capsules on individual capsules (n = 8,404) (a) and comparative length distribution between transparent and white opaque capsules (n = 4,202) (b). LSL lower specification limit, USL upper specification limit
+
+
+
+The weight and dimensions data showed variability with an RSD of approximately 2%. Table III shows the contribution of the estimated sources of variability calculated using a mixed affect analysis of variance for all three responses in the data set attributable to these sources across all of the lots of capsules for transparent and opaque. There are two potential sources of variation possible: between lot and within lot. Reasonable estimates of both these sources can be made as data for 42 different lots are available. The analysis accounts for the different sample size in the different lots.Table III Summary of distribution of variability for physical data responses
+
+Response parameter	Mean	Total variance	Variance component	
+Between lot (%)	Within lot (%)	
+Length of body (mm)	16.61	0.0166	30	70	
+Length of cap (mm)	9.79	0.0136	8	92	
+Capsule weight (mg)	75.58	2.7189	22	78	
+
+
+Disintegration
+The disintegration time of empty capsules is a quality attribute that is used for quality assurance purposes to demonstrate that the disintegration performance of a dosage form is comparable and reliable. Disintegration of the dosage form is a critical prerequisite for the drug release and dissolution. The disintegration time for hard gelatin capsules is set at not more than 900 s (15 min). Based on the below histogram (Fig. 5), the capsule samples determined by visual endpoint (operator’s judgment) have a mean of 449 s (7.5 min) a minimum of around 50 s and a maximum of around 850 s (14 min). While all data are within the specification the data suggested high variability as they are covering the full range of the specification.Fig. 5 Visually determined disintegration times in seconds of 214 different batches of hard gelatin capsules. LSL lower specification limit, USL upper specification limit
+
+
+
+To overcome the potential variation caused by operators’ subjective endpoint determination, a recently developed automated endpoint detection system was evaluated. The automated disintegration endpoint detection is based on the contact of the fluted disk with the stainless steel wire cloth at the bottom of the tube during the analytical procedure. The disintegration time of two capsule sizes (size 0 and size 1) was determined on 72 capsules of each size coming from different batches of gelatin capsules supplied by different locations (Capsugel). The results of the disintegration times in water are summarized graphically in Fig. 6.Fig. 6 Disintegration times of 144 gelatin capsules of size 0 and size 1 (72 capsules per size) from different batches and manufacturing locations using automated endpoint detection
+
+
+
+Disintegration times detected automatically ranged repeatedly between 60 and 180 s. Compared to the visually detected disintegration times, the automatic endpoint detection confirmed fast and consistent disintegration of the capsules for all batches tested.
+
+Loss on Drying
+The water content of the hard gelatin capsules was determined using the loss on drying method. The water content of hard gelatin capsules was found to be distributed towards the upper end of the specification, but all fell within the specification limit between 13 and 16% water content (Fig. 7).Fig. 7 Loss on drying data of transparent (a) and white opaque (b) capsules across 40 different batches. LSL lower specification limit, USL upper specification limit
+
+
+
+Sulfated Ash
+The sulfated ash is dependent of the amount of colorants added to the gelatin formulation (Fig. 8). Colored capsules which may contain up to 6% of dyes were well below the upper limit (7%) as well as the combined capsules of a transparent body and an opaque cap (5% upper limit) and the transparent capsules (2%).Fig. 8 Sulfated ash historical data of transparent (blue), combined (green), and colored (red) capsules
+
+
+
+Sulfur Dioxide
+The sulfur dioxide content has been monitored over a period of 9 years and remained at zero for more than 6 months at a time and remained about 60% below the upper limit (50 ppm) for the last 5 years (Fig. 9).Fig. 9 Sulfur dioxide concentration over a 9-year period
+
+
+
+Microbiology
+The microbiological data show no colony-forming units (CFU) present in the majority of batches of transparent as well as white opaque capsules. Only two batches of white opaque capsules were found at the upper limit of the specification of having a contamination with 1,000 CFUs (Fig. 10).Fig. 10 Microbiological counts (colony-forming units per gram) performed on 42 different batches
+
+
+
+Lubricant Content
+The determined lubricant content was at the lower end of the specification and was typically below 0.1% w/w (Fig. 11). Only in one case, the lubricant level reached 0.2% over the 9-year period investigated.Fig. 11 Lubricant content in hard gelatin capsules manufactured over a 9-year period
+
+
+
+DISCUSSION
+QbD aims to establish a solid product and process understanding to increase the overall product quality and safety. Excipients are considered to be critical input parameter for potential variability. These variabilities need to be understood and eventually evaluated for their impact on the product and the process to achieve consistently the desired quality and performance. Excipients therefore must follow the same QbD principles during their own development and manufacturing. The application of QbD principles to the hard gelatin capsules as a component to a final drug product have been performed on a set of suggested CQA and within the recommended storage and processing conditions for the capsule of 15–25°C and 35–65% RH.
+
+The dimensional and weight specifications are considered critical for the manufacturing of capsule products on the high-speed filling machines, which produce up to 250,000 capsules per hour. Dimensional variations can cause issue on the rectification, feeding, opening and closing of the capsules at high speed leading to machine stops and damaged capsules. Other pharmacopoeial capsule specifications like sulfur dioxide, sulfated ash, and lubricant content are less critical but might have an impact on the stability of a specific drug formulation in the hard capsule and should therefore be reproducible. As gelatin is derived from a natural source, there is a risk for microbiological contamination of the empty capsule. The capsule disintegration has been determined as a CQA for the in vivo release of the drug formulation. Hence, the above-defined parameters have been suggested as CQA of the empty capsule because they are considered as “critical” or “key” factors for the product quality attributes (4).
+
+The results provide evidence that the CQA remained well within their specified ranges. Moreover, the data showed that the variability within and between batches on an average sample, as well as an individual sample basis, is represented well by the specification ranges. The data provided cover different capsule batches manufactured over a period of at least 24 months at different locations and therefore are considered representative for the routine manufacturing process of empty hard gelatin capsules.
+
+The capsule weight is a critical parameter that can impact the dimensions, machinability and disintegration behavior. The data show that the capsule weight is well within the specified 71–81 mg (average 76 mg) for the average weight as well as for the individual capsule weight of the size 1 capsule. The specification limits represent the operating space of the capsule manufacturing, showing capsule weights at the upper and lower end within one batch and across batches.
+
+The dimensional data for capsule body length and capsule cap length are within the specifications and no difference has been observed between transparent capsules and opaque capsules containing dyes. Within the physical data, the major source of the variability for a single capsule is down to within lots, i.e., noise in the process. There is a low probability that a batch will be produced with a mean out of specification, but this risk can be minimized by ensuring that the variability between lots is as low as possible, thereby maximizing process capability statistics.
+
+The disintegration test is a pharmacopoeial procedure used for immediate release oral product performance. The disintegration test is described in the 7th edition of the Ph. Eur. under monograph 2.9.1 Disintegration of tablets & capsules, in the 15th edition of the JP under 6.09 Disintegration test and the USP 30 monograph <701> Disintegration test. A harmonized guideline has been published by the ICH in the Q4B Annex 5 guideline Disintegration Test General Chapter from June 2009. The endpoint of the disintegration test is determined by the operator as “… the state in which any residue of the unit, except fragments of insoluble coating or capsule shell, remaining on the screen of the test apparatus or adhering to the lower surface of the discs…”. For two-piece capsules, the endpoint of the disintegration means the complete dissolution of the shell and does not take into account the initial rupture of the capsule. The rupture is the time point when the shell wall breaks up and releases the formulation into the media to dissolve. Rupture times of the capsule appears much faster than the complete dissolution of the shell (7,8). Moreover, it has been demonstrated that the results of the disintegration test are sensitive to the chosen test conditions and might vary dependent on the formulation filled (1,3). The operator endpoint determination depends on the operators’ judgment by when the unit is disintegrated and the residues are considered fragments. With below 15 min (or 900 s) for both tablets and capsules, the disintegration time is quite unspecific and set as a fail or pass criteria. Operator-determined disintegration times of the capsules are ranging from 50 to 850 s (Fig. 5), with the majority being determined after 300 s and a distinct population being at 700 s. To overcome the operators’ subjective endpoint determination, a disintegration test system with automatic endpoint detection was investigated using 144 samples from different batches. Compared to the operators’ visual endpoint determination, the results from the automatic endpoint detection show significantly lower variability in the results centering around 110 s, with the lowest disintegration time at 70 s and the longest at 180 s (Fig. 6). These results are significantly different compared to the results from operators’ determined endpoints who suggested much longer disintegration times in general.
+
+Some specific observations with capsule disintegration might be due to methodological settings. Gelatin capsules easily tend to stick to wet surfaces resulting in slowly dissolving gelatin plaques on the surface. Even in the disintegration test with automated endpoint detection gelatin residues sticking to the mesh or the disk have been observed to prevent signaling. The issue has been specifically observed when the capsules were exposed to wet disintegration baskets or disks resulting in longer disintegration times. The automatic endpoint detection system is a novel method and further studies will be performed to confirm the validity and consistency of the disintegration time using automatic endpoint detection systems in comparison to the traditional visual endpoint detection.
+
+The water content of hard gelatin capsules determined as LOD has been found within the specifications. The LOD level of the different batches showed a trend to be at the upper end of the specification defined as 13–16% water, which can be explained by the hysteresis properties of the gelatin polymer. It should be noted that the LOD is a dynamic property of hard gelatin capsules which depends on the environmental conditions of storage, capsule packaging, and handling. When exposed to higher or lower humidity, capsules will equilibrate to the respective equilibrium moisture level. Stored between 35–65%RH and 15–25°C, the LOD of hard gelatin capsules will remain within the optimal range of the gelatin capsules of 13–16% of moisture (2). When the moisture level of hard gelatin capsules drop below the LOD of 13%, the capsule shells gradually lose the flexibility and increasingly tend to break upon mechanical stress (brittleness). Figure 12 shows the sorption isotherm as a function of absorption and desorption of hard gelatin capsules exposed to different relative humidity conditions at 25°C.Fig. 12 Sorption isotherm (determined by LOD) of hard gelatin capsules at 25°C ± 2°C by varying the relative humidity from 10% to 85%
+
+
+
+In case of formulating capsule products which are sensitive to moisture, the LOD of the capsules when introduced into the process might be a critical quality attribute for product stability. In such a case, the LOD of the capsules can be adjusted to a certain range even below 13% by exposure to lower relative humidity during processing or storage. The respective design space defined for the capsule LOD will have to be evaluated in a set of Design of Experiments (DoE) with the finished product to investigate the impact of the lower LOD level on the mechanical resistance of the shell (brittleness), the product performance and the handling by the patient.
+
+The sulfated ash residue is determined by the mineral content of the capsules, which arises from the combination of the gelatin and the colorants. Since the recommended maximum colorant level is 4%, the maximum sulfated ash content of the capsules should not exceed 7%. Levels of sulfated ash have not been found to be outside of the specification.
+
+According to the specification, the sulfur dioxide concentration might reach 50 ppm as a residual component from the gelatin-manufacturing process. During the past 6 months, sulfur dioxide was not determined in hard gelatin batches and the maximum level over the past 5-year period reached a maximum of 20 ppm. For products sensitive to sulfur dioxide, it may be necessary to design specific experiments to evaluate product stability at a 50-ppm level to build the evidence that the specification reflects the design space of the product. In case that a higher sulfur dioxide concentration is critical for a given compound, the specification of the capsule can be lowered to a level at the upper end of the normal operating space.
+
+The microbiological determination revealed the absence of CFU in the majority of batches and a contamination at the upper end of the capsule specification of ≤1,000 CFU in two batches. Gelatin is a natural material that can be contaminated during the manufacturing or during the preparation of the gelatin solution for the capsule manufacturing. In gelatin solution, the microorganisms can grow from single cells exponentially but can also decline over time when water is removed due to the changing microenvironment up to cell death (11). Water activity (aw) has been found to be critical for the survival of the microorganisms with a very abrupt threshold level between growth and nongrowth (12). The minimum aw required for the growth of Listeria innocua in gelatin has been determined to be between 0.935 and 0.946, with no growth observed at 0.911 and below (6) which was consistent with aw minimum growth levels found in other media like NaCl, sucrose, and glycerol (10). The aw of gelatin is dependent on the water content in the gelatin solution, which decreases from about 40% during the manufacturing down to the specified water content of 13–16% in the finished capsule. The respective aw declines from 0.96 down to 0.4–0.6 in the finished capsule, which is significantly below the minimum threshold for growth and survival (6). This is in accordance with internal findings of the empty capsule stability program that the microbiological counts tend to decrease during the storage of the capsule.
+
+The dipping pins are lubricated at the start of each cycle to enable the dry capsule to be stripped off the pins smoothly. The amount of lubricant is controlled as part of the production process and monitored on a nonbatch specific basis. The target is <0.5% w/w of capsules but typical levels are <0.1% w/w, which means that the normal operating range is at the very low end of the specification. Within the development program of a product, the likelihood of testing all the boundaries of the specification is low and leaves a potential gap between the control space defined by the specification and the knowledge space evaluated in the development of the product.
+
+Selection and qualification of the raw materials for the empty capsule manufacturing is most important to achieve the desired capsule properties consistently. With a global qualification and supply program, as well as the harmonized manufacturing equipment and processes, product consistency was assumed for the empty capsules. The samples tested represented several batches manufactured over 24 months and were collected from different manufacturing sites. No differences between the tested CQAs were identified confirming that there are no seasonal or site-to-site differences present.
+
+This study explores the variability of standard empty gelatin capsule within the recommended storage and processing conditions as an input parameter for product development and manufacturing. These data provide relevant information for the determination of a potential impact of the empty capsule on the product quality during the risk assessment. The impact of formulation and process parameters on the capsule performance (e.g., residual aldehydes, hygroscopicity) or the impact of the capsule characteristics on a specific formulation (e.g., capsule moisture) are beyond the scope of this study. Such product-specific CQAs need to be determined during the risk assessment and evaluated in product-specific DoE within the drug product and process development program. Based on these data provided on standard hard gelatin capsules, product-specific or customized specifications and variability of hard gelatin capsules can be defined.
+
+CONCLUSION
+The considered CQAs of empty hard capsules have been investigated across 42 different batches manufactured over a 24-month period and based on data from the routine stability program of the empty hard capsule manufacturing over a period of 9 years. The specifications as set forth by the pharmacopoeia and the capsule manufacturer represent well the operational space for the hard capsule manufacturing during the observed period. The individual capsule data revealed the within and between batch consistency and statistical distribution across the specification range. The disintegration time, which is considered to be a CQA for capsule product performance by visual endpoint detection, varied significantly between the batches. Automated endpoint detection was able to overcome the subjective endpoint determination and showed consistency within and between different batches. Further disintegration studies will be performed to confirm these findings. The hard capsule is a suitable excipient for QbD drug development and manufacturing with acceptable variability within a consistent and narrow range, well defined by its specifications.
+==== Refs
+References
+1. Almukainz M  Salehi M  Araci Bou-Chacra N  Lobenberg R   Investigation of the performance of the disintegration test for dietary supplements AAPS J 2010 12 602 7 10.1208/s12248-010-9221-1 20652779 
+2. Cadé D  Madit N   Liquid filling in hard gelatin capsules—preliminary steps Bull Technol Gattefosse 1996 89 15 21 
+3. Donauer N  Lobenberg R   A mini review of scientific and pharmacopeial requirements for the disintegration test Int J Pharm 2007 345 2 8 10.1016/j.ijpharm.2007.08.045 17935916 
+4. EMA-FDA pilot program for parallel assessment of Quality-by-Design applications: lessons learnt and Q&A resulting from the first parallel assessment. EMA/430501/2013. August 20, 2013
+5. Garcia T  Cook G  Nosal R   PQLI Key topics—criticality, design space, and control strategy J Pharm Innov 2008 3 60 8 10.1007/s12247-008-9032-4 
+6. Lebert I  Dussap CG  Lebert A   Effect of aw, controlled by the addition of solutes or by water content, on the growth of Listeria innocua  in broth and in a gelatin model Int J Food Microbiol 2004 94 67 78 10.1016/j.ijfoodmicro.2004.01.002 15172486 
+7. Ludwig A  Van Ooteghem M  Delva A   Disintegration of hard gelatin capsules. Part 1: composition and structure of the capsule wall Pharm Ind 1979 41 769 798 
+8. Ludwig A  Van Ooteghem M   Disintegration of hard gelatin capsules. Part 2: disintegration mechanism of hard gelatin capsules investigated with a stereoscopic microscope Pharm Ind 1980 42 405 6 
+9. McCurdy V  am Ende MT  Busch FR  Mustakis J  Rose P  Berry MR    Quality by Design using an integrated active pharmaceutical ingredient – drug product approach to development. Pharm Engineer 2010 4 12 32 
+10. Nolan DA  Chamblin DC  Troller JA   Minimal water activity levels for growth and survival of Listeria monocytogenes  and Listeria innocua  Int J Food Microbiol 1992 16 323 35 10.1016/0168-1605(92)90034-Z 1457291 
+11. Theys TE  Geeraerd AH  Devlieghere F  Van Impe JF   Extracting information on the evolution of living- and dead cell fractions of Salmonella Typhimurium colonies in gelatin gels based on microscopic images and plate-count data Lett Appl Microbiol 2009 49 39 45 10.1111/j.1472-765X.2009.02623.x 19413768 
+12. Theys TE  Geeraerd AH  Devlieghere F  Van Impe JF   On the selection of relevant environmental factors to predict microbial dynamics in solidified media Food Microbiol 2010 27 220 8 10.1016/j.fm.2009.10.005 20141939 
+13. Woodcock J   The concept of pharmaceutical quality Am Pharm Rev 2004 6 10 5 
+14. Yu LX   Pharmaceutical Quality by Design: product and process development, understanding, and control Pharm Res 2008 25 781 91 10.1007/s11095-007-9511-1 18185986

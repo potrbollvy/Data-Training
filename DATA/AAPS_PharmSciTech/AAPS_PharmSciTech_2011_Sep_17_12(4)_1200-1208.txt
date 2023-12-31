@@ -1,0 +1,260 @@
+
+==== Front
+AAPS PharmSciTechAAPS PharmSciTechAAPS PharmSciTech1530-9932Springer US Boston 21927961966810.1208/s12249-011-9668-0Research ArticlePreparation and Characterization of a Lovastatin-Loaded Protein-Free Nanostructured Lipid Carrier Resembling High-Density Lipoprotein and Evaluation of its Targeting to Foam Cells Gu Xiao Zhang Wenli Liu Jianping +86-25-83271293+86-25-83271293liujianpingljp@hotmail.com Shaw John P. Shen Yuanjun Xu Yiming Lu Hui Wu Zimei +64-9-9231709+64-9-3677192z.wu@auckland.ac.nz  Department of Pharmaceutics, China Pharmaceutical University, Nanjing, 210009 Peoples Republic of China  School of Pharmacy, University of Auckland, Private Bag 92019 Auckland, New Zealand  Atherosclerosis Research Centre, Nanjing Medical University, Nanjing, 210029 Peoples Republic of China 17 9 2011 12 2011 12 4 1200 1208 9 3 2011 28 7 2011 © American Association of Pharmaceutical Scientists 2011This study was designed to investigate whether a non-protein nanostructured lipid carrier (NLC) resembling high-density lipoprotein (HDL) could deliver a hydrophobic anti-atherogenic drug, lovastatin, to foam cells. Lovastatin-loaded NLC (LT-NLC) was prepared by a nanoprecipitation/solvent diffusion method. The LT-NLC-apoprotein (LT-NLC-apo) was prepared by incubating LT-NLC with native HDL. The physicochemical parameters of LT-NLC were characterized in terms of particle size, zeta potential, morphology, entrapment efficiency, and crystallization behavior. Targeting behavior and mechanism were demonstrated by the incubation of LT-NLC-apo with a RAW 264.7 macrophage-derived foam cell model in the presence or absence of very-low-density lipoprotein (VLDL) and lipase. The results showed that LT-NLC was solid spherical or oval in shape with an average diameter of 13.8 ± 2.2 nm, zeta potential of −29.3 ± 0.2 mV and entrapment efficiency of 96.2 ± 1.3%. Phagocytosis studies showed that uptake of LT-NLC-apo by macrophages was significantly lower than LT-NLC (p < 0.01), suggesting that LT-NLC-apo could possibly escape recognition from macrophages in vivo. The uptake was increased twofold when LT-NLC-apo was incubated with transfected foam cells containing VLDL and lipase. These results indicated that non-protein NLC resembling HDL could be a useful tool to deliver lipophilic anti-atherogenic drugs to foam cells, and that uptake could be enhanced by the VLDL receptor pathway.
+
+KEY WORDS
+atherosclerosisfoam cell targetinghigh-density lipoproteinlovastatinnanostructured lipid carrierissue-copyright-statement© American Association of Pharmaceutical Scientists 2011
+==== Body
+INTRODUCTION
+Atherosclerosis is a chronic inflammatory disease of the blood vessels characterized by the presence of many lipid-laden “foam cells” (macrophages with ingested oxidized low-density lipoprotein) (1,2). Studies on atherosclerotic lesions showed that foam cells, the main pathological cells of the atherosclerosis plaque, have up-regulated scavenger receptors (SR) and very-low-density lipoprotein (VLDL) receptors (3,4). Thus, it appears that these receptors are potential molecular targets for the selective delivery of anti-atherosclerosis agents to foam cells.
+
+Native high-density lipoprotein (HDL) is a heterogeneous class of plasma lipoproteins that have a density between 1.063 and 1.21 g/ml and a Stoke's diameter of 5–17 nm (5). Spherical HDL particles have a hydrophobic core that is surrounded by a monolayer of phospholipids, unesterified cholesterol, and apoproteins. The major apoprotein of HDL is apoA-I, although other apoproteins may also be present (6). ApoA-I mediates the cellular uptake of HDL cholesterol via a specific high-affinity receptor pathway such as SR class BI (SR-BI) (7). In addition, the cholesteryl ester can be transferred from HDL to VLDL via cholesteryl ester transfer protein (CETP) (8). VLDL is the major ligand for the VLDL receptor, so the cholesteryl ester in HDL can be transported to the cells through the indirect pathway. The above two pathways could be useful for the delivery and concentration of drugs into the foam cells which are capable of expressing SR-BI and VLDL receptors.
+
+In the last few decades, reconstituted HDL (rHDL) has been investigated as a drug delivery system for cells expressing the HDL receptor since its hydrophobic core has the possibility of incorporating lipophilic drugs (9). Drugs have been either directly loaded onto rHDL (10), or used as the lipid core of rHDL (11). These HDL-like nanoparticles offer advantages including (1) biodegradability; (2) protein components that are endogenous and do not trigger immunoreactions; (3) the particles are not recognized by the reticuloendothelial system (RES); and (4) their direct anti-atherogenic effects (12). Furthermore, HDL-like particles are easily reconstituted and capable of carrying a considerable drug payload (13).
+
+The main limitation for the therapeutic application of rHDL is the necessity to isolate HDL apolipoproteins from human serum, or to resort to cell expression systems that secrete recombinant human apoA-I (14,15). To solve this problem, previous studies in our laboratory have succeeded in preparing protein-free Tanshinone IIA nanostructured lipid carriers (NLC) with HDL components, and demonstrated that NLC can acquire the main apolipoproteins in the native HDL by in vitro incubation and can turn endogenous (16). However, the mechanism and targeting ability of the resulting product to foam cells has not been evaluated. So far, the use of rHDL for delivering anti-atherosclerosis drugs to foam cells has not been reported in the literature.
+
+Lovastatin (LT), a highly lipophilic drug (log P = 4.3) isolated from a fungus of Aspergillus terreus, is an effective anti-atherosclerosis agent which can slow the progression of atherosclerosis through their lipid-lowering effects and non-lipid-lowering effects which involve improving or restoring endothelial function, decreasing oxidative stress and vascular inflammation as well as enhancing the stability of atherosclerotic plaques (17). However, LT exhibits poor bioavailability because of its poor water solubility (0.4 × 10−3 mg/mL) and short half-life (1–2 h). Therefore, a formulation which could deliver LT more specifically to the foam cells presented in the artery intima, preferably with longer half-life would be highly desirable for treatment of atherosclerosis.
+
+The aim of the present work was to develop an HDL drug delivery system resembling native spherical HDL particles with the function of targeting the drug, lovastatin, to foam cells on the atherosclerosis plaque. In addition, LT may also act as a model lipiphilic drug for this novel targeting delivery system for treatment of atherosclerosis after intravenous administration. LT-loaded NLC was prepared with properties resembling the lipid components of HDL. In vitro phagocytosis by macrophages and foam cells were used as reproducible models (18) to study the potential site-specific targeting effect of lovastatin-loaded NLC (LT-NLC)-apo on the atherosclerosis plaque.
+
+MATERIALS AND METHODS
+Materials
+Lovastatin was kindly donated by Jiangsu Yangze River Pharmacy Company (Taizhou, Jiangsu, China). Lipoid S 100 was obtained from Lipoid GmbH (Ludwigshafen, Germany). Cholesterol was purchased from Sigma–Aldrich Chemie GmbH (Steinheim, Germany). Cholesteryl oleate was supplied by Alfa Aesar/Johnson Matthey Co. Ltd (Lancashire, UK). Glycerol trioleate was a product of Tokyo Kasei Kogyo Co. Ltd. (Tokyo, Japan). Human plasma was supplied from Nanjing Red Cross (Nanjing, Jiangsu, China). Sephadex G50 was purchased from Pharmacia (Sweden). The mouse macrophage RAW264.7 cell line was obtained from American Type Culture Collection (Maryland, USA). Oxidized low-density lipoprotein of human (2 mg/ml) was purchased from Yuanyuan biotechnology (Guangzhou, Guangdong, China). Lipid-free BSA (A2000) was supplied by Applygen Technologies (Beijing, China). Pancrelipase was obtained from Sigma–Aldrich (L3126, USA). β-mercaptoethanol were purchased from Sigma–Aldrich(Milwaukee, USA). All reagents were of analytical grade and methanol of chromatographic grade.
+
+Isolation of VLDL and HDL from Human Plasma
+Plasma was obtained from normal human volunteers who had fasted overnight. The method for isolation of VLDL and HDL was based on the sequential flotation ultracentrifugation procedure described by Schumaker et al. (19). One hundred milliliters of plasma was adjusted to 122.5 ml with solid NaCl so that the background salt density was 1.019 g/ml, then centrifuged in 12 screw-top, thick-walled polycarbonate ultracentrifuge tubes (polyallomer Bell-top; Beckman) at 124,800×g, 10°C for 18 h using a Beckman Optima LE-80K Centrifuge.
+
+The VLDL was removed in the first centrifugation above the background solution. The background solutions at the bottom were pooled to obtain LDL and HDL. The LDL was isolated and the density was adjusted to 1.063 g/ml by adding KBr before it was re-centrifuged at 195,000×g at 10°C for 24 h. After the LDL was removed, HDL was isolated with the same centrifuge procedure as LDL after the density of the background salt solution was adjusted to 1.21 g/ml.
+
+The isolated VLDL and HDL fractions were dialyzed in the dark at 4°C for 24 h against four changes of 2 L of 0.15 M NaCl, 0.004 M Na2HPO4, and 0.903 mM EDTA, filtered through a 0.22-μm filter. Lipoprotein purity was assessed using a 4% sodium dedocyl sulfate (SDS)-polyacrylamide gel electrophoresis and their concentration was normally determined by the Lowry method (20). The materials were stored at 4°C in sterile bottles for formulation and evaluation.
+
+Preparation of LT-NLC
+LT-NLC was prepared by a nanoprecipitation/solvent diffusion method. This modified method was based on a preliminary study (16) to optimize the drug incorporation into NLC. Briefly, the lipid mixture (cholesteryl oleate, glycerol trioleate, soybean lecithin, and cholesterol) and lovastatin were dissolved in 8 ml acetone and 2 ml ethanol by sonication (DL-720, Shanghai, China). The aqueous phase containing 0.1 M KC1, 1 mM EDTA and 0.01 M Tris–HCl, pH 8.0 in double-distilled water (30 ml), was heated to 65°C. Afterwards, the organic phase was injected slowly into the aqueous phase at the same temperature under constant magnetic agitation and a semi-transparent pre-emulsion was obtained. The pre-emulsion was sonicated using an Ultrahomogenizer (JY 92II, Ningbo, China) under 300 W for 200 s before it was transferred to a rotary evaporator to remove the organic solvent at 55°C under reduced pressure. The prepared LT-NLC nanosuspension was filtered through 0.22-μm filters after cooling down to room temperature. The LT-NLC was stored at 4°C before use.
+
+Formation of LT-NLC-apo
+LT-NLC suspension (6 ml) was incubated with 4 ml of the above isolated native HDL for 4 h on a shaking bed (SHZ-82A, Jintan, China, 120 rpm, 37°C). After incubation, solid KBr was added to adjust the density of incubated mixture to 1.063 g/ml. Then the mixture was subjected to ultracentrifugation at 195,000×g at 10°C for 24 h. After ultracentrifugation, free LT-NLC which floated above the background solution was removed by aspiration with a needle. Then the LT-NLC acquiring apolipoproteins (LT-NLC-apo) in the liquid layer at the bottom of the tube, were recovered and purified by dialyzing against four changes of 2 L of 0.01 M Tris–HCl buffer, containing 0.15 M NaCl and 1 mM EDTA (16,21).
+
+Measurement of Size and Zeta Potential
+The size and zeta potential of LT-NLC and LT-NLC-apo were measured by photon correlation spectroscopy (PCS) using a Zetasizer 3000 HSA (Malvern, UK). Samples were diluted five times with the aqueous phase used in formulation for the measurements. Zeta potential measurements were carried out at 25°C, and the electric field strength was around 23.2 V/cm.
+
+Determination of Entrapment Efficiency
+LT-NLC encapsulation efficiency was calculated after separation of the non-entrapped drug using the mini-column centrifugation method (22,23). A suitable amount of Sephadex G50 was swollen in distilled water at room temperature for at least 5 h and stored at 4°C. To prepare the mini-columns, absorbent cotton was inserted in the bottom of the 5-ml plastic syringes which were then filled with gel. The column was inserted into a test tube. Excessive distilled water was centrifuged off at 2000 rpm for 6 s, and 400 μl of the LT-NLC suspensions were added dropwise to the center of the column, followed by 5 min centrifugation at 1000 rpm. To wash the mini-column, 400 μl distilled water was added and centrifugation repeated. Then the LT-NLC was forced through the column into a test tube while the free LT was quantitatively retained in the Sephadex. LT-NLC can be recovered from the first and second stages of centrifugation.
+
+The amount of the drug entrapped in the NLC and the total drug were determined by HPLC (Shimadzu LC-10A, Kyoto, Japan) equipped with an ultraviolet (UV) detector operated at 238 nm and a Shim-pack VP-ODS (150 × 4.6 mm) column. The mobile phase was methanol/water (76:24); the flow rate was kept at 1 ml/min; the column temperature was 30 ± 0.2°C. Drug and excipients were validated to have no interference with each other. Samples were dissolved diluted with absolute ethanol. The entrapment efficiency (EE) for LT was calculated with the following formula: 1 \documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {\text{EE}}\left( \% \right) = C/{C_0} \times {1}00 $$\end{document} where EE is the drug entrapment efficiency, C is the amount of drug encapsulated, and C0 is the total amount of drug in the LT-NLC suspension.
+
+Stability of LT-NLC and LT-NLC-apo
+The physical stability of the formulations was investigated. Three batches of LT-NLC were stored at 25°C and 4°C in the dark for 1 month. The LT-NLC-apo was only stored at 4°C. Their appearance, particle size, and zeta potential against storage time were evaluated.
+
+Transmission Electron Microscopy
+The microstructures of LT-NLC-apo and LT-NLC were examined by transmission electron microscopy (TEM; H-7650, Hitachi, Japan) using a negative stain method. Samples were diluted 20 times with aqueous phase. A drop of each sample was applied to a copper grid coated with carbon film and air dried; 2% (w/v) phosphotungstic acid solution was then dropped onto the grids. After being negatively stained and air dried under room temperature, the samples were ready for TEM investigation. The analysis procedure was based on the instruction for TEM H-7650. The accelerate voltage was 80 kV and the magnification was 20.0 K for LT-NLC and 25.0 K for LT-NLC-apo.
+
+Characterization by Differential Scanning Calorimetry
+Thermograms were recorded with a differential scanning calorimeter (DSC 204, NETZSCH, Germany). For DSC measurements, standard aluminum pans with appropriate amount of samples were tightly sealed and an empty pan was used as reference. A scan rate of 10°C/min was employed in the temperature range of 25–300°C. The samples used for these analyses were as follows.
+
+(1) Lovastatin; (2) lipid mixtures (LM) of phospholipids, cholesteryl oleate, cholesterol, and glycerol trioleate; (3) physical mixtures (PM) of LT, phospholipids, cholesteryl oleate, and glycerol trioleate at a similar weight ratio to LT-NLC formulation; (4) lyophilized samples of LT-NLC; and (5) LT solid lipid nanoparticles (LT-SLN) were prepared with all excipients except liquid lipid glycerol trioleate and which were frozen at −52°C for 8 h.
+
+LT-NLC and LT-SLN samples were freeze dried at −52°C and a pressure of 7.5 mmHg for 40 h. The LT-NLC and LT-SLN powder was collected and stored at 4°C before analysis.
+
+Cell Culture
+At present, THP-1, U937, and RAW264.7 have commonly been used to establish foam cells models. Compared with the other two cells, RAW 264.7 cells were stable, easy to culture and adherent, and have been employed by a large number of studies for investigation of the foam cells formation pathway, the mechanism of anti-inflammatory drugs and inflammatory signaling pathways (24). In this study, the mouse macrophage cell line RAW 264.7 was routinely cultured in Dulbecco's Modified Eagle Medium (DMEM; Sigma, St. Louis, USA) containing 10% fetal bovine serum with penicillin (100 U/mL) and streptomycin (100 pg/mL) at 37°C in a humidified, 5% CO2 incubator. The medium was changed every 3 days. After trypsinisation and counting, 1 × 105 macrophages per well were cultured in lipid-depleted medium in 24-well plates overnight. After that, the foam cell model was established by treating with oxidized low-density lipoproteins (ox-LDL, 100 μg/ml) for 24 h (25).
+
+The normal RAW 264.7 macrophage cells that were not treated with ox-LDL were used for non-specific phagocytosis study. The formation of foam cells was confirmed by an Oil-Red O Staining method and HPLC determination of cholesterol extracted from the cells (26).
+
+Amplifying the CETP Plasmid
+The procedure for CETP plasmid amplification was modified from the method previously described by Lederberg et al. (27). CETP plasmid was dissolved in 20~50 μl TE buffer (10 Mm Tris-Cl, pH 8.0, 50 mM EDTA, pH 8.0) in a 50~60°C water bath. Then 1 μl of the plasmid was added to 20 μl Escherichia coli DH-5α competent cells which were thawed on ice for 15 min. The mixture was further incubated for 30 min on ice. Competent cells were then subjected to heat shock in a water bath at 42°C for 45 s and a further 2-min incubation on ice. Then 400 μl of Luria-Bertani (LB) broth at room temperature was immediately added to the bacterial cells and incubated in a 37°C shaker incubator for 1 h allowing the expression of plasmid encoded genes. After that, 100 μl samples were spread on an LB agar plate containing ampicillin and incubated at 37°C for 12~16 h to allow colonies to form. Thereafter, 5 ml of LB medium containing ampicillin with a single colony of E. coli was inoculated and grown in a 37°C shaker incubator (200 rpm) for 24 h. The CETP plasmids were purified following the procedure of Genomic DNA Kit (Tiangen Biotech). The concentration of the DNA was measured by spetrophotometry (DU-650, Beckman).
+
+Transfection of Foam Cells
+Transfection of foam cells was performed using the LipofectamineTM LTX Reagent (Invitrogen, USA) based on the protocol recommended by the manufacturer (Invitrogen) for the transfection of RAW264.7 macrophage cells with minimal modification.
+
+On the day of transfection, growth medium from the foam cells was replaced with 1 ml of fresh DMEM medium. For each well of cells to be transfected, 0.6 μg of DNA was diluted into 80 μl of Opti-MEM® I Reduced Serum Medium without serum. Then 0.75 μl PLUSTM Reagent was added to the diluted DNA and incubated for 5~15 min at room temperature. For each well of cells, 1 μl of LipofectamineTM LTX Reagent was added and incubated for 30 min at room temperature to form DNA-LipofectamineTM LTX complexes. After that, 80 μl of the DNA-LipofectamineTM LTX complex was directly added to each well and they were incubated at 37°C in a CO2 incubator for 24 h. The control group foam cells were incubated under the same conditions but were not transfected.
+
+The cells were observed by light microscopy after transfection. The efficiency of the transfection was analyzed by polymerase chain reaction (PCR) after CETP genomic DNA was extracted using Genomic DNA Kit (Tiangen Biotech). The PCR product was visualized by agarose-gel electrophoresis and ethidium bromide statining under UV light. Western blot was employed to analyze the expression of CETP.
+
+Phagocytosis Studies with Macrophages and Foam Cells
+In Vitro Cell Viability Studies
+Before the study of cellular uptake, the survived cells were determined by MTT (3-(4, 5-dimethylthiazol-2-yl)-2,5-diphenyltetrazolium bromide) assay. In a 96-well plate, the macrophage, transfected or untreated foam cells, were seeded at a density of 10,000 cells per well in 0.2 ml of RPMI 1640 with 10% FBS, and then cultured at 37°C for 24 h. After culture, the growth medium was replaced with fresh medium containing LT-NLC or LT-NLC-apo at the concentration of 5, 10, 20, 40, and 80 μg/ml respectively. After 3 h, 20 μl of MTT solution (5 mg/ml in phosphate buffer of pH 7.4, MTT Sigma, Dorset, UK) was added to each well and incubated for further 4 h. Then the medium was removed and formazan crystals were solubilized with 200 μl of DMSO and the absorbance was evaluated by a microplate reader (BIO-RAD MODEL 680, USA) at 492 nm. All the experiments were performed in triplicate. The relative cell viability (%) related to control wells containing cell culture medium without nanoparticles was calculated by 2 \documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {\text{Relative}}\;{\text{viability}}\left( \% \right) = {\left[ A \right]_{\text{test}}}/{\left[ A \right]_{\text{control}}} \times {1}00\% $$\end{document} 
+
+Phagocytosis Studies with Macrophages and Foam Cells
+Three hours before the experiments, the medium was replaced with 500 μl DMEM containing 5 mg/ml lipid-free BSA and 4 mM β-mercaptoethanol. Experiments were performed on three kinds of cells. (1) The macrophages were incubated with either 16.5 μg/ml of LT-NLC-apo or LT-NLC. (2) The foam cells were incubated with 16.5 μg/ml of LT-NLC-apo and LT-NLC respectively. (3) The transfected foam cells expressing CETP were incubated with the same concentration as described before as well as 200 μl VLDL and pancrelipase (80 mIU/mL).
+
+After incubation at 37°C for 1, 2, and 3 h, the medium was removed and cells were rinsed three times with Dulbecco's phosphate-buffered saline to remove the excessive non-phagocytozed nanoparticles. Then the washed cells were subjected to five freezing-thawing cycles to split the cells, the drug in the cells was dissolved by adding 100 μl of methanol in each well. The lovastatin in the supernatant was determined using the HPLC method described above. The experiments were performed in triplicate.
+
+Statistical Analysis
+Statistically significant differences were determined using two-tailed Student's t test (SPSS, version 10.0). The p values for significance were set at 0.05 or 0.01.
+
+RESULTS AND DISCUSSION
+Preparation of LT-NLC and LT-NLC-apo
+The optimization of LT-NLC formulation was based on the entrapment efficiency and drug content. The preliminary data established the most favorable weight ratio of cholesteryl oleate, glycerol trioleate, soybean lecithin, and cholesterol as 30:13:50:6. Table I showed that the entrapment efficiency reduced from 96.2 ± 1.3% to 50.3 ± 0.9% with the increase of LT in the NLC from 5 to 20 mg. Therefore, 5 mg of LT was chosen as the optimal dosage in the formulation in this study. The high entrapment efficiency of the optimal LT-NLC resulted from the high lipophilic nature of LT, which can be easily incorporated into the apolar core of the LT-NLC.Table I Effects of the Amount of LT on Entrapment Efficiency (mean ± SD, n = 3)
+
+LT(mg)	Entrapment efficiency (%)	
+5	96.2 ± 1.3	
+8	78.5 ± 2.0	
+12	59.5 ± 1.7	
+20	50.3 ± 0.9	
+
+
+SDS polyacrylamide gel electrophoresis demonstrated that after incubation with native HDL, LT-NLC had acquired the major apolipoprotein, apoA-I from the native HDL and formed rHDL nanoparticles (LT-NLC-apo) spontaneously (16). This emphasizes the importance of the lipid portion of the particles, as similar particle size and density of the NLC to HDL may enable them bind to apoA-I specifically (28,29). The LT-NLC-apo was used in the phagocytosis and targeting studies.
+
+Characterization of LT-NLC and LT-NLC-apo
+LT-NLC and LT-NLC-apo were characterized using PCS and the size, zeta potential, and polydispersity index (PI) are reported in Table II. The size of LT-NLC and LT-NLC-apo was 13.8 ± 2.2 and 11.5 ± 1.2 nm respectively, which was similar to native HDL. The PIs were all below 0.5, but the LT-NLC-apo showed more homogeneity (PI = 0.11 ± 0.05) than native HDL (PI = 0.21 ± 0.06). The possible reason was that plasma HDLs are highly heterogeneous lipoprotein particles which consist of several subspecies with varying shape, density, size, and apolipoprotein composition (30). But the LT-NLC-apo prepared in this study was just one subclass of native HDL, spherical HDL.Table II Particle Size, Polydispersity, and Zeta Potential of LT-NLC, LT-NLC-apo, and Human Native HDL (mean ± SD, n = 3)
+
+Samples	Size (nm)	PI	Zeta potential (mV)	
+LT-NLC	13.8 ± 2.2a
+	0.21 ± 0.06b
+	−29.3 ± 0.2b
+	
+LT-NLC-apo	11.5 ± 1.2a
+	0.11 ± 0.05b
+	−18.7 ± 0.5b
+	
+Native HDL	9.5 ± 1.1a
+	0.47 ± 0.10b
+	−12.2 ± 0.2b
+	
+
+PI polydispersity index
+
+
+aNo significant difference with native HDL (p > 0.05)
+
+
+bSignificant difference with native HDL (p < 0.05)
+
+
+
+The magnitude of zeta potential is an indication of the repulsive force that is present in nanoparticles and is a key factor in predicting the long-term stability of colloidal dispersion system (31). In general, particles can be dispersed stably when the absolute value of zeta potential is above 30 mV due to the electric repulsion between particles (32,33). As shown in Table II, the surface charge of the different particles was consistently negative. The average zeta potential of optimum NLC was about −29.3 ± 0.2 mV, indicating that the NLC obtained in this study was a relatively dynamic stable system. The negative charge in LT-NLC-apo (−18.7 ± 0.5 mV) was less than LT-NLC, suggesting that LT-NLC-apo was less stable than LT-NLC in pH 8.0 buffer solution. The charge of native HDL (−12.2 ± 0.2 mV) was negative in pH 8.0 buffer solution because it was above the isoelectric point of apolipoproteins.
+
+Negative stain transmission electron microscopy (Fig. 1) showed that a large portion of the optimized LT-NLC and LT-NLC-apo particles were solid spherical or oval in shape with a diameter of less than 20 nm, which was in agreement with the diameter calculated from photon correlation spectroscopy studies (Table II). However, most of the LT-NLC-apo (Fig. 1b) appeared more regular than LT-NLC (Fig. 1a), which may have resulted from the interaction of apoA-I molecules and the NLC.Fig. 1 TEM images of a LT-NLC and b LT-NLC-apo
+
+
+
+Characterization by DSC
+DSC was employed to investigate the melting and crystallization behavior of the crystalline material of lipid nanoparticles. A sharp melting peak of LT at 173.8°C (Fig. 2A) indicated its crystalline nature. The DSC thermal behavior of the untreated lipid bulk was chosen as a reference. Untreated mixtures (Fig. 2B) of phospholipids, cholesteryl oleate, cholesterol, and glycerol trioleate showed main transition peaks at 40.8°C, 54.5°C, and 253°C. The presence of the melting peak of lovastatin in the physical mixture (Fig. 2C) was 162°C, signifying that LT and other components interacted with each other while heating. There was no melting peak for LT in the lyophilized NLC (Fig. 2E) or the SLN (Fig. 2D), suggesting that low amounts of the drug in bulk lipid were not in the crystalline state but rather in a dispersion state. During the preparation of SLN and NLC, lipid and LT were dissolved in a mixture of solvents, and subsequently solvents were evaporated, which allowed homogeneous dispersion of the drug in the lipid matrix (34). Compared to SLN, the broadening of the transition peak (phospholipids) and the reduction of the melting point (cholesteryl oleate and phospholipids) of NLC indicated an increased number of lattice defects (35) as a result of addition of glycerol trioleate.Fig. 2 Overlaid differential scanning calorimetry curves of lovastatin (A), lipid mixtures of phospholipids, cholesteryl oleate, cholesterol and glycerol trioleate (B), physical mixtures of LT, phospholipids, cholesteryl oleate, and glycerol trioleate at a similar weight ratio to 
+LT-NLC formulation (C), lyophilized LT-SLN (D), and LT-NLC (E)
+
+
+
+Storage and Stability of LT-NLC and LT-NLC-apo
+To assess the effect of the storage temperature on stability, the NLC dispersion was stored at 4°C and 25°C in the dark over a period of 30 days (Table III). The LT-NLC dispersion maintained excellent stability without exhibiting any aggregation, precipitation, or phase separation at 4°C and 25°C for 1 month of storage. No significant changes of particle size or zeta potential were found over the storage period at 4°C and 25°C. However, visible flocculation of LT-NLC-apo was found on the 21st day when stored at 4°C. The poor stability of the LT-NLC-apo was probably due to the low value of its zeta potential. The EE of the NLC was only slightly decreased after 30 days.Table III The Stability Results of LT-NLC and LT-NLC-apo (mean ± SD, n = 3)
+
+Storage time 
+(days)	Average size (nm)	Zeta potential (mV)	EE of LT-NLC (%)	
+LT-NLC 
+(4°C)	LT-NLC (25°C)	LT-NLC-apo (4°C)	LT-NLC (4°C)	LT-NLC (25°C)	LT-NLC-apo (4°C)	
+1	14.6 ± 1.2	13.8 ± 3.2	11.5 ± 1.2	−29.3 ± 0.2	−30.4 ± 0.8	−18.7 ± 0.5	96.2 ± 1.3	
+7	14.9 ± 1.3	14.5 ± 2.8	36.3 ± 5.7a
+	−30 ± 1.2	−29.5 ± 1.0	−12.3 ± 2.2a
+	95.4 ± 1.1	
+14	15.4 ± 1.0	17.3 ± 1.9	76.3 ± 13a
+	−28.7 ± 1.1	−27 ± 0.5	−10.5 ± 3.8a
+	93.2 ± 1.8	
+21	15.2 ± 1.8	17.8 ± 1.7	255.8 ± 13a
+	−26.3 ± 1.9	−25.5 ± 0.6	−5.7 ± 1.1a
+	93.0 ± 0.9	
+30	17.3 ± 1.6	18.4 ± 3.6	–	−26.8 ± 1.7	−25 ± 1.3	–	91.5 ± 0.7a
+	
+
+EE Entrapment efficiency
+
+
+aSignificant difference with the first day (p < 0.05)
+
+
+
+Transfection of CETP into Foam Cells
+Atherosclerosis is characterized by the accumulation of lipids and fibrous elements in the large arteries. The formation of macrophage foam cells is an early sign of atherosclerotic lesions. Furthermore, foam cells can affect the stability of a plaque, potentially leading to its rupture and the threat of coronary thrombosis (36,37). Thus, the establishment of a stable foam cell model is a significant step for studies on atherosclerosis. Exposure of RAW 264.7 cells, a murine macrophage cell line, to ox-LDL for 24 h resulted in a marked accumulation of intracellular cholesterol, indicated by Oil-Red O staining and HPLC determination (data not shown), confirming the formation of foam cells.
+
+CETP, which is thought to mediate the exchange of HDL cholesterol ester (CE) for triglyceride (TG) of TG-rich lipoproteins (8), may play an important role in the prevention of atherosclerosis. Since pure CETP is difficult to obtain, we prepared the foam cells expressing CETP by CETP plasmid transfection.
+
+Before transfection, the plasmid was amplified by transformation into DH-5α E. coli cells. The concentration of the purified plasmid was about 0.216 μg/ml. UV readings at 260/280 nm consistently had ratios between 1.65 and 1.85 for all the plasmid, indicating it was not contaminated with protein or RNA (38).
+
+The nucleofection protocol for the transfection of foam cells provided by the manufacturer worked efficiently only with RAW 264.7 macrophage cells. In this study, the protocol was adopted with some modification and has been successfully used in the transfection of CETP into foam cells. The cells were examined using microscopy 24 h post-transfection which showed normal cell morphology and no sign of shrinkage. PCR and agarose-gel electrophoresis confirmed that CETP plasmids had been transfected into the foam cells.
+
+Cytotoxicity Studies
+Cytotoxicity analyses indicated that both LT-NLC and LT-NLC-apo had little cytotoxic effects to cells and they remained 95% in viable relative to control at the concentration of 5, 10, 20, and 40 μg/ml. When the concentration reached 80 μg/ml, both of them showed significant loss in viability of about 8–15%. The nanoparticles at 16.5 μg/ml were chosen for the following study because they can ensure the cells for the phagocytosis and targeting the study was viable.
+
+Uptake of LT in RAW 264.7 Macrophages
+The rapid uptake of i.v. injected nanoparticles by cells of the mononuclear phagocytic system (MPS) is a major obstacle for a long blood circulation time and drug targeting to sites other than the MPS (39). Avoidance of rapid clearance by the MPS is a prerequisite for targeting nanocarriers to other organs and tissues (40). In order to estimate if the NLC which resembles the lipid components of HDL is able to avoid MPS recognition in vivo, a trial was carried out on an in vitro RAW264.7 macrophage model.
+
+As shown in early experiments, LT-NLC can entrap apolipoproteins effectively after incubation with native HDL and form LT-NLC-apo which resembles the native spherical HDL nanoparticle. From early studies of LDL, VLDL, and aforementioned incubation studies, we can infer that after i.v. injection LT-NLC may also be capable to acquire the apolipoproteins presented in the bloodstream (21). Thus, LT-NLC-apo could represent the predominant component and be used for phagocytosis and targeting studies in vitro.
+
+LT-NLC and LT-NLC-apo were determined to be stable in culture medium at 37°C for at least 3 h. As shown in Fig. 3, cellular uptake of LT-NLC (Fig. 3B) and LT-NLC-apo (Fig. 3A) by macrophages proceeded rapidly and approached the maximum at approximately 2 h. It is notable that the uptake of LT-NLC was 2.2 times more than LT-NLC-apo at 2 h and statistically distinguishable at each experimental time point (p < 0.01). This suggests that after incubation with native HDL, LT-NLC turned to be endogenous after coupling with apolipoproteins and this reduced their recognition by macrophages. Also, the uptake of both LT-NLC and LT-NLC-apo at 3 h was lower than that at 2 h. This signifies that uptake was saturated at 2 h (41) and macrophages which phagocytozed nanoparticles floated in the DMEM after 3 h and were washed away with buffer before analysis (12).Fig. 3 Uptake of LT-NLC-apo and LT-NLC by RAW264.7 macrophages (A and B), foam cells (C and D) and foam cells expressing CETP (E and F) with different incubation periods (n = 3). (A and C): LT-NLC-apo; (B and D): LT-NLC; E: LT-NLC-apo in the presence of VLDL and pancrelipase; F: LT-NLC in the presence of VLDL and pancrelipase. Results (mean ± SD, n = 3) are expressed as the amount of LT phagocytozed with respect to 100,000 cells. Statistical significances 
+(p < 0.01) between : A and B; asterisk: C and D; and up-pointing triangle: E and F
+
+
+
+
+Foam Cell Targeting and Mechanism Study
+To investigate the foam cell targeting property of LT-NLC-apo, the foam cells were incubated with LT-NLC-apo (LT 16.5 μg/ml). The same concentration of LT-NLC was used as a reference. Compared to the drug uptake by macrophage (Fig. 3A and B), uptake of both of the LT-NLC-apo (Fig. 3C) and LT-NLC (Fig. 3D) by foam cells were increased significantly (p < 0.01). Furthermore, the uptake of LT-NLC-apo was significantly higher than LT-NLC (p < 0.01). This is most probably due to the presence of SR-BI receptors on the foam cells, which have high affinity for the LT-NLC-apo receptor (3,4).
+
+To investigate whether the uptake of LT-NLC-apo could be enhanced by the VLDL receptor pathway, TG-rich lipoprotein (VLDL), and lipase with LT-NLC-apo were co-incubated with CETP expressed foam cells. Figure 3E shows that the amount of LT uptake by foam cells expressing CETP increased significantly (p < 0.01) for LT-NLC-apo in the presence of VLDL and lipase. In contrast, LT-NLC (the control, Fig. 3F) showed no difference (p > 0.05).
+
+These results implied a receptor-mediated pathway by CETP and VLDL involved in the targeting mechanism of LT-NLC-apo to foam cells. In humans, the transport of HDL cholesteryl esters from plasma to target cells involves a direct uptake pathway, mediated by SR-BI, and an indirect pathway, involving the exchange of HDL CE for triglycerides (TG) of TG-rich lipoproteins (VLDL) by CETP, followed by hydrolysis of TG by lipase (8). This raises the possibility that the entry of the drug in the core into the VLDL might be facilitated by the remodeling of HDL involving combined activities of CETP and lipase. The VLDL can be bound to VLDL receptors expressed in the foam cells (4), so the uptake may be enhanced by the VLDL receptor pathway. Hence it can be concluded that LT-NLC-apo is able to deliver anti-atherogenic agents to foam cells effectively, and this delivery can be enhanced by the VLDL receptor pathway.
+
+CONCLUSIONS
+In this paper, LT-NLC-apo resembling native HDL particles was prepared by incubating NLC cores with native HDL and ultracentrifugation. LT-NLC-apo showed similar properties to the native HDL with respect to size, shape, and composition. Phagocytosis studies demonstrated that LT-NLC-apo had turned endogenous and may be able to escape non-specific recognition by macrophages. An in vitro study showed that LT-NLC-apo, utilizing apoA-I as the predominant targeting moiety, can deliver LT to foam cells through the VLDL receptor pathway. This report provides early evidence that LT-NLC-apo may be capable of delivering anti-atherogenic agents to foam cells effectively for treatment of atherosclerosis. Further in vivo studies on the targeting ability of this delivery system are underway and will be reported in due course.
+
+ACKNOWLEDGMENTS
+This study was financially supported by the Major Project of National Science and Technology of China for New Drugs Development (no. 2009ZX09310-004) and the National Science Foundation Grant of China (no. 81072587). We thank Professor Hong-wen Zhou (Department of Endocrinology, Jiangsu Province Hospital) for his kind gift of CETP plasmids.
+==== Refs
+REFERENCES
+1. Bobryshev YV   Monocyte recruitment and foam cell formation in atherosclerosis Micron 2006 37 208 22 10.1016/j.micron.2005.10.007 16360317 
+2. Libby P  Ridker PM  Maseri A   Inflammation and atherosclerosis Circ. 2002 105 1135 43 10.1161/hc0902.104353 
+3. Hiltunen TP  Luoma JS  Nikkari T  Ylä-Herttuala S   Expression of LDL receptor, VLDL receptor, LDL receptor-related protein, and scavenger receptor in rabbit atherosclerotic lesions: marked induction of scavenger receptor and VLDL receptor expression during lesion development Circ. 1998 97 1079 86 
+4. Hiltunen TP  Ylä-Herttuala S   Expression of lipoprotein receptors in atherosclerotic lesions Atheroscler. 1998 137 S81 8 10.1016/S0021-9150(97)00307-9 
+5. Assmann G  Nofer J   Atheroprotective effects of high-density lipoproteins Med. 2003 54 321 41 10.1146/annurev.med.54.101601.152409 
+6. Barter P  Kastelein J  Nunn A  Hobbs R   High density lipoproteins (HDLs) and atherosclerosis; the unanswered questions Atheroscler. 2003 168 195 211 10.1016/S0021-9150(03)00006-6 
+7. Kozarsky KF  Donahee MH  Rigotti A  Iqbal SN  Edeiman ER  Krieger M   Overexpression of the HDL receptor SR-BI alters plasma HDL and bile cholesterol levels Nature 1997 387 414 17 10.1038/387414a0 9163428 
+8. Collet X  Tall AR  Serajuddin H  Guendouzi K  Royer L  Oliveira H    Remodeling of HDL by CETP in vivo  and by CETP and hepatic lipase in vitro  results in enhanced uptake of HDL CE by cells expressing scavenger receptor B-I J Lipid Res. 1999 40 1185 93 10393203 
+9. Bijsterbosch MK  Schouten D  van Berkel TJ   Synthesis of the dioleoyl derivative of iododeoxyuridine and its incorporation into reconstituted high density lipoprotein particles Biochem. 1994 33 14073 80 10.1021/bi00251a016 7947817 
+10. Lacko AG  Nair M  Paranjape S  Johnson S  Mcconathy WJ   High density lipoprotein complexes as delivery vehicles for anticancer drugs Anticancer Res 2002 22 2045 49 12174882 
+11. Lou B  Liao XL  Wu MP  Cheng PF  Yin CY  Fei Z   High-density lipoprotein as a potential carrier for delivery of a lipophilic antitumoral drug into hepatoma cells World J Gastroenterol. 2005 11 954 9 15742395 
+12. Feng M  Pan S  Zhang J  Wang Q  Wu W  Li R   In vitro  phagocytic uptake of PEG-PBLG nanoparticles containing amphotericin B J Chin Pharma. 2005 36 321 5 
+13. Frias JC  Williams KJ  Fisher EA  Fayad ZA   Recombinant HDL-like nanoparticles: a specific contrast agent for MRI of atherosclerotic plaques J Am Chem Soc 2004 126 16316 7 10.1021/ja044911a 15600321 
+14. Mallory JB  Kushner PJ  Protter AA  Cofer CL  Appleby VL  Lau K    Expression and characterization of human apolipoprotein AI in Chinese hamster ovary cells J Biol Chem 1987 262 4241 7 3104338 
+15. Pyle LE  Sawyer WH  Fujiwara Y  Mitchell A  Fidge NH   Structural and functional properties of full-length and truncated human proapolipoprotein ai expressed in Escherichia coli  Biochem. 1996 35 12046 52 10.1021/bi9609073 8810909 
+16. Zhang WL  Gu X  Bai H  Yang RH  Dong CD  Liu JP   Nanostructured lipid carriers constituted from high-density lipoprotein components for delivery of a lipophilic cardiovascular drug Int J Pharm 2010 391 313 21 10.1016/j.ijpharm.2010.03.011 20214958 
+17. Maron DJ  Fazio S  Linton MF   Current perspectives on statins Circ. 2000 101 207 13 
+18. Pavlov OV  Bobryshev YV  Balabanov YV  Ashwell K   An in vitro  study of the effects of lovastatin on human fetal brain cells Neurotoxicol. Teratol. 1995 17 31 39 10.1016/0892-0362(95)91641-W 7708017 
+19. Schumaker VN  Puppione DL   Sequential flotation ultracentrifugation Methods Enzymol. 1986 128 155 70 10.1016/0076-6879(86)28066-0 3724500 
+20. Lowry OH  Rosebrough NJ  Farr AL  Randall RJ   Protein measurement with the Folin reagent J Biol Chem 1951 193 265 75 14907713 
+21. Maranhäo RC  Cesar TB  Pedroso-Mariani SR  Hirata MH  Mesquita CH   Metabolic behavior in rats of a nonprotein microemulsion resembling low-density lipoprotein Lipids 1993 28 691 6 10.1007/BF02535988 8377582 
+22. Fry DW  White JC  Goldman ID   Rapid separation of low molecular weight solutes from liposomes without dilution Anal Biochem 1978 90 809 15 10.1016/0003-2697(78)90172-0 727510 
+23. Maghraby GM  Williams AC  Barry BW   Skin delivery of 5-fluorouracil from ultradeformable and standard liposomes in-vitro  J Pharm Pharmacol 2001 53 1069 77 10.1211/0022357011776450 11518016 
+24. Zhou Y  Wo XD  Lu DZ   The model estabilishment and identification of RAW264.7 macrophage-derived foam cell Chin J Arterioscler. 2010 18 9 687 90 
+25. Xie SZ  Lee YF  Kim E  Chen LM  Ni J  Fang LY    TR4 nuclear receptor functions as a fatty acid sensor to modulate CD36 expression and foam cell formation Proc Natl Acad Sci U S A. 2009 106 13353 8 10.1073/pnas.0905724106 19666541 
+26. Ylitalo R  Jaakkola O  Lehtolainen P  Ylä-Herttuala S   Metabolism of modified LDL and foam cell formation in murine macrophage-like RAW 264 cells Life Sci. 1999 64 1955 65 10.1016/S0024-3205(99)00140-X 10353593 
+27. Lederberg EM  Cohen SN   Transformation of Salmonella typhimurium  by plasmid deoxyribonucleic acid J Bacteriol 1974 119 1072 4 4605400 
+28. Pittman RC  Glass CK  Atkinson D  Small DM   Synthetic high density lipoprotein particles. Application to studies of the apoprotein specificity for selective uptake of cholesterol esters J Biol Chem 1987 262 2435 42 3029080 
+29. Galeano NF  Milne R  Marcel YL  Walsh MT  Levy E  Ngu'yen TD    Apoprotein B structure and receptor recognition of triglyceride-rich low density lipoprotein (LDL) is modified in small LDL but not in triglyceride-rich LDL of normal size J Biol Chem 1994 269 511 9 8276844 
+30. Calabresi L  Gomaraschi M  Rossoni G  Franceschini G   Synthetic high density lipoproteins for the treatment of myocardial ischemia/reperfusion injury Pharmacol Ther 2006 111 836 54 10.1016/j.pharmthera.2006.01.003 16960983 
+31. Komatsu H  Kitajima A  Okada S   Pharmaceutical characterization of commercially available intravenous fat emulsions: estimation of average particle size, size distribution and surface potential using photon correlation spectroscopy Chem Pharm Bull 1995 43 1412 5 7553988 
+32. Müller RH  Mäder K  Gohla S   Solid lipid nanoparticles (SLN) for controlled drug delivery-a review of the state of the art Eur J Pharm Biopharm 2000 50 161 77 10.1016/S0939-6411(00)00087-4 10840199 
+33. Müller RH  Jacobs C  Kayser O   Nanosuspensions as particulate drug formulations in therapy: rationale for development and what we can expect for the future Adv Drug Deliv Rev. 2001 47 3 19 10.1016/S0169-409X(00)00118-6 11251242 
+34. Suresh G  Manjunath K  Venkateswarlu V  Satyanarayana V   Preparation, characterization, and in vitro  and in vivo  evaluation of lovastatin solid lipid nanoparticles AAPS PharmSciTech 2007 8 162 70 10.1208/pt0801024 
+35. Freitas C  Müller RH   Correlation between long-term stability of solid lipid nanoparticles (SLN (TM)) and crystallinity of the lipid phase Eur J Pharm Biopharm 1999 47 125 32 10.1016/S0939-6411(98)00074-5 10234536 
+36. Escary JL  Choy HA  Reue K  Schotz MC   Hormone-sensitive lipase overexpression increases cholesteryl ester hydrolysis in macrophage foam cells Arterioscler Thromb Vasc Biol 1998 18 991 8 10.1161/01.ATV.18.6.991 9633942 
+37. Horvai A  Palinski W  Wu H  Moulton KS  Kalla K  Glass CK   Scavenger receptor A gene regulatory elements target gene expression to macrophages and to foam cells of atherosclerotic lesions Proc Natl Acad Sci USA 1995 92 5391 5 10.1073/pnas.92.12.5391 7777517 
+38. Sambrook J  Russell DW   Molecular cloning: a laboratory manual 2001 3 New York Cold Spring Harbor Laboratory Press 
+39. Zambaux MF  Faivre-Fiorina B  Bonneaux F  Marchal S  Merlin J  Dellacherie E    Involvement of neutrophilic granulocytes in the uptake of biodegradable non-stealth and stealth nanoparticles in guinea pig Biomater. 2000 21 975 80 10.1016/S0142-9612(99)00233-1 
+40. Roser M  Fischer D  Kissel T   Surface-modified biodegradable albumin nano-and microspheres. II: effect of surface charges on in vitro  phagocytosis and biodistribution in rats Eur J Pharm Biopharm 1998 46 255 63 10.1016/S0939-6411(98)00038-1 9885296 
+41. Nikanjam M  Blakely E  Bjornstad K  Shu X  Budinger T  Forte T   Synthetic nano-low density lipoprotein as targeted drug delivery vehicle for glioblastoma multiforme Int J Pharm 2008 328 86 94 10.1016/j.ijpharm.2006.07.046 16959446

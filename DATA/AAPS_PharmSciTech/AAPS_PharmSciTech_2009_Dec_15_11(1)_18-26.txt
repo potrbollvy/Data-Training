@@ -1,0 +1,240 @@
+
+==== Front
+AAPS PharmSciTechAAPS PharmSciTechAAPS PharmSciTech1530-9932Springer US Boston 20013080934910.1208/s12249-009-9349-4Research ArticleDirect Compression Behavior of Low- and High-Methoxylated Pectins Salbu Linda Bauer-Brandl Annette Tho Ingunn +47-77-646632+47-77-646151ingunn.tho@uit.no  Department of Pharmacy, Drug Transport and Delivery Research Group, University of Tromsoe, 9037 Tromsø, Norway  Department of Physics and Chemistry, University of Southern Denmark, 5230 Odense M, Denmark 15 12 2009 3 2010 11 1 18 26 2 7 2009 17 11 2009 © The Author(s) 2009The objective of this study was to evaluate possible usefulness of pectins for direct compression of tablets. The deformation behavior of pectin grades of different degree of methoxylation (DM), namely, 5%, 10%, 25%, 35%, 40%, 50%, and 60% were, examined in terms of yield pressures (YP) derived from Heckel profiles for both compression and decompression and measurements of elastic recovery after ejection. All pectin grades showed a high degree of elastic recovery. DM 60% exhibited most plastic deformation (YP 70.4 MPa) whereas DM 5% (104.6 MPa) and DM 10% (114.7 MPa) least. However, DM 60% gave no coherent tablets, whereas tablet tensile strengths for DM 5% and DM 10% were comparable to Starch 1500®. Also, Heckel profiles were similar to Starch 1500®. For sieved fractions (180–250 and 90–125 μm) of DM 25% and DM 40% originating from the very same batch, YPs were alike, indicating minor effects of particle size. These facts indicate that DM is important for the compaction behavior, and batch-to-batch variability should also be considered. Therefore, pectins of low degree of methoxylation may have a potential as direct compression excipients.
+
+Key words
+deformation behaviordegree of methoxylationdirect compressionpectintensile strengthissue-copyright-statement© American Association of Pharmaceutical Scientists 2010
+==== Body
+INTRODUCTION
+During the last decade, natural polysaccharides have attracted a lot of attention as possible alternative tableting excipients (1–4). Continuous efforts to explore natural materials can provide more variety to tableting as well as release properties. Chitin (1), chitosan (1,2), alginate (3), and carrageenan (4,5) are good examples for such materials, showing plastic deformation during compression combined with high elastic recovery after tableting and resulting in mechanically stable tablets. All these polysaccharides are gel-forming substances. If used in the formulation of matrix tablets, they can be utilized as controlled release systems. Another polysaccharide with promising properties for controlled release systems is pectin (6).
+
+Pectin is a commonly used food additive of the polysaccharide type, extracted from apple pomace or citrus peel, which is hydrophilic and gel forming. It mainly consists of (1→4)-linked α-d-galacturonic acid and its methyl ester. The linear structure is occasionally interrupted by (1→2)-linked α-l-rhamnose residues introducing kinks in the backbone (7,8). Depending on the degree of methoxylation (DM), pectins are usually classified into high-methoxyl (HM) pectin, i.e., methoxyl content above 50%, and low-methoxyl (LM) pectin, i.e., methoxyl content less than 50% (7). Pectin grades with a DM below 10% are often referred to as pectinic acid. Pectins are shown to be useful for controlled release formulations by gel formation: LM pectins form gels by addition of cross-linking agents, e.g., calcium ions, whereas HM pectins form gels without addition of cross linkers (9).
+
+In addition to the gelling properties, pectin is a potential excipient for colon-specific drug delivery due to its specific degradation by colonic enzymes (10–12). Gamma scintigraphic studies, in humans, of pectin-based tablets (13) as well as pectin-based press-coated tablets (14), have shown that the tablets arrived essentially intact in colon and then are degraded locally by enzymes. Pectin tablets have been produced either by direct compression on manual (11) or slow hydraulic presses (6,10,15) or by compaction of granular pectin on a single-punch machine (16). However, most of the formulations described contained additional excipients to improve tabletability (6,10,11,15,16). So far, there are no systematic studies on the DM of pectin with respect to deformation behavior for direct compression. The aim of the present study was to characterize the deformation behavior of pectin powders, to explore the degree of methoxylation, the effect of the particle size, and different batch origin on the compaction behavior, and to compare pectin with well-described excipients of different deformation behavior. The chosen approach employed “in-die” Heckel analysis and measurement of elastic recovery (both “in-die” and “ejected tablet” mode) in order to study the deformation behavior.
+
+MATERIALS AND METHODS
+Materials
+Pectin with DM 5% (4.1%, batch no. 130807DM5), 10% (8.0%, batch no. 200807DM10), 25% (26.1%, batch no. 310707DM25), 35% (34.8%, batch no. 310707DM35), 40% (41.7%, batch no. 310707DM40), 50% (51.0%, batch no. 310707DM50), and 60% (61.6%, batch no. 310707DM60) were from Herbstreith & Fox GmbH, Germany. The samples (citrus origin) were produced (by the manufacturer) by demetoxylation of a HM sample. Pectin of DM 25%, 35%, 40%, 50%, and 60% are produced from the very same source, whereas DM 5% and DM 10% originated from different productions from different batches of citrus pectin.
+
+Microcrystalline cellulose (Avicel® PH 102, batch no. 907014, FMC biopolymer, Belgium), dibasic calcium phosphate dihydrate (Emcompress®, batch no. 905003, JRS Pharma, Germany), α-lactose monohydrate (Spherolac® 100, batch no. 907012, Meggle Pharma, Germany), and pregelatinized starch (Starch 1500®, batch no. IN 509959, Colorcon, UK), were chosen as reference materials.
+
+Powder Characterization
+Particle Density (Helium Density)
+The particle density was determined with a helium gas pycnometer (AccuPyc 1330, Micromeritics Instrument Corporation, Norcross, GA, USA). Reported results were the mean of three independent experiments with ten repetitive purge cycles and three runs for each experiment.
+
+Flowability
+The flowability of the unsieved pectin powders and powders of reference materials was determined by calculating the Hausner ratio (HR) (17) according to Ph.Eur. 2.9.36 (18). The bulk and tapped densities (Erweka tapped volumeter, type SVM, Heusenstamm, Germany) of Avicel® PH 102, Emcompress®, Spherolac® 100, and Starch 1500® were determined according to Ph.Eur. 2.9.34 (19), whereas a 10-ml cylinder (10 mm in diameter) was applied for pectin powders (powder samples, 3.6–4.8 g; n = 3).
+
+Particle Size Distribution
+The particle size distribution was determined by analytical sieving according to Ph.Eur. 2.9.38 (20) with a mechanical sieve shaker (Retsch VE 1000, Retsch GmbH & Co. KG, Haan, Germany). Sieves (Retsch test sieve, Retsch GmbH & Co. KG) with sizes of 45, 63, 90, 125, 180, and 250 µm were applied. All size fractions were collected for DM 25% and DM 40%, whereas the first four size fractions were obtained and collected for DM 5%.
+
+Morphological Studies
+The particle shape and morphology were assessed using scanning electron microscopy (SEM; JSM-6300 SEM, Japan Electron Optics Laboratory Ltd., Tokyo, Japan). Samples were mounted on aluminum stubs using double-sided adhesive carbon tape and sputter-coated with gold and palladium for 120 s (Polaron SC7640 sputter coater, Quorum Technologies Ltd., Ringmer, East Sussex, UK).
+
+Sorption Isotherms
+Samples of pectin powders were dried in an oven at 60°C for 24 h and brought to room temperature (during 3 h) in desiccators over phosphorus pentoxide (approximately 0% relative humidity, RH). Samples of approximately 1 g (n = 2) were accurately weighed (Sartorius BP2215, Sartorius AG, Goettingen, Germany, d value 0.1 mg) and transferred to chambers of 22% RH. Upon equilibration mass (Mettler AE163, Mettler Instrumente AG, Greifensee-Zürich, Switzerland, d value 0.01 mg), the masses were recorded. Then, the powders were transferred to chambers of 32% RH, thereafter 43% and 75%, respectively. The content of water in the powder for each RH was calculated in percentage of the dry material.
+
+Powder Compaction
+A compaction simulator (21) (Schmidt ServoPress 450 Schmidt Technology GmbH, St. Georgen, Germany; compaction module IBR, Waldkirch, Germany) equipped with 11-mm flat-faced punches was used to compress the powders, i.e., pectin grades and reference materials. The lower punch was stationary during compaction and the upper punch moved at a speed of 10 mm/s. The punch displacement data were corrected for the elastic deformation by punch-to-punch compaction data (21). Prior to each compaction, the punch and die surfaces were lubricated with a 5% suspension of magnesium stearate in acetone. The powders were equilibrated at a RH of 32 ± 2% (above a saturated magnesium chloride solution) which reflected the conditions of the room. A mass of ∼450 mg powder was accurately weighed (Sartorius CP225D, Sartorius AG, d value 0.01 mg), poured manually into the die, and compacted at pressures corresponding to an “in-die” porosity of 0.150 ± 0.005 (exception: 0.159 for fraction 45–63 μm DM 25%). Also, compacts with higher and lower “in-die” porosities were produced.
+
+Compaction Parameters
+Heckel Parameter
+The yield pressure (YP) of the material, YP = 1/k, was derived from the linear part of the Heckel profile according to Eq. 1 (22,23):
+ 1 \documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ { \ln }\left( {\frac{\text{1}}{E}} \right) = kP + A $$\end{document} where E is the porosity of the compressed powder bed at applied pressure P and k and A are constants. The reciprocal of the slope (k) of the linear portion of the compression and decompression phases, respectively, was calculated by linear regression from 20% to 80% of the maximum pressure in the compression phase and 40% to 60% of the maximum pressure for decompression phase. The “in-die” method was used, and thus, the yield pressure during compression is considered to reflect the total deformation ability: Plastic and elastic deformation (24). By calculating the yield pressure during decompression, it was possible to evaluate the fast elasticity (25).
+
+Elastic Recovery
+The elastic recovery (ER), which describes the percentage of axial expansion of a compact, was calculated according to Eq. 2:
+ 2 \documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ {\text{ER}}\left( \% \right) = \frac{{hx - h_{\text{at max. pressure}}}}{{h{\text{at max. pressure}}}} \times {\text{100}} $$\end{document} where hat max. pressure is the tablet height at maximum pressure and hx is (1) for the “in-die” method the tablet height at force after the compression event of 0.05 kN or (2) the tablet height of the ejected tablet immediately after ejection, after 24 h, and after 1 week of storage under controlled conditions, respectively.
+
+Tablet Characteristics
+The mass of each tablet (Sartorius CP225D, Sartorius AG) and its dimensions, i.e., thickness and diameter (Micrometer screw IP54, Wilson Wolpert, Maastricht, the Netherlands), were measured immediately after ejection from the compaction simulator and after storage for 24 h (32 ± 1% RH, room temperature) and 1 week (32 ± 2% RH, room temperature), respectively. Thereafter, the crushing strengths (F) of the tablets were measured (Erweka TBH 20, Erweka GmbH, Heusenstamm, Germany) and the tensile strengths (σ) calculated according to Eq. 3 (26):
+ 3 \documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ \sigma = \frac{{{\text{2}}F}}{{\pi dh}} $$\end{document} where d is the diameter (mm) and h the thickness (mm).
+
+RESULTS AND DISCUSSION
+Powder Characteristics
+The particle sizes, particle densities, bulk and tapped densities, together with HR of the different grades of pectin and the reference materials Emcompress®, Spherolac® 100, Avicel® PH 102, and Starch 1500®, are presented in Table I. The particle size, expressed as D90, was approximately 220 μm for grades DM 25%–DM 60%, whereas DM 5% and DM 10% comprised smaller particles. This is confirmed in the scanning electron micrographs in Fig. 1. The particles of all pectin grades are of similar morphology, fibrous, and irregular in shape. The particle density of DM 25%–DM 60% appeared to be similar and in general lower than what was found for DM 5% and DM 10%. The latter are also of the highest of both bulk and tapped densities. The flowability (18,27) of the pectin powders was assessed by the HR and ranged from passable (1.26 < HR < 1.34 for DM 5%, DM 10%, and DM 60%) to poor (1.35 < HR < 1.45 for DM 25%, DM 35%, and DM 50%) and very poor (1.46 < HR < 1.59 for DM 40%). The fact that DM 25%–DM 60% originate from the same batch and production may be suspected to account for the similarity in particle properties for these grades. Different batch origin might also influence the physical performance factors. The reference materials showed particle sizes, particle densities, bulk and tapped densities, and HR values that complied with the literature (28–31) (Table I).
+Table I Characterization of Particle Sizes, Particle Density, Bulk and Tapped Densities, and HR for Different Grades of Pectin and Reference Materials
+
+Type of pectin	Particle size (μm)	Helium densitya (g/cm3)	Bulk densitya (g/cm3)	Tapped densitya (g/cm3)	Hausner ratioa
+	
+
+D
+50
+	
+D
+90
+	
+DM 5%	53.2	86.7	1.573 (0.05)	0.48 (0.32)	0.63 (0.32)	1.32 (0.00)	
+DM 10%	65.1	124.9	1.595 (0.04)	0.48 (0.32)	0.63 (0.32)	1.32 (0.00)	
+DM 25%	131.6	220.1	1.540 (0.10)	0.37 (1.19)	0.53 (1.14)	1.44 (0.83)	
+DM 35%	136.4	224.1	1.519 (0.07)	0.38 (0.30)	0.54 (0.30)	1.43 (0.00)	
+DM 40%	135.7	223.4	1.515 (0.23)	0.37 (0.27)	0.54 (0.27)	1.47 (0.00)	
+DM 50%	136.4	219.7	1.543 (0.06)	0.42 (0.27)	0.57 (0.27)	1.35 (0.00)	
+DM 60%	135.4	220.4	1.506 (0.04)	0.43 (0.00)	0.56 (0.00)	1.28 (0.00)	
+Reference materials							
+ Emcompress®
+	171.0	250.2	2.369 (0.05)	0.95 (1.58)	1.14 (0.52)	1.21 (2.07)	
+ Spherolac® 100	117.9	203.0	1.541 (0.03)	0.68 (3.07)	0.84 (3.11)	1.22 (2.21)	
+ Avicel® PH 102	84.5	177.3	1.558 (0.07)	0.36 (0.83)	0.47 (1.48)	1.31 (2.06)	
+ Starch 1500®
+	81.1	138.7	1.499 (0.17)	0.64 (5.33)	0.82 (1.47)	1.28 (1.01)	
+
+aMean values (n = 3). The relative standard deviations (%) are given in parenthesis.
+
+Fig. 1 Scanning electron micrographs of different grades of pectin. a DM 5%, b DM 10%, c DM 25%, d DM 35%, e DM 40%, f DM 50%, g DM 60%
+
+
+
+Sorption Isotherms
+Water sorption isotherms for the different grades of pectin powders are presented in Fig. 2. As RH increased in the testing chamber, the water uptakes increased accordingly. At 75% RH, the average water uptake ranged from 17% to 23% for the grades of pectin studied. At 32% RH, the water uptake was found to be between 7% and 10%, which is in the same order of magnitude as reported for other hydrophilic polysaccharides at similar conditions: chitosan (2) and carageenans (5). Powders and tablets were handled under controlled conditions throughout the study (approximately 30% RH, room temperature).
+Fig. 2 Sorption isotherms of different grades of pectin at different relative humidities
+
+
+
+Compression Behavior
+Compressibility of the pectin grades is plotted in Fig. 3 as porosity vs. compaction pressure. As expected, compressibility, dE/dP, was larger at the lower end of pressures. Three different behaviors could be distinguished: DM 5% and DM 10%, DM 25%–DM 50% clustering in the middle range, and DM 60%.
+Fig. 3 Compressibility profiles for different grades of pectin
+
+
+
+In the lower pressure range, DM 5% and DM 10% showed less reduction in porosity with increasing compaction pressure compared to the other grades of pectin. This means that DM 5% and DM 10% generated a larger resistance towards being compacted, which may be caused by their lower particle size leading to a denser initial packing of the particles (bulk density, Table I). DM 25%–DM 50% showed more volume reduction under pressure compared to DM 5% and DM 10%, but less than DM 60%. The larger particle size of particles of DM 25% and above contributes to the less dense packaging (Table I) and hence causes better compressibility. Furthermore, DM 60%, in contrast to the lower methoxylated pectins, gave no coherent tablets at “in-die” porosities not even below 0.15.
+
+“In-Die” Heckel Analysis
+Evaluation of the Different Grades of Pectins
+“In-die” porosity of 0.150 ± 0.005 was chosen as a typical value for comparison of tablets and compaction processes, because at this porosity, the compacts of all materials tested were of sufficient mechanical strength (it was possible to get the compact out of the die without rupturing it). Figure 4 shows the Heckel profiles for the seven different grades of pectin evaluated. As the reproducibility of the data is excellent (21,32), evaluation based on single strokes is made: Again, the three different behaviors that were spotted in Fig. 3, i.e., DM 5% and DM 10%, DM 25%–DM 50% in the mid-region, and DM 60% singling out, were also recognized in Fig. 4, as expected, since the porosity is displayed here as well. DM 60% required the lowest maximum pressure to achieve the specified “in-die” porosity of 0.150 ± 0.005.
+Fig. 4 Heckel profiles of different grades of pectin at “in-die” porosity of 0.150 ± 0.005 (n = 1)
+
+
+
+The values of yield pressure in both the compression and the decompression phase are presented in Table II. Yield pressures during the compression ranged in two groups: Those with values above 100 MPa (DM5% and DM10%) and those with an average yield pressure of 76 ± 6 MPa. A lower yield pressure would indicate higher degree of plastic deformation. Carrageenan, another natural polysaccharide explored for tableting purposes, is reported in the literature to have a yield pressure of approximately 57 MPa (compressed to 15% porosity) (5). This value is slightly less than the present values for pectins, suggesting less resistance to plastic flow for carrageenan than pectins. In a similar study of chitosan (2), a yield pressure of approximately 71 MPa (compressed to 15% porosity) was found. This is in the same order of magnitude as some of the pectins investigated and might suggest similar degree of plasticity. However, the results in the present study and in Picker’s (2,5) are not directly comparable since different types of compression profiles (single-punch press, saw tooth profile) were used. Since the measurements in our study were made “in-die”, i.e., during one compaction cycle, the yield pressure during compression reflects both plastic and elastic deformation (24,25). DM 60% displayed the lowest yield pressure during compression, indicating a high degree of plastic deformation. If taking only this parameter into consideration, it should be expected that the highest methoxylated pectin should be the most promising candidate for tableting purposes among the tested types. This is in contradiction to the fact that DM 60% did not make coherent tablets.
+Table II Compression Parameters of Different Grades of Pectin and Reference Materials: YP both in Compression and Decompression Phases (YP Comp., YP Decomp.), ER “In-Die” and Immediately at 24 Hours and at 1 Week with the “Ejected Tablet” Method and the Corresponding Tensile Strengths
+
+Type of pectin	YP, comp. (MPa)	YP, decomp. (MPa)	ER, “in-die” (%)	ER, “ejected tablet”, t
+0 (%)	ER, “ejected tablet”, t
+24 h (%)	ER, “ejected tablet”, t
+1week (%)	TS (MPa)	
+DM 5%	104.6	645.2	5.40	14.29	16.18	16.35	1.96	
+DM 10%	114.7	689.7	5.74	15.64	18.43	18.83	1.82	
+DM 25%	81.2	471.7	8.52	23.45	27.34	27.78	0.88	
+DM 35%	71.8	442.5	8.47	22.05	25.09	25.61	0.74	
+DM 40%	74.0	458.7	8.17	22.01	25.48	25.40	0.68	
+DM 50%	83.7	463.0	11.67	29.41	32.77	–	0a
+	
+DM 60%	70.4	444.4	11.73	–	–	–	0b
+	
+Reference materials								
+ Emcompress®
+	249.4	2188.6	2.18	2.84	2.92	2.88	2.33	
+ Spherolac® 100	98.3	1479.7	2.08	2.89	2.94	3.00	0.74	
+ Avicel® PH 102	61.7	591.7	4.13	6.89	7.88	8.08	6.23	
+ Starch 1500®
+	83.6	398.4	8.32	16.61	18.81	19.14	0.26c
+	
+Linear regression in compression phase (20–80% of maximum pressure): r
+2 > 0.99; in decompression phase (40%–60%): r
+2 > 0.98
+
+
+aLow mechanical strength. The compact ruptured prior to the measurement of the crushing strength
+
+
+bVery low mechanical strength. The compact ruptured into powder when it was removed from the ejected die
+
+
+cTheoretical diameter of 11 mm. The diameter “out of die” was not measured due to prevention of rupturing the tablet. Measured crushing strength, 20 N
+
+
+
+The pectins showed elastic recovery “in-die” ranging from 8.2% to 11.7% for DM 25%–DM 60%, whereas the corresponding values for DM 5% and DM 10% were 5.4% and 5.7%, respectively. The lower degree of fast elastic recovery “in-die” identified for DM 5% and DM 10% was followed by less expansion in tablet height after ejection compared to the other grades of pectin investigated (Table II). Moreover, DM 50% and DM 60%, which showed the highest fast elastic recovery values “in-die,” also expanded most after ejection to such an extent that the tablets ruptured either at ejection (DM 60%) or while handling (DM 50%). It might be speculated that the high number of methoxyl groups, which are larger in size than the hydroxyl groups, lead to a larger degree of steric hindrance, possibly resulting in less strong bonds between particles. For all pectin grades, approximately one third of the total elastic recovery took place “in-die,” while most of the total elastic recovery occurred during the next 24 h, and minor additional changes were observed after 1 week. For carrageenan, elastic recovery during decompression was reported to be 8.3% (5) and the elastic recovery to be approximately 30% after 10 days reported in yet another study (4). These values are very close to those obtained in our study, taking into account expected variations due to different compression conditions.
+
+The tensile strength values for the tablets are included in Table II. As expected from the elastic recovery measurements, the pectin grades with the highest DM (DM 50% and DM 60%) did not give coherent tablets that could be handled under the chosen experimental conditions. The grades with lower DM, however, produced tablets of reasonable mechanical strength. In general, the tensile strength of the tablets increased with decreasing DM for the pectin grades tested, from 0.8 ± 0.1 MPa for DM 25%–DM 40% to approximately 2 MPa for DM 5% and DM 10%. This could be caused partly by the lower particle size of DM 5% and DM 10% compared to the other grades of pectin, creating even more contact sites where bonds can be formed. Kim et al. (15) reported tensile strength for pectin tablets (DM 65–72%) to be 0.4–0.8 MPa depending on the applied compaction pressure. Their experiments were performed by a different experimental setup: A compaction simulator programmed to mimic a rotary press (Manesty Betapress) was applied at different punch velocities (20–100 rpm, calculated to correspond to 50–250 mm/s) and compaction pressures (up to 300–400 MPa). It was concluded that tablets of acceptable quality could not be made from pectin alone at punch velocities of 20 rpm corresponding to 50 mm/s or higher. Low tensile strength, capping, and lamination were reported problems, irrespective of the applied compaction force. In order to overcome the problems, the dwell time was increased by manipulating the waveform. The exact dwell time is not reported, but coherent tablets with reasonable mechanical strength were produced. Also, Sriamornsak et al. (6) prepared pure pectin tablets by direct compression with prolonged dwell time: The tablets were made using a slow hydraulic press at 20 kN and a dwell time of 20 s. As the objective of the study of Sriamornsak et al. (6) was not the deformation behavior of pectin, the length of the dwell time does not reflect necessary conditions, nor industrial relevant dwell time. In our study, tablets were produced without dwell time and yielded sufficient particle bonding. In order to further improve tablet mechanical properties by direct compression, Kim et al. (15) added 50% microcrystalline cellulose (Avicel® PH 101). They yielded tablets (50/50 HM pectin to Avicel® PH 101) with a tensile strength up to 2 MPa for the highest compaction pressures (300 MPa). In our study, we produced tablets of pure pectin with the lowest DM (DM 5% and DM 10%) with tensile strength in the same order of magnitude. In the paper of Kim et al. (15), the structure failure was explained by lack of plastic deformation, poor compactibility, and high elastic recovery. This hypothesis might also correspond to our findings in the present study for some grades only.
+
+For carrageenan tablets, Picker (5) reported a mean crushing strength of 94.3 N after 10 days, corresponding to a tensile strength of approximately 1.8 MPa which is in the same order of magnitude as pectin of DM 5% and DM 10%. For chitosan (2), the crushing strength was reported to be almost 300 N for compacts produced with a maximum upper punch pressure of approximately 100 MPa. This corresponds to a tensile strength of approximately 5.8 MPa, which is considerably higher than the tensile strengths for any of the investigated pectin grades of the current study, and close to the tensile strength of the mechanically strongest tablets in our study, those of microcrystalline cellulose (Avicel® PH 102, 6.2 MPa).
+
+The Effect of Particle Size
+Separate size fractions of DM 5%, DM 25%, and DM 40% were compacted. The Heckel profiles for the size fraction 180–250 μm are shown in Fig. 5a and size fraction 90–125 μm in Fig. 5b. Figure 5a shows similar profiles for DM 25% and DM 40%, and yield pressures both during compression and decompression are also similar. For the smaller size fraction (90–125 μm), again, DM 25% and DM 40% displayed similar Heckel profiles and yield pressures (Fig. 5b). These findings show that the particle size has minor influence on the compression behavior, i.e., the degree of plastic deformation and fast elastic recovery is widely independent of the particle size. In contrast, DM 5% showed a higher yield pressure both during compression and decompression, most probably due to a combination of different origin/batch and/or different degree of methoxylation compared to DM 25% and DM 40%. The same has been observed for the unsieved powder (see above, Table II). The tensile strengths for tablets of different size fractions are shown in Fig. 5c: lower particle sizes in general lead to higher tensile strengths through larger number of contact points between the particles. Nevertheless, the results from unsieved pectin powders (Table II) are confirmed as the tensile strengths of the tablets increased with decreasing degree of methoxylation for the sieved fractions as well. More important, Fig. 5c shows that the same size fractions of the same batch origin (DM 25% and DM 40%) gave tablets of widely different tensile strengths. This indicates that degree of methoxylation is the most prominent factor for compaction properties, not the particle size.
+Fig. 5 Effect of particle size and different grades of pectin on compression properties. a Heckel profiles of size fraction 180–250 μm for DM 25% and DM 40%. b Heckel profiles of size fraction 90–125 μm for DM 5%, DM 25%, and DM 40%. c Tensile strengths of tablets from different size fractions varying from <45 to 180–250 μm (n = 1–3; linear regression was performed as in Table II: r
+2 > 0.99 (comp.) and r
+2 > 0.98 (decomp.))
+
+
+
+Comparison of Pectin with Reference Materials
+DM 25% was selected as a typical representative of the studied pectins. Heckel profiles of DM 25% and reference materials, Avicel® PH 102, Emcompress®, Spherolac® 100, and Starch 1500®, are compared in Fig. 6 and the corresponding yield pressures both in compression and decompression included in Table II. All compacts again had an “in-die” porosity (E) of 0.150 ± 0.005. Pectin showed a lower slope of the Heckel profile in the compression phase compared to Avicel® PH 102. This implied a lower degree of plastic deformation in pectin compared to Avicel® PH 102, the latter being known as an outstanding plastically deforming material which is used as a dry binder. Emcompress® showed distinct initial curvature which is characteristic for fragmenting materials (33), whereas the little curvature for pectin indicated some degree of particle fragmentation. However, pectin displayed a steeper slope, i.e., lower yield pressure, than Emcompress® in the compression phase, which is indicative of a higher degree of plastic deformation. In the decompression phase, Emcompress® showed a straight line with an extremely high yield pressure, indicating almost no elasticity. In contrast, the yield pressure in decompression phase as well as the bended curve for the pectin indicated considerable elasticity (25). This was confirmed by the higher elastic recovery of pectin compared to Emcompress® (Table II). The Heckel profiles of pectin and Emcompress® are widely different. Spherolac® 100 is less fragmenting than Emcompress®, depicted by the initial curvature, and the curvature that was found for pectin indicates that it is even less fragmenting than Spherolac® 100. The decompression showed that Spherolac® 100 had a low degree of fast elastic recovery as well as elastic recovery “out of die” in the same order of magnitude as Emcompress® (Table II) and, hence, less than pectin. Finally, Starch 1500® displayed Heckel profiles that were most similar to those of the pectins both during compression and decompression. In the compression phase, parallel Heckel profiles indicated a degree of plastic deformation of the same magnitude (Table II). It is well known that Starch 1500® shows some degree of elastic deformation, as indicated in both the yield pressure of decompression phase and the elastic recovery “out of die” (Table II). Both values were in the same magnitude as for pectin. However, even though the estimated yield pressure during decompression indicated a lower degree of fast elastic recovery for pectin compared to Starch 1500®, the tablet height expanded approximately 28% for the pectin tablet compared to 19% for the Starch 1500® tablet. The elastic recovery is therefore slower in pectin compared to Starch 1500®. In terms of viscoelastic models, this would indicate the need of lower pressures, less velocity, and longer dwell times for tableting of pectin. These conditions are in agreement with some parameters that were employed in the studies conducted by Sriamornsak et al. (6) (slow hydraulic press, 20-s dwell time) and Kim et al. (15) (100–200 MPa, 50 mm/s, prolonged dwell time). Studying Heckel profiles of pectin and Starch 1500® at low, medium, and high pressures, it was observed that the slope in the decompression phase increased for the high pressures, leading to a higher degree of fast elastic recovery. Pectin gave a yield pressure in the decompression phase of 175 MPa, whereas the corresponding value for Starch 1500® was 113 MPa. This confirmed that pectin should preferably be compacted at low pressures in order to reduce the fast elastic recovery.
+Fig. 6 Heckel profiles of Pectin DM 25%, Avicel® PH 102, Emcompress®, Spherolac® 100, and Starch 1500® at “in-die” porosity of 0.150 ± 0.005 (n = 1)
+
+
+
+The fact that pectin and Starch 1500® seem to possess similar compaction behavior properties may even be related to their structure similarities, both being polysaccharides with a backbone of monomers (d-galacturonic acid (7,8) and α-(d)-glucose (28)) joined in chains by 1,4-glycosidic linkages.
+
+The tensile strengths measured for tablets prepared from the reference materials are included in Table II. The different grades of pectin resulted in tablets with tensile strengths that ranged from approximately 0.7 to 2 MPa, a range also covered by Starch 1500® and Spherolac® 100. However, the tensile strengths of the pectin tablets were higher, indicating superior tableting properties compared to pure Starch 1500® and Spherolac® 100.
+
+CONCLUSIONS
+All pectin grades investigated showed deformation behavior similar to Starch 1500®. The compaction behavior was to a minor degree dependent on the particle size. Results indicate that the DM influenced the compaction behavior much more. The tensile strength increased with decreasing DM. These findings suggest that the low-methoxylated pectins and pectinic acid have potential as excipients for direct compression of matrix tablets.
+
+The authors would like to express their gratitude to the following companies: Herbstreith & Fox GmbH, Germany; JRS Pharma; Colorcon, UK; FMC biopolymer, Belgium and Meggle Pharma for the generous gift of pectins and reference materials, and Ritter Pharma Technik, Germany for donation of punches. Acknowledgments also to Tom-Ivar Eilertsen, University of Tromsø for doing the SEM micrographs, Merete Linchausen Skar, University of Tromsø, for measurements of bulk and tapped volumes, Rahul Vasantrao Haware and Skjalg Nyheim Solum, University of Tromsø for valuable discussions.
+
+Open Access
+This article is distributed under the terms of the Creative Commons Attribution Noncommercial License which permits any noncommercial use, distribution, and reproduction in any medium, provided the original author(s) and source are credited.
+==== Refs
+References
+1. Mir VG  Heinamaki J  Antikainen O  Revoredo OB  Colarte AI  Nieto OM    Direct compression properties of chitin and chitosan Eur J Pharm Biopharm 2008 69 964 8 10.1016/j.ejpb.2008.01.029 18406116 
+2. Picker-Freyer KM, Brink D. Evaluation of powder and tableting properties of chitosan. AAPS PharmSciTech 2006;7:Article 75. http://www.aapspharmscitech.org.
+3. Schmid W  Picker-Freyer KM   Tableting and tablet properties of alginates: characterisation and potential for soft tableting Eur J Pharm Biopharm 2009 72 165 72 10.1016/j.ejpb.2008.10.006 18992337 
+4. Picker KM   Matrix tablets of carrageenans. I. A compaction study Drug Dev Ind Pharm 1999 25 329 37 10.1081/DDC-100102178 10071826 
+5. Picker KM   The use of carrageenan in mixture with microcrystalline cellulose and its functionality for making tablets Eur J Pharm Biopharm 1999 48 27 36 10.1016/S0939-6411(99)00009-0 10477325 
+6. Sriamornsak P  Thirawong N  Weerapol Y  Nunthanid J  Sungthongjeen S   Swelling and erosion of pectin matrix tablets and their impact on drug release behavior Eur J Pharm Biopharm 2007 67 211 9 10.1016/j.ejpb.2006.12.014 17267193 
+7. Voragen AGJ  Pilnik W  Thibault JF  Axelos MAV  Renard CMGC   Stephen AM   Pectins Food polysaccharides 1995 New York Marcel Decker 287 339 
+8. Pilnik W   Phillips GO  Williams PA  Wedlock DJ   Pectin—a many splendoured thing Gums and stabilizers for the food industry 1990 Oxford Oxford University Press 313 26 
+9. Sungthongjeen S, Sriamornsak P, Pitaksuteepong T, Somsiri A, Puttipipatkhachorn S. Effect of degree of esterification of pectin and calcium amount on drug release from pectin-based matrix tablets. AAPS PharmSciTech 2004;5:Article 9. http://www.aapspharmscitech.org.
+10. Ashford M  Fell J  Attwood D  Sharma H  Woodhead P   Studies on pectin formulations for colonic drug-delivery J Control Release 1994 30 225 32 10.1016/0168-3659(94)90028-0 
+11. Rubinstein A  Radai R  Ezra M  Pathak S  Rokem JS   Invitro evaluation of calcium pectinate—a potential colon-specific drug delivery carrier Pharm Res 1993 10 258 63 10.1023/A:1018995029167 8456074 
+12. Sande SA   Pectin-based oral drug delivery to the colon Expert Opin Drug Deliv 2005 2 441 50 10.1517/17425247.2.3.441 16296766 
+13. Adkin DA  Kenyon CJ  Lerner EI  Landau I  Strauss E  Caron D    The use of scintigraphy to provide “'proof of concept” for novel polysaccharide preparations designed for colonic drug delivery Pharm Res 1997 14 103 7 10.1023/A:1012019820603 9034229 
+14. Hodges LA  Connolly SM  Band J  O'Mahony B  Ugurlu T  Turkoglu M    Scintigraphic evaluation of colon targeting pectin—HPMC tablets in healthy volunteers Int J Pharm 2009 370 144 50 10.1016/j.ijpharm.2008.12.002 19114096 
+15. Kim H  Venkatesh G  Fassihi R   Compactibility characterization of granular pectin for tableting operation using a compaction simulator Int J Pharm 1998 161 149 59 10.1016/S0378-5173(97)00337-2 
+16. Ahrabi SF  Madsen G  Dyrstad K  Sande SA  Graffner C   Development of pectin matrix tablets for colonic delivery of model drug ropivacaine Eur J Pharm Sci 2000 10 43 52 10.1016/S0928-0987(99)00087-1 10699382 
+17. Hausner H   Friction conditions in a mass of metal powder Int J Powder Metall 1967 3 7 13 
+18. 2.9.36 Powder flow. European Pharmacopoeia Online, 6th edition 2009 (6.5). http://online6.edqm.eu/ep605/#doc_31_of_381. Accessed September 30th, 2009.
+19. 2.9.34 Bulk density and tapped density of powders. European Pharmacopoeia Online, 6th edition 2009 (6.5). http://online6.edqm.eu/ep605/#doc_29_of_383. Accessed September 30th, 2009.
+20. 2.9.38 Particle-size distribution by analytical sieving. European Pharmacopoeia Online, 6th edition 2009 (6.3). http://online6.edqm.eu/ep603/#doc_7_of_81. Accessed March 24th, 2009.
+21. Klevan I, Haware RV, Reichenbach M, Bauer-Brandl A. A new tablet press simulator device for extremely accurate measurement of time-resolved forces and displacements based on an electromechanical press. Pharmaceutical Sciences World Congress. Amsterdam, the Netherlands; 2007.
+22. Heckel RW   Density–pressure relationships in powder compaction Trans Metall Soc Aime 1961 221 671 5 
+23. Heckel RW   An analysis of powder compaction phenomena Trans Metall Soc Aime 1961 221 1001 8 
+24. Duberg M  Nystrom C   Studies on direct compression of tablets. XVII. Porosity–pressure curves for the characterization of volume reduction mechanisms in powder compression Powder Technol 1986 46 67 75 10.1016/0032-5910(86)80100-0 
+25. Paronen P   Heckel plots as indicators of elastic properties of pharmaceuticals Drug Dev Ind Pharm 1986 12 1903 12 10.3109/03639048609042616 
+26. Fell JT  Newton JM   Determination of tablet strength by diametral-compression test J Pharm Sci 1970 59 688 10.1002/jps.2600590523 5446428 
+27. Carr RL   Evaluating flow properties of solids Chem Eng 1965 72 163 8 
+28. Starch, Pregelatinized. Pharmaceutical excipients. http://beta.medicinescomplete.com/mc/excipients/current/1001946663.htm?q=Starch&t=search&ss=text&p=2#_hit. Accessed October 1st, 2009.
+29. Calcium phosphate, dibasic dihydrate. Pharmaceutical excipients. http://beta.medicinescomplete.com/mc/excipients/current/1001934917.htm?q=Calcium%20phosphate&t=search&ss=text&p=9&hide=1. Accessed October 1st, 2009.
+30. Lactose, monohydrate. Pharmaceutical excipients. http://beta.medicinescomplete.com/mc/excipients/current/1001940442.htm?q=lactose&t=search&ss=text&p=1&hide=1. Accessed October 1st, 2009.
+31. Cellulose, microcrystalline. Pharmaceutical excipients. http://beta.medicinescomplete.com/mc/excipients/current/1001935557.htm?q=Cellulose&t=search&ss=text&p=1&hide=1. Accessed October 1st, 2009.
+32. Haware RV  Tho I  Bauer-Brandl A   Application of multivariate methods to compression behavior evaluation of directly compressible materials Eur J Pharm Biopharm 2009 72 148 55 10.1016/j.ejpb.2008.11.008 19084596 
+33. Ilkka J  Paronen P   Prediction of the compression behaviour of powder mixtures by the Heckel equation Int J Pharm 1993 94 181 7 10.1016/0378-5173(93)90022-8
